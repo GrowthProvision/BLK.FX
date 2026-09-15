@@ -6,8 +6,9 @@
 <style>
 /* ============================================================
    BLK.FX homepage direction
-   Tokens per 03-design-direction.md
-   Light dominant, black used as punctuation
+   Tokens per 03-design-direction.md, accent per 09-colour-system.md
+   Every word of content lives in the HTML. JavaScript only ever
+   toggles visibility or moves things. Nothing is generated.
    ============================================================ */
 :root{
   --blk-ink:#0A0A0A;
@@ -20,12 +21,6 @@
   --blk-mute:#63625E;
   --blk-mute-ink:#8A8A8E;
 
-  /* accent: one signal colour, swapped as a set.
-     --blk-accent      bright signal, used as a FILL on any ground
-     --blk-accent-text darkened, for accent TEXT on light grounds
-     --blk-accent-ink  bright, for accent TEXT on ink grounds
-     --blk-accent-on   text sitting on top of an accent fill
-     up / down         FX movement. Never green: up borrows the accent. */
   --blk-accent:#1B29FF;
   --blk-accent-text:#1B29FF;
   --blk-accent-ink:#7C88FF;
@@ -35,95 +30,63 @@
   --up-ink:#7C88FF;
   --down:#B23A2E;
   --down-ink:#E56A5C;
-}
-
-/* Accent sets. One token swap changes the whole page. */
-[data-accent="petrol"]{
-  --blk-accent:#0E8A84;
-  --blk-accent-text:#0A6E69;
-  --blk-accent-ink:#37C9C0;
-  --blk-accent-on:#FFFFFF;
-  --blk-accent-on-ink:#03211F;
-  --up:#0A6E69;
-  --up-ink:#37C9C0;
-}
-[data-accent="cobalt"]{
-  --blk-accent:#2764FF;
-  --blk-accent-text:#1E4FD1;
-  --blk-accent-ink:#84A6FF;
-  --blk-accent-on:#FFFFFF;
-  --blk-accent-on-ink:#04102E;
-  --up:#1E4FD1;
-  --up-ink:#84A6FF;
-}
-[data-accent="mono"]{
-  --blk-accent:#0A0A0A;
-  --blk-accent-text:#0A0A0A;
-  --blk-accent-ink:#FAFAFA;
-  --blk-accent-on:#FAFAFA;
-  --blk-accent-on-ink:#0A0A0A;
-  --up:#0A0A0A;
-  --up-ink:#FAFAFA;
 
   --display:"Archivo","Helvetica Neue",Arial,sans-serif;
   --prose:"Newsreader","Iowan Old Style",Georgia,serif;
   --data:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
-
   --gutter:clamp(20px,5vw,72px);
   --maxw:1240px;
   color-scheme:light;
 }
+[data-accent="petrol"]{--blk-accent:#0E8A84;--blk-accent-text:#0A6E69;--blk-accent-ink:#37C9C0;--blk-accent-on:#FFF;--blk-accent-on-ink:#03211F;--up:#0A6E69;--up-ink:#37C9C0}
+[data-accent="cobalt"]{--blk-accent:#2764FF;--blk-accent-text:#1E4FD1;--blk-accent-ink:#84A6FF;--blk-accent-on:#FFF;--blk-accent-on-ink:#04102E;--up:#1E4FD1;--up-ink:#84A6FF}
+[data-accent="mono"]{--blk-accent:#0A0A0A;--blk-accent-text:#0A0A0A;--blk-accent-ink:#FAFAFA;--blk-accent-on:#FAFAFA;--blk-accent-on-ink:#0A0A0A;--up:#0A0A0A;--up-ink:#FAFAFA}
 
 *{box-sizing:border-box}
-body{
-  margin:0;background:var(--blk-paper);color:var(--blk-ink);
-  font-family:var(--display);font-size:16px;line-height:1.55;
-  -webkit-font-smoothing:antialiased;overflow-x:hidden;
-}
+body{margin:0;background:var(--blk-paper);color:var(--blk-ink);font-family:var(--display);
+  font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{max-width:100%}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--blk-accent);outline-offset:3px}
 button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+[hidden]{display:none!important}
 
-/* fixed hairline field behind everything, like the iFX bg-lines layer */
 .page-bg{position:fixed;inset:0;z-index:0;pointer-events:none;
   background-image:linear-gradient(90deg,var(--blk-line) 1px,transparent 1px);
   background-size:calc(100% / 6) 100%;opacity:.5}
 main,.nav,.foot{position:relative;z-index:1}
+main{perspective:1400px}
 
 .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--gutter);width:100%}
-.band{position:relative}
 .band--paper{background:var(--blk-paper)}
 .band--paper2{background:var(--blk-paper-2)}
 .band--ink{background:var(--blk-ink);color:var(--blk-paper)}
-.band--ink .lede,.band--ink .mute{color:#BFBFBD}
+.band--ink .lede{color:#BFBFBD}
 .band--ink .eyebrow{color:var(--blk-mute-ink)}
-.pad{padding-block:clamp(60px,8vw,116px)}
-.mute{color:var(--blk-mute)}
+.pad{padding-block:clamp(60px,8vw,112px)}
 
 .eyebrow{font-family:var(--data);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
   color:var(--blk-mute);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .eyebrow .tick{display:inline-block;width:22px;height:1px;background:currentColor;opacity:.55}
-
 h2{font-size:clamp(28px,4.2vw,46px);font-weight:600;letter-spacing:-.03em;line-height:1.05;margin:16px 0 0;text-wrap:balance;max-width:20ch}
 .lede{font-family:var(--prose);font-weight:300;font-size:clamp(16px,1.6vw,18.5px);line-height:1.6;margin-top:16px;max-width:54ch;color:#3E3E3B}
 
 .btn{display:inline-flex;align-items:center;gap:10px;background:var(--blk-ink);color:var(--blk-paper);
   font-weight:600;font-size:14px;padding:12px 20px;border-radius:2px;text-decoration:none;
-  border:1px solid var(--blk-ink);transition:transform .18s ease,box-shadow .25s ease,background .2s;white-space:nowrap}
+  border:1px solid var(--blk-ink);transition:transform .18s,box-shadow .25s;white-space:nowrap}
 .btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(10,10,10,.18)}
-.btn .arw{transition:transform .2s ease}
+.btn .arw{transition:transform .2s}
 .btn:hover .arw{transform:translateX(4px)}
 .btn--lg{padding:16px 28px;font-size:15px}
 .btn--accent{background:var(--blk-accent);border-color:var(--blk-accent);color:var(--blk-accent-on)}
-.btn--accent:hover{box-shadow:0 10px 24px rgba(10,10,10,.22)}
 .band--ink .btn{background:var(--blk-accent-ink);border-color:var(--blk-accent-ink);color:var(--blk-accent-on-ink)}
+.tlink{font-family:var(--data);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+  text-decoration:none;color:var(--blk-accent-text);border-bottom:1px solid currentColor;padding-bottom:2px}
+.band--ink .tlink{color:var(--blk-accent-ink)}
 
-/* ============================================================
-   Nav, per 05-site-architecture.md
-   ============================================================ */
-.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:80;
-  background:rgba(250,250,250,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--blk-line)}
+/* ---------- nav, per 05-site-architecture ---------- */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:80;background:rgba(250,250,250,.9);
+  backdrop-filter:blur(14px);border-bottom:1px solid var(--blk-line)}
 .nav-in{display:flex;align-items:center;gap:20px;height:66px}
 .brand{font-weight:700;letter-spacing:.02em;font-size:18px;text-decoration:none;white-space:nowrap}
 .brand span{color:var(--blk-accent-text)}
@@ -149,34 +112,18 @@ h2{font-size:clamp(28px,4.2vw,46px);font-weight:600;letter-spacing:-.03em;line-h
 .burger span::before,.burger span::after{content:"";position:absolute;left:0;width:16px;height:1px;background:currentColor}
 .burger span::before{top:-5px}.burger span::after{top:5px}
 
-/* ============================================================
-   Corner transitions, adapted from iFX js-add-transition
-   ============================================================ */
-.js .tr{opacity:.001;will-change:transform,opacity;
-  transition:opacity .85s cubic-bezier(.19,.8,.24,1),transform 1s cubic-bezier(.19,.8,.24,1)}
-.js .tr[data-from="right-top"]{transform:translate3d(14vw,-40px,0) rotate(2.2deg)}
-.js .tr[data-from="right-bottom"]{transform:translate3d(14vw,48px,0) rotate(-2.2deg)}
-.js .tr[data-from="left-bottom"]{transform:translate3d(-14vw,48px,0) rotate(2.2deg)}
-.js .tr[data-from="bottom"]{transform:translate3d(0,56px,0)}
-.js .tr[data-from="scaleup"]{transform:scale(.94) translate3d(0,40px,0)}
-.js .tr.in{opacity:1;transform:none}
-
-/* splitText, per iFX .splitText */
+/* ---------- motion ---------- */
+.tr{will-change:transform,opacity}
 .split .w{display:inline-block;overflow:hidden;vertical-align:top}
-.split .w > i{display:inline-block;font-style:inherit;transform:translateY(105%);
-  transition:transform .8s cubic-bezier(.19,.9,.24,1)}
-.split.in .w > i{transform:none}
+.split .w > i{display:inline-block;font-style:inherit}
 
-/* ============================================================
-   1. HERO, light
-   ============================================================ */
-.hero{padding-top:clamp(52px,7vw,96px);padding-bottom:clamp(44px,6vw,80px)}
+/* ---------- hero ---------- */
+.hero{padding-top:clamp(52px,7vw,92px);padding-bottom:clamp(44px,6vw,76px)}
 .sessions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-family:var(--data);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
 .sess{display:inline-flex;align-items:center;gap:7px;color:#A3A29E}
 .sess.on{color:var(--blk-ink)}
 .dot{width:6px;height:6px;border-radius:50%;background:var(--blk-paper-3)}
 .sess.on .dot{background:var(--blk-accent)}
-
 h1{font-weight:600;font-size:clamp(40px,7.6vw,94px);line-height:.97;letter-spacing:-.037em;margin:26px 0 0;max-width:15ch}
 h1 .em{font-family:var(--prose);font-style:italic;font-weight:300;letter-spacing:-.012em}
 .hero-sub{font-family:var(--prose);font-size:clamp(16.5px,1.8vw,20px);line-height:1.5;color:#46463F;max-width:50ch;margin:26px 0 0;font-weight:300}
@@ -185,9 +132,7 @@ h1 .em{font-family:var(--prose);font-style:italic;font-weight:300;letter-spacing
 .cue .ar{width:26px;height:1px;background:currentColor;position:relative}
 .cue .ar::after{content:"";position:absolute;right:0;top:-3px;width:7px;height:7px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(-45deg)}
 
-/* ============================================================
-   2. PROOF STRIP, chevrons on ink
-   ============================================================ */
+/* ---------- chevron stats ---------- */
 .chevrons{display:grid;grid-template-columns:repeat(4,1fr)}
 .chev{background:var(--blk-ink-2);padding:26px clamp(18px,2.4vw,32px) 26px clamp(30px,3.6vw,52px);
   clip-path:polygon(0 0,calc(100% - 24px) 0,100% 50%,calc(100% - 24px) 100%,0 100%,24px 50%);
@@ -198,42 +143,40 @@ h1 .em{font-family:var(--prose);font-style:italic;font-weight:300;letter-spacing
 .chev .n small{font-size:.45em;color:var(--blk-mute-ink);letter-spacing:.04em}
 .chev .l{font-size:12.5px;color:var(--blk-mute-ink);margin-top:6px;line-height:1.35}
 
-/* ============================================================
-   3. CALCULATOR
-   ============================================================ */
-.calc{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(30px,5vw,68px);align-items:start;margin-top:36px}
-.panel{border:1px solid var(--blk-line);padding:clamp(22px,3vw,34px);background:#fff;box-shadow:0 20px 50px rgba(10,10,10,.05)}
-.field label{display:block;font-family:var(--data);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blk-mute)}
-.volrow{display:flex;align-items:baseline;gap:12px;margin-top:8px}
-.volnum{font-family:var(--data);font-size:clamp(28px,4vw,40px);letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1}
-.volper{font-size:13px;color:var(--blk-mute)}
-input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:28px;background:transparent;margin-top:10px;display:block;cursor:pointer}
-input[type=range]::-webkit-slider-runnable-track{height:3px;background:var(--blk-paper-3)}
-input[type=range]::-moz-range-track{height:3px;background:var(--blk-paper-3)}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;background:var(--blk-ink);border-radius:50%;margin-top:-7.5px;border:3px solid var(--blk-accent)}
-input[type=range]::-moz-range-thumb{width:18px;height:18px;background:var(--blk-ink);border-radius:50%;border:3px solid var(--blk-accent)}
-.ticks{display:flex;justify-content:space-between;font-family:var(--data);font-size:10.5px;letter-spacing:.08em;color:var(--blk-mute)}
-.pairs{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
-.pair{border:1px solid var(--blk-line);padding:8px 13px;font-family:var(--data);font-size:12px;letter-spacing:.06em;transition:background .2s,color .2s,border-color .2s}
-.pair[aria-pressed="true"]{background:var(--blk-ink);color:var(--blk-paper);border-color:var(--blk-ink)}
-.bars{margin-top:28px;border-top:1px solid var(--blk-line);padding-top:24px}
-.bar-row{padding:12px 0}
-.bar-top{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
-.bar-name{font-size:14.5px;font-weight:600}
-.bar-val{font-family:var(--data);font-size:15px;font-variant-numeric:tabular-nums}
-.track{position:relative;height:12px;margin-top:11px;background:var(--blk-paper-2);overflow:hidden}
-.fill{position:absolute;inset:0 auto 0 0;width:0;background:var(--blk-ink);transition:width .55s cubic-bezier(.22,.8,.2,1)}
-.fill--accent{background:var(--blk-accent)}
-.bar-note{font-size:12.5px;margin-top:8px;color:var(--blk-mute)}
-.saving{margin-top:20px;border-top:1px solid var(--blk-line);padding-top:20px;display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
-.saving .k{font-family:var(--data);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blk-mute)}
-.saving .v{font-family:var(--data);font-size:clamp(24px,3.4vw,34px);letter-spacing:-.02em;color:var(--blk-accent-text);font-variant-numeric:tabular-nums}
-.disc{font-size:12px;color:var(--blk-mute);margin-top:14px;max-width:54ch}
+/* ---------- slider, iFX accounts-slider pattern ---------- */
+.slider-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.sldr{margin-top:36px;overflow:hidden}
+.sldr-track{display:flex;gap:16px;will-change:transform;transition:transform .55s cubic-bezier(.2,.8,.2,1)}
+.svc{flex:0 0 clamp(270px,25vw,320px);background:#fff;border:1px solid var(--blk-line);
+  padding:clamp(22px,2.6vw,30px);display:flex;flex-direction:column;min-height:330px;transition:border-color .25s,transform .25s}
+.svc:hover{border-color:var(--blk-ink);transform:translateY(-3px)}
+.svc .k{font-family:var(--data);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--blk-mute)}
+.svc h3{font-size:21px;font-weight:600;letter-spacing:-.02em;margin:14px 0 0;line-height:1.15}
+.svc p{font-size:14.5px;line-height:1.55;color:#4C4C48;margin:12px 0 0}
+.svc ul{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:7px}
+.svc li{font-size:13px;color:#5C5C58;display:flex;gap:9px;align-items:baseline}
+.svc li::before{content:"";flex:0 0 10px;height:1px;background:var(--blk-accent);transform:translateY(-4px)}
+.svc .go{margin-top:auto;padding-top:18px}
+.sldr-foot{display:flex;align-items:center;gap:18px;margin-top:24px}
+.progress{height:2px;background:var(--blk-paper-3);position:relative;flex:1;max-width:320px}
+.progress i{position:absolute;inset:0 auto 0 0;background:var(--blk-ink);display:block;transition:width .45s,transform .45s}
+.arrows{display:flex;gap:8px}
+.arrows button{width:40px;height:40px;border:1px solid var(--blk-line);display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s,border-color .2s}
+.arrows button:hover:not(:disabled){background:var(--blk-ink);color:var(--blk-paper);border-color:var(--blk-ink)}
+.arrows button:disabled{opacity:.3;cursor:default}
 
-/* ============================================================
-   4. NEO-BANKING SPLIT
-   ============================================================ */
-.split2{display:grid;grid-template-columns:1.25fr 1fr;gap:1px;background:var(--blk-line);margin-top:40px;border:1px solid var(--blk-line)}
+/* ---------- cost bars ---------- */
+.two{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(30px,5vw,68px);align-items:start}
+.msr{padding:16px 0}
+.msr-top{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.msr-name{font-size:14.5px;font-weight:600}
+.msr-val{font-family:var(--data);font-size:15px;font-variant-numeric:tabular-nums}
+.track{position:relative;height:12px;margin-top:11px;background:var(--blk-paper-3);overflow:hidden}
+.fill{position:absolute;inset:0 auto 0 0;background:var(--blk-ink);width:100%}
+.fill--accent{background:var(--blk-accent);width:20%}
+.msr-note{font-size:12.5px;margin-top:8px;color:var(--blk-mute)}
+.scale{display:flex;justify-content:space-between;margin-top:10px;font-family:var(--data);font-size:10.5px;letter-spacing:.1em;color:var(--blk-mute)}
+.split2{display:grid;grid-template-columns:1.25fr 1fr;gap:1px;background:var(--blk-line);margin-top:44px;border:1px solid var(--blk-line)}
 .col{background:#fff;padding:clamp(22px,3vw,34px)}
 .col h3{margin:0;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-family:var(--data);font-weight:500;color:var(--blk-mute)}
 .col ul{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:12px}
@@ -246,51 +189,22 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;background:var(--blk-
 .col.paid .price{color:var(--blk-accent-ink)}
 .col.paid p{color:#BFBFBD;font-family:var(--prose);font-weight:300;font-size:16px;line-height:1.55;margin-top:14px}
 
-/* ============================================================
-   5. FX PRODUCTS, tabbed strategy selector on ink
-   ============================================================ */
-.tabs-nav{display:flex;gap:0;list-style:none;padding:0;margin:36px 0 0;border-bottom:1px solid var(--blk-line-ink);overflow-x:auto}
-.tab-btn{padding:14px 20px;font-size:14.5px;font-weight:500;color:#9C9C9F;white-space:nowrap;
-  border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s}
-.tab-btn[aria-selected="true"]{color:var(--blk-paper);border-bottom-color:var(--blk-accent-ink)}
-.tab-btn:hover{color:var(--blk-paper)}
-.selwrap{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:clamp(26px,4vw,52px);margin-top:32px;align-items:start}
-.chartbox{border:1px solid var(--blk-line-ink);padding:clamp(16px,2.2vw,24px);background:#101012}
-.chart-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
-.chart-head .t{font-family:var(--data);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blk-mute-ink)}
-.readout{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px;border-top:1px solid var(--blk-line-ink);padding-top:16px}
-.readout .k{font-family:var(--data);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--blk-mute-ink)}
-.readout .v{font-family:var(--data);font-size:clamp(16px,2.1vw,21px);margin-top:5px;font-variant-numeric:tabular-nums;color:var(--blk-paper)}
-.readout .v.good{color:var(--blk-accent-ink)}
-.strat-side h3{font-size:clamp(21px,2.8vw,28px);font-weight:600;letter-spacing:-.025em;margin:0}
-.strat-side p{color:#BFBFBD;font-size:15.5px;line-height:1.6;margin-top:14px}
-.strat-side .who{margin-top:20px;border-left:2px solid var(--blk-accent-ink);padding-left:16px;font-size:14px;color:#9C9C9F}
-.strat-side .who b{color:var(--blk-paper);font-weight:500;display:block;margin-bottom:3px;font-family:var(--data);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase}
+/* ---------- why grid, iFX features-grid pattern ---------- */
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--blk-line-ink);border:1px solid var(--blk-line-ink);margin-top:44px}
+.wcard{background:var(--blk-ink);padding:clamp(22px,2.6vw,30px);position:relative;transition:background .3s;min-height:210px;display:flex;flex-direction:column}
+.wcard .k{font-family:var(--data);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--blk-accent-ink)}
+.wcard h3{font-size:19px;font-weight:600;letter-spacing:-.02em;margin:13px 0 0;line-height:1.2}
+.wcard p{font-size:14.5px;line-height:1.55;color:#9C9C9F;margin:11px 0 0;transition:color .3s}
+.wcard:hover,.wcard:focus-within{background:#1C1C21}
+.wcard:hover p,.wcard:focus-within p{color:#DCDBD7}
+.wcard .edge{position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--blk-accent-ink);transition:width .45s cubic-bezier(.2,.8,.2,1)}
+.wcard:hover .edge,.wcard:focus-within .edge{width:100%}
 
-/* ============================================================
-   6. LIVE RATES TABLE
-   ============================================================ */
-.rates{width:100%;border-collapse:collapse;margin-top:28px;font-variant-numeric:tabular-nums}
-.rates th{font-family:var(--data);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--blk-mute);
-  text-align:right;padding:0 0 12px;font-weight:500;border-bottom:1px solid var(--blk-line)}
-.rates th:first-child{text-align:left}
-.rates td{padding:14px 0;border-bottom:1px solid var(--blk-line);text-align:right;font-family:var(--data);font-size:14.5px}
-.rates td:first-child{text-align:left;font-weight:600;font-family:var(--display);letter-spacing:.01em}
-.rates .st{transition:color .4s,background .4s;padding:2px 5px}
-.rates .st.up{color:var(--up)}
-.rates .st.down{color:var(--down)}
-.rates .flash{background:color-mix(in srgb, var(--blk-accent) 15%, transparent)}
-.rates .sv{color:var(--blk-accent-text);font-weight:500}
-.tablewrap{overflow-x:auto}
-
-/* ============================================================
-   7. WHO WE HELP, horizontal scroll track
-   ============================================================ */
-.hor{position:relative}
-.hor-stage{position:sticky;top:0;height:100svh;min-height:560px;display:flex;align-items:center;overflow:hidden}
+/* ---------- horizontal segment track ---------- */
+.hor-stage{height:100svh;min-height:560px;display:flex;align-items:center;overflow:hidden}
 .hor-track{display:flex;gap:1px;padding-inline:var(--gutter);will-change:transform}
 .segcard{flex:0 0 clamp(260px,26vw,330px);background:#fff;border:1px solid var(--blk-line);padding:clamp(22px,2.6vw,30px);
-  min-height:330px;display:flex;flex-direction:column;transition:background .3s,color .3s}
+  min-height:330px;display:flex;flex-direction:column}
 .segcard .tag{font-family:var(--data);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--blk-mute)}
 .segcard h3{font-size:20px;font-weight:600;letter-spacing:-.02em;margin:14px 0 0;line-height:1.2}
 .segcard p{font-size:14.5px;line-height:1.55;color:#4C4C48;margin:12px 0 0}
@@ -300,12 +214,42 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;background:var(--blk-
 .segcard.key p{color:#BFBFBD}
 .segcard.key .mark{color:var(--blk-accent-ink)}
 .hor-head{position:absolute;top:clamp(40px,7vw,80px);left:0;right:0}
-.progress{height:2px;background:var(--blk-paper-3);margin-top:28px;position:relative;max-width:260px}
-.progress i{position:absolute;inset:0 auto 0 0;width:20%;background:var(--blk-ink);display:block}
 
-/* ============================================================
-   8-12
-   ============================================================ */
+/* ---------- tabs, iFX js-tabs pattern ---------- */
+.tabs-nav{display:flex;list-style:none;padding:0;margin:36px 0 0;border-bottom:1px solid var(--blk-line);overflow-x:auto}
+.tab-btn{padding:13px 18px;font-size:14px;font-weight:500;color:var(--blk-mute);white-space:nowrap;
+  border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s}
+.tab-btn[aria-selected="true"]{color:var(--blk-ink);border-bottom-color:var(--blk-accent)}
+.tab-btn:hover{color:var(--blk-ink)}
+.tabpanels{margin-top:28px}
+.tabpanel{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
+.tabpanel h3{font-size:clamp(20px,2.6vw,26px);font-weight:600;letter-spacing:-.025em;margin:0}
+.tabpanel .plain{font-size:16px;line-height:1.6;color:#3E3E3B;margin:14px 0 0;max-width:46ch}
+.tabpanel .who{border-left:2px solid var(--blk-accent);padding-left:16px;font-size:14px;color:var(--blk-mute);margin-top:20px}
+.tabpanel .who b{display:block;font-family:var(--data);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--blk-ink);margin-bottom:4px;font-weight:500}
+.eg{background:#fff;border:1px solid var(--blk-line);padding:clamp(20px,2.6vw,28px)}
+.eg .egk{font-family:var(--data);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--blk-mute)}
+.eg dl{margin:14px 0 0;display:grid;gap:11px}
+.eg .row{display:flex;justify-content:space-between;gap:16px;align-items:baseline;border-bottom:1px solid var(--blk-line);padding-bottom:10px}
+.eg dt{font-size:14px;color:#4C4C48}
+.eg dd{margin:0;font-family:var(--data);font-size:15px;font-variant-numeric:tabular-nums}
+.eg dd.good{color:var(--blk-accent-text);font-weight:500}
+
+/* ---------- rates ---------- */
+.rates{width:100%;border-collapse:collapse;margin-top:28px;font-variant-numeric:tabular-nums}
+.rates th{font-family:var(--data);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--blk-mute);
+  text-align:right;padding:0 0 12px;font-weight:500;border-bottom:1px solid var(--blk-line)}
+.rates th:first-child{text-align:left}
+.rates td{padding:14px 0;border-bottom:1px solid var(--blk-line);text-align:right;font-family:var(--data);font-size:14.5px}
+.rates td:first-child{text-align:left;font-weight:600;font-family:var(--display)}
+.rates .st{transition:color .4s,background .4s;padding:2px 5px}
+.rates .st.up{color:var(--up)}
+.rates .st.down{color:var(--down)}
+.rates .flash{background:color-mix(in srgb, var(--blk-accent) 15%, transparent)}
+.rates .sv{color:var(--blk-accent-text);font-weight:500}
+.tablewrap{overflow-x:auto}
+
+/* ---------- steps, service, proof ---------- */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,40px);margin-top:40px;counter-reset:s}
 .step{border-top:1px solid var(--blk-line);padding-top:20px;counter-increment:s}
 .step::before{content:counter(s,decimal-leading-zero);font-family:var(--data);font-size:12px;letter-spacing:.14em;color:var(--blk-accent-text)}
@@ -314,91 +258,80 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;background:var(--blk-
 .reg{margin-top:30px;border:1px solid var(--blk-line);padding:18px 20px;display:flex;gap:16px;align-items:flex-start;background:#fff;flex-wrap:wrap}
 .reg .badge{font-family:var(--data);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--blk-line);padding:5px 9px;white-space:nowrap}
 .reg p{margin:0;font-size:14px;color:#4C4C48;line-height:1.55;flex:1;min-width:250px}
-
-.two{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(30px,5vw,68px);align-items:start}
 .chans{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
 .chan{font-family:var(--data);font-size:12px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--blk-line-ink);padding:9px 14px}
 .story{border-left:2px solid var(--blk-accent-ink);padding:4px 0 4px 22px;max-width:56ch}
 .story p{font-family:var(--prose);font-weight:300;font-size:clamp(17px,2vw,20px);line-height:1.5;margin:0;color:#DAD9D5}
 .story cite{display:block;font-style:normal;font-family:var(--data);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blk-mute-ink);margin-top:14px}
-
 .trust{display:flex;align-items:center;gap:clamp(18px,3vw,40px);flex-wrap:wrap;margin-top:32px}
 .score{font-family:var(--data);font-size:clamp(40px,6vw,62px);letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
 .score small{font-size:.35em;letter-spacing:.06em;color:var(--blk-mute)}
 .stars{display:flex;gap:4px;margin-bottom:8px}
 .stars i{width:16px;height:16px;background:var(--blk-accent);display:block;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
 .trust p{margin:0;font-size:15px;max-width:34ch;color:#4C4C48}
-.quotebox{margin-top:36px;border:1px solid var(--blk-line);background:#fff;padding:clamp(24px,3vw,38px)}
-.quotebox p{font-family:var(--prose);font-weight:300;font-size:clamp(17px,2.1vw,21px);line-height:1.5;margin:0;color:#2E2E2C}
-.quotebox .by{font-family:var(--data);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blk-mute);margin-top:16px}
-.qnav{display:flex;gap:8px;margin-top:22px}
-.qnav button{width:36px;height:36px;border:1px solid var(--blk-line);display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s}
-.qnav button:hover{background:var(--blk-ink);color:var(--blk-paper)}
+.quotes{margin-top:36px;border:1px solid var(--blk-line);background:#fff}
+.quote{padding:clamp(24px,3vw,38px)}
+.quote p{font-family:var(--prose);font-weight:300;font-size:clamp(17px,2.1vw,21px);line-height:1.5;margin:0;color:#2E2E2C}
+.quote .by{font-family:var(--data);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blk-mute);margin-top:16px}
+.qfoot{display:flex;align-items:center;gap:18px;margin-top:22px}
 
+/* ---------- prose, final, footer ---------- */
 .prose{max-width:66ch;font-family:var(--prose);font-weight:300;font-size:17.5px;line-height:1.72;color:#3E3E3B}
 .prose h3{font-family:var(--display);font-size:clamp(19px,2.4vw,24px);font-weight:600;letter-spacing:-.02em;line-height:1.2;margin:36px 0 10px;color:var(--blk-ink)}
 .prose p{margin:0 0 14px}
-
 .final h2{font-size:clamp(34px,6.2vw,72px);max-width:14ch;letter-spacing:-.035em}
 .final .btn{margin-top:30px}
 .finalnote{font-family:var(--data);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--blk-mute-ink);margin-top:18px}
 .foot{background:var(--blk-ink);color:var(--blk-mute-ink);padding-block:34px}
 .foot-in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px}
+.disc{font-size:12px;color:var(--blk-mute);margin-top:14px;max-width:54ch}
+.band--ink .disc{color:var(--blk-mute-ink)}
 
-/* Review tool, not part of the design. Lets Ben see each accent live. */
 .accbar{position:fixed;left:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:75;
   background:rgba(250,250,250,.94);backdrop-filter:blur(12px);border:1px solid var(--blk-line);
   padding:10px 12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;
-  box-shadow:0 14px 34px rgba(10,10,10,.14);border-radius:2px;max-width:calc(100vw - 40px)}
+  box-shadow:0 14px 34px rgba(10,10,10,.14);max-width:calc(100vw - 40px)}
 .accbar .lab{font-family:var(--data);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--blk-mute);white-space:nowrap}
-.accbar .sw{display:flex;gap:6px}
-.sw button{width:26px;height:26px;border:1px solid var(--blk-line);border-radius:50%;position:relative;transition:transform .18s}
+.sw{display:flex;gap:6px}
+.sw button{width:26px;height:26px;border:1px solid var(--blk-line);border-radius:50%;transition:transform .18s}
 .sw button:hover{transform:scale(1.12)}
 .sw button[aria-pressed="true"]{box-shadow:0 0 0 2px var(--blk-ink)}
-.sw .s-ultra{background:#1B29FF}
-.sw .s-petrol{background:#0E8A84}
-.sw .s-cobalt{background:#2764FF}
+.sw .s-ultra{background:#1B29FF}.sw .s-petrol{background:#0E8A84}.sw .s-cobalt{background:#2764FF}
 .sw .s-mono{background:linear-gradient(135deg,#0A0A0A 50%,#FAFAFA 50%)}
 .accbar .name{font-size:12px;font-weight:600;white-space:nowrap;min-width:92px}
-@media (max-width:620px){.accbar{left:12px;right:12px;bottom:12px;justify-content:center}}
-
 .totop{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:70;
   width:44px;height:44px;background:var(--blk-ink);color:var(--blk-paper);display:flex;align-items:center;justify-content:center;
-  opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s,transform .2s;border-radius:2px}
+  opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s,transform .2s}
 .totop.on{opacity:1;visibility:visible}
 .totop:hover{transform:translateY(-3px)}
 
-/* ============================================================
-   Responsive
-   ============================================================ */
+/* ---------- no-motion fallback ---------- */
+.no-motion .hor{height:auto!important}
+.no-motion .hor-stage{position:static;height:auto;min-height:0;display:block;overflow:visible;padding-block:clamp(56px,10vw,90px)}
+.no-motion .hor-track{flex-wrap:wrap;transform:none!important;gap:12px;padding-inline:0}
+.no-motion .segcard{flex:1 1 280px;min-height:0}
+.no-motion .hor-head{position:static;margin-bottom:28px}
+
+/* ---------- responsive ---------- */
 @media (max-width:1040px){
   .menu{display:none}
   .burger{display:flex}
-  .calc,.selwrap,.two{grid-template-columns:1fr}
+  .two,.tabpanel{grid-template-columns:1fr}
   .split2{grid-template-columns:1fr}
   .chevrons{grid-template-columns:repeat(2,1fr)}
   .chev{clip-path:none!important;margin-left:0;border:1px solid var(--blk-line-ink)}
-  .steps{grid-template-columns:1fr}
+  .steps,.why{grid-template-columns:1fr}
   .hor{height:auto!important}
   .hor-stage{position:static;height:auto;min-height:0;display:block;overflow:visible;padding-block:clamp(56px,10vw,90px)}
   .hor-track{flex-wrap:wrap;transform:none!important;gap:12px;padding-inline:0}
   .segcard{flex:1 1 280px;min-height:0}
   .hor-head{position:static;margin-bottom:28px}
-  .js .tr[data-from]{transform:translate3d(0,40px,0)!important}
 }
-@media (max-width:620px){
-  .chevrons{grid-template-columns:1fr}
-  h1{max-width:100%}
-  .readout{grid-template-columns:1fr}
-}
+@media (max-width:760px){.why{grid-template-columns:1fr}}
+@media (max-width:620px){.chevrons{grid-template-columns:1fr}h1{max-width:100%}.accbar{left:12px;right:12px;bottom:12px;justify-content:center}}
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition-duration:.01ms!important}
-  .js .tr{opacity:1!important;transform:none!important}
-  .split .w > i{transform:none!important}
-  .hor{height:auto!important}
-  .hor-stage{position:static;height:auto;display:block;overflow:visible;padding-block:80px}
-  .hor-track{flex-wrap:wrap;transform:none!important;padding-inline:0}
-  .hor-head{position:static;margin-bottom:28px}
+  .tr{opacity:1!important;transform:none!important}
 }
 </style>
 
@@ -408,42 +341,32 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;background:var(--blk-
   <div class="wrap nav-in">
     <a class="brand" href="#top">BLK<span>.</span>FX</a>
     <ul class="menu">
-      <li>
-        <button type="button" aria-haspopup="true">Services <span class="caret"></span></button>
+      <li><button type="button" aria-haspopup="true">Services <span class="caret"></span></button>
         <div class="drop">
-          <a href="#">Business Foreign Exchange</a>
-          <a href="#">International Payments</a>
-          <a href="#">Multi-Currency Accounts</a>
-          <a href="#">FX Risk Management &amp; Hedging</a>
-          <a href="#">Commercial Finance</a>
-          <a href="#">Private Client FX</a>
-          <a href="#" class="all">View all services</a>
-        </div>
-      </li>
-      <li>
-        <button type="button" aria-haspopup="true">Who We Help <span class="caret"></span></button>
+          <a href="#services">Business Foreign Exchange</a>
+          <a href="#services">International Payments</a>
+          <a href="#services">Multi-Currency Accounts</a>
+          <a href="#services">FX Risk Management &amp; Hedging</a>
+          <a href="#services">Commercial Finance</a>
+          <a href="#services">Private Client FX</a>
+          <a href="#services" class="all">View all services</a>
+        </div></li>
+      <li><button type="button" aria-haspopup="true">Who We Help <span class="caret"></span></button>
         <div class="drop">
           <a href="#who">Businesses and finance teams</a>
           <a href="#who">SPVs, trusts and funds</a>
           <a href="#who">Private clients and property</a>
           <span class="paused">Music, creators and athletes, coming soon</span>
-        </div>
-      </li>
-      <li>
-        <button type="button" aria-haspopup="true">Tools <span class="caret"></span></button>
+        </div></li>
+      <li><button type="button" aria-haspopup="true">Tools <span class="caret"></span></button>
         <div class="drop">
           <a href="#">FX Exposure, free hedging calculator</a>
           <a href="#rates">Live rates and market updates</a>
-        </div>
-      </li>
-      <li>
-        <button type="button" aria-haspopup="true">About <span class="caret"></span></button>
+        </div></li>
+      <li><button type="button" aria-haspopup="true">About <span class="caret"></span></button>
         <div class="drop">
-          <a href="#">Our story</a>
-          <a href="#">Ben Kohler</a>
-          <a href="#">FinTech providers</a>
-        </div>
-      </li>
+          <a href="#">Our story</a><a href="#">Ben Kohler</a><a href="#">FinTech providers</a>
+        </div></li>
       <li><a href="#">Insights</a></li>
     </ul>
     <div class="nav-right">
@@ -456,21 +379,24 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;background:var(--blk-
 
 <main id="top">
 
-<!-- 1. HERO -->
-<section class="band band--paper hero">
+<!--
+  SECTION: hero
+  WP: single block
+  FIELDS: h1 (rich text, <em> allowed), sub (textarea), cta_label, cta_url
+  MOTION: h1 splits to words and rises, staggered 45ms
+  NOTES: one headline, one support line, one CTA, per 03-design-direction.
+-->
+<section class="band--paper hero">
   <div class="wrap">
     <div class="sessions" id="sessions">
       <span class="sess"><span class="dot"></span>Sydney</span>
       <span class="sess"><span class="dot"></span>Tokyo</span>
       <span class="sess"><span class="dot"></span>London</span>
       <span class="sess"><span class="dot"></span>New York</span>
-      <span class="mute" id="sessnote" style="letter-spacing:.1em">Market open</span>
+      <span id="sessnote" style="letter-spacing:.1em;color:var(--blk-mute)">Market open</span>
     </div>
-
     <h1 class="split" data-split>Efficiency, in every currency you <em class="em">touch</em>.</h1>
-
     <p class="hero-sub">The accounts, the payments and the advice cost you nothing. We earn on the conversion, and we will tell you what we make on it.</p>
-
     <div class="hero-cta">
       <a class="btn btn--lg" href="#book">Book a call with Ben <span class="arw">&rarr;</span></a>
       <span class="cue">Scroll to explore <span class="ar"></span></span>
@@ -478,77 +404,135 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;background:var(--blk-
   </div>
 </section>
 
-<!-- 2. PROOF STRIP -->
-<section class="band">
+<!--
+  SECTION: proof-strip
+  WP: repeatable block, 3 to 5 items
+  FIELDS: items[] { value (text), label (text), prefix, suffix, count_from_zero (toggle) }
+  MOTION: count-up on enter view
+  NOTES: value is text, so "£500m+" and "4.7/5" both work. The final
+         rendered figure is in the HTML, so it is indexable with JS off.
+-->
+<section>
   <div class="wrap" style="padding-inline:0">
     <div class="chevrons">
-      <div class="chev"><div class="n" data-count="500" data-prefix="£" data-suffix="m+">£0m+</div><div class="l">Volume traded since 2021</div></div>
-      <div class="chev"><div class="n" data-count="35" data-suffix="+">0+</div><div class="l">Currencies bought, held and sent</div></div>
-      <div class="chev"><div class="n" data-count="30" data-suffix="+">0+</div><div class="l">Countries we move money into</div></div>
+      <div class="chev"><div class="n" data-count="500" data-prefix="£" data-suffix="m+">£500m+</div><div class="l">Volume traded since 2021</div></div>
+      <div class="chev"><div class="n" data-count="35" data-suffix="+">35+</div><div class="l">Currencies bought, held and sent</div></div>
+      <div class="chev"><div class="n" data-count="30" data-suffix="+">30+</div><div class="l">Countries we move money into</div></div>
       <div class="chev"><div class="n">4.7<small>/5</small></div><div class="l">Trustpilot, every review five star</div></div>
     </div>
   </div>
 </section>
 
-<!-- 3. THE PROBLEM, calculator -->
-<section class="band band--paper pad" id="margin">
+<!--
+  SECTION: services-slider
+  WP: repeatable block, 4 to 8 cards
+  FIELDS: eyebrow, h2, intro, cards[] { kicker, heading, body, points[] { text }, url }
+  MOTION: track translates on arrow click, CSS transition. Progress bar tracks position.
+  NOTES: solves the nav gap in 05-site-architecture, where seven live service
+         pages are unreachable from the homepage. Every card is in the HTML,
+         so all six services are crawlable and internally linked with JS off.
+-->
+<section class="band--paper pad" id="services">
   <div class="wrap">
-    <div class="tr" data-from="left-bottom">
-      <div class="eyebrow"><span class="tick"></span>Work out what you are paying</div>
-      <h2 class="split" data-split>Move the slider. See the margin.</h2>
+    <div class="slider-head tr" data-from="left-bottom">
+      <div>
+        <div class="eyebrow"><span class="tick"></span>What we do</div>
+        <h2 class="split" data-split>Six services. One conversation.</h2>
+      </div>
+      <a class="tlink" href="#">View all services</a>
     </div>
 
-    <div class="calc">
-      <div class="tr" data-from="bottom">
-        <p class="lede">A high street bank takes between 1% and 3% inside the rate it quotes you. We take between 0.2% and 0.6%, agreed with you before you trade.</p>
-        <p class="lede" style="margin-top:14px">On any real volume that gap is the largest saving available to a finance team, and nobody at the bank will ever point it out.</p>
-        <div style="margin-top:26px"><a class="btn btn--accent" href="#book">Get this checked properly <span class="arw">&rarr;</span></a></div>
+    <div class="sldr tr" data-from="right-bottom">
+      <div class="sldr-track" id="svcTrack">
+        <article class="svc">
+          <span class="k">Convert</span>
+          <h3>Business Foreign Exchange</h3>
+          <p>Buy and sell 35+ currencies at a margin agreed before you trade, with the timing thought through rather than left to the invoice date.</p>
+          <ul><li>Spot, forwards and orders</li><li>Margin agreed up front</li><li>Market analysis on your pairs</li></ul>
+          <span class="go"><a class="tlink" href="#">Read more</a></span>
+        </article>
+        <article class="svc">
+          <span class="k">Send</span>
+          <h3>International Payments</h3>
+          <p>Faster Payments, SEPA, Swift and ACH from one place, and a named person who chases a payment that has not landed.</p>
+          <ul><li>Four payment rails</li><li>Same-day where possible</li><li>24/7 support on stuck payments</li></ul>
+          <span class="go"><a class="tlink" href="#">Read more</a></span>
+        </article>
+        <article class="svc">
+          <span class="k">Hold</span>
+          <h3>Multi-Currency Accounts</h3>
+          <p>Accounts in your own name, in the currencies you actually deal in, so you can hold what you collect instead of converting twice.</p>
+          <ul><li>Opened in your entity's name</li><li>No account or maintenance fee</li><li>Suitable for SPVs and trusts</li></ul>
+          <span class="go"><a class="tlink" href="#">Read more</a></span>
+        </article>
+        <article class="svc">
+          <span class="k">Protect</span>
+          <h3>FX Risk Management &amp; Hedging</h3>
+          <p>Fix some or all of a future rate so a currency move cannot break a budget you have already set and reported to a board.</p>
+          <ul><li>Forwards and orders</li><li>Budget rate strategy</li><li>Free modelling on FX Exposure</li></ul>
+          <span class="go"><a class="tlink" href="#">Read more</a></span>
+        </article>
+        <article class="svc">
+          <span class="k">Fund</span>
+          <h3>Commercial Finance</h3>
+          <p>Facilities through partner lenders, so fixing a rate or bridging a completion does not tie up your working capital.</p>
+          <ul><li>Through partner lenders</li><li>Pairs with forward contracts</li><li>Subject to a conversation</li></ul>
+          <span class="go"><a class="tlink" href="#">Read more</a></span>
+        </article>
+        <article class="svc">
+          <span class="k">Personal</span>
+          <h3>Private Client FX</h3>
+          <p>Property abroad, moving money home, or a one-off transfer that has to land on a date. The rate fixed before you commit.</p>
+          <ul><li>Property completions</li><li>Rate fixed in advance</li><li>Weekend contact when needed</li></ul>
+          <span class="go"><a class="tlink" href="#">Read more</a></span>
+        </article>
       </div>
-
-      <div class="panel tr" data-from="right-bottom">
-        <div class="field">
-          <label for="vol">Annual conversion volume</label>
-          <div class="volrow"><span class="volnum" id="volOut">£1,000,000</span><span class="volper">per year</span></div>
-          <input type="range" id="vol" min="100000" max="25000000" step="100000" value="1000000">
-          <div class="ticks"><span>£100k</span><span>£12.5m</span><span>£25m</span></div>
+      <div class="sldr-foot">
+        <div class="arrows">
+          <button type="button" id="svcPrev" aria-label="Previous services" aria-controls="svcTrack">&larr;</button>
+          <button type="button" id="svcNext" aria-label="Next services" aria-controls="svcTrack">&rarr;</button>
         </div>
-
-        <div class="field" style="margin-top:22px">
-          <label id="pairLabel">Main currency pair</label>
-          <div class="pairs" role="group" aria-labelledby="pairLabel">
-            <button class="pair" type="button" id="p-gbpeur" aria-pressed="true">GBP / EUR</button>
-            <button class="pair" type="button" id="p-gbpusd" aria-pressed="false">GBP / USD</button>
-            <button class="pair" type="button" id="p-eurusd" aria-pressed="false">EUR / USD</button>
-            <button class="pair" type="button" id="p-other" aria-pressed="false">Something else</button>
-          </div>
-        </div>
-
-        <div class="bars">
-          <div class="bar-row">
-            <div class="bar-top"><span class="bar-name">High street bank</span><span class="bar-val" id="bankVal">£10,000 to £30,000</span></div>
-            <div class="track"><span class="fill" id="bankFill"></span></div>
-            <p class="bar-note">1% to 3%, taken quietly inside the rate.</p>
-          </div>
-          <div class="bar-row">
-            <div class="bar-top"><span class="bar-name">BLK.FX</span><span class="bar-val" id="blkVal">£2,000 to £6,000</span></div>
-            <div class="track"><span class="fill fill--accent" id="blkFill"></span></div>
-            <p class="bar-note">0.2% to 0.6%, agreed before the trade.</p>
-          </div>
-          <div class="saving"><span class="k">Stays with you</span><span class="v" id="saveVal">£8,000 to £24,000</span></div>
-        </div>
-        <p class="disc" id="disc">Illustrative only, based on typical margins. Figures to be confirmed with Ben before this goes live.</p>
+        <div class="progress"><i id="svcBar" style="width:34%"></i></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 4. NEO-BANKING -->
-<section class="band band--paper2 pad" id="what">
+<!--
+  SECTION: cost-and-charge
+  WP: single block, two parts
+  FIELDS: eyebrow, h2, intro, bank_label, bank_range (text), bank_note,
+          blk_label, blk_range (text), blk_note, scale_labels[] (text),
+          free_heading, free_items[] { text }, free_price,
+          paid_heading, paid_items[] { text }, paid_price, paid_note
+  MOTION: section corner transition only. Bar widths are set in CSS,
+          not animated, so the comparison is correct with JS disabled.
+  NOTES: this replaced an interactive calculator. FX Exposure already
+         does calculators and this is a homepage, not a tool.
+         Margin figures per 04-copy-rules item 1.
+-->
+<section class="band--paper2 pad" id="cost">
   <div class="wrap">
-    <div class="tr" data-from="left-bottom">
-      <div class="eyebrow"><span class="tick"></span>How we charge</div>
-      <h2 class="split" data-split>One charge. Everything else is included.</h2>
-      <p class="lede">Banking, payments, accounts and advice are not priced separately, because that is not where we make our money.</p>
+    <div class="two">
+      <div class="tr" data-from="left-bottom">
+        <div class="eyebrow"><span class="tick"></span>What it costs</div>
+        <h2 class="split" data-split>The rate you see is not the rate you get.</h2>
+        <p class="lede">Every provider adds a margin to the live market rate. Most never mention it. We are open about the margin, sometimes called the spread, that we take.</p>
+      </div>
+      <div class="tr" data-from="right-bottom">
+        <div class="msr">
+          <div class="msr-top"><span class="msr-name">High street bank</span><span class="msr-val">1.0% to 3.0%</span></div>
+          <div class="track"><span class="fill"></span></div>
+          <p class="msr-note">Taken quietly inside the rate you are quoted.</p>
+        </div>
+        <div class="msr">
+          <div class="msr-top"><span class="msr-name">BLK.FX</span><span class="msr-val">0.2% to 0.6%</span></div>
+          <div class="track"><span class="fill fill--accent"></span></div>
+          <p class="msr-note">Agreed with you, in the conversation, before you trade.</p>
+        </div>
+        <div class="scale"><span>0%</span><span>1.5%</span><span>3.0%</span></div>
+        <p class="disc">Illustrative, based on typical margins. Figures to be confirmed with Ben before this goes live.</p>
+      </div>
     </div>
 
     <div class="split2 tr" data-from="scaleup">
@@ -574,62 +558,237 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;background:var(--blk-
   </div>
 </section>
 
-<!-- 5. FX PRODUCTS, tabbed selector -->
-<section class="band band--ink pad" id="products">
+<!--
+  SECTION: why-grid
+  WP: repeatable block, 6 to 9 cards
+  FIELDS: eyebrow, h2, intro, cards[] { kicker, heading, body }
+  MOTION: hover and focus lift the body copy and draw an accent rule.
+          Body text is always in the DOM, only its colour changes, so
+          nothing here is hidden from a crawler.
+  NOTES: iFX why-choose-section pattern. Answers Ben's "when you go over
+         one of the bubbles, it comes out" without hiding copy.
+-->
+<section class="band--ink pad" id="why">
   <div class="wrap">
     <div class="tr" data-from="right-top">
-      <div class="eyebrow"><span class="tick"></span>FX products</div>
-      <h2 class="split" data-split>You do not have to take today's rate on today's deadline.</h2>
-      <p class="lede">Pick a strategy and watch what it does to the same year of the market. Most people are never offered any of these.</p>
+      <div class="eyebrow"><span class="tick"></span>Why BLK.FX</div>
+      <h2 class="split" data-split>What you are actually buying.</h2>
+      <p class="lede">Anyone can quote a rate. Rates are public. The difference is what surrounds the trade.</p>
     </div>
-
-    <div role="tablist" aria-label="FX strategies" class="tabs-nav">
-      <button class="tab-btn" type="button" role="tab" id="s-spot" aria-selected="true" aria-controls="stratPanel">Spot contract</button>
-      <button class="tab-btn" type="button" role="tab" id="s-limit" aria-selected="false" aria-controls="stratPanel">Limit order</button>
-      <button class="tab-btn" type="button" role="tab" id="s-forward" aria-selected="false" aria-controls="stratPanel">Forward contract</button>
-      <button class="tab-btn" type="button" role="tab" id="s-stop" aria-selected="false" aria-controls="stratPanel">Stop-loss order</button>
-      <button class="tab-btn" type="button" role="tab" id="s-credit" aria-selected="false" aria-controls="stratPanel">Credit facility</button>
-    </div>
-
-    <div class="selwrap" id="stratPanel" role="tabpanel">
-      <div class="chartbox">
-        <div class="chart-head">
-          <span class="t">GBP / EUR, twelve months</span>
-          <span class="t" id="chartMode">Spot contract</span>
-        </div>
-        <svg id="chart" viewBox="0 0 640 280" width="100%" height="auto" role="img" aria-label="Twelve months of GBP to EUR, with the rate achieved by the selected strategy"></svg>
-        <div class="readout">
-          <div><div class="k">Rate achieved</div><div class="v" id="rOut">1.1480</div></div>
-          <div><div class="k">On £1m you receive</div><div class="v" id="rEur">&euro;1,148,000</div></div>
-          <div><div class="k">Against spot</div><div class="v good" id="rDiff">Benchmark</div></div>
-        </div>
-      </div>
-
-      <div class="strat-side">
-        <h3 id="stratName">Spot contract</h3>
-        <p id="stratCopy">You convert at the live rate on the day the payment is due. Simple, and the benchmark for everything else. It also means the market picks your rate for you.</p>
-        <div class="who"><b>Best for</b><span id="stratWho">A one-off payment you cannot move, where the rate on the day is the rate you take.</span></div>
-        <p class="disc" style="color:var(--blk-mute-ink)">Illustrative path, not a forecast. Model your own numbers free on FX Exposure.</p>
-      </div>
+    <div class="why tr" data-from="bottom">
+      <article class="wcard" tabindex="0">
+        <span class="k">Service</span><h3>24/7, and we mean it</h3>
+        <p>Phone, email and WhatsApp, at any hour. A payment that leaves on a Friday and does not arrive is chased on Friday, not Monday.</p><span class="edge"></span>
+      </article>
+      <article class="wcard" tabindex="0">
+        <span class="k">Pricing</span><h3>Open about the margin</h3>
+        <p>You agree the margin before you trade and we hold to it. You will never have to work out what we made on your money.</p><span class="edge"></span>
+      </article>
+      <article class="wcard" tabindex="0">
+        <span class="k">Structures</span><h3>Trusts and funds welcome</h3>
+        <p>Vehicles that other providers turn away because the compliance work is heavier. SPVs, trusts, funds and VC. We already do this.</p><span class="edge"></span>
+      </article>
+      <article class="wcard" tabindex="0">
+        <span class="k">Judgement</span><h3>Timing, not just execution</h3>
+        <p>A view on the currencies you are exposed to, and a conversation about when to convert. That conversation costs nothing.</p><span class="edge"></span>
+      </article>
+      <article class="wcard" tabindex="0">
+        <span class="k">Banking</span><h3>Everything else included</h3>
+        <p>Accounts, payments, consultancy and hedging structure are not priced separately, because the conversion is where we earn.</p><span class="edge"></span>
+      </article>
+      <article class="wcard" tabindex="0">
+        <span class="k">Regulation</span><h3>Regulated partners only</h3>
+        <p>Execution through regulated partners across the UK, the EEA and the US, with the compliance work done properly rather than quickly.</p><span class="edge"></span>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- 6. LIVE RATES -->
-<section class="band band--paper pad" id="rates">
+<!--
+  SECTION: segment-track
+  WP: repeatable block, 6 to 12 cards
+  FIELDS: eyebrow, h2, cards[] { tag, heading, body, mark, inverted (toggle) }
+  MOTION: ScrollTrigger pins the stage and scrubs the track sideways above
+          1040px. Below that, and with JS off, it wraps to a card grid.
+  NOTES: inverted marks the four structures Ben called out. All cards are
+         in the HTML in reading order.
+-->
+<section class="hor band--paper2" id="who">
+  <div class="hor-stage">
+    <div class="wrap hor-head">
+      <div class="eyebrow"><span class="tick"></span>Who this is for</div>
+      <h2 class="split" data-split>Find yourself on this list.</h2>
+    </div>
+    <div class="hor-track" id="horTrack">
+      <article class="segcard key"><span class="tag">Structures</span><h3>SPVs, including property SPVs</h3>
+        <p>Accounts in the vehicle's own name, completion payments handled to a deadline, and forwards so the rate cannot move between exchange and completion.</p><span class="mark">Often refused elsewhere</span></article>
+      <article class="segcard key"><span class="tag">Structures</span><h3>Trusts</h3>
+        <p>Most FX firms will not onboard a trust because the ownership work is harder. We already do it. Distributions paid in the currency the beneficiary needs.</p><span class="mark">Often refused elsewhere</span></article>
+      <article class="segcard key"><span class="tag">Structures</span><h3>Funds</h3>
+        <p>Capital calls and distributions in several currencies on dates that cannot slip, with the currency hedged between commitment and drawdown.</p><span class="mark">Often refused elsewhere</span></article>
+      <article class="segcard key"><span class="tag">Structures</span><h3>Venture capital</h3>
+        <p>You raise in one currency and your portfolio spends in another. Fix the rate on committed capital so a move does not shorten a runway.</p><span class="mark">Often refused elsewhere</span></article>
+      <article class="segcard"><span class="tag">Business</span><h3>PE backed and scaling</h3>
+        <p>Growth plans built on a budget rate that has to hold. How much of the year to fix, what to leave open, and how to report it to a board.</p><span class="mark">Book a call</span></article>
+      <article class="segcard"><span class="tag">Business</span><h3>Finance directors and CFOs</h3>
+        <p>The margin in writing, the rails you already use, and analysis on your exposed pairs. Most of the value is the conversation about timing.</p><span class="mark">Book a call</span></article>
+      <article class="segcard"><span class="tag">Business</span><h3>Founders and owner-managers</h3>
+        <p>No treasury team, no time, and a currency line quietly eating margin. We do the thinking and tell you plainly what to do.</p><span class="mark">Book a call</span></article>
+      <article class="segcard"><span class="tag">Business</span><h3>Ecommerce brands</h3>
+        <p>You collect in several currencies and pay suppliers in another. Hold what you collect instead of converting twice.</p><span class="mark">Book a call</span></article>
+      <article class="segcard"><span class="tag">Business</span><h3>Professional services</h3>
+        <p>International clients, international fees, and a partnership that notices every point of margin. Accounts in the firm's own name.</p><span class="mark">Book a call</span></article>
+      <article class="segcard"><span class="tag">Private client</span><h3>Property buyers abroad</h3>
+        <p>The rate fixed before you commit, the payment landing on the completion date, and a person on the phone when a lawyer needs confirmation.</p><span class="mark">Book a call</span></article>
+    </div>
+  </div>
+</section>
+
+<!--
+  SECTION: fx-products-tabs
+  WP: repeatable block, 4 to 6 tabs
+  FIELDS: eyebrow, h2, intro, cta_label, cta_url,
+          tabs[] { label, heading, body, best_for, example_title,
+                   rows[] { term (text), value (text), highlight (toggle) } }
+  MOTION: none. JS sets [hidden] on the inactive panels only.
+  NOTES: this replaced a full-width rate chart, which was too heavy for a
+         homepage. Every panel's copy is in the HTML, so all six products
+         are indexable. Fuller treatment belongs on the service pages,
+         per 04-copy-rules item 6.
+-->
+<section class="band--paper pad" id="products">
+  <div class="wrap">
+    <div class="tr" data-from="left-bottom">
+      <div class="eyebrow"><span class="tick"></span>FX products</div>
+      <h2 class="split" data-split>You do not have to take today's rate on today's deadline.</h2>
+      <p class="lede">Four tools most people are never offered. Worked on £1m, so the difference is a number rather than a claim.</p>
+    </div>
+
+    <div role="tablist" aria-label="FX products" class="tabs-nav tr" data-from="bottom">
+      <button class="tab-btn" type="button" role="tab" id="t-spot" aria-selected="true" aria-controls="p-spot">Spot contract</button>
+      <button class="tab-btn" type="button" role="tab" id="t-limit" aria-selected="false" aria-controls="p-limit">Limit order</button>
+      <button class="tab-btn" type="button" role="tab" id="t-fwd" aria-selected="false" aria-controls="p-fwd">Forward contract</button>
+      <button class="tab-btn" type="button" role="tab" id="t-stop" aria-selected="false" aria-controls="p-stop">Stop-loss order</button>
+    </div>
+
+    <div class="tabpanels">
+      <div class="tabpanel" role="tabpanel" id="p-spot" aria-labelledby="t-spot">
+        <div>
+          <h3>Spot contract</h3>
+          <p class="plain">You convert at the live rate on the day the payment is due. The simplest trade, and the benchmark for everything else. It also means the market picks your rate for you.</p>
+          <div class="who"><b>Best for</b>A one-off payment you cannot move, where the rate on the day is the rate you take.</div>
+        </div>
+        <div class="eg">
+          <div class="egk">Worked on £1,000,000 into euros</div>
+          <dl>
+            <div class="row"><dt>Rate on the day</dt><dd>1.1480</dd></div>
+            <div class="row"><dt>You receive</dt><dd>&euro;1,148,000</dd></div>
+            <div class="row"><dt>Against benchmark</dt><dd>This is the benchmark</dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="tabpanel" role="tabpanel" id="p-limit" aria-labelledby="t-limit" hidden>
+        <div>
+          <h3>Limit order</h3>
+          <p class="plain">You name a rate better than the market and we watch it around the clock. If it hits, it executes automatically and you never had to sit at a screen. If it never hits, you trade at spot instead.</p>
+          <div class="who"><b>Best for</b>A payment with some flexibility on timing, and a view on the rate you want.</div>
+        </div>
+        <div class="eg">
+          <div class="egk">Worked on £1,000,000 into euros</div>
+          <dl>
+            <div class="row"><dt>Target rate, filled</dt><dd>1.1900</dd></div>
+            <div class="row"><dt>You receive</dt><dd>&euro;1,190,000</dd></div>
+            <div class="row"><dt>Against benchmark</dt><dd class="good">+&euro;42,000</dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="tabpanel" role="tabpanel" id="p-fwd" aria-labelledby="t-fwd" hidden>
+        <div>
+          <h3>Forward contract</h3>
+          <p class="plain">You fix a rate now for a payment months away, so the number in your forecast is the number you actually pay. You give up the upside, and in exchange the budget cannot be broken by a currency move.</p>
+          <div class="who"><b>Best for</b>A business with a budget rate to protect, or an SPV with a completion date months out.</div>
+        </div>
+        <div class="eg">
+          <div class="egk">Worked on £1,000,000 into euros</div>
+          <dl>
+            <div class="row"><dt>Rate fixed in advance</dt><dd>1.1680</dd></div>
+            <div class="row"><dt>You receive</dt><dd>&euro;1,168,000</dd></div>
+            <div class="row"><dt>Against benchmark</dt><dd class="good">+&euro;20,000, and certainty</dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="tabpanel" role="tabpanel" id="p-stop" aria-labelledby="t-stop" hidden>
+        <div>
+          <h3>Stop-loss order</h3>
+          <p class="plain">You set the worst rate you are willing to accept. If the market falls through it, the trade is done for you at the floor, which stops a further fall reaching your numbers.</p>
+          <div class="who"><b>Best for</b>Anyone holding out for a better rate who still needs a hard limit on the downside.</div>
+        </div>
+        <div class="eg">
+          <div class="egk">Worked on £1,000,000 into euros</div>
+          <dl>
+            <div class="row"><dt>Floor, triggered</dt><dd>1.1500</dd></div>
+            <div class="row"><dt>You receive</dt><dd>&euro;1,150,000</dd></div>
+            <div class="row"><dt>Against benchmark</dt><dd class="good">+&euro;2,000, floor held</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+
+    <p class="disc">Illustrative figures on one year of GBP to EUR, not a forecast. Market analysis and credit facilities are covered on the service pages. <a class="tlink" href="#" style="margin-left:8px">FX Risk Management</a></p>
+  </div>
+</section>
+
+<!--
+  SECTION: how-it-works
+  WP: repeatable block, exactly 3 steps, plus one notice
+  FIELDS: eyebrow, h2, steps[] { heading, body }, notice_badge, notice_body
+  MOTION: section corner transition only
+  NOTES: step numbers come from CSS counters, so reordering renumbers
+         automatically. Regulation notice required here, 04-copy-rules item 7.
+-->
+<section class="band--paper2 pad" id="how">
+  <div class="wrap">
+    <div class="tr" data-from="left-bottom">
+      <div class="eyebrow"><span class="tick"></span>How it works</div>
+      <h2 class="split" data-split>Three steps, and you are trading.</h2>
+    </div>
+    <div class="steps tr" data-from="bottom">
+      <div class="step"><h3>A call, not a form</h3><p>Thirty minutes with Ben on what you buy, what you sell and when. You leave with a view on your exposure whether you go ahead or not.</p></div>
+      <div class="step"><h3>Accounts opened</h3><p>Multi-currency accounts in your own name, onboarded with the compliance work handled properly rather than quickly.</p></div>
+      <div class="step"><h3>Trade, with someone on the end of it</h3><p>Convert, send and hedge, with a named person who knows your business and answers the phone at any hour.</p></div>
+    </div>
+    <div class="reg tr" data-from="bottom">
+      <span class="badge">Regulated</span>
+      <p>BLK.FX works only with regulated execution partners across the UK, the EEA and the US. Exact permissions and registration detail to be pulled from the current footer disclosures and signed off by Ben before publication.</p>
+    </div>
+  </div>
+</section>
+
+<!--
+  SECTION: indicative-rates
+  WP: repeatable block, 4 to 8 rows
+  FIELDS: eyebrow, h2, intro, cta_label, cta_url, disclaimer,
+          rows[] { pair, rate (number), decimals (number), our_margin, bank_margin }
+  MOTION: one row re-prints every 2.6s while in view only. Stops off screen.
+  NOTES: rates are printed in the HTML and only updated by JS, so the table
+         is complete with JS off. Up borrows the accent, down is red, no
+         green anywhere, per 09-colour-system.
+-->
+<section class="band--paper pad" id="rates">
   <div class="wrap two">
     <div class="tr" data-from="left-bottom">
       <div class="eyebrow"><span class="tick"></span>Indicative rates</div>
       <h2 class="split" data-split>What you would pay, next to what a bank would take.</h2>
-      <p class="lede">These are indicative mid-market rates with our margin shown beside them. Nothing hidden inside the number, because the number is the number.</p>
+      <p class="lede">Indicative mid-market rates with our margin shown beside them. Nothing hidden inside the number, because the number is the number.</p>
       <div style="margin-top:24px"><a class="btn" href="#book">Ask for a live quote <span class="arw">&rarr;</span></a></div>
     </div>
     <div class="tr" data-from="right-bottom">
       <div class="tablewrap">
         <table class="rates" id="ratesTable">
-          <thead>
-            <tr><th>Pair</th><th>Mid-market</th><th>Our margin</th><th>Bank margin</th></tr>
-          </thead>
+          <thead><tr><th>Pair</th><th>Mid-market</th><th>Our margin</th><th>Bank margin</th></tr></thead>
           <tbody>
             <tr><td>GBP / EUR</td><td><span class="st" data-rate="1.1648">1.1648</span></td><td class="sv">0.25%</td><td>2.10%</td></tr>
             <tr><td>GBP / USD</td><td><span class="st" data-rate="1.2714">1.2714</span></td><td class="sv">0.25%</td><td>2.00%</td></tr>
@@ -644,115 +803,20 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;background:var(--blk-
   </div>
 </section>
 
-<!-- 7. WHO WE HELP, horizontal track -->
-<section class="hor band band--paper2" id="who">
-  <div class="hor-stage">
-    <div class="wrap hor-head">
-      <div class="eyebrow"><span class="tick"></span>Who this is for</div>
-      <h2 class="split" data-split>Find yourself on this list.</h2>
-      <div class="progress"><i id="horBar"></i></div>
-    </div>
-
-    <div class="hor-track" id="horTrack">
-      <article class="segcard key">
-        <span class="tag">Structures</span>
-        <h3>SPVs, including property SPVs</h3>
-        <p>Accounts in the vehicle's own name, completion payments handled to a deadline, and forwards so the rate cannot move between exchange and completion.</p>
-        <span class="mark">Often refused elsewhere</span>
-      </article>
-      <article class="segcard key">
-        <span class="tag">Structures</span>
-        <h3>Trusts</h3>
-        <p>Most FX firms will not onboard a trust because the ownership work is harder. We already do it. Distributions paid out in the currency the beneficiary actually needs.</p>
-        <span class="mark">Often refused elsewhere</span>
-      </article>
-      <article class="segcard key">
-        <span class="tag">Structures</span>
-        <h3>Funds</h3>
-        <p>Capital calls and distributions in several currencies, on dates that cannot slip, with the currency hedged between commitment and drawdown where you want certainty.</p>
-        <span class="mark">Often refused elsewhere</span>
-      </article>
-      <article class="segcard key">
-        <span class="tag">Structures</span>
-        <h3>Venture capital</h3>
-        <p>You raise in one currency and your portfolio spends in another. Fix the rate on committed capital so a currency move does not quietly shorten a runway.</p>
-        <span class="mark">Often refused elsewhere</span>
-      </article>
-      <article class="segcard">
-        <span class="tag">Business</span>
-        <h3>PE backed and scaling</h3>
-        <p>Growth plans built on a budget rate that has to hold. We work out how much of the year to fix, what to leave open, and how to report it to a board that will ask.</p>
-        <span class="mark">Book a call</span>
-      </article>
-      <article class="segcard">
-        <span class="tag">Business</span>
-        <h3>Finance directors and CFOs</h3>
-        <p>The margin in writing, the rails you already use, and analysis on your exposed pairs. Most of the value is the conversation about timing, and that costs nothing.</p>
-        <span class="mark">Book a call</span>
-      </article>
-      <article class="segcard">
-        <span class="tag">Business</span>
-        <h3>Founders and owner-managers</h3>
-        <p>No treasury team, no time, and a currency line quietly eating margin. We do the thinking and tell you plainly what to do, without needing a finance degree.</p>
-        <span class="mark">Book a call</span>
-      </article>
-      <article class="segcard">
-        <span class="tag">Business</span>
-        <h3>Ecommerce brands</h3>
-        <p>You collect in several currencies and pay suppliers in another. Hold what you collect instead of converting twice, and convert when the rate suits you.</p>
-        <span class="mark">Book a call</span>
-      </article>
-      <article class="segcard">
-        <span class="tag">Business</span>
-        <h3>Professional services</h3>
-        <p>International clients, international fees, and a partnership that notices every point of margin. Accounts in the firm's name and a margin you can actually see.</p>
-        <span class="mark">Book a call</span>
-      </article>
-      <article class="segcard">
-        <span class="tag">Private client</span>
-        <h3>Property buyers abroad</h3>
-        <p>The rate fixed before you commit, the payment landing on the completion date, and a person on the phone when a lawyer needs confirmation on a Saturday.</p>
-        <span class="mark">Book a call</span>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- 8. HOW IT WORKS -->
-<section class="band band--paper pad" id="how">
-  <div class="wrap">
-    <div class="tr" data-from="left-bottom">
-      <div class="eyebrow"><span class="tick"></span>How it works</div>
-      <h2 class="split" data-split>Three steps, and you are trading.</h2>
-    </div>
-    <div class="steps tr" data-from="bottom">
-      <div class="step">
-        <h3>A call, not a form</h3>
-        <p>Thirty minutes with Ben on what you buy, what you sell and when. You leave with a view on your exposure whether you go ahead or not.</p>
-      </div>
-      <div class="step">
-        <h3>Accounts opened</h3>
-        <p>Multi-currency accounts in your own name, onboarded with the compliance work handled properly rather than quickly.</p>
-      </div>
-      <div class="step">
-        <h3>Trade, with someone on the end of it</h3>
-        <p>Convert, send and hedge, with a named person who knows your business and answers the phone at any hour.</p>
-      </div>
-    </div>
-    <div class="reg tr" data-from="bottom">
-      <span class="badge">Regulated</span>
-      <p>BLK.FX works only with regulated execution partners across the UK, the EEA and the US. Exact permissions and registration detail to be pulled from the current footer disclosures and signed off by Ben before publication.</p>
-    </div>
-  </div>
-</section>
-
-<!-- 9. SERVICE -->
-<section class="band band--ink pad">
+<!--
+  SECTION: service-24-7
+  WP: single block, reusable on every page
+  FIELDS: eyebrow, h2, intro, channels[] { label }, story, story_caption
+  MOTION: section corner transition only
+  NOTES: 04-copy-rules item 4b requires this message site-wide, so build it
+         as a reusable block, not a homepage-only section.
+-->
+<section class="band--ink pad">
   <div class="wrap two">
     <div class="tr" data-from="left-bottom">
       <div class="eyebrow"><span class="tick"></span>Service</div>
       <h2 class="split" data-split>Anyone can quote a rate. Very few will pick up at 11pm.</h2>
-      <p class="lede">Rates are public. What you are buying is judgement on timing, and a person who acts when something goes wrong.</p>
+      <p class="lede">What you are buying is judgement on timing, and a person who acts when something goes wrong.</p>
       <div class="chans"><span class="chan">Phone</span><span class="chan">Email</span><span class="chan">WhatsApp</span><span class="chan">24/7</span></div>
     </div>
     <div class="tr" data-from="right-bottom">
@@ -764,8 +828,16 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;background:var(--blk-
   </div>
 </section>
 
-<!-- 10. PROOF -->
-<section class="band band--paper2 pad">
+<!--
+  SECTION: trust-proof
+  WP: single block plus repeatable testimonials
+  FIELDS: eyebrow, h2, score (text), score_note, testimonials[] { quote, attribution }
+  MOTION: none. JS sets [hidden] on the inactive quotes only.
+  NOTES: all testimonials are in the HTML, so they are indexable and readable
+         with JS off. Score must be pulled live at build, never hardcoded,
+         per 04-copy-rules item 3.
+-->
+<section class="band--paper2 pad">
   <div class="wrap tr" data-from="scaleup">
     <div class="eyebrow"><span class="tick"></span>Proof</div>
     <h2 class="split" data-split>Rated by the people who use us.</h2>
@@ -777,39 +849,63 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;background:var(--blk-
       <p>On Trustpilot. Every single review left for BLK.FX is five star. Live score and review count to be pulled at build so the number never drifts.</p>
     </div>
 
-    <div class="quotebox">
-      <p id="qText">Client testimonial to be selected with Hannah. Two or three, named where the client allows it, each one about service rather than rate.</p>
-      <div class="by" id="qBy">Placeholder, needs client sign-off</div>
+    <div class="quotes">
+      <div class="quote" data-quote>
+        <p>Client testimonial to be selected with Hannah. Two or three, named where the client allows it, each one about service rather than rate.</p>
+        <div class="by">Placeholder, needs client sign-off</div>
+      </div>
+      <div class="quote" data-quote hidden>
+        <p>Second testimonial slot. Ideally one that names a stuck payment or a deadline that was met, because that is the story the site is telling.</p>
+        <div class="by">Placeholder, needs client sign-off</div>
+      </div>
+      <div class="quote" data-quote hidden>
+        <p>Third testimonial slot. Ideally from a structure client, a trust or an SPV, to back up the claim that we take on what others will not.</p>
+        <div class="by">Placeholder, needs client sign-off</div>
+      </div>
     </div>
-    <div class="qnav">
-      <button type="button" id="qPrev" aria-label="Previous testimonial">&larr;</button>
-      <button type="button" id="qNext" aria-label="Next testimonial">&rarr;</button>
+    <div class="qfoot">
+      <div class="arrows">
+        <button type="button" id="qPrev" aria-label="Previous testimonial">&larr;</button>
+        <button type="button" id="qNext" aria-label="Next testimonial">&rarr;</button>
+      </div>
+      <div class="progress" style="max-width:180px"><i id="qBar" style="width:33.33%"></i></div>
     </div>
   </div>
 </section>
 
-<!-- 11. SEARCH COPY -->
-<section class="band band--paper pad">
+<!--
+  SECTION: search-copy
+  WP: repeatable block, 3 to 6 question and answer pairs
+  FIELDS: eyebrow, items[] { question (renders as h3), answer (rich text) }
+  MOTION: none
+  NOTES: question-led headings with the answer in the first sentence,
+         because FAQ blocks cannot be added on this build. Serves AI
+         citation too. Do not delete this to shorten the page.
+-->
+<section class="band--paper pad">
   <div class="wrap tr" data-from="bottom">
     <div class="eyebrow"><span class="tick"></span>In plain terms</div>
     <div class="prose">
       <h3>What does a foreign exchange consultancy actually do?</h3>
       <p>A foreign exchange consultancy sits between your business and the market, and is paid on the conversion rather than on advice. BLK.FX opens multi-currency accounts, moves money across borders, and helps finance teams decide when to convert and how much risk to carry. We are not a bank and we are not a software platform.</p>
-
       <h3>How much does it cost to send money internationally?</h3>
       <p>The real cost is almost never the transfer fee, it is the margin built into the exchange rate. A high street bank typically takes between 1% and 3%. BLK.FX takes between 0.2% and 0.6%, agreed with you before the trade. On large or regular volumes that difference is the single biggest saving available to a finance team.</p>
-
       <h3>What is hedging, and does my business need it?</h3>
       <p>Hedging means fixing some or all of a future exchange rate now, so a currency move cannot damage a budget you have already set. If you buy or sell in a currency other than the one you report in, and you plan more than a month ahead, you are carrying currency risk whether you have named it or not.</p>
-
       <h3>Can you work with trusts, funds and SPVs?</h3>
       <p>Yes. Structures like trusts, funds, property SPVs and venture capital vehicles are often turned away by payment providers because the compliance work is heavier. It is work we already do, and it is one of the clearest reasons clients come to us rather than to a bank.</p>
     </div>
   </div>
 </section>
 
-<!-- 12. BOOK -->
-<section class="band band--ink pad final" id="book">
+<!--
+  SECTION: book-a-call
+  WP: single block, reusable on every page
+  FIELDS: eyebrow, h2, intro, cta_label, cta_url, note
+  MOTION: section corner transition only
+  NOTES: every page ends with this. Links to a calendar, not a form.
+-->
+<section class="band--ink pad final" id="book">
   <div class="wrap tr" data-from="scaleup">
     <div class="eyebrow"><span class="tick"></span>The next step</div>
     <h2 class="split" data-split>Thirty minutes. You will learn something either way.</h2>
@@ -834,25 +930,34 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;background:var(--blk-
     <button class="s-ultra"  type="button" data-acc="ultra"  aria-pressed="true"  aria-label="Ultramarine"></button>
     <button class="s-petrol" type="button" data-acc="petrol" aria-pressed="false" aria-label="Petrol teal"></button>
     <button class="s-cobalt" type="button" data-acc="cobalt" aria-pressed="false" aria-label="Cobalt"></button>
-    <button class="s-mono"   type="button" data-acc="mono"   aria-pressed="false" aria-label="No accent, mono"></button>
+    <button class="s-mono"   type="button" data-acc="mono"   aria-pressed="false" aria-label="No accent"></button>
   </span>
   <span class="name" id="accName">Ultramarine</span>
 </div>
-
 <button class="totop" id="totop" type="button" aria-label="Back to top">&uarr;</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
 <script>
 (function(){
 "use strict";
-document.documentElement.classList.add('js');
-var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* ============================================================
+   JavaScript ENHANCES only. It never writes content.
+   Every word on this page is in the HTML above. Turn JS off and
+   the page is complete, readable and crawlable.
+   ============================================================ */
 var $ = function(id){ return document.getElementById(id); };
+var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var hasGSAP = typeof window.gsap !== 'undefined' && typeof window.ScrollTrigger !== 'undefined';
+var motion = hasGSAP && !reduce;
+if(motion){ gsap.registerPlugin(ScrollTrigger); }
+else { document.documentElement.classList.add('no-motion'); }
 
-/* ---------- splitText, per iFX .splitText ---------- */
+/* ---------- split headlines into words (wraps existing text, adds none) ---------- */
 document.querySelectorAll('[data-split]').forEach(function(el){
-  var html = el.innerHTML;
   var tmp = document.createElement('div');
-  tmp.innerHTML = html;
+  tmp.innerHTML = el.innerHTML;
   var out = '';
   Array.prototype.forEach.call(tmp.childNodes, function(node){
     if(node.nodeType === 3){
@@ -865,21 +970,7 @@ document.querySelectorAll('[data-split]').forEach(function(el){
     }
   });
   el.innerHTML = out;
-  el.querySelectorAll('.w > i').forEach(function(i, n){
-    i.style.transitionDelay = (n * 0.045) + 's';
-  });
 });
-
-/* ---------- corner transitions + split reveal ---------- */
-var animated = document.querySelectorAll('.tr, .split');
-if(reduce || !('IntersectionObserver' in window)){
-  animated.forEach(function(el){ el.classList.add('in'); });
-} else {
-  var io = new IntersectionObserver(function(es){
-    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, {threshold:.15, rootMargin:'0px 0px -60px 0px'});
-  animated.forEach(function(el){ io.observe(el); });
-}
 
 /* ---------- market sessions, real UTC ---------- */
 function sessions(){
@@ -893,223 +984,187 @@ function sessions(){
 }
 sessions(); setInterval(sessions, 60000);
 
-/* ---------- count up ---------- */
-var nums = document.querySelectorAll('[data-count]');
-function count(el){
-  var target = parseFloat(el.dataset.count), pre = el.dataset.prefix||'', suf = el.dataset.suffix||'';
-  if(reduce){ el.textContent = pre + target + suf; return; }
-  var start = performance.now(), dur = 1100;
-  function step(t){
-    var p = Math.min((t-start)/dur,1), e = 1 - Math.pow(1-p,3);
-    el.textContent = pre + Math.round(target*e) + suf;
-    if(p<1) requestAnimationFrame(step);
+/* ---------- INTERACTIVE 1: services slider (iFX accounts-slider) ---------- */
+(function(){
+  var track = $('svcTrack'), prev = $('svcPrev'), next = $('svcNext'), bar = $('svcBar');
+  if(!track) return;
+  var i = 0;
+  function step(){
+    var card = track.children[0];
+    if(!card) return 0;
+    return card.getBoundingClientRect().width + 16;
   }
-  requestAnimationFrame(step);
-}
-if(!('IntersectionObserver' in window)){ nums.forEach(count); }
-else {
-  var io2 = new IntersectionObserver(function(es){
-    es.forEach(function(e){ if(e.isIntersecting){ count(e.target); io2.unobserve(e.target); } });
-  }, {threshold:.5});
-  nums.forEach(function(n){ io2.observe(n); });
-}
-
-/* ---------- INTERACTIVE 1: margin calculator ---------- */
-var BANK_LO=0.01, BANK_HI=0.03, BLK_LO=0.002, BLK_HI=0.006;
-var pairAdj = {
-  'p-gbpeur':{m:1,note:'Illustrative only, based on typical margins on a major pair.'},
-  'p-gbpusd':{m:1,note:'Illustrative only, based on typical margins on a major pair.'},
-  'p-eurusd':{m:1,note:'Illustrative only, based on typical margins on a major pair.'},
-  'p-other': {m:1.5,note:'Less liquid pairs carry a wider margin everywhere, and the gap against a bank usually widens with them.'}
-};
-var curPair = 'p-gbpeur';
-function money(n){ return '£' + Math.round(n).toLocaleString('en-GB'); }
-function calc(){
-  var v = parseInt($('vol').value,10), a = pairAdj[curPair];
-  var bLo=v*BANK_LO*a.m, bHi=v*BANK_HI*a.m, kLo=v*BLK_LO*a.m, kHi=v*BLK_HI*a.m;
-  $('volOut').textContent = '£' + v.toLocaleString('en-GB');
-  $('bankVal').textContent = money(bLo)+' to '+money(bHi);
-  $('blkVal').textContent  = money(kLo)+' to '+money(kHi);
-  $('saveVal').textContent = money(bLo-kHi)+' to '+money(bHi-kLo);
-  $('disc').textContent = a.note + ' Figures to be confirmed with Ben before this goes live.';
-  $('bankFill').style.width = '100%';
-  $('blkFill').style.width = ((kHi/bHi)*100).toFixed(1) + '%';
-}
-$('vol').addEventListener('input', calc);
-Object.keys(pairAdj).forEach(function(id){
-  $(id).addEventListener('click', function(){
-    Object.keys(pairAdj).forEach(function(o){ $(o).setAttribute('aria-pressed', String(o===id)); });
-    curPair = id; calc();
-  });
-});
-calc();
-
-/* ---------- INTERACTIVE 2: strategy selector (bound.co pattern) ---------- */
-var path = [1.168,1.175,1.161,1.184,1.172,1.196,1.181,1.152,1.166,1.141,1.159,1.148];
-var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-var LO=1.13, HI=1.20, X0=66, X1=614, Y0=36, Y1=220;
-function accentInk(){ return getComputedStyle(document.documentElement).getPropertyValue('--blk-accent-ink').trim() || '#7C88FF'; }
-var SPOT = path[path.length-1];
-function xOf(i){ return X0 + i*((X1-X0)/(path.length-1)); }
-function yOf(r){ return Y1 - ((r-LO)/(HI-LO))*(Y1-Y0); }
-
-var STRATS = {
-  's-spot':{name:'Spot contract',rate:SPOT,mark:11,line:null,
-    copy:'You convert at the live rate on the day the payment is due. Simple, and the benchmark for everything else. It also means the market picks your rate for you.',
-    who:'A one-off payment you cannot move, where the rate on the day is the rate you take.'},
-  's-limit':{name:'Limit order',rate:1.190,mark:5,line:{r:1.190,dash:true,tag:'Target 1.1900, filled in Jun'},
-    copy:'You name a rate better than the market and we watch it around the clock. In this year it filled in June and you never had to sit at a screen. If it never hits, you trade at spot instead.',
-    who:'Anyone with a payment that has some flexibility on timing, and an idea of the rate they want.'},
-  's-forward':{name:'Forward contract',rate:1.168,mark:0,line:{r:1.168,dash:false,tag:'Fixed 1.1680 in Jan'},
-    copy:'You fix January’s rate for the whole year, so the number in your forecast is the number you actually pay. You give up the upside, and the budget cannot be broken by a currency move.',
-    who:'A business with a budget rate to protect, or an SPV with a completion date months away.'},
-  's-stop':{name:'Stop-loss order',rate:1.150,mark:9,line:{r:1.150,dash:true,tag:'Floor 1.1500, triggered in Oct'},
-    copy:'You set the worst rate you are willing to accept. The market fell through it in October and the trade was done for you at the floor, which stopped the further fall reaching your numbers.',
-    who:'Anyone holding out for a better rate who still needs a hard limit on the downside.'},
-  's-credit':{name:'Credit facility',rate:1.168,mark:0,line:{r:1.168,dash:false,tag:'Forward fixed, deposit funded by facility'},
-    copy:'Fixing a rate normally means putting down a deposit. Through partner lenders that deposit can be funded instead, so you keep the working capital and still lock the rate. Subject to a conversation.',
-    who:'Businesses that want a forward but cannot afford to tie up cash to get one.'}
-};
-var curStrat = 's-spot';
-function svgEl(n,a,t){
-  var el = document.createElementNS('http://www.w3.org/2000/svg', n);
-  Object.keys(a).forEach(function(k){ el.setAttribute(k,a[k]); });
-  if(t!=null) el.textContent = t;
-  return el;
-}
-function drawChart(key){
-  var s = STRATS[key], svg = $('chart'), AC = accentInk();
-  while(svg.firstChild) svg.removeChild(svg.firstChild);
-  [1.20,1.165,1.13].forEach(function(r){
-    svg.appendChild(svgEl('line',{x1:X0,y1:yOf(r),x2:X1,y2:yOf(r),stroke:'rgba(250,250,250,.09)','stroke-width':1}));
-    svg.appendChild(svgEl('text',{x:4,y:yOf(r)+4,fill:'#8A8A8E','font-family':'IBM Plex Mono, monospace','font-size':11}, r.toFixed(3)));
-  });
-  [0,5,11].forEach(function(i){
-    svg.appendChild(svgEl('text',{x:xOf(i)-10,y:252,fill:'#8A8A8E','font-family':'IBM Plex Mono, monospace','font-size':11}, months[i]));
-  });
-  var pts = path.map(function(r,i){ return xOf(i)+','+yOf(r); }).join(' ');
-  svg.appendChild(svgEl('polyline',{points:pts,fill:'none',stroke:'#FAFAFA','stroke-width':1.5,'stroke-linejoin':'round','stroke-opacity':.5}));
-  if(s.line){
-    svg.appendChild(svgEl('line',{x1:X0,y1:yOf(s.line.r),x2:X1,y2:yOf(s.line.r),stroke:AC,'stroke-width':1.8,'stroke-dasharray': s.line.dash?'6 5':'0'}));
-    var ty = yOf(s.line.r) - 10;
-    if(ty < Y0+12) ty = yOf(s.line.r) + 20;
-    svg.appendChild(svgEl('text',{x:X0+4,y:ty,fill:AC,'font-family':'IBM Plex Mono, monospace','font-size':11}, s.line.tag));
+  function maxIndex(){
+    var per = Math.max(Math.floor(track.parentElement.clientWidth / step()), 1);
+    return Math.max(track.children.length - per, 0);
   }
-  var mx = xOf(s.mark), my = yOf(s.line ? s.line.r : path[s.mark]);
-  svg.appendChild(svgEl('line',{x1:mx,y1:Y0-6,x2:mx,y2:Y1+6,stroke:AC,'stroke-opacity':.32,'stroke-width':1}));
-  svg.appendChild(svgEl('circle',{cx:mx,cy:my,r:5,fill:AC}));
-  svg.appendChild(svgEl('circle',{cx:mx,cy:my,r:10,fill:'none',stroke:AC,'stroke-opacity':.3,'stroke-width':1}));
+  function render(){
+    var m = maxIndex();
+    if(i > m) i = m;
+    track.style.transform = 'translate3d(' + (-i * step()) + 'px,0,0)';
+    var per = track.children.length - m;
+    bar.style.width = ((per / track.children.length) * 100).toFixed(1) + '%';
+    bar.style.transform = 'translateX(' + (m ? (i / m) * ((track.children.length - per) / per) * 100 : 0) + '%)';
+    prev.disabled = i <= 0;
+    next.disabled = i >= m;
+  }
+  prev.addEventListener('click', function(){ i = Math.max(i - 1, 0); render(); });
+  next.addEventListener('click', function(){ i = Math.min(i + 1, maxIndex()); render(); });
+  window.addEventListener('resize', render);
+  render();
+})();
 
-  var eur = 1000000*s.rate, diff = eur - 1000000*SPOT;
-  $('chartMode').textContent = s.name;
-  $('stratName').textContent = s.name;
-  $('rOut').textContent = s.rate.toFixed(4);
-  $('rEur').textContent = '€' + Math.round(eur).toLocaleString('en-GB');
-  $('rDiff').textContent = diff===0 ? 'Benchmark' : (diff>0?'+':'−') + '€' + Math.abs(Math.round(diff)).toLocaleString('en-GB');
-  $('rDiff').className = 'v' + (diff>0 ? ' good' : '');
-  $('stratCopy').textContent = s.copy;
-  $('stratWho').textContent = s.who;
-}
-Object.keys(STRATS).forEach(function(id){
-  $(id).addEventListener('click', function(){
-    Object.keys(STRATS).forEach(function(o){ $(o).setAttribute('aria-selected', String(o===id)); });
-    curStrat = id; drawChart(id);
-  });
-});
-drawChart(curStrat);
-
-/* ---------- INTERACTIVE 3: indicative rates, tick while in view ---------- */
-var rateCells = document.querySelectorAll('#ratesTable .st');
-var ratesLive = false, ratesTimer = null;
-function tick(){
-  var cell = rateCells[Math.floor(Math.random()*rateCells.length)];
-  var base = parseFloat(cell.dataset.rate);
-  var dp = base > 10 ? 3 : 4;
-  var cur = parseFloat(cell.textContent);
-  var next = cur + (Math.random()-0.5) * base * 0.0012;
-  if(Math.abs(next-base) > base*0.004) next = base;
-  cell.textContent = next.toFixed(dp);
-  cell.classList.remove('up','down');
-  cell.classList.add(next >= cur ? 'up' : 'down', 'flash');
-  setTimeout(function(){ cell.classList.remove('flash'); }, 700);
-}
-if(!reduce && 'IntersectionObserver' in window){
-  var io3 = new IntersectionObserver(function(es){
-    es.forEach(function(e){
-      if(e.isIntersecting && !ratesLive){ ratesLive = true; ratesTimer = setInterval(tick, 2600); }
-      else if(!e.isIntersecting && ratesLive){ ratesLive = false; clearInterval(ratesTimer); }
+/* ---------- INTERACTIVE 2: FX product tabs (toggles [hidden] only) ---------- */
+(function(){
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tabs-nav [role="tab"]'));
+  if(!tabs.length) return;
+  function select(tab){
+    tabs.forEach(function(t){
+      var on = t === tab;
+      t.setAttribute('aria-selected', String(on));
+      var panel = $(t.getAttribute('aria-controls'));
+      if(panel) panel.hidden = !on;
     });
-  }, {threshold:.25});
-  io3.observe($('ratesTable'));
-}
-
-/* ---------- INTERACTIVE 4: horizontal scroll track ---------- */
-var hor = document.querySelector('.hor'), track = $('horTrack'), horBar = $('horBar');
-var horOn = false;
-function setupHor(){
-  var can = window.innerWidth > 1040 && !reduce;
-  if(can && !horOn){ horOn = true; }
-  else if(!can){ hor.style.height=''; track.style.transform=''; horOn=false; return; }
-  var overflow = Math.max(track.scrollWidth - window.innerWidth, 0);
-  hor.style.height = (window.innerHeight + overflow + 200) + 'px';
-  onHor();
-}
-function onHor(){
-  if(!horOn) return;
-  var r = hor.getBoundingClientRect();
-  var total = hor.offsetHeight - window.innerHeight;
-  var p = Math.min(Math.max(-r.top/total, 0), 1);
-  var overflow = Math.max(track.scrollWidth - window.innerWidth + 40, 0);
-  track.style.transform = 'translate3d(' + (-overflow*p) + 'px,0,0)';
-  horBar.style.width = (20 + p*80) + '%';
-}
-window.addEventListener('load', setupHor);
-setupHor();
-window.addEventListener('scroll', onHor, {passive:true});
-window.addEventListener('resize', setupHor);
-
-/* ---------- testimonial slider ---------- */
-var QUOTES = [
-  {t:'Client testimonial to be selected with Hannah. Two or three, named where the client allows it, each one about service rather than rate.', b:'Placeholder, needs client sign-off'},
-  {t:'Second testimonial slot. Ideally one that names a stuck payment or a deadline that was met, because that is the story the site is telling.', b:'Placeholder, needs client sign-off'},
-  {t:'Third testimonial slot. Ideally from a structure client, a trust or an SPV, to back up the claim that we take on what others will not.', b:'Placeholder, needs client sign-off'}
-];
-var qi = 0;
-function showQuote(){ $('qText').textContent = QUOTES[qi].t; $('qBy').textContent = QUOTES[qi].b; }
-$('qNext').addEventListener('click', function(){ qi = (qi+1)%QUOTES.length; showQuote(); });
-$('qPrev').addEventListener('click', function(){ qi = (qi-1+QUOTES.length)%QUOTES.length; showQuote(); });
-
-/* ---------- accent switcher (review tool) ---------- */
-var ACC_NAMES = {ultra:'Ultramarine', petrol:'Petrol teal', cobalt:'Cobalt', mono:'No accent'};
-document.querySelectorAll('#accbar .sw button').forEach(function(b){
-  b.addEventListener('click', function(){
-    var key = b.dataset.acc;
-    document.querySelectorAll('#accbar .sw button').forEach(function(o){
-      o.setAttribute('aria-pressed', String(o === b));
-    });
-    if(key === 'ultra') document.documentElement.removeAttribute('data-accent');
-    else document.documentElement.setAttribute('data-accent', key);
-    $('accName').textContent = ACC_NAMES[key];
-    drawChart(curStrat);
-    try{ localStorage.setItem('blkfx-accent', key); }catch(e){}
-  });
-});
-try{
-  var saved = localStorage.getItem('blkfx-accent');
-  if(saved && ACC_NAMES[saved]){
-    var btn = document.querySelector('#accbar .sw button[data-acc="'+saved+'"]');
-    if(btn) btn.click();
   }
-}catch(e){}
+  tabs.forEach(function(t, n){
+    t.addEventListener('click', function(){ select(t); });
+    t.addEventListener('keydown', function(e){
+      var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if(!d) return;
+      e.preventDefault();
+      var nx = tabs[(n + d + tabs.length) % tabs.length];
+      nx.focus(); select(nx);
+    });
+  });
+})();
+
+/* ---------- INTERACTIVE 3: testimonial slider (toggles [hidden] only) ---------- */
+(function(){
+  var qs = Array.prototype.slice.call(document.querySelectorAll('[data-quote]'));
+  var bar = $('qBar');
+  if(qs.length < 2) return;
+  var i = 0;
+  function render(){
+    qs.forEach(function(q, n){ q.hidden = n !== i; });
+    bar.style.width = (100 / qs.length).toFixed(2) + '%';
+    bar.style.transform = 'translateX(' + (i * 100) + '%)';
+  }
+  $('qNext').addEventListener('click', function(){ i = (i + 1) % qs.length; render(); });
+  $('qPrev').addEventListener('click', function(){ i = (i - 1 + qs.length) % qs.length; render(); });
+  render();
+})();
+
+/* ---------- INTERACTIVE 4: indicative rates, tick while in view only ---------- */
+(function(){
+  var cells = document.querySelectorAll('#ratesTable .st');
+  var live = false, timer = null;
+  function tick(){
+    var cell = cells[Math.floor(Math.random() * cells.length)];
+    var base = parseFloat(cell.dataset.rate);
+    var dp = base > 10 ? 3 : 4;
+    var cur = parseFloat(cell.textContent);
+    var next = cur + (Math.random() - 0.5) * base * 0.0012;
+    if(Math.abs(next - base) > base * 0.004) next = base;
+    cell.textContent = next.toFixed(dp);
+    cell.classList.remove('up','down');
+    cell.classList.add(next >= cur ? 'up' : 'down', 'flash');
+    setTimeout(function(){ cell.classList.remove('flash'); }, 700);
+  }
+  if(motion && 'IntersectionObserver' in window){
+    new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting && !live){ live = true; timer = setInterval(tick, 2600); }
+        else if(!e.isIntersecting && live){ live = false; clearInterval(timer); }
+      });
+    }, {threshold:.25}).observe($('ratesTable'));
+  }
+})();
+
+/* ---------- accent switcher (review tool, removed before launch) ---------- */
+(function(){
+  var NAMES = {ultra:'Ultramarine', petrol:'Petrol teal', cobalt:'Cobalt', mono:'No accent'};
+  document.querySelectorAll('#accbar .sw button').forEach(function(b){
+    b.addEventListener('click', function(){
+      var key = b.dataset.acc;
+      document.querySelectorAll('#accbar .sw button').forEach(function(o){
+        o.setAttribute('aria-pressed', String(o === b));
+      });
+      if(key === 'ultra') document.documentElement.removeAttribute('data-accent');
+      else document.documentElement.setAttribute('data-accent', key);
+      $('accName').textContent = NAMES[key];
+      try{ localStorage.setItem('blkfx-accent', key); }catch(e){}
+    });
+  });
+  try{
+    var saved = localStorage.getItem('blkfx-accent');
+    if(saved && NAMES[saved]){
+      var btn = document.querySelector('#accbar .sw button[data-acc="' + saved + '"]');
+      if(btn) btn.click();
+    }
+  }catch(e){}
+})();
 
 /* ---------- back to top ---------- */
-var totop = $('totop');
-window.addEventListener('scroll', function(){
-  totop.classList.toggle('on', window.scrollY > window.innerHeight);
-}, {passive:true});
-totop.addEventListener('click', function(){
-  window.scrollTo({top:0, behavior: reduce ? 'auto' : 'smooth'});
-});
+(function(){
+  var totop = $('totop');
+  window.addEventListener('scroll', function(){
+    totop.classList.toggle('on', window.scrollY > window.innerHeight);
+  }, {passive:true});
+  totop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior: reduce ? 'auto' : 'smooth'});
+  });
+})();
 
+/* ============================================================
+   MOTION. All gsap.from(), so the resting state is what the CSS
+   already describes and nothing is pre-hidden.
+   ============================================================ */
+if(motion){
+  var FROM = {
+    'right-top':    {xPercent: 12,  y: -46, rotate:  2.2},
+    'right-bottom': {xPercent: 12,  y:  54, rotate: -2.2},
+    'left-bottom':  {xPercent: -12, y:  54, rotate:  2.2},
+    'bottom':       {xPercent: 0,   y:  60, rotate:  0},
+    'scaleup':      {xPercent: 0,   y:  44, rotate:  0, scale: .94}
+  };
+  document.querySelectorAll('.tr').forEach(function(el){
+    var f = FROM[el.dataset.from] || FROM.bottom;
+    gsap.from(el, {
+      opacity: 0, xPercent: f.xPercent, y: f.y, rotate: f.rotate, scale: f.scale || 1,
+      duration: 1.15, ease: 'expo.out',
+      scrollTrigger: {trigger: el, start: 'top 88%', once: true}
+    });
+  });
+  document.querySelectorAll('.split').forEach(function(el){
+    gsap.from(el.querySelectorAll('.w > i'), {
+      yPercent: 108, duration: .95, ease: 'expo.out', stagger: .045,
+      scrollTrigger: {trigger: el, start: 'top 90%', once: true}
+    });
+  });
+  document.querySelectorAll('[data-count]').forEach(function(el){
+    var target = parseFloat(el.dataset.count), pre = el.dataset.prefix||'', suf = el.dataset.suffix||'';
+    var o = {v: 0};
+    gsap.to(o, {
+      v: target, duration: 1.3, ease: 'power3.out',
+      onUpdate: function(){ el.textContent = pre + Math.round(o.v) + suf; },
+      scrollTrigger: {trigger: el, start: 'top 92%', once: true}
+    });
+  });
+
+  /* pinned horizontal segment track, the iFX js-hor-scroll pattern */
+  var track = $('horTrack');
+  ScrollTrigger.matchMedia({
+    '(min-width: 1041px)': function(){
+      var overflow = function(){ return Math.max(track.scrollWidth - window.innerWidth + 40, 0); };
+      var st = ScrollTrigger.create({
+        trigger: '.hor', start: 'top top',
+        end: function(){ return '+=' + (overflow() + window.innerHeight * 0.4); },
+        pin: '.hor-stage', scrub: 0.8, invalidateOnRefresh: true,
+        onUpdate: function(self){ gsap.set(track, {x: -overflow() * self.progress}); }
+      });
+      return function(){ gsap.set(track, {clearProps:'x'}); st.kill(); };
+    }
+  });
+}
 })();
 </script>
