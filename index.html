@@ -1,1123 +1,548 @@
-<title>BLK.FX Homepage Direction</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&display=swap">
+BLK homepage motion blueprint
 
-<style>
-/* ============================================================
-   BLK.FX homepage direction
-   Tokens per 03-design-direction.md, accent per 09-colour-system.md
-   Every word of content lives in the HTML. JavaScript only ever
-   toggles visibility or moves things. Nothing is generated.
-   ============================================================ */
-:root{
-  --blk-ink:#0A0A0A;
-  --blk-ink-2:#141416;
-  --blk-paper:#FAFAFA;
-  --blk-paper-2:#F0EFEC;
-  --blk-paper-3:#E4E3DE;
-  --blk-line:rgba(10,10,10,.13);
-  --blk-line-ink:rgba(250,250,250,.15);
-  --blk-mute:#63625E;
-  --blk-mute-ink:#8A8A8E;
+I went back through the code you supplied rather than just working from what it visually looked like.
 
-  /* Black and white only. No accent colour for now.
-     Emphasis is carried by weight, rule, inversion and direction
-     glyphs instead of hue. One token set, nothing to switch. */
-  --blk-accent:#0A0A0A;
-  --blk-accent-text:#0A0A0A;
-  --blk-accent-ink:#FAFAFA;
-  --blk-accent-on:#FAFAFA;
-  --blk-accent-on-ink:#0A0A0A;
+There are several things worth borrowing. The source contains large and medium marquee components, including a reverse-moving variant. It also contains horizontal/overflow treatments and Swiper controls.
 
-  --display:"Archivo","Helvetica Neue",Arial,sans-serif;
-  --prose:"Newsreader","Iowan Old Style",Georgia,serif;
-  --data:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
-  --gutter:clamp(20px,5vw,72px);
-  --maxw:1240px;
-  color-scheme:light;
-}
+We're going to borrow those behaviors, but translate them into BLK's black/white/teal/copper visual language.
 
-*{box-sizing:border-box}
-body{margin:0;background:var(--blk-paper);color:var(--blk-ink);font-family:var(--display);
-  font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img{max-width:100%}
-a{color:inherit}
-:focus-visible{outline:2px solid var(--blk-accent);outline-offset:3px}
-button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
-[hidden]{display:none!important}
+01. Hero: ambient, not animated to death
 
-.page-bg{position:fixed;inset:0;z-index:0;pointer-events:none;
-  background-image:linear-gradient(90deg,var(--blk-line) 1px,transparent 1px);
-  background-size:calc(100% / 6) 100%;opacity:.5}
-main,.nav,.foot{position:relative;z-index:1}
-main{perspective:1400px}
+Content
 
-.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--gutter);width:100%}
-.band--paper{background:var(--blk-paper)}
-.band--paper2{background:var(--blk-paper-2)}
-.band--ink{background:var(--blk-ink);color:var(--blk-paper)}
-.band--ink .lede{color:#BFBFBD}
-.band--ink .eyebrow{color:var(--blk-mute-ink)}
-.pad{padding-block:clamp(60px,8vw,112px)}
+Be more efficient with your foreign currency.
 
-.eyebrow{font-family:var(--data);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--blk-mute);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.eyebrow .tick{display:inline-block;width:22px;height:1px;background:currentColor;opacity:.55}
-h2{font-size:clamp(28px,4.2vw,46px);font-weight:600;letter-spacing:-.03em;line-height:1.05;margin:16px 0 0;text-wrap:balance;max-width:20ch}
-.lede{font-family:var(--prose);font-weight:300;font-size:clamp(16px,1.6vw,18.5px);line-height:1.6;margin-top:16px;max-width:54ch;color:#3E3E3B}
+Supporting proposition + Book a Call.
 
-.btn{display:inline-flex;align-items:center;gap:10px;background:var(--blk-ink);color:var(--blk-paper);
-  font-weight:600;font-size:14px;padding:12px 20px;border-radius:2px;text-decoration:none;
-  border:1px solid var(--blk-ink);transition:transform .18s,box-shadow .25s;white-space:nowrap}
-.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(10,10,10,.18)}
-.btn .arw{transition:transform .2s}
-.btn:hover .arw{transform:translateX(4px)}
-.btn--lg{padding:16px 28px;font-size:15px}
-.btn--accent{background:var(--blk-accent);border-color:var(--blk-accent);color:var(--blk-accent-on)}
-.band--ink .btn{background:var(--blk-accent-ink);border-color:var(--blk-accent-ink);color:var(--blk-accent-on-ink)}
-.tlink{font-family:var(--data);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
-  text-decoration:none;color:var(--blk-accent-text);border-bottom:1px solid currentColor;padding-bottom:2px}
-.band--ink .tlink{color:var(--blk-accent-ink)}
+Movement
 
-/* ---------- nav, per 05-site-architecture ---------- */
-.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:80;background:rgba(250,250,250,.9);
-  backdrop-filter:blur(14px);border-bottom:1px solid var(--blk-line)}
-.nav-in{display:flex;align-items:center;gap:20px;height:66px}
-.brand{font-weight:700;letter-spacing:.02em;font-size:18px;text-decoration:none;white-space:nowrap}
-.brand span{color:var(--blk-accent-text)}
-.menu{display:flex;gap:2px;margin:0 0 0 10px;flex:1;list-style:none;padding:0}
-.menu > li{position:relative}
-.menu > li > button,.menu > li > a{display:flex;align-items:center;gap:6px;font-size:14px;color:#3E3E3B;
-  padding:10px 12px;text-decoration:none;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
-.menu > li:hover > button,.menu > li:focus-within > button,.menu > li > a:hover{color:var(--blk-ink);border-color:var(--blk-accent)}
-.caret{width:6px;height:6px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.6}
-.drop{position:absolute;top:100%;left:0;min-width:272px;background:#fff;border:1px solid var(--blk-line);
-  padding:8px;display:grid;gap:2px;opacity:0;visibility:hidden;transform:translateY(-6px);
-  transition:opacity .18s,transform .18s,visibility .18s;box-shadow:0 18px 40px rgba(10,10,10,.09)}
-.menu > li:hover .drop,.menu > li:focus-within .drop{opacity:1;visibility:visible;transform:none}
-.drop a{display:block;padding:9px 12px;font-size:14px;text-decoration:none;color:#3E3E3B;border-left:1px solid transparent;transition:background .18s,color .18s,border-color .18s}
-.drop a:hover{background:var(--blk-paper-2);color:var(--blk-ink);border-left-color:var(--blk-accent)}
-.drop .all{font-family:var(--data);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blk-mute);margin-top:4px;border-top:1px solid var(--blk-line);padding-top:12px}
-.drop .paused{color:#9A9995;font-size:12.5px;padding:6px 12px;font-style:italic}
-.nav-right{display:flex;align-items:center;gap:16px;margin-left:auto}
-.login{font-size:12.5px;color:var(--blk-mute);text-decoration:none}
-.login:hover{color:var(--blk-ink)}
-.burger{display:none;width:38px;height:38px;border:1px solid var(--blk-line);align-items:center;justify-content:center}
-.burger span{display:block;width:16px;height:1px;background:currentColor;position:relative}
-.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:16px;height:1px;background:currentColor}
-.burger span::before{top:-5px}.burger span::after{top:5px}
+This should be one of the most visually impressive areas, but the text itself shouldn't fly around.
 
-/* ---------- motion ---------- */
-.tr{will-change:transform,opacity}
-.split .w{display:inline-block;overflow:hidden;vertical-align:top}
-.split .w > i{display:inline-block;font-style:inherit}
+I'd use the abstract ribbon/light treatment you showed me earlier as the main movement. Very slow teal and copper forms move behind the content as the pointer moves and as the page begins to scroll.
 
-/* ---------- hero ---------- */
-.hero{padding-top:clamp(52px,7vw,92px);padding-bottom:clamp(44px,6vw,76px)}
-.sessions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-family:var(--data);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
-.sess{display:inline-flex;align-items:center;gap:7px;color:#A3A29E}
-.sess.on{color:var(--blk-ink)}
-.dot{width:6px;height:6px;border-radius:50%;background:var(--blk-paper-3)}
-.sess.on .dot{background:var(--blk-accent)}
-h1{font-weight:600;font-size:clamp(40px,7.6vw,94px);line-height:.97;letter-spacing:-.037em;margin:26px 0 0;max-width:15ch}
-h1 .em{font-family:var(--prose);font-style:italic;font-weight:300;letter-spacing:-.012em}
-.hero-sub{font-family:var(--prose);font-size:clamp(16.5px,1.8vw,20px);line-height:1.5;color:#46463F;max-width:50ch;margin:26px 0 0;font-weight:300}
-.hero-cta{margin-top:32px;display:flex;align-items:center;gap:22px;flex-wrap:wrap}
-.cue{display:flex;align-items:center;gap:10px;font-family:var(--data);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--blk-mute)}
-.cue .ar{width:26px;height:1px;background:currentColor;position:relative}
-.cue .ar::after{content:"";position:absolute;right:0;top:-3px;width:7px;height:7px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(-45deg)}
+Then perhaps an extremely subtle parallax difference between foreground/background forms.
 
-/* ---------- chevron stats ---------- */
-.chevrons{display:grid;grid-template-columns:repeat(4,1fr)}
-.chev{background:var(--blk-ink-2);padding:26px clamp(18px,2.4vw,32px) 26px clamp(30px,3.6vw,52px);
-  clip-path:polygon(0 0,calc(100% - 24px) 0,100% 50%,calc(100% - 24px) 100%,0 100%,24px 50%);
-  margin-left:-20px;transition:background .3s}
-.chev:first-child{margin-left:0;clip-path:polygon(0 0,calc(100% - 24px) 0,100% 50%,calc(100% - 24px) 100%,0 100%)}
-.chev:hover{background:#202024}
-.chev .n{font-family:var(--data);font-size:clamp(22px,3vw,34px);font-weight:500;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.1;color:var(--blk-paper)}
-.chev .n small{font-size:.45em;color:var(--blk-mute-ink);letter-spacing:.04em}
-.chev .l{font-size:12.5px;color:var(--blk-mute-ink);margin-top:6px;line-height:1.35}
+As the user scrolls:
 
-/* ---------- slider, iFX accounts-slider pattern ---------- */
-.slider-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
-.sldr{margin-top:36px;overflow:hidden}
-.sldr-track{display:flex;gap:16px;will-change:transform;transition:transform .55s cubic-bezier(.2,.8,.2,1)}
-.svc{flex:0 0 clamp(270px,25vw,320px);background:#fff;border:1px solid var(--blk-line);
-  padding:clamp(22px,2.6vw,30px);display:flex;flex-direction:column;min-height:330px;transition:border-color .25s,transform .25s}
-.svc:hover{border-color:var(--blk-ink);transform:translateY(-3px)}
-.svc .k{font-family:var(--data);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--blk-mute)}
-.svc h3{font-size:21px;font-weight:600;letter-spacing:-.02em;margin:14px 0 0;line-height:1.15}
-.svc p{font-size:14.5px;line-height:1.55;color:#4C4C48;margin:12px 0 0}
-.svc ul{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:7px}
-.svc li{font-size:13px;color:#5C5C58;display:flex;gap:9px;align-items:baseline}
-.svc li::before{content:"";flex:0 0 10px;height:1px;background:var(--blk-accent);transform:translateY(-4px)}
-.svc .go{margin-top:auto;padding-top:18px}
-.sldr-foot{display:flex;align-items:center;gap:18px;margin-top:24px}
-.progress{height:2px;background:var(--blk-paper-3);position:relative;flex:1;max-width:320px}
-.progress i{position:absolute;inset:0 auto 0 0;background:var(--blk-ink);display:block;transition:width .45s,transform .45s}
-.arrows{display:flex;gap:8px}
-.arrows button{width:40px;height:40px;border:1px solid var(--blk-line);display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s,border-color .2s}
-.arrows button:hover:not(:disabled){background:var(--blk-ink);color:var(--blk-paper);border-color:var(--blk-ink)}
-.arrows button:disabled{opacity:.3;cursor:default}
+background drifts upward slowly → headline moves perhaps 20–30px → artwork moves at a different rate → next section rises over it.
 
-/* ---------- cost bars ---------- */
-.two{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(30px,5vw,68px);align-items:start}
-.msr{padding:16px 0}
-.msr-top{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
-.msr-name{font-size:14.5px;font-weight:600}
-.msr-val{font-family:var(--data);font-size:15px;font-variant-numeric:tabular-nums}
-.track{position:relative;height:12px;margin-top:11px;background:var(--blk-paper-3);overflow:hidden}
-.fill{position:absolute;inset:0 auto 0 0;background:var(--blk-ink);width:100%}
-.fill--accent{background:var(--blk-accent);width:20%}
-.msr-note{font-size:12.5px;margin-top:8px;color:var(--blk-mute)}
-.scale{display:flex;justify-content:space-between;margin-top:10px;font-family:var(--data);font-size:10.5px;letter-spacing:.1em;color:var(--blk-mute)}
-.split2{display:grid;grid-template-columns:1.25fr 1fr;gap:1px;background:var(--blk-line);margin-top:44px;border:1px solid var(--blk-line)}
-.col{background:#fff;padding:clamp(22px,3vw,34px)}
-.col h3{margin:0;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-family:var(--data);font-weight:500;color:var(--blk-mute)}
-.col ul{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:12px}
-.col li{display:flex;gap:12px;align-items:baseline;font-size:15.5px;line-height:1.4}
-.col li::before{content:"";flex:0 0 14px;height:1px;background:currentColor;opacity:.3;transform:translateY(-4px)}
-.col .price{font-family:var(--data);font-size:clamp(26px,3.4vw,38px);margin-top:24px;letter-spacing:-.02em}
-.col.paid{background:var(--blk-ink);color:var(--blk-paper)}
-.col.paid h3{color:var(--blk-accent-ink)}
-.col.paid li::before{background:var(--blk-accent-ink);opacity:1}
-.col.paid .price{color:var(--blk-accent-ink)}
-.col.paid p{color:#BFBFBD;font-family:var(--prose);font-weight:300;font-size:16px;line-height:1.55;margin-top:14px}
+GSAP ScrollTrigger: YES
+Pin: NO
+Scrub: YES, very light
+Content in HTML: YES
 
-/* ---------- why grid, iFX features-grid pattern ---------- */
-.why{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--blk-line-ink);border:1px solid var(--blk-line-ink);margin-top:44px}
-.wcard{background:var(--blk-ink);padding:clamp(22px,2.6vw,30px);position:relative;transition:background .3s;min-height:210px;display:flex;flex-direction:column}
-.wcard .k{font-family:var(--data);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--blk-accent-ink)}
-.wcard h3{font-size:19px;font-weight:600;letter-spacing:-.02em;margin:13px 0 0;line-height:1.2}
-.wcard p{font-size:14.5px;line-height:1.55;color:#9C9C9F;margin:11px 0 0;transition:color .3s}
-.wcard:hover,.wcard:focus-within{background:#1C1C21}
-.wcard:hover p,.wcard:focus-within p{color:#DCDBD7}
-.wcard .edge{position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--blk-accent-ink);transition:width .45s cubic-bezier(.2,.8,.2,1)}
-.wcard:hover .edge,.wcard:focus-within .edge{width:100%}
+I don't want the H1 typing in, splitting into 30 letters or waiting two seconds to become visible. The proposition needs to exist immediately.
 
-/* ---------- horizontal segment track ---------- */
-.hor-stage{height:100svh;min-height:560px;display:flex;align-items:center;overflow:hidden}
-.hor-track{display:flex;gap:1px;padding-inline:var(--gutter);will-change:transform}
-.segcard{flex:0 0 clamp(260px,26vw,330px);background:#fff;border:1px solid var(--blk-line);padding:clamp(22px,2.6vw,30px);
-  min-height:330px;display:flex;flex-direction:column}
-.segcard .tag{font-family:var(--data);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--blk-mute)}
-.segcard h3{font-size:20px;font-weight:600;letter-spacing:-.02em;margin:14px 0 0;line-height:1.2}
-.segcard p{font-size:14.5px;line-height:1.55;color:#4C4C48;margin:12px 0 0}
-.segcard .mark{margin-top:auto;padding-top:18px;font-family:var(--data);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--blk-accent-text)}
-.segcard.key{background:var(--blk-ink);color:var(--blk-paper);border-color:var(--blk-ink)}
-.segcard.key .tag{color:var(--blk-accent-ink)}
-.segcard.key p{color:#BFBFBD}
-.segcard.key .mark{color:var(--blk-accent-ink)}
-.hor-head{position:absolute;top:clamp(40px,7vw,80px);left:0;right:0}
+02. Proof: £500m+ / 35+ / 30+ / 24/7
 
-/* ---------- tabs, iFX js-tabs pattern ---------- */
-.tabs-nav{display:flex;list-style:none;padding:0;margin:36px 0 0;border-bottom:1px solid var(--blk-line);overflow-x:auto}
-.tab-btn{padding:13px 18px;font-size:14px;font-weight:500;color:var(--blk-mute);white-space:nowrap;
-  border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s}
-.tab-btn[aria-selected="true"]{color:var(--blk-ink);border-bottom-color:var(--blk-accent)}
-.tab-btn:hover{color:var(--blk-ink)}
-.tabpanels{margin-top:28px}
-.tabpanel{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
-.tabpanel h3{font-size:clamp(20px,2.6vw,26px);font-weight:600;letter-spacing:-.025em;margin:0}
-.tabpanel .plain{font-size:16px;line-height:1.6;color:#3E3E3B;margin:14px 0 0;max-width:46ch}
-.tabpanel .who{border-left:2px solid var(--blk-accent);padding-left:16px;font-size:14px;color:var(--blk-mute);margin-top:20px}
-.tabpanel .who b{display:block;font-family:var(--data);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--blk-ink);margin-bottom:4px;font-weight:500}
-.eg{background:#fff;border:1px solid var(--blk-line);padding:clamp(20px,2.6vw,28px)}
-.eg .egk{font-family:var(--data);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--blk-mute)}
-.eg dl{margin:14px 0 0;display:grid;gap:11px}
-.eg .row{display:flex;justify-content:space-between;gap:16px;align-items:baseline;border-bottom:1px solid var(--blk-line);padding-bottom:10px}
-.eg dt{font-size:14px;color:#4C4C48}
-.eg dd{margin:0;font-family:var(--data);font-size:15px;font-variant-numeric:tabular-nums}
-.eg dd.good{color:var(--blk-accent-text);font-weight:500}
+This should feel almost like the numbers are being measured, rather than simply appearing.
 
-/* ---------- rates ---------- */
-.rates{width:100%;border-collapse:collapse;margin-top:28px;font-variant-numeric:tabular-nums}
-.rates th{font-family:var(--data);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--blk-mute);
-  text-align:right;padding:0 0 12px;font-weight:500;border-bottom:1px solid var(--blk-line)}
-.rates th:first-child{text-align:left}
-.rates td{padding:14px 0;border-bottom:1px solid var(--blk-line);text-align:right;font-family:var(--data);font-size:14.5px}
-.rates td:first-child{text-align:left;font-weight:600;font-family:var(--display)}
-.rates .st{transition:background .4s;padding:2px 5px}
-/* movement is shown by a direction glyph and weight, never by colour,
-   so the table stays strictly black and white */
-.rates .st.up,.rates .st.down{font-weight:500}
-.rates .st.up::after{content:" \25B2";font-size:.7em;vertical-align:1px}
-.rates .st.down::after{content:" \25BC";font-size:.7em;vertical-align:1px}
-.rates .flash{background:var(--blk-paper-3)}
-.rates .sv{color:var(--blk-accent-text);font-weight:500}
-.tablewrap{overflow-x:auto}
+Black or white background.
 
-/* ---------- steps, service, proof ---------- */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,40px);margin-top:40px;counter-reset:s}
-.step{border-top:1px solid var(--blk-line);padding-top:20px;counter-increment:s}
-.step::before{content:counter(s,decimal-leading-zero);font-family:var(--data);font-size:12px;letter-spacing:.14em;color:var(--blk-accent-text)}
-.step h3{font-size:19px;font-weight:600;letter-spacing:-.02em;margin:10px 0 0}
-.step p{font-size:14.5px;line-height:1.55;color:#4C4C48;margin:8px 0 0}
-.reg{margin-top:30px;border:1px solid var(--blk-line);padding:18px 20px;display:flex;gap:16px;align-items:flex-start;background:#fff;flex-wrap:wrap}
-.reg .badge{font-family:var(--data);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--blk-line);padding:5px 9px;white-space:nowrap}
-.reg p{margin:0;font-size:14px;color:#4C4C48;line-height:1.55;flex:1;min-width:250px}
-.chans{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
-.chan{font-family:var(--data);font-size:12px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--blk-line-ink);padding:9px 14px}
-.story{border-left:2px solid var(--blk-accent-ink);padding:4px 0 4px 22px;max-width:56ch}
-.story p{font-family:var(--prose);font-weight:300;font-size:clamp(17px,2vw,20px);line-height:1.5;margin:0;color:#DAD9D5}
-.story cite{display:block;font-style:normal;font-family:var(--data);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blk-mute-ink);margin-top:14px}
-.trust{display:flex;align-items:center;gap:clamp(18px,3vw,40px);flex-wrap:wrap;margin-top:32px}
-.score{font-family:var(--data);font-size:clamp(40px,6vw,62px);letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
-.score small{font-size:.35em;letter-spacing:.06em;color:var(--blk-mute)}
-.stars{display:flex;gap:4px;margin-bottom:8px}
-.stars i{width:16px;height:16px;background:var(--blk-accent);display:block;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
-.trust p{margin:0;font-size:15px;max-width:34ch;color:#4C4C48}
-.quotes{margin-top:36px;border:1px solid var(--blk-line);background:#fff}
-.quote{padding:clamp(24px,3vw,38px)}
-.quote p{font-family:var(--prose);font-weight:300;font-size:clamp(17px,2.1vw,21px);line-height:1.5;margin:0;color:#2E2E2C}
-.quote .by{font-family:var(--data);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blk-mute);margin-top:16px}
-.qfoot{display:flex;align-items:center;gap:18px;margin-top:22px}
+Four large stats.
 
-/* ---------- prose, final, footer ---------- */
-.prose{max-width:66ch;font-family:var(--prose);font-weight:300;font-size:17.5px;line-height:1.72;color:#3E3E3B}
-.prose h3{font-family:var(--display);font-size:clamp(19px,2.4vw,24px);font-weight:600;letter-spacing:-.02em;line-height:1.2;margin:36px 0 10px;color:var(--blk-ink)}
-.prose p{margin:0 0 14px}
-.final h2{font-size:clamp(34px,6.2vw,72px);max-width:14ch;letter-spacing:-.035em}
-.final .btn{margin-top:30px}
-.finalnote{font-family:var(--data);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--blk-mute-ink);margin-top:18px}
-.foot{background:var(--blk-ink);color:var(--blk-mute-ink);padding-block:34px}
-.foot-in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px}
-.disc{font-size:12px;color:var(--blk-mute);margin-top:14px;max-width:54ch}
-.band--ink .disc{color:var(--blk-mute-ink)}
+As the section enters:
 
-.totop{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:70;
-  width:44px;height:44px;background:var(--blk-ink);color:var(--blk-paper);display:flex;align-items:center;justify-content:center;
-  opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s,transform .2s}
-.totop.on{opacity:1;visibility:visible}
-.totop:hover{transform:translateY(-3px)}
+£0m → £500m+
 
-/* ---------- no-motion fallback ---------- */
-.no-motion .hor{height:auto!important}
-.no-motion .hor-stage{position:static;height:auto;min-height:0;display:block;overflow:visible;padding-block:clamp(56px,10vw,90px)}
-.no-motion .hor-track{flex-wrap:wrap;transform:none!important;gap:12px;padding-inline:0}
-.no-motion .segcard{flex:1 1 280px;min-height:0}
-.no-motion .hor-head{position:static;margin-bottom:28px}
+0 → 35+
 
-/* ---------- responsive ---------- */
-@media (max-width:1040px){
-  .menu{display:none}
-  .burger{display:flex}
-  .two,.tabpanel{grid-template-columns:1fr}
-  .split2{grid-template-columns:1fr}
-  .chevrons{grid-template-columns:repeat(2,1fr)}
-  .chev{clip-path:none!important;margin-left:0;border:1px solid var(--blk-line-ink)}
-  .steps,.why{grid-template-columns:1fr}
-  .hor{height:auto!important}
-  .hor-stage{position:static;height:auto;min-height:0;display:block;overflow:visible;padding-block:clamp(56px,10vw,90px)}
-  .hor-track{flex-wrap:wrap;transform:none!important;gap:12px;padding-inline:0}
-  .segcard{flex:1 1 280px;min-height:0}
-  .hor-head{position:static;margin-bottom:28px}
-}
-@media (max-width:760px){.why{grid-template-columns:1fr}}
-@media (max-width:620px){.chevrons{grid-template-columns:1fr}h1{max-width:100%}}
-@media (prefers-reduced-motion:reduce){
-  *{animation:none!important;transition-duration:.01ms!important}
-  .tr{opacity:1!important;transform:none!important}
-}
-</style>
+0 → 30+
 
-<div class="page-bg" aria-hidden="true"></div>
+24/7
 
-<header class="nav">
-  <div class="wrap nav-in">
-    <a class="brand" href="#top">BLK<span>.</span>FX</a>
-    <ul class="menu">
-      <li><button type="button" aria-haspopup="true">Services <span class="caret"></span></button>
-        <div class="drop">
-          <a href="#services">Business Foreign Exchange</a>
-          <a href="#services">International Payments</a>
-          <a href="#services">Multi-Currency Accounts</a>
-          <a href="#services">FX Risk Management &amp; Hedging</a>
-          <a href="#services">Commercial Finance</a>
-          <a href="#services">Private Client FX</a>
-          <a href="#services" class="all">View all services</a>
-        </div></li>
-      <li><button type="button" aria-haspopup="true">Who We Help <span class="caret"></span></button>
-        <div class="drop">
-          <a href="#who">Businesses and finance teams</a>
-          <a href="#who">SPVs, trusts and funds</a>
-          <a href="#who">Private clients and property</a>
-          <span class="paused">Music, creators and athletes, coming soon</span>
-        </div></li>
-      <li><button type="button" aria-haspopup="true">Tools <span class="caret"></span></button>
-        <div class="drop">
-          <a href="#">FX Exposure, free hedging calculator</a>
-          <a href="#rates">Live rates and market updates</a>
-        </div></li>
-      <li><button type="button" aria-haspopup="true">About <span class="caret"></span></button>
-        <div class="drop">
-          <a href="#">Our story</a><a href="#">Ben Kohler</a><a href="#">FinTech providers</a>
-        </div></li>
-      <li><a href="#">Insights</a></li>
-    </ul>
-    <div class="nav-right">
-      <a class="login" href="#">Client login</a>
-      <a class="btn" href="#book">Book a call <span class="arw">&rarr;</span></a>
-      <button class="burger" type="button" aria-label="Menu"><span></span></button>
-    </div>
-  </div>
-</header>
+But the DOM contains the final values.
 
-<main id="top">
+I'd also have a very fine teal line travel horizontally underneath the four figures as they count.
 
-<!--
-  SECTION: hero
-  WP: single block
-  FIELDS: h1 (rich text, <em> allowed), sub (textarea), cta_label, cta_url
-  MOTION: h1 splits to words and rises, staggered 45ms
-  NOTES: one headline, one support line, one CTA, per 03-design-direction.
--->
-<section class="band--paper hero">
-  <div class="wrap">
-    <div class="sessions" id="sessions">
-      <span class="sess"><span class="dot"></span>Sydney</span>
-      <span class="sess"><span class="dot"></span>Tokyo</span>
-      <span class="sess"><span class="dot"></span>London</span>
-      <span class="sess"><span class="dot"></span>New York</span>
-      <span id="sessnote" style="letter-spacing:.1em;color:var(--blk-mute)">Market open</span>
-    </div>
-    <h1 class="split" data-split>Efficiency, in every currency you <em class="em">touch</em>.</h1>
-    <p class="hero-sub">The accounts, the payments and the advice cost you nothing. We earn on the conversion, and we will tell you what we make on it.</p>
-    <div class="hero-cta">
-      <a class="btn btn--lg" href="#book">Book a call with Ben <span class="arw">&rarr;</span></a>
-      <span class="cue">Scroll to explore <span class="ar"></span></span>
-    </div>
-  </div>
-</section>
+GSAP: YES
+ScrollTrigger: YES
+Count-up: YES
+Pin: NO
 
-<!--
-  SECTION: proof-strip
-  WP: repeatable block, 3 to 5 items
-  FIELDS: items[] { value (text), label (text), prefix, suffix, count_from_zero (toggle) }
-  MOTION: count-up on enter view
-  NOTES: value is text, so "£500m+" and "4.7/5" both work. The final
-         rendered figure is in the HTML, so it is indexable with JS off.
--->
-<section>
-  <div class="wrap" style="padding-inline:0">
-    <div class="chevrons">
-      <div class="chev"><div class="n" data-count="500" data-prefix="£" data-suffix="m+">£500m+</div><div class="l">Volume traded since 2021</div></div>
-      <div class="chev"><div class="n" data-count="35" data-suffix="+">35+</div><div class="l">Currencies bought, held and sent</div></div>
-      <div class="chev"><div class="n" data-count="30" data-suffix="+">30+</div><div class="l">Countries we move money into</div></div>
-      <div class="chev"><div class="n">4.7<small>/5</small></div><div class="l">Trustpilot, every review five star</div></div>
-    </div>
-  </div>
-</section>
+This is exactly the kind of animation ScrollTrigger handles well: activate the animation only when the relevant element reaches the viewport.
 
-<!--
-  SECTION: services-slider
-  WP: repeatable block, 4 to 8 cards
-  FIELDS: eyebrow, h2, intro, cards[] { kicker, heading, body, points[] { text }, url }
-  MOTION: track translates on arrow click, CSS transition. Progress bar tracks position.
-  NOTES: solves the nav gap in 05-site-architecture, where seven live service
-         pages are unreachable from the homepage. Every card is in the HTML,
-         so all six services are crawlable and internally linked with JS off.
--->
-<section class="band--paper pad" id="services">
-  <div class="wrap">
-    <div class="slider-head tr" data-from="left-bottom">
-      <div>
-        <div class="eyebrow"><span class="tick"></span>What we do</div>
-        <h2 class="split" data-split>Six services. One conversation.</h2>
-      </div>
-      <a class="tlink" href="#">View all services</a>
-    </div>
+03. More than foreign exchange
 
-    <div class="sldr tr" data-from="right-bottom">
-      <div class="sldr-track" id="svcTrack">
-        <article class="svc">
-          <span class="k">Convert</span>
-          <h3>Business Foreign Exchange</h3>
-          <p>Buy and sell 35+ currencies at a margin agreed before you trade, with the timing thought through rather than left to the invoice date.</p>
-          <ul><li>Spot, forwards and orders</li><li>Margin agreed up front</li><li>Market analysis on your pairs</li></ul>
-          <span class="go"><a class="tlink" href="#">Read more</a></span>
-        </article>
-        <article class="svc">
-          <span class="k">Send</span>
-          <h3>International Payments</h3>
-          <p>Faster Payments, SEPA, Swift and ACH from one place, and a named person who chases a payment that has not landed.</p>
-          <ul><li>Four payment rails</li><li>Same-day where possible</li><li>24/7 support on stuck payments</li></ul>
-          <span class="go"><a class="tlink" href="#">Read more</a></span>
-        </article>
-        <article class="svc">
-          <span class="k">Hold</span>
-          <h3>Multi-Currency Accounts</h3>
-          <p>Accounts in your own name, in the currencies you actually deal in, so you can hold what you collect instead of converting twice.</p>
-          <ul><li>Opened in your entity's name</li><li>No account or maintenance fee</li><li>Suitable for SPVs and trusts</li></ul>
-          <span class="go"><a class="tlink" href="#">Read more</a></span>
-        </article>
-        <article class="svc">
-          <span class="k">Protect</span>
-          <h3>FX Risk Management &amp; Hedging</h3>
-          <p>Fix some or all of a future rate so a currency move cannot break a budget you have already set and reported to a board.</p>
-          <ul><li>Forwards and orders</li><li>Budget rate strategy</li><li>Free modelling on FX Exposure</li></ul>
-          <span class="go"><a class="tlink" href="#">Read more</a></span>
-        </article>
-        <article class="svc">
-          <span class="k">Fund</span>
-          <h3>Commercial Finance</h3>
-          <p>Facilities through partner lenders, so fixing a rate or bridging a completion does not tie up your working capital.</p>
-          <ul><li>Through partner lenders</li><li>Pairs with forward contracts</li><li>Subject to a conversation</li></ul>
-          <span class="go"><a class="tlink" href="#">Read more</a></span>
-        </article>
-        <article class="svc">
-          <span class="k">Personal</span>
-          <h3>Private Client FX</h3>
-          <p>Property abroad, moving money home, or a one-off transfer that has to land on a date. The rate fixed before you commit.</p>
-          <ul><li>Property completions</li><li>Rate fixed in advance</li><li>Weekend contact when needed</li></ul>
-          <span class="go"><a class="tlink" href="#">Read more</a></span>
-        </article>
-      </div>
-      <div class="sldr-foot">
-        <div class="arrows">
-          <button type="button" id="svcPrev" aria-label="Previous services" aria-controls="svcTrack">&larr;</button>
-          <button type="button" id="svcNext" aria-label="Next services" aria-controls="svcTrack">&rarr;</button>
-        </div>
-        <div class="progress"><i id="svcBar" style="width:34%"></i></div>
-      </div>
-    </div>
-  </div>
-</section>
+This is our first big ScrollTrigger moment.
 
-<!--
-  SECTION: cost-and-charge
-  WP: single block, two parts
-  FIELDS: eyebrow, h2, intro, bank_label, bank_range (text), bank_note,
-          blk_label, blk_range (text), blk_note, scale_labels[] (text),
-          free_heading, free_items[] { text }, free_price,
-          paid_heading, paid_items[] { text }, paid_price, paid_note
-  MOTION: section corner transition only. Bar widths are set in CSS,
-          not animated, so the comparison is correct with JS disabled.
-  NOTES: this replaced an interactive calculator. FX Exposure already
-         does calculators and this is a homepage, not a tool.
-         Margin figures per 04-copy-rules item 1.
--->
-<section class="band--paper2 pad" id="cost">
-  <div class="wrap">
-    <div class="two">
-      <div class="tr" data-from="left-bottom">
-        <div class="eyebrow"><span class="tick"></span>What it costs</div>
-        <h2 class="split" data-split>The rate you see is not the rate you get.</h2>
-        <p class="lede">Every provider adds a margin to the live market rate. Most never mention it. We are open about the margin, sometimes called the spread, that we take.</p>
-      </div>
-      <div class="tr" data-from="right-bottom">
-        <div class="msr">
-          <div class="msr-top"><span class="msr-name">High street bank</span><span class="msr-val">1.0% to 3.0%</span></div>
-          <div class="track"><span class="fill"></span></div>
-          <p class="msr-note">Taken quietly inside the rate you are quoted.</p>
-        </div>
-        <div class="msr">
-          <div class="msr-top"><span class="msr-name">BLK.FX</span><span class="msr-val">0.2% to 0.6%</span></div>
-          <div class="track"><span class="fill fill--accent"></span></div>
-          <p class="msr-note">Agreed with you, in the conversation, before you trade.</p>
-        </div>
-        <div class="scale"><span>0%</span><span>1.5%</span><span>3.0%</span></div>
-        <p class="disc">Illustrative, based on typical margins. Figures to be confirmed with Ben before this goes live.</p>
-      </div>
-    </div>
+HOLD → SEND → CONVERT → MANAGE
 
-    <div class="split2 tr" data-from="scaleup">
-      <div class="col">
-        <h3>No charge</h3>
-        <ul>
-          <li>Multi-currency accounts in your name</li>
-          <li>Payments on Faster Payments, SEPA, Swift and ACH</li>
-          <li>Strategy and treasury consultancy</li>
-          <li>Risk management and hedging structure</li>
-          <li>Market analysis on the pairs you are exposed to</li>
-          <li>Someone to call when a payment goes missing</li>
-        </ul>
-        <div class="price">£0</div>
-      </div>
-      <div class="col paid">
-        <h3>Where we earn</h3>
-        <ul><li>The margin on your currency conversion, and nothing else</li></ul>
-        <div class="price">0.2% to 0.6%</div>
-        <p>Agreed up front. Held to. Told to you plainly, before the trade.</p>
-      </div>
-    </div>
-  </div>
-</section>
+I don't want four boring cards.
 
-<!--
-  SECTION: why-grid
-  WP: repeatable block, 6 to 9 cards
-  FIELDS: eyebrow, h2, intro, cards[] { kicker, heading, body }
-  MOTION: hover and focus lift the body copy and draw an accent rule.
-          Body text is always in the DOM, only its colour changes, so
-          nothing here is hidden from a crawler.
-  NOTES: iFX why-choose-section pattern. Answers Ben's "when you go over
-         one of the bubbles, it comes out" without hiding copy.
--->
-<section class="band--ink pad" id="why">
-  <div class="wrap">
-    <div class="tr" data-from="right-top">
-      <div class="eyebrow"><span class="tick"></span>Why BLK.FX</div>
-      <h2 class="split" data-split>What you are actually buying.</h2>
-      <p class="lede">Anyone can quote a rate. Rates are public. The difference is what surrounds the trade.</p>
-    </div>
-    <div class="why tr" data-from="bottom">
-      <article class="wcard" tabindex="0">
-        <span class="k">Service</span><h3>24/7, and we mean it</h3>
-        <p>Phone, email and WhatsApp, at any hour. A payment that leaves on a Friday and does not arrive is chased on Friday, not Monday.</p><span class="edge"></span>
-      </article>
-      <article class="wcard" tabindex="0">
-        <span class="k">Pricing</span><h3>Open about the margin</h3>
-        <p>You agree the margin before you trade and we hold to it. You will never have to work out what we made on your money.</p><span class="edge"></span>
-      </article>
-      <article class="wcard" tabindex="0">
-        <span class="k">Structures</span><h3>Trusts and funds welcome</h3>
-        <p>Vehicles that other providers turn away because the compliance work is heavier. SPVs, trusts, funds and VC. We already do this.</p><span class="edge"></span>
-      </article>
-      <article class="wcard" tabindex="0">
-        <span class="k">Judgement</span><h3>Timing, not just execution</h3>
-        <p>A view on the currencies you are exposed to, and a conversation about when to convert. That conversation costs nothing.</p><span class="edge"></span>
-      </article>
-      <article class="wcard" tabindex="0">
-        <span class="k">Banking</span><h3>Everything else included</h3>
-        <p>Accounts, payments, consultancy and hedging structure are not priced separately, because the conversion is where we earn.</p><span class="edge"></span>
-      </article>
-      <article class="wcard" tabindex="0">
-        <span class="k">Regulation</span><h3>Regulated partners only</h3>
-        <p>Execution through regulated partners across the UK, the EEA and the US, with the compliance work done properly rather than quickly.</p><span class="edge"></span>
-      </article>
-    </div>
-  </div>
-</section>
+Desktop could become a horizontal pinned sequence.
 
-<!--
-  SECTION: segment-track
-  WP: repeatable block, 6 to 12 cards
-  FIELDS: eyebrow, h2, cards[] { tag, heading, body, mark, inverted (toggle) }
-  MOTION: ScrollTrigger pins the stage and scrubs the track sideways above
-          1040px. Below that, and with JS off, it wraps to a card grid.
-  NOTES: inverted marks the four structures Ben called out. All cards are
-         in the HTML in reading order.
--->
-<section class="hor band--paper2" id="who">
-  <div class="hor-stage">
-    <div class="wrap hor-head">
-      <div class="eyebrow"><span class="tick"></span>Who this is for</div>
-      <h2 class="split" data-split>Find yourself on this list.</h2>
-    </div>
-    <div class="hor-track" id="horTrack">
-      <article class="segcard key"><span class="tag">Structures</span><h3>SPVs, including property SPVs</h3>
-        <p>Accounts in the vehicle's own name, completion payments handled to a deadline, and forwards so the rate cannot move between exchange and completion.</p><span class="mark">Often refused elsewhere</span></article>
-      <article class="segcard key"><span class="tag">Structures</span><h3>Trusts</h3>
-        <p>Most FX firms will not onboard a trust because the ownership work is harder. We already do it. Distributions paid in the currency the beneficiary needs.</p><span class="mark">Often refused elsewhere</span></article>
-      <article class="segcard key"><span class="tag">Structures</span><h3>Funds</h3>
-        <p>Capital calls and distributions in several currencies on dates that cannot slip, with the currency hedged between commitment and drawdown.</p><span class="mark">Often refused elsewhere</span></article>
-      <article class="segcard key"><span class="tag">Structures</span><h3>Venture capital</h3>
-        <p>You raise in one currency and your portfolio spends in another. Fix the rate on committed capital so a move does not shorten a runway.</p><span class="mark">Often refused elsewhere</span></article>
-      <article class="segcard"><span class="tag">Business</span><h3>PE backed and scaling</h3>
-        <p>Growth plans built on a budget rate that has to hold. How much of the year to fix, what to leave open, and how to report it to a board.</p><span class="mark">Book a call</span></article>
-      <article class="segcard"><span class="tag">Business</span><h3>Finance directors and CFOs</h3>
-        <p>The margin in writing, the rails you already use, and analysis on your exposed pairs. Most of the value is the conversation about timing.</p><span class="mark">Book a call</span></article>
-      <article class="segcard"><span class="tag">Business</span><h3>Founders and owner-managers</h3>
-        <p>No treasury team, no time, and a currency line quietly eating margin. We do the thinking and tell you plainly what to do.</p><span class="mark">Book a call</span></article>
-      <article class="segcard"><span class="tag">Business</span><h3>Ecommerce brands</h3>
-        <p>You collect in several currencies and pay suppliers in another. Hold what you collect instead of converting twice.</p><span class="mark">Book a call</span></article>
-      <article class="segcard"><span class="tag">Business</span><h3>Professional services</h3>
-        <p>International clients, international fees, and a partnership that notices every point of margin. Accounts in the firm's own name.</p><span class="mark">Book a call</span></article>
-      <article class="segcard"><span class="tag">Private client</span><h3>Property buyers abroad</h3>
-        <p>The rate fixed before you commit, the payment landing on the completion date, and a person on the phone when a lawyer needs confirmation.</p><span class="mark">Book a call</span></article>
-    </div>
-  </div>
-</section>
+The user scrolls vertically, but the content moves horizontally:
 
-<!--
-  SECTION: fx-products-tabs
-  WP: repeatable block, 4 to 6 tabs
-  FIELDS: eyebrow, h2, intro, cta_label, cta_url,
-          tabs[] { label, heading, body, best_for, example_title,
-                   rows[] { term (text), value (text), highlight (toggle) } }
-  MOTION: none. JS sets [hidden] on the inactive panels only.
-  NOTES: this replaced a full-width rate chart, which was too heavy for a
-         homepage. Every panel's copy is in the HTML, so all six products
-         are indexable. Fuller treatment belongs on the service pages,
-         per 04-copy-rules item 6.
--->
-<section class="band--paper pad" id="products">
-  <div class="wrap">
-    <div class="tr" data-from="left-bottom">
-      <div class="eyebrow"><span class="tick"></span>FX products</div>
-      <h2 class="split" data-split>You do not have to take today's rate on today's deadline.</h2>
-      <p class="lede">Four tools most people are never offered. Worked on £1m, so the difference is a number rather than a claim.</p>
-    </div>
+HOLD
 
-    <div role="tablist" aria-label="FX products" class="tabs-nav tr" data-from="bottom">
-      <button class="tab-btn" type="button" role="tab" id="t-spot" aria-selected="true" aria-controls="p-spot">Spot contract</button>
-      <button class="tab-btn" type="button" role="tab" id="t-limit" aria-selected="false" aria-controls="p-limit">Limit order</button>
-      <button class="tab-btn" type="button" role="tab" id="t-fwd" aria-selected="false" aria-controls="p-fwd">Forward contract</button>
-      <button class="tab-btn" type="button" role="tab" id="t-stop" aria-selected="false" aria-controls="p-stop">Stop-loss order</button>
-    </div>
+Multi-currency accounts
 
-    <div class="tabpanels">
-      <div class="tabpanel" role="tabpanel" id="p-spot" aria-labelledby="t-spot">
-        <div>
-          <h3>Spot contract</h3>
-          <p class="plain">You convert at the live rate on the day the payment is due. The simplest trade, and the benchmark for everything else. It also means the market picks your rate for you.</p>
-          <div class="who"><b>Best for</b>A one-off payment you cannot move, where the rate on the day is the rate you take.</div>
-        </div>
-        <div class="eg">
-          <div class="egk">Worked on £1,000,000 into euros</div>
-          <dl>
-            <div class="row"><dt>Rate on the day</dt><dd>1.1480</dd></div>
-            <div class="row"><dt>You receive</dt><dd>&euro;1,148,000</dd></div>
-            <div class="row"><dt>Against benchmark</dt><dd>This is the benchmark</dd></div>
-          </dl>
-        </div>
-      </div>
+↓
 
-      <div class="tabpanel" role="tabpanel" id="p-limit" aria-labelledby="t-limit" hidden>
-        <div>
-          <h3>Limit order</h3>
-          <p class="plain">You name a rate better than the market and we watch it around the clock. If it hits, it executes automatically and you never had to sit at a screen. If it never hits, you trade at spot instead.</p>
-          <div class="who"><b>Best for</b>A payment with some flexibility on timing, and a view on the rate you want.</div>
-        </div>
-        <div class="eg">
-          <div class="egk">Worked on £1,000,000 into euros</div>
-          <dl>
-            <div class="row"><dt>Target rate, filled</dt><dd>1.1900</dd></div>
-            <div class="row"><dt>You receive</dt><dd>&euro;1,190,000</dd></div>
-            <div class="row"><dt>Against benchmark</dt><dd class="good">+&euro;42,000</dd></div>
-          </dl>
-        </div>
-      </div>
+SEND & RECEIVE
 
-      <div class="tabpanel" role="tabpanel" id="p-fwd" aria-labelledby="t-fwd" hidden>
-        <div>
-          <h3>Forward contract</h3>
-          <p class="plain">You fix a rate now for a payment months away, so the number in your forecast is the number you actually pay. You give up the upside, and in exchange the budget cannot be broken by a currency move.</p>
-          <div class="who"><b>Best for</b>A business with a budget rate to protect, or an SPV with a completion date months out.</div>
-        </div>
-        <div class="eg">
-          <div class="egk">Worked on £1,000,000 into euros</div>
-          <dl>
-            <div class="row"><dt>Rate fixed in advance</dt><dd>1.1680</dd></div>
-            <div class="row"><dt>You receive</dt><dd>&euro;1,168,000</dd></div>
-            <div class="row"><dt>Against benchmark</dt><dd class="good">+&euro;20,000, and certainty</dd></div>
-          </dl>
-        </div>
-      </div>
+International payments
 
-      <div class="tabpanel" role="tabpanel" id="p-stop" aria-labelledby="t-stop" hidden>
-        <div>
-          <h3>Stop-loss order</h3>
-          <p class="plain">You set the worst rate you are willing to accept. If the market falls through it, the trade is done for you at the floor, which stops a further fall reaching your numbers.</p>
-          <div class="who"><b>Best for</b>Anyone holding out for a better rate who still needs a hard limit on the downside.</div>
-        </div>
-        <div class="eg">
-          <div class="egk">Worked on £1,000,000 into euros</div>
-          <dl>
-            <div class="row"><dt>Floor, triggered</dt><dd>1.1500</dd></div>
-            <div class="row"><dt>You receive</dt><dd>&euro;1,150,000</dd></div>
-            <div class="row"><dt>Against benchmark</dt><dd class="good">+&euro;2,000, floor held</dd></div>
-          </dl>
-        </div>
-      </div>
-    </div>
+↓
 
-    <p class="disc">Illustrative figures on one year of GBP to EUR, not a forecast. Market analysis and credit facilities are covered on the service pages. <a class="tlink" href="#" style="margin-left:8px">FX Risk Management</a></p>
-  </div>
-</section>
+CONVERT
 
-<!--
-  SECTION: how-it-works
-  WP: repeatable block, exactly 3 steps, plus one notice
-  FIELDS: eyebrow, h2, steps[] { heading, body }, notice_badge, notice_body
-  MOTION: section corner transition only
-  NOTES: step numbers come from CSS counters, so reordering renumbers
-         automatically. Regulation notice required here, 04-copy-rules item 7.
--->
-<section class="band--paper2 pad" id="how">
-  <div class="wrap">
-    <div class="tr" data-from="left-bottom">
-      <div class="eyebrow"><span class="tick"></span>How it works</div>
-      <h2 class="split" data-split>Three steps, and you are trading.</h2>
-    </div>
-    <div class="steps tr" data-from="bottom">
-      <div class="step"><h3>A call, not a form</h3><p>Thirty minutes with Ben on what you buy, what you sell and when. You leave with a view on your exposure whether you go ahead or not.</p></div>
-      <div class="step"><h3>Accounts opened</h3><p>Multi-currency accounts in your own name, onboarded with the compliance work handled properly rather than quickly.</p></div>
-      <div class="step"><h3>Trade, with someone on the end of it</h3><p>Convert, send and hedge, with a named person who knows your business and answers the phone at any hour.</p></div>
-    </div>
-    <div class="reg tr" data-from="bottom">
-      <span class="badge">Regulated</span>
-      <p>BLK.FX works only with regulated execution partners across the UK, the EEA and the US. Exact permissions and registration detail to be pulled from the current footer disclosures and signed off by Ben before publication.</p>
-    </div>
-  </div>
-</section>
+Foreign exchange
 
-<!--
-  SECTION: indicative-rates
-  WP: repeatable block, 4 to 8 rows
-  FIELDS: eyebrow, h2, intro, cta_label, cta_url, disclaimer,
-          rows[] { pair, rate (number), decimals (number), our_margin, bank_margin }
-  MOTION: one row re-prints every 2.6s while in view only. Stops off screen.
-  NOTES: rates are printed in the HTML and only updated by JS, so the table
-         is complete with JS off. Up borrows the accent, down is red, no
-         green anywhere, per 09-colour-system.
--->
-<section class="band--paper pad" id="rates">
-  <div class="wrap two">
-    <div class="tr" data-from="left-bottom">
-      <div class="eyebrow"><span class="tick"></span>Indicative rates</div>
-      <h2 class="split" data-split>What you would pay, next to what a bank would take.</h2>
-      <p class="lede">Indicative mid-market rates with our margin shown beside them. Nothing hidden inside the number, because the number is the number.</p>
-      <div style="margin-top:24px"><a class="btn" href="#book">Ask for a live quote <span class="arw">&rarr;</span></a></div>
-    </div>
-    <div class="tr" data-from="right-bottom">
-      <div class="tablewrap">
-        <table class="rates" id="ratesTable">
-          <thead><tr><th>Pair</th><th>Mid-market</th><th>Our margin</th><th>Bank margin</th></tr></thead>
-          <tbody>
-            <tr><td>GBP / EUR</td><td><span class="st" data-rate="1.1648">1.1648</span></td><td class="sv">0.25%</td><td>2.10%</td></tr>
-            <tr><td>GBP / USD</td><td><span class="st" data-rate="1.2714">1.2714</span></td><td class="sv">0.25%</td><td>2.00%</td></tr>
-            <tr><td>EUR / USD</td><td><span class="st" data-rate="1.0916">1.0916</span></td><td class="sv">0.30%</td><td>2.20%</td></tr>
-            <tr><td>GBP / AUD</td><td><span class="st" data-rate="1.9284">1.9284</span></td><td class="sv">0.40%</td><td>2.60%</td></tr>
-            <tr><td>GBP / ZAR</td><td><span class="st" data-rate="23.941">23.941</span></td><td class="sv">0.55%</td><td>3.00%</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="disc">Indicative only, for illustration in this prototype. A live feed and the correct margin bands to be confirmed with Ben before launch.</p>
-    </div>
-  </div>
-</section>
+↓
 
-<!--
-  SECTION: service-24-7
-  WP: single block, reusable on every page
-  FIELDS: eyebrow, h2, intro, channels[] { label }, story, story_caption
-  MOTION: section corner transition only
-  NOTES: 04-copy-rules item 4b requires this message site-wide, so build it
-         as a reusable block, not a homepage-only section.
--->
-<section class="band--ink pad">
-  <div class="wrap two">
-    <div class="tr" data-from="left-bottom">
-      <div class="eyebrow"><span class="tick"></span>Service</div>
-      <h2 class="split" data-split>Anyone can quote a rate. Very few will pick up at 11pm.</h2>
-      <p class="lede">What you are buying is judgement on timing, and a person who acts when something goes wrong.</p>
-      <div class="chans"><span class="chan">Phone</span><span class="chan">Email</span><span class="chan">WhatsApp</span><span class="chan">24/7</span></div>
-    </div>
-    <div class="tr" data-from="right-bottom">
-      <div class="story">
-        <p>A supplier payment leaves on a Friday afternoon and does not arrive. With a bank, you join a queue on Monday. With us, you send one message, we chase the receiving bank directly, and you know where the money is before the weekend starts.</p>
-        <cite>What the service actually looks like</cite>
-      </div>
-    </div>
-  </div>
-</section>
+MANAGE
 
-<!--
-  SECTION: trust-proof
-  WP: single block plus repeatable testimonials
-  FIELDS: eyebrow, h2, score (text), score_note, testimonials[] { quote, attribution }
-  MOTION: none. JS sets [hidden] on the inactive quotes only.
-  NOTES: all testimonials are in the HTML, so they are indexable and readable
-         with JS off. Score must be pulled live at build, never hardcoded,
-         per 04-copy-rules item 3.
--->
-<section class="band--paper2 pad">
-  <div class="wrap tr" data-from="scaleup">
-    <div class="eyebrow"><span class="tick"></span>Proof</div>
-    <h2 class="split" data-split>Rated by the people who use us.</h2>
-    <div class="trust">
-      <div>
-        <div class="stars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-        <div class="score">4.7<small>/5</small></div>
-      </div>
-      <p>On Trustpilot. Every single review left for BLK.FX is five star. Live score and review count to be pulled at build so the number never drifts.</p>
-    </div>
+FX strategy & risk
 
-    <div class="quotes">
-      <div class="quote" data-quote>
-        <p>Client testimonial to be selected with Hannah. Two or three, named where the client allows it, each one about service rather than rate.</p>
-        <div class="by">Placeholder, needs client sign-off</div>
-      </div>
-      <div class="quote" data-quote hidden>
-        <p>Second testimonial slot. Ideally one that names a stuck payment or a deadline that was met, because that is the story the site is telling.</p>
-        <div class="by">Placeholder, needs client sign-off</div>
-      </div>
-      <div class="quote" data-quote hidden>
-        <p>Third testimonial slot. Ideally from a structure client, a trust or an SPV, to back up the claim that we take on what others will not.</p>
-        <div class="by">Placeholder, needs client sign-off</div>
-      </div>
-    </div>
-    <div class="qfoot">
-      <div class="arrows">
-        <button type="button" id="qPrev" aria-label="Previous testimonial">&larr;</button>
-        <button type="button" id="qNext" aria-label="Next testimonial">&rarr;</button>
-      </div>
-      <div class="progress" style="max-width:180px"><i id="qBar" style="width:33.33%"></i></div>
-    </div>
-  </div>
-</section>
+The section heading stays pinned on the left while the capabilities move across the right.
 
-<!--
-  SECTION: search-copy
-  WP: repeatable block, 3 to 6 question and answer pairs
-  FIELDS: eyebrow, items[] { question (renders as h3), answer (rich text) }
-  MOTION: none
-  NOTES: question-led headings with the answer in the first sentence,
-         because FAQ blocks cannot be added on this build. Serves AI
-         citation too. Do not delete this to shorten the page.
--->
-<section class="band--paper pad">
-  <div class="wrap tr" data-from="bottom">
-    <div class="eyebrow"><span class="tick"></span>In plain terms</div>
-    <div class="prose">
-      <h3>What does a foreign exchange consultancy actually do?</h3>
-      <p>A foreign exchange consultancy sits between your business and the market, and is paid on the conversion rather than on advice. BLK.FX opens multi-currency accounts, moves money across borders, and helps finance teams decide when to convert and how much risk to carry. We are not a bank and we are not a software platform.</p>
-      <h3>How much does it cost to send money internationally?</h3>
-      <p>The real cost is almost never the transfer fee, it is the margin built into the exchange rate. A high street bank typically takes between 1% and 3%. BLK.FX takes between 0.2% and 0.6%, agreed with you before the trade. On large or regular volumes that difference is the single biggest saving available to a finance team.</p>
-      <h3>What is hedging, and does my business need it?</h3>
-      <p>Hedging means fixing some or all of a future exchange rate now, so a currency move cannot damage a budget you have already set. If you buy or sell in a currency other than the one you report in, and you plan more than a month ahead, you are carrying currency risk whether you have named it or not.</p>
-      <h3>Can you work with trusts, funds and SPVs?</h3>
-      <p>Yes. Structures like trusts, funds, property SPVs and venture capital vehicles are often turned away by payment providers because the compliance work is heavier. It is work we already do, and it is one of the clearest reasons clients come to us rather than to a bank.</p>
-    </div>
-  </div>
-</section>
+Something conceptually like:
 
-<!--
-  SECTION: book-a-call
-  WP: single block, reusable on every page
-  FIELDS: eyebrow, h2, intro, cta_label, cta_url, note
-  MOTION: section corner transition only
-  NOTES: every page ends with this. Links to a calendar, not a form.
--->
-<section class="band--ink pad final" id="book">
-  <div class="wrap tr" data-from="scaleup">
-    <div class="eyebrow"><span class="tick"></span>The next step</div>
-    <h2 class="split" data-split>Thirty minutes. You will learn something either way.</h2>
-    <p class="lede">Bring what you buy, what you sell and roughly when. You will leave with a read on your exposure and a number on what you are currently paying, whether or not you ever trade with us.</p>
-    <a class="btn btn--lg" href="#">Book a call with Ben <span class="arw">&rarr;</span></a>
-    <div class="finalnote">No form. No sales sequence. A calendar link.</div>
-  </div>
-</section>
+MORE THAN
+FOREIGN EXCHANGE.       HOLD   →   SEND   →   CONVERT   →   MANAGE
 
-<footer class="foot">
-  <div class="wrap foot-in">
-    <div>BLK.FX &middot; Foreign exchange and international payments &middot; London</div>
-    <div>Homepage direction prototype &middot; Growth Provision</div>
-  </div>
-</footer>
+The teal/copper ribbon could travel through the cards as a continuous line, visually connecting the four capabilities.
 
-</main>
+This is where GSAP's pin + scrub becomes particularly useful. ScrollTrigger explicitly supports pinning and linking animation progress to scrollbar progress.
 
-<button class="totop" id="totop" type="button" aria-label="Back to top">&uarr;</button>
+GSAP: YES
+ScrollTrigger: YES
+Pin: YES
+Horizontal movement: YES
+Scrub: ~1
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+Mobile: no pinned horizontal scroll. Stack the four elements vertically with subtle entrance movement.
 
-<script>
-(function(){
-"use strict";
-/* ============================================================
-   JavaScript ENHANCES only. It never writes content.
-   Every word on this page is in the HTML above. Turn JS off and
-   the page is complete, readable and crawlable.
-   ============================================================ */
-var $ = function(id){ return document.getElementById(id); };
-var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-var hasGSAP = typeof window.gsap !== 'undefined' && typeof window.ScrollTrigger !== 'undefined';
-var motion = hasGSAP && !reduce;
-if(motion){ gsap.registerPlugin(ScrollTrigger); }
-else { document.documentElement.classList.add('no-motion'); }
+That distinction matters. We don't need to force the desktop gimmick onto phones.
 
-/* ---------- split headlines into words (wraps existing text, adds none) ---------- */
-document.querySelectorAll('[data-split]').forEach(function(el){
-  var tmp = document.createElement('div');
-  tmp.innerHTML = el.innerHTML;
-  var out = '';
-  Array.prototype.forEach.call(tmp.childNodes, function(node){
-    if(node.nodeType === 3){
-      node.textContent.split(/(\s+)/).forEach(function(tok){
-        if(!tok.trim()){ out += tok; return; }
-        out += '<span class="w"><i>' + tok + '</i></span>';
-      });
-    } else {
-      out += '<span class="w"><i>' + node.outerHTML + '</i></span>';
-    }
-  });
-  el.innerHTML = out;
-});
+04. The rate is only part of the decision
 
-/* ---------- market sessions, real UTC ---------- */
-function sessions(){
-  var now = new Date(), h = now.getUTCHours() + now.getUTCMinutes()/60, d = now.getUTCDay();
-  var closed = (d===6) || (d===5 && h>=22) || (d===0 && h<22);
-  var open = {Sydney:(h>=22||h<7), Tokyo:(h>=0&&h<9), London:(h>=8&&h<17), 'New York':(h>=13&&h<22)};
-  document.querySelectorAll('#sessions .sess').forEach(function(el){
-    el.classList.toggle('on', !closed && !!open[el.textContent.trim()]);
-  });
-  $('sessnote').textContent = closed ? 'Market closed. We still answer.' : 'Market open';
-}
-sessions(); setInterval(sessions, 60000);
+This is the BLK vs bank/platform comparison.
 
-/* ---------- INTERACTIVE 1: services slider (iFX accounts-slider) ---------- */
-(function(){
-  var track = $('svcTrack'), prev = $('svcPrev'), next = $('svcNext'), bar = $('svcBar');
-  if(!track) return;
-  var i = 0;
-  function step(){
-    var card = track.children[0];
-    if(!card) return 0;
-    return card.getBoundingClientRect().width + 16;
-  }
-  function maxIndex(){
-    var per = Math.max(Math.floor(track.parentElement.clientWidth / step()), 1);
-    return Math.max(track.children.length - per, 0);
-  }
-  function render(){
-    var m = maxIndex();
-    if(i > m) i = m;
-    track.style.transform = 'translate3d(' + (-i * step()) + 'px,0,0)';
-    var per = track.children.length - m;
-    bar.style.width = ((per / track.children.length) * 100).toFixed(1) + '%';
-    bar.style.transform = 'translateX(' + (m ? (i / m) * ((track.children.length - per) / per) * 100 : 0) + '%)';
-    prev.disabled = i <= 0;
-    next.disabled = i >= m;
-  }
-  prev.addEventListener('click', function(){ i = Math.max(i - 1, 0); render(); });
-  next.addEventListener('click', function(){ i = Math.min(i + 1, maxIndex()); render(); });
-  window.addEventListener('resize', render);
-  render();
-})();
+And here I would borrow from the comparison/overflow concept present in your supplied site.
 
-/* ---------- INTERACTIVE 2: FX product tabs (toggles [hidden] only) ---------- */
-(function(){
-  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tabs-nav [role="tab"]'));
-  if(!tabs.length) return;
-  function select(tab){
-    tabs.forEach(function(t){
-      var on = t === tab;
-      t.setAttribute('aria-selected', String(on));
-      var panel = $(t.getAttribute('aria-controls'));
-      if(panel) panel.hidden = !on;
-    });
-  }
-  tabs.forEach(function(t, n){
-    t.addEventListener('click', function(){ select(t); });
-    t.addEventListener('keydown', function(e){
-      var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
-      if(!d) return;
-      e.preventDefault();
-      var nx = tabs[(n + d + tabs.length) % tabs.length];
-      nx.focus(); select(nx);
-    });
-  });
-})();
+But ours would be cleaner.
 
-/* ---------- INTERACTIVE 3: testimonial slider (toggles [hidden] only) ---------- */
-(function(){
-  var qs = Array.prototype.slice.call(document.querySelectorAll('[data-quote]'));
-  var bar = $('qBar');
-  if(qs.length < 2) return;
-  var i = 0;
-  function render(){
-    qs.forEach(function(q, n){ q.hidden = n !== i; });
-    bar.style.width = (100 / qs.length).toFixed(2) + '%';
-    bar.style.transform = 'translateX(' + (i * 100) + '%)';
-  }
-  $('qNext').addEventListener('click', function(){ i = (i + 1) % qs.length; render(); });
-  $('qPrev').addEventListener('click', function(){ i = (i - 1 + qs.length) % qs.length; render(); });
-  render();
-})();
+Initially:
 
-/* ---------- INTERACTIVE 4: indicative rates, tick while in view only ---------- */
-(function(){
-  var cells = document.querySelectorAll('#ratesTable .st');
-  var live = false, timer = null;
-  function tick(){
-    var cell = cells[Math.floor(Math.random() * cells.length)];
-    var base = parseFloat(cell.dataset.rate);
-    var dp = base > 10 ? 3 : 4;
-    var cur = parseFloat(cell.textContent);
-    var next = cur + (Math.random() - 0.5) * base * 0.0012;
-    if(Math.abs(next - base) > base * 0.004) next = base;
-    cell.textContent = next.toFixed(dp);
-    cell.classList.remove('up','down');
-    cell.classList.add(next >= cur ? 'up' : 'down', 'flash');
-    setTimeout(function(){ cell.classList.remove('flash'); }, 700);
-  }
-  if(motion && 'IntersectionObserver' in window){
-    new IntersectionObserver(function(es){
-      es.forEach(function(e){
-        if(e.isIntersecting && !live){ live = true; timer = setInterval(tick, 2600); }
-        else if(!e.isIntersecting && live){ live = false; clearInterval(timer); }
-      });
-    }, {threshold:.25}).observe($('ratesTable'));
-  }
-})();
+THE RATE IS ONLY PART OF THE DECISION.
 
-/* ---------- back to top ---------- */
-(function(){
-  var totop = $('totop');
-  window.addEventListener('scroll', function(){
-    totop.classList.toggle('on', window.scrollY > window.innerHeight);
-  }, {passive:true});
-  totop.addEventListener('click', function(){
-    window.scrollTo({top:0, behavior: reduce ? 'auto' : 'smooth'});
-  });
-})();
+Then as you scroll:
 
-/* ============================================================
-   MOTION. All gsap.from(), so the resting state is what the CSS
-   already describes and nothing is pre-hidden.
-   ============================================================ */
-if(motion){
-  var FROM = {
-    'right-top':    {xPercent: 12,  y: -46, rotate:  2.2},
-    'right-bottom': {xPercent: 12,  y:  54, rotate: -2.2},
-    'left-bottom':  {xPercent: -12, y:  54, rotate:  2.2},
-    'bottom':       {xPercent: 0,   y:  60, rotate:  0},
-    'scaleup':      {xPercent: 0,   y:  44, rotate:  0, scale: .94}
-  };
-  document.querySelectorAll('.tr').forEach(function(el){
-    var f = FROM[el.dataset.from] || FROM.bottom;
-    gsap.from(el, {
-      opacity: 0, xPercent: f.xPercent, y: f.y, rotate: f.rotate, scale: f.scale || 1,
-      duration: 1.15, ease: 'expo.out',
-      scrollTrigger: {trigger: el, start: 'top 88%', once: true}
-    });
-  });
-  document.querySelectorAll('.split').forEach(function(el){
-    gsap.from(el.querySelectorAll('.w > i'), {
-      yPercent: 108, duration: .95, ease: 'expo.out', stagger: .045,
-      scrollTrigger: {trigger: el, start: 'top 90%', once: true}
-    });
-  });
-  document.querySelectorAll('[data-count]').forEach(function(el){
-    var target = parseFloat(el.dataset.count), pre = el.dataset.prefix||'', suf = el.dataset.suffix||'';
-    var o = {v: 0};
-    gsap.to(o, {
-      v: target, duration: 1.3, ease: 'power3.out',
-      onUpdate: function(){ el.textContent = pre + Math.round(o.v) + suf; },
-      scrollTrigger: {trigger: el, start: 'top 92%', once: true}
-    });
-  });
+                    BANK       PLATFORM       BLK.FX
 
-  /* pinned horizontal segment track, the iFX js-hor-scroll pattern */
-  var track = $('horTrack');
-  ScrollTrigger.matchMedia({
-    '(min-width: 1041px)': function(){
-      var overflow = function(){ return Math.max(track.scrollWidth - window.innerWidth + 40, 0); };
-      var st = ScrollTrigger.create({
-        trigger: '.hor', start: 'top top',
-        end: function(){ return '+=' + (overflow() + window.innerHeight * 0.4); },
-        pin: '.hor-stage', scrub: 0.8, invalidateOnRefresh: true,
-        onUpdate: function(self){ gsap.set(track, {x: -overflow() * self.progress}); }
-      });
-      return function(){ gsap.set(track, {clearProps:'x'}); st.kill(); };
-    }
-  });
-}
-})();
-</script>
+Personal support       •           •             ●
+FX strategy            •           •             ●
+Human intervention     •           •             ●
+24/7 support           •           •             ●
+
+I wouldn't animate every cell individually like a casino machine.
+
+Instead each row sweeps into focus.
+
+BLK's column remains subtly illuminated in teal while the others stay gray.
+
+GSAP: YES
+Pin: Possibly, but short
+Scrub: YES
+
+We should be careful not to stack enormous pinned sections back-to-back. That becomes irritating quickly.
+
+05. Human service / payment interruption
+
+This could become one of the most memorable things on the site.
+
+When something needs attention, you have someone to call.
+
+We create a horizontal payment journey.
+
+YOUR BUSINESS ───────────────→ RECIPIENT
+                    ↓
+               PAYMENT HELD
+
+As you scroll, the line moves.
+
+Then it stops.
+
+Small warm copper/red indicator:
+
+PAYMENT DELAYED
+
+Then:
+
+BLK.FX
+Human support.
+24 hours a day.
+
+Teal enters the route.
+
+The payment resumes.
+
+YOUR BUSINESS ─────────────────────────→ RECIPIENT ✓
+
+The important thing is that this isn't pretending BLK magically controls payment rails. It's visually communicating the service intervention Ben described.
+
+GSAP: YES
+ScrollTrigger timeline: YES
+SVG line animation: Potentially yes
+Pin: YES, briefly
+
+This would feel exceptionally good against black.
+
+06. Services
+
+Now we deliberately calm everything down.
+
+Six services.
+
+No ScrollTrigger extravaganza.
+
+The cards are already in the HTML and simply respond when you interact.
+
+On hover:
+
+card expands 2–3% → thin teal edge appears → supporting sentence rises → arrow moves
+
+Perhaps the abstract teal/copper light subtly changes position behind the card.
+
+This is closer to the interactive card behavior Ben wanted.
+
+GSAP: Probably unnecessary.
+
+CSS transitions can handle this perfectly well.
+
+And that's important. GSAP shouldn't be used simply because we have GSAP.
+
+07. Who BLK works with
+
+This is where I would directly adopt the marquee idea from the supplied build.
+
+That site has both standard and reverse marquee components.
+
+BLK:
+
+CFOs   /   FOUNDERS   /   SPVs   /   TRUSTS   /   FUNDS   /   PRIVATE EQUITY
+←
+
+Underneath:
+
+ECOMMERCE   /   PRIVATE CLIENTS   /   PROPERTY   /   VENTURE CAPITAL   /   FDs
+→
+
+Huge typography.
+
+Black background.
+
+Outline text for one row, white text for another, occasional teal word.
+
+Slow.
+
+Not ticker-tape speed.
+
+Then underneath that visual device, we still have the actual structured content:
+
+Businesses & finance teams
+
+Structures & investment vehicles
+
+Private clients
+
+So SEO isn't dependent on the marquee.
+
+GSAP: NO, necessarily.
+
+I'd probably do the continuous marquee with CSS because CSS is perfectly capable of it.
+
+ScrollTrigger could merely reduce/increase the speed slightly based on scroll velocity if we decide we want that sophistication later.
+
+08. FX strategy
+
+This is another place where movement actually explains the product rather than decorating it.
+
+Don't just exchange currency. Manage when and how you exchange it.
+
+We introduce one animated exchange-rate line.
+
+User scrolls.
+
+SPOT
+
+Exchange at the available market rate.
+
+Continue.
+
+The line approaches a horizontal marker.
+
+LIMIT
+
+Set the rate you want to target.
+
+Continue.
+
+A future date appears.
+
+FORWARD
+
+Secure certainty for a future payment.
+
+So instead of showing three cards explaining FX products, the graph demonstrates why they exist.
+
+GSAP: YES
+ScrollTrigger: YES
+SVG/chart animation: YES
+Pin: YES
+
+This is the section where the financial subject matter and GSAP really earn their keep.
+
+09. FX Exposure
+
+Here I would change visual language slightly.
+
+BLK's abstract ribbon begins moving downward.
+
+As we scroll, it becomes increasingly data-like.
+
+Numbers appear.
+
+Currency pairs.
+
+Exposure.
+
+GBP/USD.
+
+EUR/GBP.
+
+Eventually we arrive at the actual FX Exposure interface.
+
+Know your FX exposure before it costs you.
+
+Then device/interface.
+
+Try FX Exposure
+
+This visually says:
+
+BLK expertise → BLK technology
+
+without repositioning the entire business as SaaS.
+
+GSAP: YES
+ScrollTrigger: YES
+Pin: NO
+
+10. How it works
+
+Back to calm.
+
+This is important for pacing.
+
+TALK → SET UP → TRANSACT & MANAGE
+
+I would use one vertical line on desktop.
+
+As the user scrolls down, the teal line draws downward.
+
+Each step becomes active when the line reaches it.
+
+01
+TALK
+│
+│
+02
+SET UP
+│
+│
+03
+TRANSACT & MANAGE
+
+Very restrained.
+
+GSAP: YES, tiny amount
+ScrollTrigger: YES
+Pin: NO
+
+11. Global payments
+
+This is where I think we can make something beautiful.
+
+Money doesn't stop at borders. Neither should your business.
+
+Then:
+
+GBP  →  EUR  →  USD  →  AED  →  CAD  →  AUD
+
+Underneath:
+
+Faster Payments / SEPA / SWIFT / ACH
+
+I would use another slow horizontal movement here, perhaps taking inspiration from the marquee behaviour in the supplied build.
+
+But instead of words flying past, we create a global transaction stream.
+
+Tiny nodes illuminate as currency passes through.
+
+No giant spinning globe. Please no giant spinning globe.
+
+12. Testimonials
+
+Again: calm.
+
+This is one place where the Swiper functionality from the supplied site could be useful. The code includes previous/next Swiper controls.
+
+But I don't want an autoplay testimonial carousel.
+
+I'd show one large testimonial and allow the visitor to deliberately move between three.
+
+Something like:
+
+"Ben has completely changed the way we manage..."
+
+                         01 / 03     ←  →
+
+Swipe on mobile.
+
+No automatic sliding while someone is trying to read.
+
+13. SEO / answer content
+
+Almost completely static.
+
+This is important.
+
+After all the visual storytelling above, we reach the substantive information layer.
+
+Question-led headings.
+
+Proper paragraphs.
+
+Internal links.
+
+FAQs where appropriate.
+
+No accordion hiding every answer.
+
+No animated text.
+
+No scroll-jacking.
+
+Maybe a simple 15px fade/translate as each major block enters, but frankly I'd probably leave most of this alone.
+
+This is where Google, AI systems and users who actually want information get the clearest possible BLK content.
+
+14. Final CTA
+
+Back to black.
+
+Large typography.
+
+Let's make your foreign currency work harder.
+
+BOOK A CALL
+
+And this is where I'd bring the abstract teal/copper ribbon from the hero back.
+
+But now it completes the visual journey.
+
+Hero:
+
+ribbon enters
+
+Homepage:
+
+ribbon becomes transaction / data / movement
+
+Final CTA:
+
+ribbon exits
+
+That gives the whole homepage a visual narrative rather than a collection of animations.
+
+The overall rhythm
+
+This is the part I think matters most:
+
+HERO
+movement
+
+PROOF
+small movement
+
+CAPABILITIES
+major movement
+
+COMPARISON
+medium movement
+
+HUMAN SERVICE
+major movement
+
+SERVICES
+still
+
+AUDIENCES
+ambient movement
+
+FX STRATEGY
+major movement
+
+FX EXPOSURE
+medium movement
+
+HOW IT WORKS
+small movement
+
+GLOBAL PAYMENTS
+ambient movement
+
+TESTIMONIALS
+mostly still
+
+SEO CONTENT
+still
+
+CTA
+ambient movement
+
+So we aren't merely throwing GSAP everywhere.
+
+We are using motion hierarchy.
+
+The biggest animation moments correspond to the things we most want someone to understand about BLK.
+
+And one technical principle I want baked into the repo
+
+I would structure every component as:
+
+HTML / JSX
+    ↓
+Actual content + semantic structure
+    ↓
+CSS
+    ↓
+Complete usable design
+    ↓
+GSAP
+    ↓
+Enhanced experience
+
+Never:
+
+JS executes
+    ↓
+Content gets created
+    ↓
+User/crawler can finally see it
+
+ScrollTrigger supports responsive setups and recalculates positions as viewport dimensions change, so we can create desktop-specific pinned experiences while falling back to simpler layouts on mobile.
+
+And GSAP specifically warns against animating the pinned element itself because that can interfere with ScrollTrigger's measurements. We should pin the outer container and animate elements inside it.
+
+That is exactly how I'd architect the HOLD/SEND/CONVERT/MANAGE and FX Strategy sections.
+
+Before you start coding GSAP
+
+I need just one technical detail from you: tell me what the GitHub project is built with, for example React + Vite, Next.js, Astro, or plain HTML/CSS/JS.
+
+Once I know that, I can give you the exact install/import/file setup for your repo rather than giving you generic instructions. And from there, we can build each of these homepage interactions without compromising the HTML/SEO layer.
