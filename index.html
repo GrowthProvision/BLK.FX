@@ -21,15 +21,14 @@
   --blk-mute:#63625E;
   --blk-mute-ink:#8A8A8E;
 
-  --blk-accent:#1B29FF;
-  --blk-accent-text:#1B29FF;
-  --blk-accent-ink:#7C88FF;
-  --blk-accent-on:#FFFFFF;
+  /* Black and white only. No accent colour for now.
+     Emphasis is carried by weight, rule, inversion and direction
+     glyphs instead of hue. One token set, nothing to switch. */
+  --blk-accent:#0A0A0A;
+  --blk-accent-text:#0A0A0A;
+  --blk-accent-ink:#FAFAFA;
+  --blk-accent-on:#FAFAFA;
   --blk-accent-on-ink:#0A0A0A;
-  --up:#1B29FF;
-  --up-ink:#7C88FF;
-  --down:#B23A2E;
-  --down-ink:#E56A5C;
 
   --display:"Archivo","Helvetica Neue",Arial,sans-serif;
   --prose:"Newsreader","Iowan Old Style",Georgia,serif;
@@ -38,9 +37,6 @@
   --maxw:1240px;
   color-scheme:light;
 }
-[data-accent="petrol"]{--blk-accent:#0E8A84;--blk-accent-text:#0A6E69;--blk-accent-ink:#37C9C0;--blk-accent-on:#FFF;--blk-accent-on-ink:#03211F;--up:#0A6E69;--up-ink:#37C9C0}
-[data-accent="cobalt"]{--blk-accent:#2764FF;--blk-accent-text:#1E4FD1;--blk-accent-ink:#84A6FF;--blk-accent-on:#FFF;--blk-accent-on-ink:#04102E;--up:#1E4FD1;--up-ink:#84A6FF}
-[data-accent="mono"]{--blk-accent:#0A0A0A;--blk-accent-text:#0A0A0A;--blk-accent-ink:#FAFAFA;--blk-accent-on:#FAFAFA;--blk-accent-on-ink:#0A0A0A;--up:#0A0A0A;--up-ink:#FAFAFA}
 
 *{box-sizing:border-box}
 body{margin:0;background:var(--blk-paper);color:var(--blk-ink);font-family:var(--display);
@@ -242,10 +238,13 @@ h1 .em{font-family:var(--prose);font-style:italic;font-weight:300;letter-spacing
 .rates th:first-child{text-align:left}
 .rates td{padding:14px 0;border-bottom:1px solid var(--blk-line);text-align:right;font-family:var(--data);font-size:14.5px}
 .rates td:first-child{text-align:left;font-weight:600;font-family:var(--display)}
-.rates .st{transition:color .4s,background .4s;padding:2px 5px}
-.rates .st.up{color:var(--up)}
-.rates .st.down{color:var(--down)}
-.rates .flash{background:color-mix(in srgb, var(--blk-accent) 15%, transparent)}
+.rates .st{transition:background .4s;padding:2px 5px}
+/* movement is shown by a direction glyph and weight, never by colour,
+   so the table stays strictly black and white */
+.rates .st.up,.rates .st.down{font-weight:500}
+.rates .st.up::after{content:" \25B2";font-size:.7em;vertical-align:1px}
+.rates .st.down::after{content:" \25BC";font-size:.7em;vertical-align:1px}
+.rates .flash{background:var(--blk-paper-3)}
 .rates .sv{color:var(--blk-accent-text);font-weight:500}
 .tablewrap{overflow-x:auto}
 
@@ -287,18 +286,6 @@ h1 .em{font-family:var(--prose);font-style:italic;font-weight:300;letter-spacing
 .disc{font-size:12px;color:var(--blk-mute);margin-top:14px;max-width:54ch}
 .band--ink .disc{color:var(--blk-mute-ink)}
 
-.accbar{position:fixed;left:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:75;
-  background:rgba(250,250,250,.94);backdrop-filter:blur(12px);border:1px solid var(--blk-line);
-  padding:10px 12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;
-  box-shadow:0 14px 34px rgba(10,10,10,.14);max-width:calc(100vw - 40px)}
-.accbar .lab{font-family:var(--data);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--blk-mute);white-space:nowrap}
-.sw{display:flex;gap:6px}
-.sw button{width:26px;height:26px;border:1px solid var(--blk-line);border-radius:50%;transition:transform .18s}
-.sw button:hover{transform:scale(1.12)}
-.sw button[aria-pressed="true"]{box-shadow:0 0 0 2px var(--blk-ink)}
-.sw .s-ultra{background:#1B29FF}.sw .s-petrol{background:#0E8A84}.sw .s-cobalt{background:#2764FF}
-.sw .s-mono{background:linear-gradient(135deg,#0A0A0A 50%,#FAFAFA 50%)}
-.accbar .name{font-size:12px;font-weight:600;white-space:nowrap;min-width:92px}
 .totop{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:70;
   width:44px;height:44px;background:var(--blk-ink);color:var(--blk-paper);display:flex;align-items:center;justify-content:center;
   opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s,transform .2s}
@@ -328,7 +315,7 @@ h1 .em{font-family:var(--prose);font-style:italic;font-weight:300;letter-spacing
   .hor-head{position:static;margin-bottom:28px}
 }
 @media (max-width:760px){.why{grid-template-columns:1fr}}
-@media (max-width:620px){.chevrons{grid-template-columns:1fr}h1{max-width:100%}.accbar{left:12px;right:12px;bottom:12px;justify-content:center}}
+@media (max-width:620px){.chevrons{grid-template-columns:1fr}h1{max-width:100%}}
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition-duration:.01ms!important}
   .tr{opacity:1!important;transform:none!important}
@@ -924,16 +911,6 @@ h1 .em{font-family:var(--prose);font-style:italic;font-weight:300;letter-spacing
 
 </main>
 
-<div class="accbar" id="accbar">
-  <span class="lab">Accent</span>
-  <span class="sw" role="group" aria-label="Choose an accent colour">
-    <button class="s-ultra"  type="button" data-acc="ultra"  aria-pressed="true"  aria-label="Ultramarine"></button>
-    <button class="s-petrol" type="button" data-acc="petrol" aria-pressed="false" aria-label="Petrol teal"></button>
-    <button class="s-cobalt" type="button" data-acc="cobalt" aria-pressed="false" aria-label="Cobalt"></button>
-    <button class="s-mono"   type="button" data-acc="mono"   aria-pressed="false" aria-label="No accent"></button>
-  </span>
-  <span class="name" id="accName">Ultramarine</span>
-</div>
 <button class="totop" id="totop" type="button" aria-label="Back to top">&uarr;</button>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -1078,30 +1055,6 @@ sessions(); setInterval(sessions, 60000);
       });
     }, {threshold:.25}).observe($('ratesTable'));
   }
-})();
-
-/* ---------- accent switcher (review tool, removed before launch) ---------- */
-(function(){
-  var NAMES = {ultra:'Ultramarine', petrol:'Petrol teal', cobalt:'Cobalt', mono:'No accent'};
-  document.querySelectorAll('#accbar .sw button').forEach(function(b){
-    b.addEventListener('click', function(){
-      var key = b.dataset.acc;
-      document.querySelectorAll('#accbar .sw button').forEach(function(o){
-        o.setAttribute('aria-pressed', String(o === b));
-      });
-      if(key === 'ultra') document.documentElement.removeAttribute('data-accent');
-      else document.documentElement.setAttribute('data-accent', key);
-      $('accName').textContent = NAMES[key];
-      try{ localStorage.setItem('blkfx-accent', key); }catch(e){}
-    });
-  });
-  try{
-    var saved = localStorage.getItem('blkfx-accent');
-    if(saved && NAMES[saved]){
-      var btn = document.querySelector('#accbar .sw button[data-acc="' + saved + '"]');
-      if(btn) btn.click();
-    }
-  }catch(e){}
 })();
 
 /* ---------- back to top ---------- */
