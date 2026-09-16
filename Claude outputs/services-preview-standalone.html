@@ -686,13 +686,22 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
 /* Hero sub-copy: give it room so it doesn't break into a tall narrow column */
 .hero .hero-sub{max-width:72ch}
 
-/* Six services: static 3x2 grid (no slider chrome), whole card clickable */
+/* Six services: static 3x2 grid (no slider chrome), whole card clickable.
+   The card's size now follows the hover copy itself (laid out in normal
+   flow) instead of a fixed height guessed to fit the longest card, so a
+   card is only ever as tall as its own content needs, and the hover panel
+   isn't left with empty space at the bottom. The icon face becomes the
+   overlay instead, shown by default and faded out on hover. */
 #services{position:relative}
 #services .sldr{overflow:visible}
 #services .sldr-track{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;transform:none!important;gap:18px}
 #services .sldr-foot{display:none!important}
-#services .svc-reveal{background:var(--blk-paper-2)}
-#services .svc{min-height:420px}
+#services .svc{padding:0;min-height:0;background:transparent}
+#services .svc-reveal{position:static;opacity:1;transform:none;pointer-events:auto;background:var(--blk-paper-2);
+  padding:clamp(18px,2vw,24px)}
+#services .svc-face{position:absolute;inset:0;height:auto;margin:0;box-sizing:border-box;
+  padding:clamp(18px,2vw,24px);background:#fff;opacity:1;z-index:1}
+#services .svc:hover .svc-face,#services .svc:focus-within .svc-face{opacity:0;pointer-events:none}
 .svc-hit{position:absolute;inset:0;z-index:2;border-radius:inherit}
 .svc-hit:focus-visible{outline:2px solid var(--blk-accent);outline-offset:-2px}
 @media(max-width:900px){#services .sldr-track{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
