@@ -374,7 +374,7 @@ a.chan:hover{border-color:var(--blk-accent);color:var(--blk-accent)}
 .disc-block[open] .faq-caret::after{opacity:0}
 #disclosures{padding-block:36px 60px}
 .disc-panel{padding:0 22px 28px}
-.disc-panel p{font-family:var(--display);font-size:13px;line-height:1.7;color:var(--blk-mute);margin:0 0 16px}
+.disc-panel p{font-family:var(--display);font-size:11px;line-height:1.65;color:var(--blk-mute);margin:0 0 16px}
 .disc-panel p:last-child{margin-bottom:0}
 .disc{font-size:12px;color:var(--blk-mute);margin-top:14px;max-width:54ch}
 .band--ink .disc{color:var(--blk-mute-ink)}
@@ -590,6 +590,8 @@ main{perspective:none;overflow:clip}
  .brand{font-size:22px}
  .nav .btn{font-size:12px;padding:10px 12px}
  .nav .btn .arw{display:none}
+ .login-nav>button{font-size:12px;padding:10px 12px}
+ .drop--login{max-width:calc(100vw - 32px)}
  .hero{min-height:calc(100svh - 72px);padding-block:55px}
  .hero h1{font-size:clamp(42px,11.5vw,66px);max-width:12ch}
  .hero-label{font-size:10px;margin-bottom:24px}
@@ -618,13 +620,18 @@ main{perspective:none;overflow:clip}
 html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}.lenis.lenis-stopped{overflow:hidden}
 
 /* ---------- login dropdown ---------- */
-.login-item>button{color:var(--blk-mute)}
-.drop--login{min-width:236px}
-.drop--login a{display:flex;align-items:center;gap:12px}
-.login-mark{flex:0 0 26px;width:26px;height:26px;border-radius:50%;background:var(--blk-paper-2);color:var(--blk-mute);
-  font-family:var(--data);font-size:11px;font-weight:700;letter-spacing:0;display:flex;align-items:center;justify-content:center;
-  border:1px solid var(--blk-line);transition:background .18s,color .18s,border-color .18s}
-.drop--login a:hover .login-mark{background:var(--blk-accent);color:var(--blk-accent-on);border-color:var(--blk-accent)}
+.login-nav{position:relative}
+.login-nav>button{display:flex;align-items:center;gap:8px;font-family:inherit;font-size:14px;color:var(--blk-ink);
+  background:none;cursor:pointer;padding:10px 14px;border:1px solid var(--blk-line);border-radius:2px;
+  transition:color .2s,border-color .2s}
+.login-nav:hover>button,.login-nav:focus-within>button{color:var(--blk-ink);border-color:var(--blk-accent)}
+.login-nav .drop{left:auto;right:0}
+.login-nav:hover .drop,.login-nav:focus-within .drop,.login-nav.is-open .drop{opacity:1;visibility:visible;transform:none}
+.drop--login{min-width:190px;width:190px;padding:10px;display:grid;gap:10px;background:#fff}
+.drop--login a{display:block;padding:0;border-radius:9px;overflow:hidden;border:1px solid var(--blk-line);
+  transition:border-color .18s,transform .18s,box-shadow .18s}
+.drop--login a:hover{border-color:var(--blk-accent);transform:translateY(-2px);box-shadow:0 10px 22px rgba(10,10,10,.1)}
+.drop--login img{display:block;width:100%;height:auto}
 
 /* ---------- BLK proposition: icon + hover reveal ---------- */
 .prop{padding:clamp(70px,9vw,110px) 0}
@@ -694,9 +701,9 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
         </div></li>
       <li><button type="button" aria-haspopup="true">Who We Help <span class="caret"></span></button>
         <div class="drop">
-          <a href="#who">Businesses and finance teams</a>
-          <a href="#who">SPVs, trusts and funds</a>
-          <a href="#who">Private clients and property</a>
+          <a href="#who">Business &amp; Finance Teams</a>
+          <a href="#who">SPVs, Trusts &amp; Funds</a>
+          <a href="#who">Private Clients &amp; Property</a>
           <a href="#who">Music &amp; Entertainment</a>
           <a href="#who">Creators &amp; Influencers</a>
         </div></li>
@@ -706,25 +713,27 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
         </div></li>
       <li><button type="button" aria-haspopup="true">About <span class="caret"></span></button>
         <div class="drop">
-          <a href="https://blkfx.co.uk/about-us/">Our story</a><a href="#why">Our approach</a><a href="#">FinTech Providers</a>
+          <a href="https://blkfx.co.uk/about-us/">Our Story</a><a href="#why">Our Approach</a><a href="#">FinTech Providers</a>
         </div></li>
       <li><button type="button" aria-haspopup="true">Insights <span class="caret"></span></button>
         <div class="drop">
           <a href="https://blkfx.co.uk/blog/">Blog</a>
-          <a href="https://blkfx.co.uk/newsletter/">Market place updates</a>
-          <a href="https://blkfx.co.uk/contact-us/#brochure">Download brochure</a>
-        </div></li>
-      <li class="login-item"><button type="button" aria-haspopup="true">Login <span class="caret"></span></button>
-        <div class="drop drop--login">
-          <a href="https://blkfx.paydirect.io/login" target="_blank" rel="noopener"><span class="login-mark" aria-hidden="true">P</span>Paydirect</a>
-          <a href="https://blkfx.numito.com/login" target="_blank" rel="noopener"><span class="login-mark" aria-hidden="true">N</span>Numito</a>
-          <a href="https://blkfx.equalsconnect.com/account/login" target="_blank" rel="noopener"><span class="login-mark" aria-hidden="true">E</span>Equals Connect</a>
-          <a href="https://blkfx.sciopay.co/login" target="_blank" rel="noopener"><span class="login-mark" aria-hidden="true">S</span>ScioPay</a>
+          <a href="https://blkfx.co.uk/newsletter/">Market Place Updates</a>
+          <a href="https://blkfx.co.uk/contact-us/#brochure">Download Brochure</a>
         </div></li>
     </ul>
     <div class="nav-right">
-
-      <a class="btn" href="https://meetings-eu1.hubspot.com/ben-kohler/intro-call-ben?uuid=47f7214c-7d08-47db-9514-766c690fd651" target="_blank" rel="noopener">Contact Us <span class="arw">&rarr;</span></a>
+      <div class="login-nav">
+        <button type="button" aria-haspopup="true">Login <span class="caret"></span></button>
+        <div class="drop drop--login">
+          <a href="https://blkfx.paydirect.io/login" target="_blank" rel="noopener" aria-label="Currencycloud login"><img src="images/Currencycloud.png" alt="Currencycloud" width="720" height="210" loading="lazy"></a>
+          <a href="https://blkfx.numito.com/login" target="_blank" rel="noopener" aria-label="GC Partners login"><img src="images/GC Partners.png" alt="GC Partners" width="720" height="210" loading="lazy"></a>
+          <a href="https://blkfx.equalsconnect.com/account/login" target="_blank" rel="noopener" aria-label="Equals login"><img src="images/Equals.png" alt="Equals" width="720" height="210" loading="lazy"></a>
+          <a href="https://oblkfxltd.ebury.com/login/?next=/" target="_blank" rel="noopener" aria-label="Ebury login"><img src="images/Ebury.png" alt="Ebury" width="720" height="210" loading="lazy"></a>
+          <a href="https://blkfx.sciopay.co/login" target="_blank" rel="noopener" aria-label="Sciopay login"><img src="images/Sciopay.png" alt="Sciopay" width="720" height="210" loading="lazy"></a>
+        </div>
+      </div>
+      <a class="btn" href="https://blkfx.co.uk/contact-us/">Contact Us <span class="arw">&rarr;</span></a>
       <button class="burger" type="button" aria-label="Menu"><span></span></button>
     </div>
   </div>
@@ -1272,12 +1281,12 @@ return function(){function t(t){var e=this,o=void 0===t?{}:t,h=o.wrapper,a=void 
  menu.id='main-menu';burger.setAttribute('aria-controls',menu.id);burger.setAttribute('aria-expanded','false');
  function closeMenu(){menu.classList.remove('is-open');burger.setAttribute('aria-expanded','false');}
  burger.addEventListener('click',()=>{const on=menu.classList.toggle('is-open');burger.setAttribute('aria-expanded',String(on));});
- $$('.menu>li>button').forEach((button,i)=>{
+ $$('.menu>li>button, .login-nav>button').forEach((button,i)=>{
   const parent=button.parentElement, drop=parent.querySelector('.drop');
   button.setAttribute('aria-expanded','false');drop.id='nav-drop-'+i;button.setAttribute('aria-controls',drop.id);
   button.addEventListener('click',()=>{const open=parent.classList.toggle('is-open');button.setAttribute('aria-expanded',String(open));});
  });
- document.addEventListener('keydown',e=>{if(e.key==='Escape'){const wasOpen=menu.classList.contains('is-open');closeMenu();$$('.menu>li.is-open').forEach(el=>{el.classList.remove('is-open');el.querySelector('button').setAttribute('aria-expanded','false');});if(wasOpen)burger.focus();}});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'){const wasOpen=menu.classList.contains('is-open');closeMenu();$$('.menu>li.is-open, .login-nav.is-open').forEach(el=>{el.classList.remove('is-open');el.querySelector('button').setAttribute('aria-expanded','false');});if(wasOpen)burger.focus();}});
  document.addEventListener('click',e=>{if(!nav.contains(e.target))closeMenu();});
  // Native scroll-snap slider: touch, trackpad, keyboard and arrow buttons share one position.
  const services=$('#svcTrack'), prev=$('#svcPrev'), next=$('#svcNext'), serviceBar=$('#svcBar');
