@@ -310,6 +310,9 @@ a.chan:hover{border-color:var(--blk-accent);color:var(--blk-accent)}
 .story{border-left:2px solid var(--blk-accent);padding:4px 0 4px 22px;max-width:none}
 .story p{font-family:var(--prose);font-weight:300;font-size:clamp(17px,2vw,20px);line-height:1.5;margin:0;color:#3E3E3B}
 .story cite{display:block;font-style:normal;font-family:var(--data);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blk-mute);margin-top:14px}
+.trust-head{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap}
+.trust-head .trust{margin-top:0}
+@media (max-width:720px){.trust-head .trust{margin-top:28px}}
 .trust{display:flex;align-items:center;gap:clamp(18px,3vw,40px);flex-wrap:wrap;margin-top:32px}
 .score{font-family:var(--data);font-size:clamp(40px,6vw,62px);letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
 .score small{font-size:.35em;letter-spacing:.06em;color:var(--blk-mute)}
@@ -689,7 +692,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
   <div class="wrap nav-in">
     <a class="brand" href="#top">BLK<span>.</span>FX</a>
     <ul class="menu">
-      <li><button type="button" aria-haspopup="true">Services <span class="caret"></span></button>
+      <li><a href="https://growthprovision.github.io/BLK.FX/services/" aria-haspopup="true">Services <span class="caret"></span></a>
         <div class="drop">
           <a href="#services">Business Foreign Exchange</a>
           <a href="#services">International Payments</a>
@@ -697,7 +700,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
           <a href="#services">FX Risk Management &amp; Hedging</a>
           <a href="#services">Commercial Finance</a>
           <a href="#services">Private Client FX</a>
-          <a href="#services" class="all">View all services</a>
+          <a href="https://growthprovision.github.io/BLK.FX/services/" class="all">View all services</a>
         </div></li>
       <li><button type="button" aria-haspopup="true">Who We Help <span class="caret"></span></button>
         <div class="drop">
@@ -807,7 +810,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
         <div class="eyebrow"><span class="tick"></span>Services</div>
         <h2 class="split">Six services. One conversation.</h2>
       </div>
-      <a class="tlink" href="https://blkfx.co.uk/services/">View all services</a>
+      <a class="tlink" href="https://growthprovision.github.io/BLK.FX/services/">View all services</a>
     </div>
 
     <div class="sldr tr">
@@ -824,7 +827,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
             <h3>Business Foreign Exchange</h3>
             <p>Buy and sell 35+ currencies at a margin agreed before you trade, with the timing thought through rather than left to the invoice date.</p>
             <ul><li>Spot, forwards and orders</li><li>Margin agreed up front</li><li>Market analysis on your pairs</li></ul>
-            <span class="go"><a class="tlink" href="https://blkfx.co.uk/services/business-foreign-exchange/">Read more</a></span>
+            <span class="go"><a class="tlink" href="https://growthprovision.github.io/BLK.FX/services/business-foreign-exchange/">Read more</a></span>
           </div>
         </article>
         <article class="svc">
@@ -839,7 +842,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
             <h3>International Payments</h3>
             <p>Faster Payments, SEPA, Swift and ACH from one place, and a named person who chases a payment that has not landed.</p>
             <ul><li>Four payment rails</li><li>Same-day where possible</li><li>24/7 support on stuck payments</li></ul>
-            <span class="go"><a class="tlink" href="https://blkfx.co.uk/services/international-payments/">Read more</a></span>
+            <span class="go"><a class="tlink" href="https://growthprovision.github.io/BLK.FX/services/international-payments/">Read more</a></span>
           </div>
         </article>
         <article class="svc">
@@ -854,7 +857,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
             <h3>Multi-Currency Accounts</h3>
             <p>Accounts in your own name, in the currencies you actually deal in, so you can hold what you collect instead of converting twice.</p>
             <ul><li>Opened in your entity's name</li><li>No account or maintenance fee</li><li>Suitable for SPVs and trusts</li></ul>
-            <span class="go"><a class="tlink" href="https://blkfx.co.uk/services/multi-currency-accounts/">Read more</a></span>
+            <span class="go"><a class="tlink" href="https://growthprovision.github.io/BLK.FX/services/multi-currency-accounts/">Read more</a></span>
           </div>
         </article>
         <article class="svc">
@@ -869,7 +872,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
             <h3>FX Risk Management &amp; Hedging</h3>
             <p>Fix some or all of a future rate so a currency move cannot break a budget you have already set and reported to a board.</p>
             <ul><li>Forwards and orders</li><li>Budget rate strategy</li><li>Free modelling on FX Exposure</li></ul>
-            <span class="go"><a class="tlink" href="https://blkfx.co.uk/services/fx-risk-management-and-hedging/">Read more</a></span>
+            <span class="go"><a class="tlink" href="https://growthprovision.github.io/BLK.FX/services/fx-risk-management-and-hedging/">Read more</a></span>
           </div>
         </article>
         <article class="svc">
@@ -884,7 +887,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
             <h3>Commercial Finance</h3>
             <p>Facilities through partner lenders, so fixing a rate or bridging a completion does not tie up your working capital.</p>
             <ul><li>Through partner lenders</li><li>Pairs with forward contracts</li><li>Subject to a conversation</li></ul>
-            <span class="go"><a class="tlink" href="https://blkfx.co.uk/services/commercial-finance/">Read more</a></span>
+            <span class="go"><a class="tlink" href="https://growthprovision.github.io/BLK.FX/services/commercial-finance/">Read more</a></span>
           </div>
         </article>
         <article class="svc">
@@ -899,7 +902,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
             <h3>Private Client FX</h3>
             <p>Property abroad, moving money home, or a one-off transfer that has to land on a date. The rate fixed before you commit.</p>
             <ul><li>Property completions</li><li>Rate fixed in advance</li><li>Weekend contact when needed</li></ul>
-            <span class="go"><a class="tlink" href="https://blkfx.co.uk/services/private-client-fx/">Read more</a></span>
+            <span class="go"><a class="tlink" href="https://growthprovision.github.io/BLK.FX/services/private-client-fx/">Read more</a></span>
           </div>
         </article>
       </div>
@@ -1059,14 +1062,18 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
 
 <div class="motion-scene" data-scene="right-top"><section class="band--paper2 pad" id="reviews">
   <div class="wrap">
-    <div class="eyebrow"><span class="tick"></span>Client experience</div>
-    <h2>Service you can put a name to.</h2>
-    <p class="lede">Read what clients say about working with BLK.FX.</p>
-    <div class="trust">
-      <div class="score">4.7<small>/5</small></div>
+    <div class="trust-head">
       <div>
-        <div class="stars"><i></i><i></i><i></i><i></i><i></i></div>
-        <p>Rated on Trustpilot.</p>
+        <div class="eyebrow"><span class="tick"></span>Client experience</div>
+        <h2>Service you can put a name to.</h2>
+        <p class="lede">Read what clients say about working with BLK.FX.</p>
+      </div>
+      <div class="trust">
+        <div class="score">4.7<small>/5</small></div>
+        <div>
+          <div class="stars"><i></i><i></i><i></i><i></i><i></i></div>
+          <p>Rated on Trustpilot.</p>
+        </div>
       </div>
     </div>
     <div class="rev-grid">
@@ -1132,7 +1139,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
         <div class="foot-col">
           <p class="foot-col-h">Pages</p>
           <a href="https://blkfx.co.uk/about-us/">About</a>
-          <a href="#services">Services</a>
+          <a href="https://growthprovision.github.io/BLK.FX/services/">Services</a>
           <a href="#who">Who We Help</a>
           <a href="#">FinTech providers</a>
           <a href="https://blkfx.co.uk/blog/">Insights</a>

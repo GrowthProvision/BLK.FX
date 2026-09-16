@@ -768,7 +768,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
   <div class="wrap nav-in">
     <a class="brand" href="../index.html">BLK<span>.</span>FX</a>
     <ul class="menu">
-      <li><button type="button" aria-haspopup="true">Services <span class="caret"></span></button>
+      <li><a href="https://growthprovision.github.io/BLK.FX/services/" aria-haspopup="true">Services <span class="caret"></span></a>
         <div class="drop">
           <a href="../index.html#services">Business Foreign Exchange</a>
           <a href="../index.html#services">International Payments</a>
@@ -776,7 +776,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
           <a href="../index.html#services">FX Risk Management &amp; Hedging</a>
           <a href="../index.html#services">Commercial Finance</a>
           <a href="../index.html#services">Private Client FX</a>
-          <a href="../index.html#services" class="all">View all services</a>
+          <a href="https://growthprovision.github.io/BLK.FX/services/" class="all">View all services</a>
         </div></li>
       <li><button type="button" aria-haspopup="true">Who We Help <span class="caret"></span></button>
         <div class="drop">
@@ -1005,7 +1005,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
         <div class="foot-col">
           <p class="foot-col-h">Pages</p>
           <a href="https://blkfx.co.uk/about-us/">About</a>
-          <a href="../index.html#services">Services</a>
+          <a href="https://growthprovision.github.io/BLK.FX/services/">Services</a>
           <a href="../index.html#who">Who We Help</a>
           <a href="#">FinTech providers</a>
           <a href="https://blkfx.co.uk/blog/">Insights</a>
@@ -1104,10 +1104,18 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
  menu.id='main-menu';burger.setAttribute('aria-controls',menu.id);burger.setAttribute('aria-expanded','false');
  function closeMenu(){menu.classList.remove('is-open');burger.setAttribute('aria-expanded','false');}
  burger.addEventListener('click',()=>{const on=menu.classList.toggle('is-open');burger.setAttribute('aria-expanded',String(on));});
- $$('.menu>li>button, .login-nav>button').forEach((button,i)=>{
-  const parent=button.parentElement, drop=parent.querySelector('.drop');
-  button.setAttribute('aria-expanded','false');drop.id='nav-drop-'+i;button.setAttribute('aria-controls',drop.id);
-  button.addEventListener('click',()=>{const open=parent.classList.toggle('is-open');button.setAttribute('aria-expanded',String(open));});
+ $$('.menu>li>button, .menu>li>a[aria-haspopup], .login-nav>button').forEach((trigger,i)=>{
+  const parent=trigger.parentElement, drop=parent.querySelector('.drop');
+  trigger.setAttribute('aria-expanded','false');drop.id='nav-drop-'+i;trigger.setAttribute('aria-controls',drop.id);
+  trigger.addEventListener('click',(e)=>{
+   if(trigger.tagName==='A'){
+    const isOpen=parent.classList.contains('is-open');
+    if(!isOpen){e.preventDefault();parent.classList.add('is-open');trigger.setAttribute('aria-expanded','true');}
+    else{trigger.setAttribute('aria-expanded','false');}
+   }else{
+    const open=parent.classList.toggle('is-open');trigger.setAttribute('aria-expanded',String(open));
+   }
+  });
  });
  document.addEventListener('keydown',e=>{if(e.key==='Escape'){const wasOpen=menu.classList.contains('is-open');closeMenu();$$('.menu>li.is-open, .login-nav.is-open').forEach(el=>{el.classList.remove('is-open');el.querySelector('button').setAttribute('aria-expanded','false');});if(wasOpen)burger.focus();}});
  document.addEventListener('click',e=>{if(!nav.contains(e.target))closeMenu();});
