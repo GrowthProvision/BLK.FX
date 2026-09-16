@@ -334,9 +334,9 @@ h1 .em{font-family:var(--prose);font-style:italic;font-weight:300;letter-spacing
 .final h2{font-size:clamp(34px,6.2vw,72px);max-width:14ch;letter-spacing:-.035em}
 .final .btn{margin-top:30px}
 .finalnote{font-family:var(--data);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--blk-mute-ink);margin-top:18px}
-.foot{background:var(--blk-ink);color:var(--blk-mute-ink);padding-block:34px}
-.foot-main{display:flex;justify-content:space-between;gap:56px;flex-wrap:wrap;padding-bottom:30px;border-bottom:1px solid var(--blk-line-ink);margin-bottom:26px}
-.foot-left{display:flex;flex-direction:column;gap:30px;flex:1 1 300px;max-width:380px}
+.foot{background:var(--blk-ink);color:var(--blk-mute-ink);padding-block:50px}
+.foot-main{display:flex;align-items:flex-start;gap:64px;flex-wrap:wrap;margin-bottom:46px}
+.foot-intro{flex:0 1 320px;max-width:340px}
 .foot-brand{display:inline-block;font-size:24px;color:var(--blk-paper);margin-bottom:16px}
 .foot-brand span{color:var(--blk-accent-ink)}
 .foot-note{font-family:var(--display);font-size:14.5px;line-height:1.6;color:#C7C7C4;max-width:64ch;margin:0}
@@ -345,10 +345,12 @@ h1 .em{font-family:var(--prose);font-style:italic;font-weight:300;letter-spacing
 .foot-social a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;border:1px solid var(--blk-line-ink);color:var(--blk-mute-ink);transition:color .2s,border-color .2s}
 .foot-social a:hover{color:var(--blk-paper);border-color:var(--blk-mute-ink)}
 .foot-social svg{width:17px;height:17px}
+.foot-social img{width:17px;height:17px;display:block;object-fit:contain}
 .foot-ai{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .foot-ai-label{font-family:var(--data);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blk-mute-ink)}
-.foot-cols{display:flex;gap:48px;flex-wrap:wrap;flex:1 1 380px;max-width:460px}
+.foot-cols{display:flex;gap:48px;flex-wrap:wrap;flex:1 1 480px}
 .foot-col{min-width:136px}
+.foot-news{min-width:230px;flex:1 1 240px}
 .foot-col-h{font-family:var(--data);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blk-mute-ink);margin:0 0 16px}
 .foot-col a{display:block;font-family:var(--display);font-size:14px;color:#C7C7C4;text-decoration:none;margin-bottom:11px;transition:color .2s}
 .foot-col a:last-child{margin-bottom:0}
@@ -549,8 +551,8 @@ main{perspective:none;overflow:clip}
 .band--ink .lede{color:#c4c4c2}
 @media (max-width:720px){
  .foot-main{flex-direction:column;gap:30px}
- .foot-left{max-width:none;gap:26px}
- .foot-cols{max-width:none;gap:34px}
+ .foot-intro{max-width:none}
+ .foot-cols{gap:34px}
  .foot-social{gap:20px}
  .foot-ai{flex-direction:column;align-items:flex-start;gap:10px}
 }
@@ -717,11 +719,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
     </ul>
     <div class="nav-right">
 
-<<<<<<< HEAD
       <a class="btn" href="https://meetings-eu1.hubspot.com/ben-kohler/intro-call-ben?uuid=47f7214c-7d08-47db-9514-766c690fd651" target="_blank" rel="noopener">Contact Us <span class="arw">&rarr;</span></a>
-=======
-      <a class="btn" href="#book">Contact Us <span class="arw">&rarr;</span></a>
->>>>>>> 02b382c829a1618083d6cc7d0db15a9d5ae3dadb
       <button class="burger" type="button" aria-label="Menu"><span></span></button>
     </div>
   </div>
@@ -1111,20 +1109,9 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
 <footer class="foot">
   <div class="wrap">
     <div class="foot-main">
-      <div class="foot-left">
-        <div class="foot-intro">
-          <a class="brand foot-brand" href="#top" aria-label="BLK.FX">BLK<span>.</span>FX</a>
-          <p class="foot-note">Bring what you buy, what you sell and roughly when. You will leave with a read on your exposure and a number on what you are currently paying, whether or not you ever trade with us.</p>
-        </div>
-
-        <div class="foot-news">
-          <p class="foot-col-h">Sign up to the weekly FX market update</p>
-          <form class="foot-news-form" onsubmit="return false">
-            <input type="email" placeholder="you@company.com" aria-label="Email address" required>
-            <button type="submit">Sign up</button>
-          </form>
-          <p class="foot-news-sub">One email a week. No spam, unsubscribe any time.</p>
-        </div>
+      <div class="foot-intro">
+        <a class="brand foot-brand" href="#top" aria-label="BLK.FX">BLK<span>.</span>FX</a>
+        <p class="foot-note">Bring what you buy, what you sell and roughly when. You will leave with a read on your exposure and a number on what you are currently paying, whether or not you ever trade with us.</p>
       </div>
 
       <div class="foot-cols">
@@ -1143,6 +1130,14 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
           <a href="#answers">FAQs</a>
           <a href="#">Policy</a>
           <a href="#">Website privacy</a>
+        </div>
+        <div class="foot-col foot-news">
+          <p class="foot-col-h">Sign up to the weekly FX market update</p>
+          <form class="foot-news-form" onsubmit="return false">
+            <input type="email" placeholder="you@company.com" aria-label="Email address" required>
+            <button type="submit">Sign up</button>
+          </form>
+          <p class="foot-news-sub">One email a week. No spam, unsubscribe any time.</p>
         </div>
       </div>
     </div>
@@ -1166,19 +1161,19 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
         <span class="foot-ai-label">Ask AI about BLK.FX</span>
         <div class="foot-social-group foot-social-group--ai">
           <a href="https://chatgpt.com/?q=Summarise%20BLK.FX%2C%20how%20it%20helps%20businesses%20and%20private%20clients%20with%20foreign%20exchange%20and%20international%20payments%2C%20and%20who%20founder%20Ben%20Kohler%20is." target="_blank" rel="noopener" aria-label="Ask ChatGPT about BLK.FX" title="Ask ChatGPT about BLK.FX">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="9" r="4.5"/><circle cx="15" cy="15" r="4.5"/></svg>
+            <img src="assets/icons/chatgpt.png" alt="" width="17" height="17">
           </a>
           <a href="https://claude.ai/new?q=Summarise%20BLK.FX%2C%20how%20it%20helps%20businesses%20and%20private%20clients%20with%20foreign%20exchange%20and%20international%20payments%2C%20and%20who%20founder%20Ben%20Kohler%20is." target="_blank" rel="noopener" aria-label="Ask Claude about BLK.FX" title="Ask Claude about BLK.FX">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 3v18M4.5 7.5l15 9M4.5 16.5l15-9"/></svg>
           </a>
           <a href="https://gemini.google.com/app?q=Summarise%20BLK.FX%2C%20how%20it%20helps%20businesses%20and%20private%20clients%20with%20foreign%20exchange%20and%20international%20payments%2C%20and%20who%20founder%20Ben%20Kohler%20is." target="_blank" rel="noopener" aria-label="Ask Gemini about BLK.FX" title="Ask Gemini about BLK.FX">
-            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2c.6 4.2 2.2 5.8 6.4 6.4-4.2.6-5.8 2.2-6.4 6.4-.6-4.2-2.2-5.8-6.4-6.4C9.8 7.8 11.4 6.2 12 2Z"/></svg>
+            <img src="assets/icons/gemini.png" alt="" width="17" height="17">
           </a>
           <a href="https://www.perplexity.ai/search?q=Summarise%20BLK.FX%2C%20how%20it%20helps%20businesses%20and%20private%20clients%20with%20foreign%20exchange%20and%20international%20payments%2C%20and%20who%20founder%20Ben%20Kohler%20is." target="_blank" rel="noopener" aria-label="Ask Perplexity about BLK.FX" title="Ask Perplexity about BLK.FX">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="14" height="14" rx="2" transform="rotate(45 12 12)"/><path d="M12 9v6M9 12h6"/></svg>
+            <img src="assets/icons/perplexity.png" alt="" width="17" height="17">
           </a>
           <a href="https://grok.com/?q=Summarise%20BLK.FX%2C%20how%20it%20helps%20businesses%20and%20private%20clients%20with%20foreign%20exchange%20and%20international%20payments%2C%20and%20who%20founder%20Ben%20Kohler%20is." target="_blank" rel="noopener" aria-label="Ask Grok about BLK.FX" title="Ask Grok about BLK.FX">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3 6 13h5l-1 8 8-11h-5l1-7Z"/></svg>
+            <img src="assets/icons/grok.png" alt="" width="17" height="17">
           </a>
         </div>
       </div>
