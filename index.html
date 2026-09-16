@@ -335,7 +335,42 @@ h1 .em{font-family:var(--prose);font-style:italic;font-weight:300;letter-spacing
 .final .btn{margin-top:30px}
 .finalnote{font-family:var(--data);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--blk-mute-ink);margin-top:18px}
 .foot{background:var(--blk-ink);color:var(--blk-mute-ink);padding-block:34px}
+.foot-main{display:flex;justify-content:space-between;gap:56px;flex-wrap:wrap;padding-bottom:30px;border-bottom:1px solid var(--blk-line-ink);margin-bottom:26px}
+.foot-left{display:flex;flex-direction:column;gap:30px;flex:1 1 300px;max-width:380px}
+.foot-brand{display:inline-block;font-size:24px;color:var(--blk-paper);margin-bottom:16px}
+.foot-brand span{color:var(--blk-accent-ink)}
+.foot-note{font-family:var(--display);font-size:14.5px;line-height:1.6;color:#C7C7C4;max-width:64ch;margin:0}
+.foot-social{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;padding-bottom:26px;border-bottom:1px solid var(--blk-line-ink);margin-bottom:26px}
+.foot-social-group{display:flex;gap:12px}
+.foot-social a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;border:1px solid var(--blk-line-ink);color:var(--blk-mute-ink);transition:color .2s,border-color .2s}
+.foot-social a:hover{color:var(--blk-paper);border-color:var(--blk-mute-ink)}
+.foot-social svg{width:17px;height:17px}
+.foot-ai{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.foot-ai-label{font-family:var(--data);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blk-mute-ink)}
+.foot-cols{display:flex;gap:48px;flex-wrap:wrap;flex:1 1 380px;max-width:460px}
+.foot-col{min-width:136px}
+.foot-col-h{font-family:var(--data);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blk-mute-ink);margin:0 0 16px}
+.foot-col a{display:block;font-family:var(--display);font-size:14px;color:#C7C7C4;text-decoration:none;margin-bottom:11px;transition:color .2s}
+.foot-col a:last-child{margin-bottom:0}
+.foot-col a:hover{color:var(--blk-paper)}
+.foot-news-form{display:flex;margin-top:2px;border:1px solid var(--blk-line-ink);border-radius:2px;overflow:hidden;max-width:320px}
+.foot-news-form input{flex:1;min-width:0;background:transparent;border:0;padding:12px 14px;font-family:var(--display);font-size:13.5px;color:var(--blk-paper)}
+.foot-news-form input::placeholder{color:var(--blk-mute-ink)}
+.foot-news-form input:focus{outline:none}
+.foot-news-form button{border:0;background:var(--blk-accent-ink);color:var(--blk-accent-on-ink);font-family:var(--display);font-weight:700;font-size:13px;padding:0 16px;cursor:pointer;white-space:nowrap}
+.foot-news-form button:hover{filter:brightness(1.08)}
+.foot-news-sub{font-family:var(--display);font-size:12.5px;line-height:1.5;color:var(--blk-mute-ink);margin:10px 0 0}
 .foot-in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px}
+.disc-block{border:1px solid var(--blk-line);border-radius:2px}
+.disc-block summary{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 22px;cursor:pointer;list-style:none;font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:-.01em}
+.disc-block summary::-webkit-details-marker{display:none}
+.disc-block summary::marker{content:""}
+.disc-block:hover summary{background:rgba(8,127,135,.05)}
+.disc-block[open] .faq-caret::after{opacity:0}
+#disclosures{padding-block:36px 60px}
+.disc-panel{padding:0 22px 28px}
+.disc-panel p{font-family:var(--display);font-size:13px;line-height:1.7;color:var(--blk-mute);margin:0 0 16px}
+.disc-panel p:last-child{margin-bottom:0}
 .disc{font-size:12px;color:var(--blk-mute);margin-top:14px;max-width:54ch}
 .band--ink .disc{color:var(--blk-mute-ink)}
 
@@ -472,6 +507,7 @@ main{perspective:none;overflow:clip}
 .proof-strip .n{font-size:clamp(38px,4.5vw,66px)}
 .motion-scene{position:relative;isolation:isolate}
 .motion-scene>section{position:relative;transform-origin:50% 50%;backface-visibility:hidden}
+.motion-scene[data-scene="hero"]{overflow:hidden}
 .motion-desktop .motion-scene{perspective:1000px}
 .motion-desktop .motion-scene>section{will-change:transform}
 .motion-scene:focus-within>section{transform:none!important}
@@ -511,6 +547,13 @@ main{perspective:none;overflow:clip}
 .chapter-progress{display:none}
 .foot-in{flex-wrap:wrap;gap:15px}
 .band--ink .lede{color:#c4c4c2}
+@media (max-width:720px){
+ .foot-main{flex-direction:column;gap:30px}
+ .foot-left{max-width:none;gap:26px}
+ .foot-cols{max-width:none;gap:34px}
+ .foot-social{gap:20px}
+ .foot-ai{flex-direction:column;align-items:flex-start;gap:10px}
+}
 @media(min-width:1041px) and (min-height:620px){
  .motion-desktop .cap-stage,.motion-desktop .hor-stage{height:calc(100svh - 72px);min-height:548px;display:flex;align-items:center;overflow:hidden;padding:0}
  .motion-desktop .cap-track,.motion-desktop .hor-track{display:flex;flex-wrap:nowrap;align-items:center;gap:24px;width:max-content;padding:45px var(--gutter) 75px;will-change:transform}
@@ -567,7 +610,6 @@ main{perspective:none;overflow:clip}
 }
 html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}.lenis.lenis-stopped{overflow:hidden}
 
-<<<<<<< HEAD
 /* ---------- login dropdown ---------- */
 .login-item>button{color:var(--blk-mute)}
 .drop--login{min-width:236px}
@@ -621,8 +663,6 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
  .svc-reveal{position:static;opacity:1;transform:none;pointer-events:auto}
 }
 
-=======
->>>>>>> bc39b8e881af182843a011c3ad018ce7c8e6cdf6
 </style>
 
 
@@ -650,17 +690,12 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
           <a href="#who">Businesses and finance teams</a>
           <a href="#who">SPVs, trusts and funds</a>
           <a href="#who">Private clients and property</a>
-<<<<<<< HEAD
           <a href="#who">Music &amp; Entertainment</a>
           <a href="#who">Creators &amp; Influencers</a>
-=======
-          
->>>>>>> bc39b8e881af182843a011c3ad018ce7c8e6cdf6
         </div></li>
       <li><button type="button" aria-haspopup="true">Tools <span class="caret"></span></button>
         <div class="drop">
           <a href="https://fxexposure.io/" target="_blank" rel="noopener">FX Exposure</a>
-<<<<<<< HEAD
         </div></li>
       <li><button type="button" aria-haspopup="true">About <span class="caret"></span></button>
         <div class="drop">
@@ -678,24 +713,11 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
           <a href="https://blkfx.numito.com/login" target="_blank" rel="noopener"><span class="login-mark" aria-hidden="true">N</span>Numito</a>
           <a href="https://blkfx.equalsconnect.com/account/login" target="_blank" rel="noopener"><span class="login-mark" aria-hidden="true">E</span>Equals Connect</a>
           <a href="https://blkfx.sciopay.co/login" target="_blank" rel="noopener"><span class="login-mark" aria-hidden="true">S</span>ScioPay</a>
-=======
-          <a href="#rates">Global payments</a>
         </div></li>
-      <li><button type="button" aria-haspopup="true">About <span class="caret"></span></button>
-        <div class="drop">
-          <a href="https://blkfx.co.uk/about-us/">Our story</a><a href="https://blkfx.co.uk/about-us/">Ben Kohler</a><a href="#why">Our approach</a>
->>>>>>> bc39b8e881af182843a011c3ad018ce7c8e6cdf6
-        </div></li>
-      <li><a href="https://blkfx.co.uk/blog/">Insights</a></li>
     </ul>
     <div class="nav-right">
-<<<<<<< HEAD
 
-      <a class="btn" href="#book">Contact Us <span class="arw">&rarr;</span></a>
-=======
-      
-      <a class="btn" href="#book">Book a call <span class="arw">&rarr;</span></a>
->>>>>>> bc39b8e881af182843a011c3ad018ce7c8e6cdf6
+      <a class="btn" href="https://meetings-eu1.hubspot.com/ben-kohler/intro-call-ben?uuid=47f7214c-7d08-47db-9514-766c690fd651" target="_blank" rel="noopener">Contact Us <span class="arw">&rarr;</span></a>
       <button class="burger" type="button" aria-label="Menu"><span></span></button>
     </div>
   </div>
@@ -711,14 +733,13 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
     <h1 class="split">Be more efficient with your <em class="em">foreign currency</em>.</h1>
     <p class="hero-sub">Foreign exchange, international payments and multi-currency accounts, backed by personal strategy and 24/7 support.</p>
     <div class="hero-cta">
-      <a class="btn btn--lg" href="#book">Book a call with Ben <span class="arw">&rarr;</span></a>
+      <a class="btn btn--lg" href="https://meetings-eu1.hubspot.com/ben-kohler/intro-call-ben?uuid=47f7214c-7d08-47db-9514-766c690fd651" target="_blank" rel="noopener">Book a call with Ben <span class="arw">&rarr;</span></a>
       <a class="cue" href="#capabilities">Scroll to explore <span class="ar"></span></a>
     </div>
   </div>
 </section></div>
 
 
-<<<<<<< HEAD
 <section class="band--ink prop" id="capabilities">
   <div class="wrap">
     <div class="prop-head">
@@ -759,33 +780,6 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
       </article>
     </div>
     <div class="prop-foot"><a class="btn btn--accent" href="https://blkfx.co.uk/contact-us/">Find out more <span class="arw">&rarr;</span></a></div>
-=======
-<section class="proof-strip" id="proof">
-  <div class="wrap" style="padding-inline:0">
-    <div class="chevrons">
-      <div class="chev"><div class="n" data-count="500" data-prefix="£" data-suffix="m+">£500m+</div><div class="l">Volume traded since 2021</div></div>
-      <div class="chev"><div class="n" data-count="35" data-suffix="+">35+</div><div class="l">Currencies bought, held and sent</div></div>
-      <div class="chev"><div class="n" data-count="30" data-suffix="+">30+</div><div class="l">Countries we move money into</div></div>
-      <div class="chev"><div class="n">24/7</div><div class="l">Personal support when you need it</div></div>
-    </div>
-  </div>
-</section>
-
-
-<section class="band--ink cap" id="capabilities">
-  <div class="cap-stage" tabindex="0" role="region" aria-label="BLK capabilities: scroll to explore" data-chapter="cap">
-    
-    <div class="cap-track" id="capTrack"><div class="wrap cap-head">
-      <div class="eyebrow"><span class="tick"></span>The BLK proposition</div>
-      <h2>More than foreign exchange.</h2>
-      <p class="lede">One relationship for holding, sending, converting and managing currency across borders.</p>
-    </div>
-      <article class="cap-card"><span class="num">01 / HOLD</span><div><h3>Hold</h3><p>Multi-currency accounts in the currencies your business actually uses.</p><div class="cap-rule"></div></div></article>
-      <article class="cap-card"><span class="num">02 / SEND</span><div><h3>Send</h3><p>International payments across established payment rails, with a person to call when something needs attention.</p><div class="cap-rule"></div></div></article>
-      <article class="cap-card"><span class="num">03 / CONVERT</span><div><h3>Convert</h3><p>Foreign exchange with the margin agreed before you trade and the timing considered with you.</p><div class="cap-rule"></div></div></article>
-      <article class="cap-card"><span class="num">04 / MANAGE</span><div><h3>Manage</h3><p>FX strategy and risk management for future payments, budgets and currency exposure.</p><div class="cap-rule"></div></div></article>
-    </div>
->>>>>>> bc39b8e881af182843a011c3ad018ce7c8e6cdf6
   </div>
 </section>
 
@@ -794,7 +788,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
   <div class="wrap">
     <div class="slider-head tr">
       <div>
-        <div class="eyebrow"><span class="tick"></span>What we do</div>
+        <div class="eyebrow"><span class="tick"></span>Services</div>
         <h2 class="split">Six services. One conversation.</h2>
       </div>
       <a class="tlink" href="https://blkfx.co.uk/services/">View all services</a>
@@ -803,7 +797,6 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
     <div class="sldr tr">
       <div class="sldr-track" id="svcTrack">
         <article class="svc">
-<<<<<<< HEAD
           <div class="svc-face">
             <div class="svc-top"><span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h13l-3-3M20 17H7l3 3"/></svg></span>
             <span class="k">Convert</span>
@@ -892,48 +885,6 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
             <ul><li>Property completions</li><li>Rate fixed in advance</li><li>Weekend contact when needed</li></ul>
             <span class="go"><a class="tlink" href="https://blkfx.co.uk/services/private-client-fx/">Read more</a></span>
           </div>
-=======
-          <span class="k">Convert</span>
-          <h3>Business Foreign Exchange</h3>
-          <p>Buy and sell 35+ currencies at a margin agreed before you trade, with the timing thought through rather than left to the invoice date.</p>
-          <ul><li>Spot, forwards and orders</li><li>Margin agreed up front</li><li>Market analysis on your pairs</li></ul>
-          <span class="go"><a class="tlink" href="https://blkfx.co.uk/services/business-foreign-exchange/">Read more</a></span>
-        </article>
-        <article class="svc">
-          <span class="k">Send</span>
-          <h3>International Payments</h3>
-          <p>Faster Payments, SEPA, Swift and ACH from one place, and a named person who chases a payment that has not landed.</p>
-          <ul><li>Four payment rails</li><li>Same-day where possible</li><li>24/7 support on stuck payments</li></ul>
-          <span class="go"><a class="tlink" href="https://blkfx.co.uk/services/international-payments/">Read more</a></span>
-        </article>
-        <article class="svc">
-          <span class="k">Hold</span>
-          <h3>Multi-Currency Accounts</h3>
-          <p>Accounts in your own name, in the currencies you actually deal in, so you can hold what you collect instead of converting twice.</p>
-          <ul><li>Opened in your entity's name</li><li>No account or maintenance fee</li><li>Suitable for SPVs and trusts</li></ul>
-          <span class="go"><a class="tlink" href="https://blkfx.co.uk/services/multi-currency-accounts/">Read more</a></span>
-        </article>
-        <article class="svc">
-          <span class="k">Protect</span>
-          <h3>FX Risk Management &amp; Hedging</h3>
-          <p>Fix some or all of a future rate so a currency move cannot break a budget you have already set and reported to a board.</p>
-          <ul><li>Forwards and orders</li><li>Budget rate strategy</li><li>Free modelling on FX Exposure</li></ul>
-          <span class="go"><a class="tlink" href="https://blkfx.co.uk/services/fx-risk-management-and-hedging/">Read more</a></span>
-        </article>
-        <article class="svc">
-          <span class="k">Fund</span>
-          <h3>Commercial Finance</h3>
-          <p>Facilities through partner lenders, so fixing a rate or bridging a completion does not tie up your working capital.</p>
-          <ul><li>Through partner lenders</li><li>Pairs with forward contracts</li><li>Subject to a conversation</li></ul>
-          <span class="go"><a class="tlink" href="https://blkfx.co.uk/services/commercial-finance/">Read more</a></span>
-        </article>
-        <article class="svc">
-          <span class="k">Personal</span>
-          <h3>Private Client FX</h3>
-          <p>Property abroad, moving money home, or a one-off transfer that has to land on a date. The rate fixed before you commit.</p>
-          <ul><li>Property completions</li><li>Rate fixed in advance</li><li>Weekend contact when needed</li></ul>
-          <span class="go"><a class="tlink" href="https://blkfx.co.uk/services/private-client-fx/">Read more</a></span>
->>>>>>> bc39b8e881af182843a011c3ad018ce7c8e6cdf6
         </article>
       </div>
       <div class="sldr-foot">
@@ -1053,7 +1004,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
         <div class="who-row-panel"><p>The rate fixed before you commit, the payment landing on the completion date, and a person on the phone when a lawyer needs confirmation.</p></div>
       </details>
     </div>
-    <div class="who-cta tr"><a class="btn" href="#book">Book a call <span class="arw">&rarr;</span></a></div>
+    <div class="who-cta tr"><a class="btn" href="https://meetings-eu1.hubspot.com/ben-kohler/intro-call-ben?uuid=47f7214c-7d08-47db-9514-766c690fd651" target="_blank" rel="noopener">Book a call <span class="arw">&rarr;</span></a></div>
   </div>
 </section>
 
@@ -1082,7 +1033,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
     <div class="eyebrow"><span class="tick"></span>International payments</div>
     <h2>Money moves across borders. So does your business.</h2>
     <p class="lede">Hold, convert and send the currencies you use, with a named person supporting your payments.</p>
-    <a class="tlink" href="#book">Talk through your next payment</a>
+    <a class="tlink" href="https://meetings-eu1.hubspot.com/ben-kohler/intro-call-ben?uuid=47f7214c-7d08-47db-9514-766c690fd651" target="_blank" rel="noopener">Talk through your next payment</a>
     <div class="chans"><span class="chan">Phone</span><span class="chan">Email</span><span class="chan">WhatsApp</span><span class="chan">24/7</span></div>
     <div class="story" style="margin-top:28px"><p>If a payment does not arrive when expected, you have a person to contact by phone, email or WhatsApp who can investigate what has happened and help move the issue forward.</p><cite>What the service actually looks like</cite></div>
   </div>
@@ -1095,6 +1046,13 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
     <div class="eyebrow"><span class="tick"></span>Client experience</div>
     <h2>Service you can put a name to.</h2>
     <p class="lede">Read what clients say about working with BLK.FX.</p>
+    <div class="trust">
+      <div class="score">4.7<small>/5</small></div>
+      <div>
+        <div class="stars"><i></i><i></i><i></i><i></i><i></i></div>
+        <p>Rated on Trustpilot.</p>
+      </div>
+    </div>
     <div class="rev-grid">
       <div class="rev-card">
         <div class="stars"><i></i><i></i><i></i><i></i><i></i></div>
@@ -1115,7 +1073,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
         <cite>Verified on Trustpilot</cite>
       </div>
     </div>
-    <a class="btn" href="https://www.trustpilot.com/review/blkfx.co.uk" target="_blank" rel="noopener" style="margin-top:36px">Read client reviews <span class="arw">&rarr;</span></a>
+    <a class="btn" href="https://uk.trustpilot.com/review/blkfx.co.uk" target="_blank" rel="noopener" style="margin-top:36px">Review us <span class="arw">&rarr;</span></a>
   </div>
 </section></div>
 
@@ -1146,22 +1104,105 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
 </section>
 
 
-<div class="motion-scene" data-scene="right-bottom"><section class="band--ink pad final" id="book">
-  <div class="wrap tr">
-    <div class="eyebrow"><span class="tick"></span>The next step</div>
-    <h2 class="split">Thirty minutes. You will learn something either way.</h2>
-    <p class="lede">Bring what you buy, what you sell and roughly when. You will leave with a read on your exposure and a number on what you are currently paying, whether or not you ever trade with us.</p>
-    <a class="btn btn--lg" href="https://meetings-eu1.hubspot.com/ben-kohler/intro-call-ben?uuid=47f7214c-7d08-47db-9514-766c690fd651" target="_blank" rel="noopener">Book a call with Ben <span class="arw">&rarr;</span></a>
-    <div class="finalnote">Choose a time to speak with Ben.</div>
-  </div>
-</section></div>
-
 <footer class="foot">
-  <div class="wrap foot-in">
-    <div>BLK.FX &middot; Foreign exchange and international payments &middot; London</div>
-    <div>BLK.FX &middot; Personal service. Global reach.</div>
+  <div class="wrap">
+    <div class="foot-main">
+      <div class="foot-left">
+        <div class="foot-intro">
+          <a class="brand foot-brand" href="#top" aria-label="BLK.FX">BLK<span>.</span>FX</a>
+          <p class="foot-note">Bring what you buy, what you sell and roughly when. You will leave with a read on your exposure and a number on what you are currently paying, whether or not you ever trade with us.</p>
+        </div>
+
+        <div class="foot-news">
+          <p class="foot-col-h">Sign up to the weekly FX market update</p>
+          <form class="foot-news-form" onsubmit="return false">
+            <input type="email" placeholder="you@company.com" aria-label="Email address" required>
+            <button type="submit">Sign up</button>
+          </form>
+          <p class="foot-news-sub">One email a week. No spam, unsubscribe any time.</p>
+        </div>
+      </div>
+
+      <div class="foot-cols">
+        <div class="foot-col">
+          <p class="foot-col-h">Pages</p>
+          <a href="https://blkfx.co.uk/about-us/">About</a>
+          <a href="#services">Services</a>
+          <a href="#who">Who We Help</a>
+          <a href="#">FinTech providers</a>
+          <a href="https://blkfx.co.uk/blog/">Insights</a>
+          <a href="https://blkfx.co.uk/contact-us/">Contact us</a>
+        </div>
+        <div class="foot-col">
+          <p class="foot-col-h">Other</p>
+          <a href="https://blkfx.paydirect.io/login" target="_blank" rel="noopener">Login</a>
+          <a href="#answers">FAQs</a>
+          <a href="#">Policy</a>
+          <a href="#">Website privacy</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot-social">
+      <div class="foot-social-group foot-social-group--brand">
+        <a href="https://www.facebook.com/blkfx.co.uk" target="_blank" rel="noopener" aria-label="BLK.FX on Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M14 9h-2c-1.1 0-2 .9-2 2v2H8v3h2v6h3v-6h2.4l.5-3H13v-1.5c0-.6.4-1 1-1h2V9Z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/blk.fx_/" target="_blank" rel="noopener" aria-label="BLK.FX on Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="16.2" cy="7.8" r=".6" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/blk-fx/" target="_blank" rel="noopener" aria-label="BLK.FX on LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><circle cx="8.3" cy="8.3" r=".6" fill="currentColor" stroke="none"/><path d="M8.3 11v5"/><path d="M12 16v-3.2c0-1.2.8-1.8 1.8-1.8 1 0 1.7.7 1.7 1.9V16"/><path d="M12 11v5"/></svg>
+        </a>
+        <a href="https://api.whatsapp.com/send/?phone=442080640617&text&type=phone_number&app_absent=0" target="_blank" rel="noopener" aria-label="Message BLK.FX on WhatsApp">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Z"/><path d="M8.5 8.6c-.3.6-.3 1.6.6 2.9 1 1.5 2 2.3 3.6 3 1 .4 1.6.2 2-.2.3-.3.5-.8.4-1.1 0-.2-.2-.3-.4-.4l-1.4-.7c-.2-.1-.4-.1-.5.1l-.4.6c-.1.2-.3.2-.5.1-.6-.3-1.3-.8-1.8-1.5-.1-.2-.1-.4.1-.5l.5-.5c.1-.1.2-.3.1-.5l-.6-1.5c-.1-.3-.4-.4-.6-.3Z" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+      <div class="foot-ai">
+        <span class="foot-ai-label">Ask AI about BLK.FX</span>
+        <div class="foot-social-group foot-social-group--ai">
+          <a href="https://chatgpt.com/?q=Summarise%20BLK.FX%2C%20how%20it%20helps%20businesses%20and%20private%20clients%20with%20foreign%20exchange%20and%20international%20payments%2C%20and%20who%20founder%20Ben%20Kohler%20is." target="_blank" rel="noopener" aria-label="Ask ChatGPT about BLK.FX" title="Ask ChatGPT about BLK.FX">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="9" r="4.5"/><circle cx="15" cy="15" r="4.5"/></svg>
+          </a>
+          <a href="https://claude.ai/new?q=Summarise%20BLK.FX%2C%20how%20it%20helps%20businesses%20and%20private%20clients%20with%20foreign%20exchange%20and%20international%20payments%2C%20and%20who%20founder%20Ben%20Kohler%20is." target="_blank" rel="noopener" aria-label="Ask Claude about BLK.FX" title="Ask Claude about BLK.FX">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 3v18M4.5 7.5l15 9M4.5 16.5l15-9"/></svg>
+          </a>
+          <a href="https://gemini.google.com/app?q=Summarise%20BLK.FX%2C%20how%20it%20helps%20businesses%20and%20private%20clients%20with%20foreign%20exchange%20and%20international%20payments%2C%20and%20who%20founder%20Ben%20Kohler%20is." target="_blank" rel="noopener" aria-label="Ask Gemini about BLK.FX" title="Ask Gemini about BLK.FX">
+            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2c.6 4.2 2.2 5.8 6.4 6.4-4.2.6-5.8 2.2-6.4 6.4-.6-4.2-2.2-5.8-6.4-6.4C9.8 7.8 11.4 6.2 12 2Z"/></svg>
+          </a>
+          <a href="https://www.perplexity.ai/search?q=Summarise%20BLK.FX%2C%20how%20it%20helps%20businesses%20and%20private%20clients%20with%20foreign%20exchange%20and%20international%20payments%2C%20and%20who%20founder%20Ben%20Kohler%20is." target="_blank" rel="noopener" aria-label="Ask Perplexity about BLK.FX" title="Ask Perplexity about BLK.FX">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="14" height="14" rx="2" transform="rotate(45 12 12)"/><path d="M12 9v6M9 12h6"/></svg>
+          </a>
+          <a href="https://grok.com/?q=Summarise%20BLK.FX%2C%20how%20it%20helps%20businesses%20and%20private%20clients%20with%20foreign%20exchange%20and%20international%20payments%2C%20and%20who%20founder%20Ben%20Kohler%20is." target="_blank" rel="noopener" aria-label="Ask Grok about BLK.FX" title="Ask Grok about BLK.FX">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3 6 13h5l-1 8 8-11h-5l1-7Z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot-in">
+      <div>BLK.FX &middot; Foreign exchange and international payments &middot; London</div>
+      <div>BLK.FX &middot; Personal service. Global reach.</div>
+    </div>
   </div>
 </footer>
+
+<section class="band--paper pad" id="disclosures">
+  <div class="wrap">
+    <details class="disc-block">
+      <summary>Regulatory disclosures <span class="faq-caret" aria-hidden="true"></span></summary>
+      <div class="disc-panel">
+        <p><strong>EEA Regulatory Disclosure:</strong> For clients based in the European Economic Area, the issuance of e-money and the provision of related payment services for BLK FX LTD are provided by CurrencyCloud B.V. CurrencyCloud B.V. is registered with the Dutch Chamber of Commerce in the Netherlands under number 72186178. Registered office: Mr. Treublaan 7, 1097 DP, Amsterdam, Netherlands. CurrencyCloud B.V. is licensed and regulated by De Nederlandsche Bank as an Electronic Money Institution (Relation Number: R142701)</p>
+        <p><strong>UK Regulatory Disclosure:</strong> Payment and e-money services are provided by The Currency Cloud Limited. Registered in England No. 06323311. Registered Office: 1 Sheldon Square, London, W2 6TT, United Kingdom. The Currency Cloud Limited is authorized by the Financial Conduct Authority under the Electronic Money Regulations 2011 for the issuing of electronic money (FRN: 900199)</p>
+        <p><strong>US Regulatory Disclosure:</strong> For United States, Payment services for BLK FX LTD are provided by Visa Global Services Inc. (VGSI), a licensed money transmitter (NMLS ID 181032) in the states listed <a href="https://usa.visa.com/legal/visa-global-services-licenses.html" target="_blank" rel="noopener">here</a>. VGSI is licensed as a money transmitter by the New York Department of Financial Services. Mailing address: 900 Metro Center Blvd, Mailstop 1Z, Foster City, CA 94404. VGSI is also a registered Money Services Business (&ldquo;MSB&rdquo;) with FinCEN and a registered Foreign MSB with FINTRAC. For live customer support contact VGSI at (888) 733-0041.</p>
+        <p>BLK.FX&rsquo;s payment and foreign currency exchange services are provided by Global Currency Exchange Network Ltd T/A GC Partners. Global Currency Exchange Network Ltd is authorised by the FCA under the Payment Services Regulations, 2017 (FRN: 504346). Registered as a Money Services Business, regulated by HM Revenue &amp; Customs (&ldquo;HMRC&rdquo;) under the Money Laundering Regulations 2017. (Registration number is 12137189). Registered in England and Wales. Company number 04675786. Registered Office 3rd Floor 100 New Bond Street, London, England, W1S 1SP.</p>
+        <p>BLK.FX&rsquo;s Payment and Foreign Currency Exchange Services are provided by Ebury Partners UK Limited. Ebury Partners UK Limited (EPUK) is an Authorised Electronic Money Institution (Financial Services Register No. 900797) and is licensed to provide payment services including FX spots and FX Forwards for the commercial purpose of the facilitation of payments for identifiable goods or services and direct investments. Ebury Partners UK Limited is registered with the Information Commissioner&rsquo;s Office, with registration number: ZA345828.</p>
+        <p>All testimonials, reviews, opinions or case studies presented on our website may not be indicative of all customers. Results may vary, and customers agree to proceed at their own risk.</p>
+        <p>Registered office address: Penniwells Edgwarebury Lane, Elstree, Borehamwood, England, WD6 3RG</p>
+      </div>
+    </details>
+  </div>
+</section>
 
 </main>
 
