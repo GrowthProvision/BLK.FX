@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="The BLK.FX weekly FX market update. What moved GBP, USD and EUR, and what it means for your margin. Every Friday, in under five minutes.">
-<title>Weekly FX Market Update | BLK.FX</title>
-<link rel="canonical" href="https://growthprovision.github.io/BLK.FX/newsletter/">
+<meta name="description" content="The regulated FinTech partners behind BLK.FX: Currencycloud, Equals, GC Partners, Ebury and Sciopay. Who they are, how they are regulated, how your funds are safeguarded, and where to log in.">
+<title>FinTech Providers | BLK.FX</title>
+<link rel="canonical" href="https://growthprovision.github.io/BLK.FX/fintech-providers/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&display=swap">
@@ -756,29 +756,30 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
   .form-grid{grid-template-columns:1fr}
 }
 
-/* ---------- weekly market update page. Static: no scroll motion anywhere ---------- */
-.chero{padding-bottom:clamp(36px,5vw,56px)}
-.nl-inline{list-style:none;margin:28px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px 28px;
-  font-family:var(--data);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--blk-mute)}
-.nl-inline li{display:flex;align-items:center;gap:10px}
-.nl-inline li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--blk-accent)}
-.nl-quote{margin:30px 0 0;border-left:1px solid var(--blk-accent);padding:2px 0 2px 22px;max-width:52ch}
-.nl-quote p{font-family:var(--prose);font-weight:300;font-style:italic;font-size:16.5px;line-height:1.55;color:#3E3E3B;margin:0}
-.nl-quote cite{display:block;font-family:var(--data);font-style:normal;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blk-mute);margin-top:10px}
-#subscribe{padding-bottom:clamp(56px,7vw,96px)}
-.nl-panel{background:var(--blk-ink);color:var(--blk-paper);border-radius:14px;
-  padding:clamp(34px,5vw,64px) clamp(24px,5vw,56px);text-align:center;
-  display:flex;flex-direction:column;align-items:center}
-.nl-panel h2{margin:0;max-width:22ch;font-size:clamp(24px,3.4vw,38px)}
-.nl-panel-sub{font-family:var(--prose);font-weight:300;font-size:clamp(15px,1.6vw,17.5px);color:#BFBFBD;margin:14px 0 0}
-.nl-form{display:flex;align-items:flex-end;justify-content:center;gap:14px;margin-top:28px;width:100%;max-width:560px;flex-wrap:wrap}
-.nl-form .field{flex:1 1 260px;text-align:left}
-.nl-form .field label{color:var(--blk-mute-ink)}
-.nl-form .field input{background:var(--blk-ink-2);border-color:var(--blk-line-ink);color:var(--blk-paper)}
-.nl-form .field input::placeholder{color:#6F6F73}
-.nl-small{font-family:var(--data);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blk-mute-ink);margin:18px 0 0}
-.nl-panel .btn{background:var(--blk-accent-ink);border-color:var(--blk-accent-ink);color:var(--blk-accent-on-ink)}
-@media (max-width:560px){.nl-form .btn{width:100%;justify-content:center}}
+/* ---------- FinTech providers page. Static: no scroll motion, tabs only toggle visibility ---------- */
+.chero{padding-bottom:clamp(40px,6vw,64px)}
+.hero-sub{max-width:68ch}
+#providers h2{max-width:none}
+.fp-tabs{margin-top:34px;display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.fp-tab{position:relative;background:#fff;border:1px solid var(--blk-line);border-radius:2px;padding:12px 10px;
+  display:flex;align-items:center;justify-content:center;min-height:96px;
+  filter:grayscale(1);opacity:.5;transition:opacity .18s,filter .18s,border-color .18s,box-shadow .18s}
+.fp-tab img{width:100%;max-width:210px;max-height:60px;height:auto;object-fit:contain}
+.fp-tab:hover{opacity:.85;filter:grayscale(0)}
+.fp-tab.is-on{opacity:1;filter:none;border-color:var(--blk-ink);box-shadow:0 10px 26px rgba(10,10,10,.10)}
+.fp-tab.is-on::after{content:"";position:absolute;left:-1px;right:-1px;bottom:-1px;height:3px;background:var(--blk-accent)}
+.fp-panel{margin-top:22px;background:var(--blk-ink);color:var(--blk-paper);border-radius:2px;
+  padding:clamp(28px,4vw,52px)}
+.fp-panel h3{font-family:var(--display);font-size:clamp(21px,2.6vw,30px);font-weight:600;letter-spacing:-.025em;margin:0 0 20px}
+.fp-panel p{font-family:var(--prose);font-weight:300;font-size:16px;line-height:1.7;color:#C7C7C4;margin:0 0 16px;max-width:88ch}
+.fp-links{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:8px;
+  font-size:14px;color:#C7C7C4}
+.fp-links a{color:var(--blk-accent-ink);text-decoration:underline;text-underline-offset:3px}
+.fp-actions{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
+.fp-panel .btn{background:var(--blk-accent-ink);border-color:var(--blk-accent-ink);color:var(--blk-accent-on-ink)}
+.fp-panel .btn--ghost{background:transparent;border-color:var(--blk-line-ink);color:var(--blk-paper)}
+@media (max-width:820px){.fp-tabs{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:520px){.fp-tabs{grid-template-columns:repeat(2,1fr);gap:10px}.fp-tab{min-height:72px;padding:14px}}
 </style>
 
 
@@ -817,12 +818,12 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
         </div></li>
       <li><button type="button" aria-haspopup="true">About <span class="caret"></span></button>
         <div class="drop">
-          <a href="https://blkfx.co.uk/about-us/">Our Story</a><a href="../index.html#why">Our Approach</a><a href="https://growthprovision.github.io/BLK.FX/fintech-providers/">FinTech Providers</a>
+          <a href="https://blkfx.co.uk/about-us/">Our Story</a><a href="../index.html#why">Our Approach</a><a href="https://growthprovision.github.io/BLK.FX/fintech-providers/" aria-current="page">FinTech Providers</a>
         </div></li>
       <li><button type="button" aria-haspopup="true">Insights <span class="caret"></span></button>
         <div class="drop">
           <a href="https://blkfx.co.uk/blog/">Blog</a>
-          <a href="https://growthprovision.github.io/BLK.FX/newsletter/" aria-current="page">Market Place Updates</a>
+          <a href="https://growthprovision.github.io/BLK.FX/newsletter/">Market Place Updates</a>
           <a href="../contact/#brochure">Download Brochure</a>
         </div></li>
     </ul>
@@ -831,7 +832,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
         <button type="button" aria-haspopup="true">Login <span class="caret"></span></button>
         <div class="drop drop--login">
           <a href="https://blkfx.paydirect.io/login" target="_blank" rel="noopener" aria-label="Currencycloud login"><img src="../images/Currencycloud.png" alt="Currencycloud" width="720" height="210" loading="lazy"></a>
-          <a href="https://blkfx.numito.com/login" target="_blank" rel="noopener" aria-label="GC Partners login"><img src="../images/GC Partners.png" alt="GC Partners" width="720" height="210" loading="lazy"></a>
+          <a href="https://blkfx.numito.com/login" target="_blank" rel="noopener" aria-label="GC Partners login"><img src="../images/GC%20Partners.png" alt="GC Partners" width="720" height="210" loading="lazy"></a>
           <a href="https://blkfx.equalsconnect.com/account/login" target="_blank" rel="noopener" aria-label="Equals login"><img src="../images/Equals.png" alt="Equals" width="720" height="210" loading="lazy"></a>
           <a href="https://oblkfxltd.ebury.com/login/?next=/" target="_blank" rel="noopener" aria-label="Ebury login"><img src="../images/Ebury.png" alt="Ebury" width="720" height="210" loading="lazy"></a>
           <a href="https://blkfx.sciopay.co/login" target="_blank" rel="noopener" aria-label="Sciopay login"><img src="../images/Sciopay.png" alt="Sciopay" width="720" height="210" loading="lazy"></a>
@@ -848,9 +849,9 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "Weekly FX Market Update",
-  "url": "https://growthprovision.github.io/BLK.FX/newsletter/",
-  "description": "A weekly FX market update for CFOs, finance directors and treasury managers. What moved GBP, USD and EUR, and what it means for your margin. Every Friday, in under five minutes.",
+  "name": "FinTech Providers",
+  "url": "https://growthprovision.github.io/BLK.FX/fintech-providers/",
+  "description": "The regulated FinTech partners behind BLK.FX: Currencycloud, Equals, GC Partners, Ebury and Sciopay, with their regulatory status, safeguarding arrangements and platform logins.",
   "isPartOf": { "@type": "WebSite", "name": "BLK.FX", "url": "https://growthprovision.github.io/BLK.FX/" }
 }
 </script>
@@ -859,31 +860,124 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
 
 <section class="band--paper chero">
   <div class="wrap">
-    <div class="eyebrow hero-label"><span class="tick"></span>Weekly market update</div>
-    <h1>Your shortcut to staying <em class="em">market-ready</em>.</h1>
-    <p class="hero-sub">Every Friday, what actually moved GBP, USD and EUR, and what it means for the money your business is moving next week. Written for CFOs, finance directors and treasury managers. Under five minutes, no jargon.</p>
-    <ul class="nl-inline">
-      <li>What moved, and why</li>
-      <li>What it costs you</li>
-      <li>What's coming</li>
-    </ul>
-    <blockquote class="nl-quote">
-      <p>&ldquo;His weekly updates via email keep me informed and up-to-date.&rdquo;</p>
-      <cite>Trustpilot review</cite>
-    </blockquote>
+    <div class="eyebrow hero-label"><span class="tick"></span>FinTech providers</div>
+    <h1>World class service, <em class="em">regulated</em> rails.</h1>
+    <p class="hero-sub">Our business revolves around world-class customer service combined with best-in-class financial technology. User experience is paramount, and all our partnerships are designed to allow us to offer a cost-effective high level of service with a very easy-to-use platform you can log in to from your mobile. We handpicked leading FinTech white-label partners to complement our offering, ensuring our customers benefit from the best financial technology at their fingertips.</p>
+    <div class="hero-cta">
+      <a class="btn btn--lg" href="../contact/#brochure">Download a brochure <span class="arw">&rarr;</span></a>
+    </div>
   </div>
 </section>
 
-<section class="band--paper" id="subscribe">
+<section class="band--paper2 pad" id="providers">
   <div class="wrap">
-    <div class="nl-panel">
-      <h2>Subscribe to the weekly market update</h2>
-      <p class="nl-panel-sub">Get smarter every Friday, in under five minutes.</p>
-      <form class="nl-form" onsubmit="return false" novalidate>
-        <div class="field"><label for="nl-email">Email</label><input id="nl-email" name="email" type="email" autocomplete="email" placeholder="Email address" required></div>
-        <button class="btn btn--lg" type="submit">Sign up <span class="arw">&rarr;</span></button>
-      </form>
-      <p class="nl-small">One email a week. Unsubscribe in one click.</p>
+    <div class="eyebrow"><span class="tick"></span>Who holds the money</div>
+    <h2>Our regulated partners.</h2>
+    <p class="lede">BLK.FX acts as an intermediary. Every payment and every balance sits with one of these five regulated institutions. Pick one to see who they are, how they are regulated and how your funds are held.</p>
+
+    <div class="fp-tabs" role="tablist" aria-label="FinTech providers">
+      <button class="fp-tab is-on" type="button" role="tab" id="tab-cc" aria-controls="panel-cc" aria-selected="true">
+        <img src="../images/Currencycloud.png" alt="Currencycloud" width="720" height="210" loading="lazy">
+      </button>
+      <button class="fp-tab" type="button" role="tab" id="tab-eq" aria-controls="panel-eq" aria-selected="false">
+        <img src="../images/Equals.png" alt="Equals" width="720" height="210" loading="lazy">
+      </button>
+      <button class="fp-tab" type="button" role="tab" id="tab-gc" aria-controls="panel-gc" aria-selected="false">
+        <img src="../images/GC%20Partners.png" alt="GC Partners" width="720" height="210" loading="lazy">
+      </button>
+      <button class="fp-tab" type="button" role="tab" id="tab-eb" aria-controls="panel-eb" aria-selected="false">
+        <img src="../images/Ebury.png" alt="Ebury" width="720" height="210" loading="lazy">
+      </button>
+      <button class="fp-tab" type="button" role="tab" id="tab-sc" aria-controls="panel-sc" aria-selected="false">
+        <img src="../images/Sciopay.png" alt="Sciopay" width="720" height="210" loading="lazy">
+      </button>
+    </div>
+
+    <div class="fp-panel" id="panel-cc" role="tabpanel" aria-labelledby="tab-cc">
+      <h3>BLK.FX x Currencycloud</h3>
+      <p>BLK.FX&rsquo;s partnership with Visa owned Currencycloud, an FCA-regulated Electronic Money Institution (EMI), ensures robust financial practices with safeguarded accounts in compliance with FCA guidelines.</p>
+      <p>Currencycloud receives, collects, and stores funds for clients, facilitating FX conversions and processing outbound payments. When funds are posted to your account, in line with regulatory requirements, the regulated payment and e-money institutions who we work with safeguard your funds. This means that the funds shown in your payment account or e-wallet are held at reputable banks or covered by an insurance policy, and most importantly, are protected for you in the event of our partner institutions&rsquo;, or our, insolvency.</p>
+      <p>Our partners stop safeguarding your funds when the money has been paid out of your account to your beneficiary&rsquo;s account. If you require a breakdown of the exact amounts of funds you have safeguarded at each of our e-money and payments partners at a particular point in time, please do not hesitate to contact us.</p>
+      <ul class="fp-links">
+        <li>More info on Currencycloud&rsquo;s security can be found <a href="#">here</a></li>
+        <li><a href="#">BLK.FX x Currencycloud T&rsquo;s &amp; C&rsquo;s</a></li>
+        <li>Help centre and platform support: <a href="#">Help Center</a></li>
+        <li><a href="#">FCA Register, regulations, Currencycloud</a></li>
+      </ul>
+      <div class="fp-actions">
+        <a class="btn" href="https://onboarding.paydirect.io/blk_fx_ltd/forms/individual" target="_blank" rel="noopener">Personal signup <span class="arw">&rarr;</span></a>
+        <a class="btn" href="https://onboarding.paydirect.io/blk_fx_ltd/forms/corporate" target="_blank" rel="noopener">Corporate signup <span class="arw">&rarr;</span></a>
+        <a class="btn btn--ghost" href="https://blkfx.paydirect.io/" target="_blank" rel="noopener">Login <span class="arw">&rarr;</span></a>
+      </div>
+    </div>
+
+    <div class="fp-panel" id="panel-eq" role="tabpanel" aria-labelledby="tab-eq" hidden>
+      <h3>BLK.FX x Equals</h3>
+      <p>Equals Money, as part of the Equals Group, provides BLK.FX with a simple and effective way to make international payments under their own brand.</p>
+      <p>Since starting in 2005, Equals Money has served over a million customers and has strong partnerships with over 20,000 businesses of all shapes and sizes. As part of the Equals Group, Equals Money are AIM-listed on the London Stock Exchange, maintaining an 18-year tenure within the payments industry.</p>
+      <p>Powered by Equals Money, BLK.FX utilises the authorised payments institution&rsquo;s platform ensuring regulatory compliance, the safeguarding of customer funds, and provides clients with competitive rates and service.</p>
+      <p>BLK.FX&rsquo;s payment services are provided by Equals Connect Limited, registered in England and Wales (registered no. 07131446). Equals Connect Limited is part of Equals Group PLC (registered in England and Wales No. 08922461). Registered office: 3rd Floor, Vintners&rsquo; Place, 68 Upper Thames Street, London, EC4V 3BJ. Equals Connect Limited are authorised and regulated by the Financial Conduct Authority to provide payment services (FCA No. 671508) and as a Money Service Business with His Majesty&rsquo;s Revenue and Customs (licence number: 12594438).</p>
+      <p>Equals Connect Limited protect your money through a process called safeguarding. Your money is held in specially designated safeguarded bank accounts, held with Tier 1 banks, and is separate from all other funds at the bank and the operating accounts of Equals Connect Limited. The account is only used to safeguard Equals Connect Limited&rsquo;s customers&rsquo; money and no one other than Equals Connect Limited has any interest or right over the funds in the account.</p>
+      <ul class="fp-links">
+        <li>More info on Equals Connect security can be found <a href="#">here</a></li>
+        <li><a href="#">BLK.FX x Equals T&rsquo;s &amp; C&rsquo;s</a></li>
+        <li>Help centre and platform support: <a href="#">Help Center</a></li>
+        <li><a href="#">FCA Register, regulations, Equals</a></li>
+      </ul>
+      <div class="fp-actions">
+        <a class="btn" href="https://blkfx.equalsconnect.com/account/open" target="_blank" rel="noopener">Sign up <span class="arw">&rarr;</span></a>
+        <a class="btn btn--ghost" href="https://blkfx.equalsconnect.com/account/login" target="_blank" rel="noopener">Login <span class="arw">&rarr;</span></a>
+      </div>
+    </div>
+
+    <div class="fp-panel" id="panel-gc" role="tabpanel" aria-labelledby="tab-gc" hidden>
+      <h3>BLK.FX x GC Partners</h3>
+      <p>BLK.FX&rsquo;s strategic partnership with GC Partners is a cornerstone of our network of financial partners. Global Currency Exchange Network Ltd, trading as GC Partners, is authorised by the Financial Conduct Authority under the Payment Services Regulations 2017 for the provision of payment services.</p>
+      <p>With their all-new Numito system, an embedded Payments-as-a-Service platform, GC Partners continue to offer bespoke solutions. As a specialist financial services provider utilising competitive exchange rates, the bespoke service is designed to be quick, reliable and secure. Their dedication to safeguarding financial transactions is evident through separating client funds from corporate assets and robust risk management practices.</p>
+      <p>With a proven track record, GC Partners has earned its status as a leading financial institution, processing over $7.5 billion annually with over 300,000 payments per year. Their proficiency extends across a diverse clientele, including corporations and businesses actively involved in international transactions.</p>
+      <ul class="fp-links">
+        <li>More info on GC Partners security can be found <a href="#">here</a></li>
+        <li><a href="#">BLK.FX x GC Partners T&rsquo;s &amp; C&rsquo;s</a></li>
+        <li>Help centre and platform support: <a href="#">Help Center</a></li>
+        <li><a href="#">FCA Register, regulations, GC Partners</a></li>
+      </ul>
+      <div class="fp-actions">
+        <a class="btn" href="https://apply.ebury.com/sfdc/servlet/SmartForm.html?formCode=currency-services&amp;brand=BLK" target="_blank" rel="noopener">Sign up <span class="arw">&rarr;</span></a>
+        <a class="btn btn--ghost" href="https://oblkfxltd.ebury.com/login/?next=/" target="_blank" rel="noopener">Login <span class="arw">&rarr;</span></a>
+      </div>
+    </div>
+
+    <div class="fp-panel" id="panel-eb" role="tabpanel" aria-labelledby="tab-eb" hidden>
+      <h3>BLK.FX x Ebury</h3>
+      <p>BLK.FX&rsquo;s strategic partnership with Ebury, a leading global financial services provider, ensures access to international markets. Ebury specialises in cross-border payments, FX risk management and business financing. Their platform provides businesses of all sizes with access to international markets, handling over &pound;23 billion in annual transactions for more than 24,000 clients.</p>
+      <p>Ebury&rsquo;s commitment to security is at the forefront of their operations. As an FCA-regulated Electronic Money Institution, Ebury has a legal obligation to safeguard its client account balances. Any funds held in client accounts subject to safeguarding are ring-fenced, giving you peace of mind knowing that your funds are protected. Ebury also employs advanced encryption and security protocols to ensure the integrity and confidentiality of all transactions conducted on their platform.</p>
+      <ul class="fp-links">
+        <li>More info on Ebury&rsquo;s security can be found <a href="#">here</a></li>
+        <li><a href="#">BLK.FX x Ebury T&rsquo;s &amp; C&rsquo;s</a></li>
+        <li>Help centre and platform support: <a href="#">Help Center</a></li>
+        <li><a href="#">FCA Register, regulations, Ebury</a></li>
+      </ul>
+      <div class="fp-actions">
+        <a class="btn" href="https://apply.ebury.com/sfdc/servlet/SmartForm.html?formCode=currency-services&amp;brand=BLK" target="_blank" rel="noopener">Sign up <span class="arw">&rarr;</span></a>
+        <a class="btn btn--ghost" href="https://oblkfxltd.ebury.com/login/?next=/" target="_blank" rel="noopener">Login <span class="arw">&rarr;</span></a>
+      </div>
+    </div>
+
+    <div class="fp-panel" id="panel-sc" role="tabpanel" aria-labelledby="tab-sc" hidden>
+      <h3>BLK.FX x Sciopay</h3>
+      <p>BLK.FX&rsquo;s partnership with Sciopay, an FCA-regulated Authorised Payment Institution (FRN: 927951), provides a white-label cross-border payments system designed for growth, compliance and flexibility.</p>
+      <p>Partnering with Sciopay gives you access to a fully branded payments solution powered by their infrastructure, enabling rapid deployment with no-code integration. Their platform supports over 50 currencies for conversion and allows settlement in more than 35 currencies via multi-currency IBANs, while flexible FX tools, including spot and forward contracts, help clients manage foreign exchange risk.</p>
+      <p>Security and compliance are at the core of Sciopay&rsquo;s services. Client funds are safeguarded in line with regulatory requirements, and measures such as multi-factor authentication and real-time transaction monitoring ensure robust protection. Sciopay&rsquo;s platform is used by brokers, payroll companies, real estate firms and talent agencies. It also provides fraud-awareness resources and Authorised Push Payment reimbursement policies to protect against scams.</p>
+      <ul class="fp-links">
+        <li>More info on Sciopay&rsquo;s security can be found <a href="#">here</a></li>
+        <li><a href="#">BLK.FX x Sciopay T&rsquo;s &amp; C&rsquo;s</a></li>
+        <li>Help centre and platform support: <a href="#">Help Center</a></li>
+        <li><a href="#">FCA Register, regulations, Sciopay</a></li>
+      </ul>
+      <div class="fp-actions">
+        <a class="btn" href="https://blkfx.sciopay.co/clientregistration" target="_blank" rel="noopener">Sign up <span class="arw">&rarr;</span></a>
+        <a class="btn btn--ghost" href="https://blkfx.sciopay.co/login" target="_blank" rel="noopener">Login <span class="arw">&rarr;</span></a>
+      </div>
     </div>
   </div>
 </section>
@@ -904,9 +998,9 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
           <a href="https://blkfx.co.uk/about-us/">About</a>
           <a href="https://growthprovision.github.io/BLK.FX/services/">Services</a>
           <a href="../index.html#who">Who We Help</a>
-          <a href="https://growthprovision.github.io/BLK.FX/fintech-providers/">FinTech providers</a>
+          <a href="https://growthprovision.github.io/BLK.FX/fintech-providers/" aria-current="page">FinTech providers</a>
           <a href="https://blkfx.co.uk/blog/">Insights</a>
-          <a href="https://growthprovision.github.io/BLK.FX/newsletter/" aria-current="page">Weekly market update</a>
+          <a href="https://growthprovision.github.io/BLK.FX/newsletter/">Weekly market update</a>
           <a href="../contact/">Contact us</a>
         </div>
         <div class="foot-col">
@@ -992,7 +1086,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
 
 
 <script>
-/* BLK.FX weekly market update page. No GSAP/ScrollTrigger/Lenis here by design. This page
+/* BLK.FX FinTech providers page. No GSAP/ScrollTrigger/Lenis here by design. This page
    uses plain, instant navigation and no scroll-triggered motion. Only the
    nav (dropdowns, mobile menu) and the back-to-top button need JS. */
 (() => {
@@ -1025,6 +1119,35 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
  window.addEventListener('scroll',showTop,{passive:true});
  topButton.addEventListener('click',()=>window.scrollTo({top:0,behavior:reduced.matches?'instant':'smooth'}));
  showTop();
+})();
+</script>
+
+<script>
+/* Provider tabs. Visibility only: nothing animates, nothing is generated. */
+(() => {
+ 'use strict';
+ const tabs = Array.from(document.querySelectorAll('.fp-tab'));
+ const show = (tab) => {
+  tabs.forEach(t => {
+   const panel = document.getElementById(t.getAttribute('aria-controls'));
+   const on = t === tab;
+   t.classList.toggle('is-on', on);
+   t.setAttribute('aria-selected', String(on));
+   t.tabIndex = on ? 0 : -1;
+   panel.hidden = !on;
+  });
+ };
+ tabs.forEach((t, i) => {
+  t.tabIndex = i === 0 ? 0 : -1;
+  t.addEventListener('click', () => show(t));
+  t.addEventListener('keydown', e => {
+   const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+   if (!d) return;
+   e.preventDefault();
+   const next = tabs[(i + d + tabs.length) % tabs.length];
+   show(next); next.focus();
+  });
+ });
 })();
 </script>
 </body>
