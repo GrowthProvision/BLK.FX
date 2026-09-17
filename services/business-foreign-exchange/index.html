@@ -774,14 +774,17 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
 @media (max-width:760px){.talk-row{flex-direction:column;align-items:flex-start}}
 
 #cost .split2{grid-template-columns:1fr}
-#cost .col p{font-size:14.5px;line-height:1.55;color:#4C4C48;margin-top:14px}
+#cost .col{padding:18px 24px}
+#cost .col .price{margin-top:8px;font-size:clamp(20px,2.4vw,26px)}
+#cost .col p{font-size:14px;line-height:1.5;color:#4C4C48;margin-top:6px}
 #cost .col.paid .price{color:var(--blk-accent-ink)}
+#cost .col.paid p{color:#C7C7C4}
 
 #capabilities .prop-head{max-width:none}
 #capabilities .lede{max-width:none}
 
-.hero .rail-stream{position:absolute;left:0;right:0;bottom:0;z-index:2;margin-top:0;background:var(--blk-paper);padding-block:16px}
-@media (max-width:640px){.hero .rail-stream{padding-block:12px}}
+#talk{padding-bottom:0}
+#talk .rail-stream{margin-top:56px;margin-bottom:0}
 </style>
 
 
@@ -856,7 +859,6 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
       <a class="cue" href="#cost">Scroll to explore <span class="ar"></span></a>
     </div>
   </div>
-  <div class="rail-stream" aria-hidden="true"><div class="rail-track" id="railTrack"><span>GBP</span><span>EUR</span><span>USD</span><span>AED</span><span>CAD</span><span>AUD</span><span>Faster Payments</span><span>SEPA</span><span>SWIFT</span><span>ACH</span></div></div>
 </section></div>
 
 
@@ -976,7 +978,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
 </section>
 
 
-<section class="band--ink pad" id="talk">
+<section class="band--paper pad" id="talk">
   <div class="wrap talk-row tr">
     <div class="talk-copy">
       <div class="eyebrow"><span class="tick"></span>Business Foreign Exchange</div>
@@ -988,6 +990,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
       <a class="tlink" href="https://growthprovision.github.io/BLK.FX/contact/#brochure">Download brochure</a>
     </div>
   </div>
+  <div class="rail-stream" aria-hidden="true"><div class="rail-track" id="railTrack"><span>GBP</span><span>EUR</span><span>USD</span><span>AED</span><span>CAD</span><span>AUD</span><span>Faster Payments</span><span>SEPA</span><span>SWIFT</span><span>ACH</span></div></div>
 </section>
 
 <footer class="foot">
