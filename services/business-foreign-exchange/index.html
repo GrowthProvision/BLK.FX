@@ -773,12 +773,9 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
 .talk-cta{display:flex;align-items:center;flex-wrap:wrap;gap:10px}
 @media (max-width:760px){.talk-row{flex-direction:column;align-items:flex-start}}
 
-#cost .msr{padding:22px 0;border-top:1px solid var(--blk-line)}
-#cost .msr:first-of-type{border-top:none}
-#cost .msr-val{font-size:clamp(22px,2.6vw,30px);letter-spacing:-.02em}
-#cost .msr-val--accent{color:var(--blk-accent-text)}
-#cost .msr-note{font-size:13.5px;margin-top:8px}
-#cost .disc{margin-top:8px}
+#cost .split2{grid-template-columns:1fr}
+#cost .col p{font-size:14.5px;line-height:1.55;color:#4C4C48;margin-top:14px}
+#cost .col.paid .price{color:var(--blk-accent-ink)}
 
 #capabilities .prop-head{max-width:none}
 #capabilities .lede{max-width:none}
@@ -872,15 +869,19 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
         <p class="lede">Every bank and broker quotes a rate. The margin built into it is what actually decides whether you got a good deal, and most businesses never see it broken out. There's no single figure to quote here either, what you pay depends on the currency, the amount and the timing, which is exactly why it's agreed with a dealer rather than buried in an app.</p>
       </div>
       <div class="tr">
-        <div class="msr">
-          <div class="msr-top"><span class="msr-name">High street bank</span><span class="msr-val">2.0% to 4.0%</span></div>
-          <p class="msr-note">Taken quietly inside the rate you are quoted.</p>
+        <div class="split2" style="margin-top:0">
+          <div class="col">
+            <h3>High street bank</h3>
+            <div class="price">2.0% to 4.0%</div>
+            <p>Taken quietly inside the rate you are quoted.</p>
+          </div>
+          <div class="col paid">
+            <h3>BLK.FX</h3>
+            <div class="price">0.5% to 0.7%</div>
+            <p>Agreed with you, in the conversation, before you trade.</p>
+          </div>
         </div>
-        <div class="msr">
-          <div class="msr-top"><span class="msr-name">BLK.FX</span><span class="msr-val msr-val--accent">0.5% to 0.7%</span></div>
-          <p class="msr-note">Agreed with you, in the conversation, before you trade.</p>
-        </div>
-        <p class="disc">Indicative margin comparison. Your quote depends on the currency, amount and timing.</p>
+        <p class="disc" style="margin-top:16px">Indicative margin comparison. Your quote depends on the currency, amount and timing.</p>
       </div>
     </div>
   </div>
@@ -986,47 +987,6 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
       <a class="btn btn--lg btn--accent" href="https://meetings-eu1.hubspot.com/ben-kohler/intro-call-ben?uuid=47f7214c-7d08-47db-9514-766c690fd651" target="_blank" rel="noopener">Book a call with Ben <span class="arw">&rarr;</span></a>
       <a class="tlink" href="https://growthprovision.github.io/BLK.FX/contact/#brochure">Download brochure</a>
     </div>
-  </div>
-</section>
-
-
-<section class="band--paper pad" id="reviews">
-  <div class="wrap">
-    <div class="trust-head tr">
-      <div>
-        <div class="eyebrow"><span class="tick"></span>Client experience</div>
-        <h2>Service you can put a name to.</h2>
-        <p class="lede">Read what clients say about working with BLK.FX.</p>
-      </div>
-      <div class="trust">
-        <div class="score">4.7<small>/5</small></div>
-        <div>
-          <div class="stars"><i></i><i></i><i></i><i></i><i></i></div>
-          <p>Rated on Trustpilot.</p>
-        </div>
-      </div>
-    </div>
-    <div class="rev-grid">
-      <div class="rev-card">
-        <div class="stars"><i></i><i></i><i></i><i></i><i></i></div>
-        <h3>Extremely clear and professional&hellip;</h3>
-        <p>Extremely clear and professional advice. Very efficient if i needed anything done. Great costumer service and all in all just a pleasant and easy time.</p>
-        <cite>Verified on Trustpilot</cite>
-      </div>
-      <div class="rev-card">
-        <div class="stars"><i></i><i></i><i></i><i></i><i></i></div>
-        <h3>Game changer for me</h3>
-        <p>Game changer for me, absolutely love the set up and the service &ndash; speed is just stunning and top drawer&hellip; i dont bother with private banking anymore.</p>
-        <cite>Verified on Trustpilot</cite>
-      </div>
-      <div class="rev-card">
-        <div class="stars"><i></i><i></i><i></i><i></i><i></i></div>
-        <h3>Amazing service from BLK.FX</h3>
-        <p>I received amazing service from BLK.FX. My exchange rates where far better than my bank and my payment was received in Spain within 15 minutes. Highly recommend!</p>
-        <cite>Verified on Trustpilot</cite>
-      </div>
-    </div>
-    <a class="btn" href="https://uk.trustpilot.com/review/blkfx.co.uk" target="_blank" rel="noopener" style="margin-top:36px">Review us <span class="arw">&rarr;</span></a>
   </div>
 </section>
 
