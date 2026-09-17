@@ -3,11 +3,80 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="BLK.FX foreign exchange, international payments, multi-currency accounts and FX risk management.">
-<title>BLK.FX | Foreign exchange. Personally.</title>
+<meta name="description" content="Business foreign exchange from BLK.FX: an average margin of 0.5% to 0.7% on 35+ currencies, vs 2% to 4% at a high-street bank, with a named dealer and same-day settlement.">
+<title>Business Foreign Exchange | BLK.FX</title>
+<link rel="canonical" href="https://blkfx.co.uk/services/business-foreign-exchange/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&display=swap">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialService",
+  "name": "Business Foreign Exchange",
+  "url": "https://blkfx.co.uk/services/business-foreign-exchange/",
+  "description": "Business foreign exchange from BLK.FX: convert and send 35+ currencies at an average margin of 0.5% to 0.7%, agreed before you trade, with a named dealer and same-day settlement.",
+  "provider": {
+    "@type": "Organization",
+    "name": "BLK.FX",
+    "url": "https://blkfx.co.uk/"
+  },
+  "areaServed": ["GB", "EU", "US"],
+  "serviceType": "Business foreign exchange",
+  "offers": {
+    "@type": "Offer",
+    "description": "Currency conversion at an average margin of 0.5% to 0.7%, agreed before the trade."
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What's the difference between a spot and a forward contract?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A spot contract converts currency now, at today's rate. A forward contract fixes today's rate for a payment you'll make weeks or months from now, so a currency move in between can't change the number. BLK.FX arranges both; forward strategy in more depth lives on FX Risk Management & Hedging."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a minimum amount to trade with BLK.FX?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There's no fixed minimum. BLK.FX is built for businesses trading meaningful volume, and the margin conversation is most worthwhile above roughly £10,000 a transfer, but talk to a dealer either way."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which currencies can I convert with BLK.FX?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "35+ currencies, with local accounts in GBP, USD, EUR and CAD so you can hold what you collect rather than converting twice."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who actually holds and regulates the money?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BLK.FX works only with regulated execution partners across the UK, the EEA and the US; client funds are safeguarded under those partners' e-money and payment licences."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly can I get a rate and settle a trade?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A live rate from your dealer takes minutes once you're onboarded. Settlement is same-day where the currency and payment rail allow it, otherwise one to two working days."
+      }
+    }
+  ]
+}
+</script>
 
 <style>
 /* ============================================================
@@ -682,6 +751,42 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
 
 </style>
 
+<style>
+/* Business Foreign Exchange page additions */
+.steps--4{grid-template-columns:repeat(4,1fr)}
+@media (max-width:900px){.steps--4{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.steps--4{grid-template-columns:1fr}}
+#capabilities .step{border-top-color:var(--blk-line-ink)}
+#capabilities .step::before{color:var(--blk-accent-ink)}
+#capabilities .step p{color:#C7C7C4}
+
+.who-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--blk-line);border:1px solid var(--blk-line);margin-top:40px}
+.who-card{background:var(--blk-paper);padding:clamp(24px,2.8vw,32px);min-height:180px;display:flex;flex-direction:column;justify-content:center}
+.who-card h3{font-size:19px;font-weight:600;letter-spacing:-.02em;margin:0 0 10px;line-height:1.2}
+.who-card p{font-size:14.5px;line-height:1.6;color:#4C4C48;margin:0}
+@media (max-width:640px){.who-grid{grid-template-columns:1fr}}
+
+.talk-row{display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap}
+.talk-copy{max-width:640px}
+.talk-copy h2{margin:12px 0 0}
+.talk-copy .lede{margin-top:14px}
+.talk-cta{display:flex;align-items:center;flex-wrap:wrap;gap:10px}
+@media (max-width:760px){.talk-row{flex-direction:column;align-items:flex-start}}
+
+#cost .msr{padding:22px 0;border-top:1px solid var(--blk-line)}
+#cost .msr:first-of-type{border-top:none}
+#cost .msr-val{font-size:clamp(22px,2.6vw,30px);letter-spacing:-.02em}
+#cost .msr-val--accent{color:var(--blk-accent-text)}
+#cost .msr-note{font-size:13.5px;margin-top:8px}
+#cost .disc{margin-top:8px}
+
+#capabilities .prop-head{max-width:none}
+#capabilities .lede{max-width:none}
+
+.hero .rail-stream{position:absolute;left:0;right:0;bottom:0;z-index:2;margin-top:0;background:var(--blk-paper);padding-block:16px}
+@media (max-width:640px){.hero .rail-stream{padding-block:12px}}
+</style>
+
 
 </head>
 <body>
@@ -694,12 +799,12 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
     <ul class="menu">
       <li><a href="https://growthprovision.github.io/BLK.FX/services/" aria-haspopup="true">Services <span class="caret"></span></a>
         <div class="drop">
-          <a href="https://growthprovision.github.io/BLK.FX/services/business-foreign-exchange/">Business Foreign Exchange</a>
-          <a href="#services">International Payments</a>
-          <a href="#services">Multi-Currency Accounts</a>
-          <a href="#services">FX Risk Management &amp; Hedging</a>
-          <a href="#services">Commercial Finance</a>
-          <a href="#services">Private Client FX</a>
+          <a href="#top" aria-current="page">Business Foreign Exchange</a>
+          <a href="https://growthprovision.github.io/BLK.FX/services/">International Payments</a>
+          <a href="https://growthprovision.github.io/BLK.FX/services/">Multi-Currency Accounts</a>
+          <a href="https://growthprovision.github.io/BLK.FX/services/">FX Risk Management &amp; Hedging</a>
+          <a href="https://growthprovision.github.io/BLK.FX/services/">Commercial Finance</a>
+          <a href="https://growthprovision.github.io/BLK.FX/services/">Private Client FX</a>
           <a href="https://growthprovision.github.io/BLK.FX/services/" class="all">View all services</a>
         </div></li>
       <li><button type="button" aria-haspopup="true">Who We Help <span class="caret"></span></button>
@@ -729,11 +834,11 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
       <div class="login-nav">
         <button type="button" aria-haspopup="true">Login <span class="caret"></span></button>
         <div class="drop drop--login">
-          <a href="https://blkfx.paydirect.io/login" target="_blank" rel="noopener" aria-label="Currencycloud login"><img src="images/Currencycloud.png" alt="Currencycloud" width="720" height="210" loading="lazy"></a>
-          <a href="https://blkfx.numito.com/login" target="_blank" rel="noopener" aria-label="GC Partners login"><img src="images/GC Partners.png" alt="GC Partners" width="720" height="210" loading="lazy"></a>
-          <a href="https://blkfx.equalsconnect.com/account/login" target="_blank" rel="noopener" aria-label="Equals login"><img src="images/Equals.png" alt="Equals" width="720" height="210" loading="lazy"></a>
-          <a href="https://oblkfxltd.ebury.com/login/?next=/" target="_blank" rel="noopener" aria-label="Ebury login"><img src="images/Ebury.png" alt="Ebury" width="720" height="210" loading="lazy"></a>
-          <a href="https://blkfx.sciopay.co/login" target="_blank" rel="noopener" aria-label="Sciopay login"><img src="images/Sciopay.png" alt="Sciopay" width="720" height="210" loading="lazy"></a>
+          <a href="https://blkfx.paydirect.io/login" target="_blank" rel="noopener" aria-label="Currencycloud login"><img src="../../images/Currencycloud.png" alt="Currencycloud" width="720" height="210" loading="lazy"></a>
+          <a href="https://blkfx.numito.com/login" target="_blank" rel="noopener" aria-label="GC Partners login"><img src="../../images/GC Partners.png" alt="GC Partners" width="720" height="210" loading="lazy"></a>
+          <a href="https://blkfx.equalsconnect.com/account/login" target="_blank" rel="noopener" aria-label="Equals login"><img src="../../images/Equals.png" alt="Equals" width="720" height="210" loading="lazy"></a>
+          <a href="https://oblkfxltd.ebury.com/login/?next=/" target="_blank" rel="noopener" aria-label="Ebury login"><img src="../../images/Ebury.png" alt="Ebury" width="720" height="210" loading="lazy"></a>
+          <a href="https://blkfx.sciopay.co/login" target="_blank" rel="noopener" aria-label="Sciopay login"><img src="../../images/Sciopay.png" alt="Sciopay" width="720" height="210" loading="lazy"></a>
         </div>
       </div>
       <a class="btn" href="https://growthprovision.github.io/BLK.FX/contact/">Contact Us <span class="arw">&rarr;</span></a>
@@ -743,179 +848,19 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
 </header>
 
 <main id="top">
-
-
 <div class="motion-scene" data-scene="hero"><section class="band--paper hero">
   <div class="hero-art" aria-hidden="true"><span class="ribbon ribbon--fine"></span></div>
   <div class="wrap">
-    <div class="eyebrow hero-label"><span class="tick"></span>Foreign exchange. Personally.</div>
-    <h1 class="split">Be more efficient with your <em class="em">foreign currency</em>.</h1>
-    <p class="hero-sub">Foreign exchange, international payments and multi-currency accounts, backed by personal strategy and 24/7 support.</p>
+    <div class="eyebrow hero-label"><span class="tick"></span>Services</div>
+    <h1 class="split">Business Foreign Exchange</h1>
+    <p class="hero-sub">Buy and sell currency without the bank's <em class="em">margin buried in the rate</em>. An average of 0.5% to 0.7% on 35+ currencies, agreed with you before you trade, settled the same day where possible.</p>
     <div class="hero-cta">
       <a class="btn btn--lg" href="https://meetings-eu1.hubspot.com/ben-kohler/intro-call-ben?uuid=47f7214c-7d08-47db-9514-766c690fd651" target="_blank" rel="noopener">Book a call with Ben <span class="arw">&rarr;</span></a>
-      <a class="cue" href="#capabilities">Scroll to explore <span class="ar"></span></a>
+      <a class="cue" href="#cost">Scroll to explore <span class="ar"></span></a>
     </div>
   </div>
+  <div class="rail-stream" aria-hidden="true"><div class="rail-track" id="railTrack"><span>GBP</span><span>EUR</span><span>USD</span><span>AED</span><span>CAD</span><span>AUD</span><span>Faster Payments</span><span>SEPA</span><span>SWIFT</span><span>ACH</span></div></div>
 </section></div>
-
-
-<section class="band--ink prop" id="capabilities">
-  <div class="wrap">
-    <div class="prop-head">
-      <div class="eyebrow"><span class="tick"></span>The BLK proposition</div>
-      <h2>More than foreign exchange.</h2>
-      <p class="lede">One relationship for holding, sending, converting and managing currency across borders.</p>
-    </div>
-    <div class="prop-grid">
-      <article class="prop-item" tabindex="0">
-        <span class="prop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></span>
-        <h3>Spot contracts</h3>
-        <div class="prop-reveal"><p>Lock in real-time market exchange rates and make secure transactions across the currencies we hold for you.</p></div>
-      </article>
-      <article class="prop-item" tabindex="0">
-        <span class="prop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r=".6" fill="currentColor" stroke="none"/></svg></span>
-        <h3>Limit orders</h3>
-        <div class="prop-reveal"><p>We track the markets, so you don't have to. Create a limit order to buy or sell a specified amount of currency at a target rate above the current market rate.</p></div>
-      </article>
-      <article class="prop-item" tabindex="0">
-        <span class="prop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19h18"/><path d="M4 16 9 9l4 4 7-9"/></svg></span>
-        <h3>Market analysis</h3>
-        <div class="prop-reveal"><p>Select currencies, create orders and settle spot and forward contracts via our dealing desk or online platform when rates match your FX strategy.</p></div>
-      </article>
-      <article class="prop-item" tabindex="0">
-        <span class="prop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M3 10h18"/><path d="M8 3v4M16 3v4"/><path d="M15 15.5 17.5 18 21 13.5"/></svg></span>
-        <h3>Forward contracts</h3>
-        <div class="prop-reveal"><p>Guard against currency volatility for a clearer financial picture by using forward contracts to fix the future value of international payments.</p></div>
-      </article>
-      <article class="prop-item" tabindex="0">
-        <span class="prop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v5c0 5 3.4 8.4 8 9 4.6-.6 8-4 8-9V7l-8-4Z"/><path d="M9 12.5 12 15l3-6"/></svg></span>
-        <h3>Stop-loss orders</h3>
-        <div class="prop-reveal"><p>Stop-loss orders are instructions to trade at predetermined "worst case scenario" exchange rates. They can help minimise losses if markets start to move against you.</p></div>
-      </article>
-      <article class="prop-item" tabindex="0">
-        <span class="prop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="9" r="4.2"/><circle cx="16" cy="9" r="4.2"/><path d="M2.5 20c.9-3.4 3-5.2 5.5-5.2s4.6 1.8 5.5 5.2M10.5 20c.9-3.4 3-5.2 5.5-5.2s4.6 1.8 5.5 5.2"/></svg></span>
-        <h3>Credit facilities</h3>
-        <div class="prop-reveal"><p>In some scenarios, we can offer flexible credit facilities for clients interested in forward contracts. To find out more, please speak to a member of our team.</p></div>
-      </article>
-    </div>
-    <div class="prop-foot"><a class="btn btn--accent" href="https://growthprovision.github.io/BLK.FX/contact/">Find out more <span class="arw">&rarr;</span></a></div>
-  </div>
-</section>
-
-
-<section class="band--paper pad" id="services">
-  <div class="wrap">
-    <div class="slider-head tr">
-      <div>
-        <div class="eyebrow"><span class="tick"></span>Services</div>
-        <h2 class="split">Six services. One conversation.</h2>
-      </div>
-      <a class="tlink" href="https://growthprovision.github.io/BLK.FX/services/">View all services</a>
-    </div>
-
-    <div class="sldr tr">
-      <div class="sldr-track" id="svcTrack">
-        <article class="svc">
-          <div class="svc-face">
-            <div class="svc-top"><span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h13l-3-3M20 17H7l3 3"/></svg></span>
-            <span class="k">Convert</span>
-            <h3>Business Foreign Exchange</h3></div>
-            <span class="hint">Hover to explore</span>
-          </div>
-          <div class="svc-reveal">
-            <span class="k">Convert</span>
-            <h3>Business Foreign Exchange</h3>
-            <p>Buy and sell 35+ currencies at a margin agreed before you trade, with the timing thought through rather than left to the invoice date.</p>
-            <ul><li>Spot, forwards and orders</li><li>Margin agreed up front</li><li>Market analysis on your pairs</li></ul>
-            <span class="go"><a class="tlink" href="https://growthprovision.github.io/BLK.FX/services/business-foreign-exchange/">Read more</a></span>
-          </div>
-        </article>
-        <article class="svc">
-          <div class="svc-face">
-            <div class="svc-top"><span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 21 3l-7 18-3-7-8-3Z"/></svg></span>
-            <span class="k">Send</span>
-            <h3>International Payments</h3></div>
-            <span class="hint">Hover to explore</span>
-          </div>
-          <div class="svc-reveal">
-            <span class="k">Send</span>
-            <h3>International Payments</h3>
-            <p>Faster Payments, SEPA, Swift and ACH from one place, and a named person who chases a payment that has not landed.</p>
-            <ul><li>Four payment rails</li><li>Same-day where possible</li><li>24/7 support on stuck payments</li></ul>
-            <span class="go"><a class="tlink" href="https://growthprovision.github.io/BLK.FX/services/international-payments/">Read more</a></span>
-          </div>
-        </article>
-        <article class="svc">
-          <div class="svc-face">
-            <div class="svc-top"><span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="1"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg></span>
-            <span class="k">Hold</span>
-            <h3>Multi-Currency Accounts</h3></div>
-            <span class="hint">Hover to explore</span>
-          </div>
-          <div class="svc-reveal">
-            <span class="k">Hold</span>
-            <h3>Multi-Currency Accounts</h3>
-            <p>Accounts in your own name, in the currencies you actually deal in, so you can hold what you collect instead of converting twice.</p>
-            <ul><li>Opened in your entity's name</li><li>No account or maintenance fee</li><li>Suitable for SPVs and trusts</li></ul>
-            <span class="go"><a class="tlink" href="https://growthprovision.github.io/BLK.FX/services/multi-currency-accounts/">Read more</a></span>
-          </div>
-        </article>
-        <article class="svc">
-          <div class="svc-face">
-            <div class="svc-top"><span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v5c0 5 3.4 8.4 8 9 4.6-.6 8-4 8-9V7l-8-4Z"/></svg></span>
-            <span class="k">Protect</span>
-            <h3>FX Risk Management &amp; Hedging</h3></div>
-            <span class="hint">Hover to explore</span>
-          </div>
-          <div class="svc-reveal">
-            <span class="k">Protect</span>
-            <h3>FX Risk Management &amp; Hedging</h3>
-            <p>Fix some or all of a future rate so a currency move cannot break a budget you have already set and reported to a board.</p>
-            <ul><li>Forwards and orders</li><li>Budget rate strategy</li><li>Free modelling on FX Exposure</li></ul>
-            <span class="go"><a class="tlink" href="https://growthprovision.github.io/BLK.FX/services/fx-risk-management-and-hedging/">Read more</a></span>
-          </div>
-        </article>
-        <article class="svc">
-          <div class="svc-face">
-            <div class="svc-top"><span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="3.2"/><circle cx="15.5" cy="9.5" r="3.2"/><path d="M18 5v4M16 7h4"/></svg></span>
-            <span class="k">Fund</span>
-            <h3>Commercial Finance</h3></div>
-            <span class="hint">Hover to explore</span>
-          </div>
-          <div class="svc-reveal">
-            <span class="k">Fund</span>
-            <h3>Commercial Finance</h3>
-            <p>Facilities through partner lenders, so fixing a rate or bridging a completion does not tie up your working capital.</p>
-            <ul><li>Through partner lenders</li><li>Pairs with forward contracts</li><li>Subject to a conversation</li></ul>
-            <span class="go"><a class="tlink" href="https://growthprovision.github.io/BLK.FX/services/commercial-finance/">Read more</a></span>
-          </div>
-        </article>
-        <article class="svc">
-          <div class="svc-face">
-            <div class="svc-top"><span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9Z"/></svg></span>
-            <span class="k">Personal</span>
-            <h3>Private Client FX</h3></div>
-            <span class="hint">Hover to explore</span>
-          </div>
-          <div class="svc-reveal">
-            <span class="k">Personal</span>
-            <h3>Private Client FX</h3>
-            <p>Property abroad, moving money home, or a one-off transfer that has to land on a date. The rate fixed before you commit.</p>
-            <ul><li>Property completions</li><li>Rate fixed in advance</li><li>Weekend contact when needed</li></ul>
-            <span class="go"><a class="tlink" href="https://growthprovision.github.io/BLK.FX/services/private-client-fx/">Read more</a></span>
-          </div>
-        </article>
-      </div>
-      <div class="sldr-foot">
-        <div class="arrows">
-          <button type="button" id="svcPrev" aria-label="Previous services" aria-controls="svcTrack">&larr;</button>
-          <button type="button" id="svcNext" aria-label="Next services" aria-controls="svcTrack">&rarr;</button>
-        </div>
-        <div class="progress"><i id="svcBar" style="width:34%"></i></div>
-      </div>
-    </div>
-  </div>
-</section>
 
 
 <div class="motion-scene" data-scene="right-bottom"><section class="band--paper2 pad" id="cost">
@@ -924,145 +869,130 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
       <div class="tr">
         <div class="eyebrow"><span class="tick"></span>What it costs</div>
         <h2 class="split">The rate you see is not the rate you get.</h2>
-        <p class="lede">The exchange rate matters, but it is only one part of the decision. Service, strategy, timing and what happens when a payment needs attention matter too.</p>
+        <p class="lede">Every bank and broker quotes a rate. The margin built into it is what actually decides whether you got a good deal, and most businesses never see it broken out. There's no single figure to quote here either, what you pay depends on the currency, the amount and the timing, which is exactly why it's agreed with a dealer rather than buried in an app.</p>
       </div>
       <div class="tr">
         <div class="msr">
-          <div class="msr-top"><span class="msr-name">High street bank</span><span class="msr-val">1.0% to 3.0%</span></div>
-          <div class="track"><span class="fill"></span></div>
+          <div class="msr-top"><span class="msr-name">High street bank</span><span class="msr-val">2.0% to 4.0%</span></div>
           <p class="msr-note">Taken quietly inside the rate you are quoted.</p>
         </div>
         <div class="msr">
-          <div class="msr-top"><span class="msr-name">BLK.FX</span><span class="msr-val">0.2% to 0.6%</span></div>
-          <div class="track"><span class="fill fill--accent"></span></div>
+          <div class="msr-top"><span class="msr-name">BLK.FX</span><span class="msr-val msr-val--accent">0.5% to 0.7%</span></div>
           <p class="msr-note">Agreed with you, in the conversation, before you trade.</p>
         </div>
-        <div class="scale"><span>0%</span><span>1.5%</span><span>3.0%</span></div>
         <p class="disc">Indicative margin comparison. Your quote depends on the currency, amount and timing.</p>
       </div>
     </div>
-
-    <div class="split2 tr">
-      <div class="col">
-        <h3>No charge</h3>
-        <ul>
-          <li>Multi-currency accounts in your name</li>
-          <li>Payments on Faster Payments, SEPA, Swift and ACH</li>
-          <li>Strategy and treasury consultancy</li>
-          <li>Risk management and hedging structure</li>
-          <li>Market analysis on the pairs you are exposed to</li>
-          <li>Someone to call when a payment goes missing</li>
-        </ul>
-        <div class="price">£0</div>
-      </div>
-      <div class="col paid">
-        <h3>Where we earn</h3>
-        <ul><li>The margin on your currency conversion, and nothing else</li></ul>
-        <div class="price">0.2% to 0.6%</div>
-        <p>Agreed up front. Held to. Told to you plainly, before the trade.</p>
-      </div>
-    </div>
   </div>
 </section></div>
 
 
-<div class="motion-scene" data-scene="left-top"><section class="band--ink pad" id="why">
+<section class="band--paper pad" id="who">
   <div class="wrap">
-    <div class="tr">
-      <div class="eyebrow"><span class="tick"></span>Why BLK.FX</div>
-      <h2 class="split">What you are actually buying.</h2>
-      <p class="lede">Anyone can quote a rate. Rates are public. The difference is what surrounds the trade.</p>
-    </div>
-    <div class="why tr">
-      <article class="wcard" tabindex="0">
-        <span class="k">Structures</span><h3>Trusts and funds welcome</h3>
-        <p>SPVs, trusts, funds and venture capital structures can require heavier compliance work. BLK.FX already supports these structures.</p><span class="edge"></span>
-      </article>
-      <article class="wcard" tabindex="0">
-        <span class="k">Judgement</span><h3>Timing, not just execution</h3>
-        <p>A view on the currencies you are exposed to, and a conversation about when to convert. That conversation costs nothing.</p><span class="edge"></span>
-      </article>
-      <article class="wcard" tabindex="0">
-        <span class="k">Regulation</span><h3>Regulated partners only</h3>
-        <p>Execution through regulated partners across the UK, the EEA and the US, with the compliance work done properly rather than quickly.</p><span class="edge"></span>
-      </article>
-    </div>
-  </div>
-</section></div>
-
-
-<div class="audience-marquee" aria-hidden="true">
-  <div class="marquee-row" id="marqueeA"><span>CFOs</span><span>Founders</span><span>SPVs</span><span>Trusts</span><span>Funds</span><span>Private Equity</span><span>Ecommerce</span><span>Private Clients</span><span>Property</span></div>
-  <div class="marquee-row alt" id="marqueeB"><span>Finance Directors</span><span>Owner-Managers</span><span>Venture Capital</span><span>Professional Services</span><span>Scaling Businesses</span><span>International Property</span></div>
-</div>
-<section class="band--paper2 pad" id="who">
-  <div class="wrap">
-    <div class="tr">
+    <div class="prop-head tr">
       <div class="eyebrow"><span class="tick"></span>Who this is for</div>
-      <h2>Find yourself on this list.</h2>
+      <h2>See yourself in one of these?</h2>
     </div>
-    <div class="who-list tr">
-      <details class="who-row" name="who-accordion">
-        <summary><span class="who-row-label"><h3>SPVs, including property SPVs</h3></span><span class="who-caret" aria-hidden="true"></span></summary>
-        <div class="who-row-panel"><p>Accounts in the vehicle's own name, completion payments handled to a deadline, and forwards so the rate cannot move between exchange and completion.</p></div>
-      </details>
-      <details class="who-row" name="who-accordion">
-        <summary><span class="who-row-label"><h3>Trusts and funds</h3></span><span class="who-caret" aria-hidden="true"></span></summary>
-        <div class="who-row-panel"><p>Trust distributions and fund capital calls both need heavier onboarding. BLK.FX already supports both, paid out in the currency the beneficiary or investor needs, on dates that cannot slip.</p></div>
-      </details>
-      <details class="who-row" name="who-accordion">
-        <summary><span class="who-row-label"><h3>Venture capital</h3></span><span class="who-caret" aria-hidden="true"></span></summary>
-        <div class="who-row-panel"><p>You raise in one currency and your portfolio spends in another. Fix the rate on committed capital so a move does not shorten a runway.</p></div>
-      </details>
-      <details class="who-row" name="who-accordion">
-        <summary><span class="who-row-label"><h3>Businesses and finance teams</h3></span><span class="who-caret" aria-hidden="true"></span></summary>
-        <div class="who-row-panel"><p>PE-backed and scaling, founder-led with no treasury team, or a finance director who wants the margin in writing. The same conversation about your exposed pairs, rails and timing applies, whether you collect in several currencies or bill international clients in one.</p></div>
-      </details>
-      <details class="who-row" name="who-accordion">
-        <summary><span class="who-row-label"><h3>Property buyers abroad</h3></span><span class="who-caret" aria-hidden="true"></span></summary>
-        <div class="who-row-panel"><p>The rate fixed before you commit, the payment landing on the completion date, and a person on the phone when a lawyer needs confirmation.</p></div>
-      </details>
+    <div class="who-grid tr">
+      <div class="who-card">
+        <h3>Paying an overseas supplier</h3>
+        <p>An invoice lands in a currency you don't hold. Convert and pay in one step, at a margin agreed before you commit rather than whatever the bank's app shows that morning.</p>
+      </div>
+      <div class="who-card">
+        <h3>Collecting revenue abroad</h3>
+        <p>Marketplaces, platforms or overseas clients pay you in USD, EUR or another currency. Convert it back to GBP without losing a cut on every single transfer. (Want to hold it instead of converting it? See <a href="https://growthprovision.github.io/BLK.FX/services/" style="color:var(--blk-accent-text)">Multi-Currency Accounts</a>.)</p>
+      </div>
+      <div class="who-card">
+        <h3>A one-off large conversion</h3>
+        <p>Investor capital coming in, an acquisition completing, a one-time transfer that has to land on a date. A named dealer on the call, not a queue.</p>
+      </div>
+      <div class="who-card">
+        <h3>Regular payroll or contractor payments</h3>
+        <p>Paying an overseas team or contractors on a schedule. The same margin and the same dealer every cycle, instead of a fresh rate to question each time.</p>
+      </div>
     </div>
-    <div class="who-cta tr"><a class="btn" href="https://meetings-eu1.hubspot.com/ben-kohler/intro-call-ben?uuid=47f7214c-7d08-47db-9514-766c690fd651" target="_blank" rel="noopener">Book a call <span class="arw">&rarr;</span></a></div>
   </div>
 </section>
 
 
-<div class="motion-scene" data-scene="right-bottom"><section class="band--ink pad" id="how">
+<div class="motion-scene" data-scene="left-bottom"><section class="band--ink pad" id="capabilities">
   <div class="wrap">
-    <div class="tr">
-      <div class="eyebrow"><span class="tick"></span>How it works</div>
-      <h2 class="split">Three steps, and you are trading.</h2>
+    <div class="prop-head tr">
+      <div class="eyebrow"><span class="tick"></span>How you trade</div>
+      <h2>Four ways to convert, one dealer for all of them.</h2>
+      <p class="lede">This is the mechanics of buying and selling currency itself. Fixing a rate for a future date is a different job, covered on <a href="https://growthprovision.github.io/BLK.FX/services/" style="color:var(--blk-accent-ink)">FX Risk Management &amp; Hedging</a>.</p>
     </div>
-    <div class="steps tr">
-      <div class="step"><h3>A call, not a form</h3><p>Thirty minutes with Ben on what you buy, what you sell and when. You leave with a view on your exposure whether you go ahead or not.</p></div>
-      <div class="step"><h3>Accounts opened</h3><p>Multi-currency accounts in your own name, onboarded with the compliance work handled properly rather than quickly.</p></div>
-      <div class="step"><h3>Trade, with someone on the end of it</h3><p>Convert, send and hedge, with a named person who knows your business and answers the phone at any hour.</p></div>
+    <div class="steps steps--4 tr">
+      <div class="step">
+        <h3>Spot contracts</h3>
+        <p>Convert today, at today's rate, settled the same day where the currency and rail allow it.</p>
+      </div>
+      <div class="step">
+        <h3>Limit orders</h3>
+        <p>Set the rate you'd trade at. We watch the market and trigger the conversion automatically if it's hit.</p>
+      </div>
+      <div class="step">
+        <h3>Rate alerts</h3>
+        <p>Tell us the pairs you're exposed to. Your dealer flags a move worth acting on, rather than you checking a screen.</p>
+      </div>
+      <div class="step">
+        <h3>Same-day settlement</h3>
+        <p>Faster Payments, SEPA, SWIFT and ACH from one place, so a converted balance doesn't sit waiting to move.</p>
+      </div>
     </div>
-    <div class="reg tr">
-      <span class="badge">Regulated</span>
-      <p>BLK.FX works only with regulated execution partners across the UK, the EEA and the US. See BLK.FX’s <a href="https://blkfx.co.uk/" target="_blank" rel="noopener">current disclosures</a> for details.</p>
-    </div>
+    <div class="prop-foot"><a class="btn btn--accent" href="https://growthprovision.github.io/BLK.FX/contact/">Talk to a dealer <span class="arw">&rarr;</span></a></div>
   </div>
 </section></div>
 
 
-<section class="band--paper pad" id="rates">
-  <div class="wrap">
-    <div class="eyebrow"><span class="tick"></span>International payments</div>
-    <h2>Money moves across borders. So does your business.</h2>
-    <p class="lede">Hold, convert and send the currencies you use, with a named person supporting your payments.</p>
-    <a class="tlink" href="https://meetings-eu1.hubspot.com/ben-kohler/intro-call-ben?uuid=47f7214c-7d08-47db-9514-766c690fd651" target="_blank" rel="noopener">Talk through your next payment</a>
-    <div class="chans"><a class="chan" href="tel:02080640617">Phone</a><a class="chan" href="mailto:info@blkfx.co.uk">Email</a><a class="chan" href="https://api.whatsapp.com/send/?phone=442080640617&text&type=phone_number&app_absent=0" target="_blank" rel="noopener">WhatsApp</a><span class="chan">24/7</span></div>
-    <div class="story" style="margin-top:28px"><p>If a payment does not arrive when expected, you have a person to contact by phone, email or WhatsApp who can investigate what has happened and help move the issue forward.</p><cite>What the service actually looks like</cite></div>
+<section class="band--paper2 pad" id="answers">
+  <div class="wrap tr">
+    <div class="eyebrow"><span class="tick"></span>In plain terms</div>
+    <h2>FAQs</h2>
+    <div class="faq-list">
+      <details class="faq-row" name="faq-accordion-fx">
+        <summary><h3>What's the difference between a spot and a forward contract?</h3><span class="faq-caret" aria-hidden="true"></span></summary>
+        <div class="faq-row-panel"><p>A spot contract converts currency now, at today's rate. A forward contract fixes today's rate for a payment you'll make weeks or months from now, so a currency move in between can't change the number. BLK.FX arranges both; forward strategy in more depth lives on FX Risk Management &amp; Hedging.</p></div>
+      </details>
+      <details class="faq-row" name="faq-accordion-fx">
+        <summary><h3>Is there a minimum amount to trade?</h3><span class="faq-caret" aria-hidden="true"></span></summary>
+        <div class="faq-row-panel"><p>There's no fixed minimum. BLK.FX is built for businesses trading meaningful volume, and the margin conversation is most worthwhile above roughly £10,000 a transfer, but talk to a dealer either way.</p></div>
+      </details>
+      <details class="faq-row" name="faq-accordion-fx">
+        <summary><h3>Which currencies can I convert?</h3><span class="faq-caret" aria-hidden="true"></span></summary>
+        <div class="faq-row-panel"><p>35+ currencies, with local accounts in GBP, USD, EUR and CAD so you can hold what you collect rather than converting twice. If yours isn't listed, ask, most can still be arranged.</p></div>
+      </details>
+      <details class="faq-row" name="faq-accordion-fx">
+        <summary><h3>Who actually holds and regulates the money?</h3><span class="faq-caret" aria-hidden="true"></span></summary>
+        <div class="faq-row-panel"><p>BLK.FX works only with regulated execution partners across the UK, the EEA and the US; client funds are safeguarded under those partners' e-money and payment licences. Full detail is in the regulatory disclosures in the footer.</p></div>
+      </details>
+      <details class="faq-row" name="faq-accordion-fx">
+        <summary><h3>How quickly can I get a rate and settle?</h3><span class="faq-caret" aria-hidden="true"></span></summary>
+        <div class="faq-row-panel"><p>A live rate from your dealer takes minutes once you're onboarded. Settlement is same-day where the currency and payment rail allow it, otherwise one to two working days.</p></div>
+      </details>
+    </div>
   </div>
-  <div class="rail-stream" aria-hidden="true"><div class="rail-track" id="railTrack"><span>GBP</span><span>EUR</span><span>USD</span><span>AED</span><span>CAD</span><span>AUD</span><span>Faster Payments</span><span>SEPA</span><span>SWIFT</span><span>ACH</span></div></div>
 </section>
 
 
-<div class="motion-scene" data-scene="left-top"><section class="band--paper2 pad" id="reviews">
+<section class="band--ink pad" id="talk">
+  <div class="wrap talk-row tr">
+    <div class="talk-copy">
+      <div class="eyebrow"><span class="tick"></span>Business Foreign Exchange</div>
+      <h2>Talk to a dealer about what you're currently paying to convert.</h2>
+      <p class="lede">Bring what you buy, what you sell and roughly when. You'll get a straight read on the margin, agreed before anything is traded.</p>
+    </div>
+    <div class="talk-cta">
+      <a class="btn btn--lg btn--accent" href="https://meetings-eu1.hubspot.com/ben-kohler/intro-call-ben?uuid=47f7214c-7d08-47db-9514-766c690fd651" target="_blank" rel="noopener">Book a call with Ben <span class="arw">&rarr;</span></a>
+      <a class="tlink" href="https://growthprovision.github.io/BLK.FX/contact/#brochure">Download brochure</a>
+    </div>
+  </div>
+</section>
+
+
+<section class="band--paper pad" id="reviews">
   <div class="wrap">
-    <div class="trust-head">
+    <div class="trust-head tr">
       <div>
         <div class="eyebrow"><span class="tick"></span>Client experience</div>
         <h2>Service you can put a name to.</h2>
@@ -1098,34 +1028,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
     </div>
     <a class="btn" href="https://uk.trustpilot.com/review/blkfx.co.uk" target="_blank" rel="noopener" style="margin-top:36px">Review us <span class="arw">&rarr;</span></a>
   </div>
-</section></div>
-
-
-<section class="band--paper pad" id="answers">
-  <div class="wrap tr">
-    <div class="eyebrow"><span class="tick"></span>In plain terms</div>
-    <h2>FAQs</h2>
-    <div class="faq-list">
-      <details class="faq-row" name="faq-accordion">
-        <summary><h3>What does a foreign exchange consultancy actually do?</h3><span class="faq-caret" aria-hidden="true"></span></summary>
-        <div class="faq-row-panel"><p>A foreign exchange consultancy sits between your business and the market, and is paid on the conversion rather than on advice. BLK.FX opens multi-currency accounts, moves money across borders, and helps finance teams decide when to convert and how much risk to carry. We are not a bank and we are not a software platform.</p></div>
-      </details>
-      <details class="faq-row" name="faq-accordion">
-        <summary><h3>How much does it cost to send money internationally?</h3><span class="faq-caret" aria-hidden="true"></span></summary>
-        <div class="faq-row-panel"><p>The real cost is almost never the transfer fee, it is the margin built into the exchange rate. A high street bank typically takes between 1% and 3%. BLK.FX takes between 0.2% and 0.6%, agreed with you before the trade. On large or regular volumes that difference is the single biggest saving available to a finance team.</p></div>
-      </details>
-      <details class="faq-row" name="faq-accordion">
-        <summary><h3>What is hedging, and does my business need it?</h3><span class="faq-caret" aria-hidden="true"></span></summary>
-        <div class="faq-row-panel"><p>Hedging means fixing some or all of a future exchange rate now, so a currency move cannot damage a budget you have already set. If you buy or sell in a currency other than the one you report in, and you plan more than a month ahead, you are carrying currency risk whether you have named it or not.</p></div>
-      </details>
-      <details class="faq-row" name="faq-accordion">
-        <summary><h3>Can you work with trusts, funds and SPVs?</h3><span class="faq-caret" aria-hidden="true"></span></summary>
-        <div class="faq-row-panel"><p>Yes. BLK.FX supports structures including trusts, funds, property SPVs and venture capital vehicles. These structures can involve more detailed compliance and onboarding, which BLK.FX is set up to handle.</p></div>
-      </details>
-    </div>
-  </div>
 </section>
-
 
 <footer class="foot">
   <div class="wrap">
@@ -1166,35 +1069,35 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
     <div class="foot-social">
       <div class="foot-social-group foot-social-group--brand">
         <a href="https://www.facebook.com/blkfx.co.uk" target="_blank" rel="noopener" aria-label="BLK.FX on Facebook">
-          <img src="images/Facebook.png" alt="" width="17" height="17">
+          <img src="../../images/Facebook.png" alt="" width="17" height="17">
         </a>
         <a href="https://www.instagram.com/blk.fx_/" target="_blank" rel="noopener" aria-label="BLK.FX on Instagram">
-          <img src="images/IG.png" alt="" width="17" height="17">
+          <img src="../../images/IG.png" alt="" width="17" height="17">
         </a>
         <a href="https://www.linkedin.com/company/blk-fx/" target="_blank" rel="noopener" aria-label="BLK.FX on LinkedIn">
-          <img src="images/LinkedIn.png" alt="" width="17" height="17">
+          <img src="../../images/LinkedIn.png" alt="" width="17" height="17">
         </a>
         <a href="https://api.whatsapp.com/send/?phone=442080640617&text&type=phone_number&app_absent=0" target="_blank" rel="noopener" aria-label="Message BLK.FX on WhatsApp">
-          <img src="images/WhatsApp.png" alt="" width="17" height="17">
+          <img src="../../images/WhatsApp.png" alt="" width="17" height="17">
         </a>
       </div>
       <div class="foot-ai">
         <span class="foot-ai-label">Ask AI about BLK.FX</span>
         <div class="foot-social-group foot-social-group--ai">
           <a href="https://chatgpt.com/?q=Summarise%20BLK.FX%2C%20how%20it%20helps%20businesses%20and%20private%20clients%20with%20foreign%20exchange%20and%20international%20payments%2C%20and%20who%20founder%20Ben%20Kohler%20is." target="_blank" rel="noopener" aria-label="Ask ChatGPT about BLK.FX" title="Ask ChatGPT about BLK.FX">
-            <img src="images/ChatGpt.png" alt="" width="17" height="17">
+            <img src="../../images/ChatGpt.png" alt="" width="17" height="17">
           </a>
           <a href="https://claude.ai/new?q=Summarise%20BLK.FX%2C%20how%20it%20helps%20businesses%20and%20private%20clients%20with%20foreign%20exchange%20and%20international%20payments%2C%20and%20who%20founder%20Ben%20Kohler%20is." target="_blank" rel="noopener" aria-label="Ask Claude about BLK.FX" title="Ask Claude about BLK.FX">
-            <img src="images/Claude.png" alt="" width="17" height="17">
+            <img src="../../images/Claude.png" alt="" width="17" height="17">
           </a>
           <a href="https://gemini.google.com/app?q=Summarise%20BLK.FX%2C%20how%20it%20helps%20businesses%20and%20private%20clients%20with%20foreign%20exchange%20and%20international%20payments%2C%20and%20who%20founder%20Ben%20Kohler%20is." target="_blank" rel="noopener" aria-label="Ask Gemini about BLK.FX" title="Ask Gemini about BLK.FX">
-            <img src="images/Gemini.png" alt="" width="17" height="17">
+            <img src="../../images/Gemini.png" alt="" width="17" height="17">
           </a>
           <a href="https://www.perplexity.ai/search?q=Summarise%20BLK.FX%2C%20how%20it%20helps%20businesses%20and%20private%20clients%20with%20foreign%20exchange%20and%20international%20payments%2C%20and%20who%20founder%20Ben%20Kohler%20is." target="_blank" rel="noopener" aria-label="Ask Perplexity about BLK.FX" title="Ask Perplexity about BLK.FX">
-            <img src="images/Perplexity.png" alt="" width="17" height="17">
+            <img src="../../images/Perplexity.png" alt="" width="17" height="17">
           </a>
           <a href="https://grok.com/?q=Summarise%20BLK.FX%2C%20how%20it%20helps%20businesses%20and%20private%20clients%20with%20foreign%20exchange%20and%20international%20payments%2C%20and%20who%20founder%20Ben%20Kohler%20is." target="_blank" rel="noopener" aria-label="Ask Grok about BLK.FX" title="Ask Grok about BLK.FX">
-            <img src="images/Grok.png" alt="" width="17" height="17">
+            <img src="../../images/Grok.png" alt="" width="17" height="17">
           </a>
         </div>
       </div>
@@ -1296,15 +1199,20 @@ return function(){function t(t){var e=this,o=void 0===t?{}:t,h=o.wrapper,a=void 
  document.addEventListener('keydown',e=>{if(e.key==='Escape'){const wasOpen=menu.classList.contains('is-open');closeMenu();$$('.menu>li.is-open, .login-nav.is-open').forEach(el=>{el.classList.remove('is-open');el.querySelector('button').setAttribute('aria-expanded','false');});if(wasOpen)burger.focus();}});
  document.addEventListener('click',e=>{if(!nav.contains(e.target))closeMenu();});
  // Native scroll-snap slider: touch, trackpad, keyboard and arrow buttons share one position.
- const services=$('#svcTrack'), prev=$('#svcPrev'), next=$('#svcNext'), serviceBar=$('#svcBar');
- $('#services').classList.add('slider-enabled');services.setAttribute('data-lenis-prevent','');services.tabIndex=0;
- services.setAttribute('role','region');services.setAttribute('aria-label','Services. Swipe or use the arrow buttons.');
- function renderServices(){const max=services.scrollWidth-services.clientWidth;prev.disabled=services.scrollLeft<2;next.disabled=services.scrollLeft>=max-2;const ratio=services.clientWidth/services.scrollWidth;serviceBar.style.width=(ratio*100)+'%';serviceBar.style.transform='translateX('+(max>0?services.scrollLeft/max*(1-ratio)/ratio*100:0)+'%)';}
- function stepServices(direction){const card=services.firstElementChild;services.scrollBy({left:direction*(card.getBoundingClientRect().width+18),behavior:reduced.matches||!motionAllowed?'instant':'smooth'});}
- prev.addEventListener('click',()=>stepServices(-1));next.addEventListener('click',()=>stepServices(1));
- services.addEventListener('scroll',renderServices,{passive:true});window.addEventListener('resize',renderServices);
- services.addEventListener('keydown',e=>{if(e.target!==services)return;if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();stepServices(e.key==='ArrowRight'?1:-1);}});
- renderServices();
+ // Guarded: not every page carries the services slider, and a missing element here must not
+ // throw and abort the rest of this script (which would silently kill all page motion).
+ const servicesSection=$('#services'), services=$('#svcTrack'), prev=$('#svcPrev'), next=$('#svcNext'), serviceBar=$('#svcBar');
+ const hasSlider=!!(servicesSection&&services&&prev&&next&&serviceBar);
+ function renderServices(){if(!hasSlider)return;const max=services.scrollWidth-services.clientWidth;prev.disabled=services.scrollLeft<2;next.disabled=services.scrollLeft>=max-2;const ratio=services.clientWidth/services.scrollWidth;serviceBar.style.width=(ratio*100)+'%';serviceBar.style.transform='translateX('+(max>0?services.scrollLeft/max*(1-ratio)/ratio*100:0)+'%)';}
+ function stepServices(direction){if(!hasSlider)return;const card=services.firstElementChild;services.scrollBy({left:direction*(card.getBoundingClientRect().width+18),behavior:reduced.matches||!motionAllowed?'instant':'smooth'});}
+ if(hasSlider){
+  servicesSection.classList.add('slider-enabled');services.setAttribute('data-lenis-prevent','');services.tabIndex=0;
+  services.setAttribute('role','region');services.setAttribute('aria-label','Services. Swipe or use the arrow buttons.');
+  prev.addEventListener('click',()=>stepServices(-1));next.addEventListener('click',()=>stepServices(1));
+  services.addEventListener('scroll',renderServices,{passive:true});window.addEventListener('resize',renderServices);
+  services.addEventListener('keydown',e=>{if(e.target!==services)return;if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();stepServices(e.key==='ArrowRight'?1:-1);}});
+  renderServices();
+ }
  // Manual product tabs, with roving keyboard focus and a stable panel height.
  const tabs=$$('.tabs-nav [role=tab]');
  function selectTab(tab,focus=false){tabs.forEach(t=>{const active=t===tab;t.setAttribute('aria-selected',String(active));t.tabIndex=active?0:-1;const panel=document.getElementById(t.getAttribute('aria-controls'));if(panel)panel.hidden=!active;});if(focus)tab.focus();scheduleRefresh();}
