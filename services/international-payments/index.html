@@ -3,11 +3,80 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="BLK.FX foreign exchange, international payments, multi-currency accounts and FX risk management.">
-<title>Services | BLK.FX | Foreign exchange. Personally.</title>
+<meta name="description" content="International payments from BLK.FX: same-day payments in 35+ currencies via Faster Payments, SEPA, SWIFT and ACH, on a route confirmed before you send, with a named specialist if anything goes wrong.">
+<title>International Payments | BLK.FX</title>
+<link rel="canonical" href="https://blkfx.co.uk/services/international-payments/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&display=swap">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialService",
+  "name": "International Payments",
+  "url": "https://blkfx.co.uk/services/international-payments/",
+  "description": "International payments from BLK.FX: same-day payments in 35+ currencies via Faster Payments, SEPA, SWIFT and ACH, on a route confirmed before you send, with a named specialist if anything goes wrong.",
+  "provider": {
+    "@type": "Organization",
+    "name": "BLK.FX",
+    "url": "https://blkfx.co.uk/"
+  },
+  "areaServed": ["GB", "EU", "US"],
+  "serviceType": "International payments",
+  "offers": {
+    "@type": "Offer",
+    "description": "Cross-border payments routed via Faster Payments, SEPA, SWIFT or ACH, with the rail and timing agreed before you send."
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What's the difference between SWIFT and a local payment rail?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SWIFT reaches almost any bank in the world but routes through correspondent banks that can each take a cut and add a day or more. A local rail, such as Faster Payments, SEPA or ACH, settles inside that country's own clearing system, which is usually faster and avoids correspondent fees. BLK.FX picks whichever applies to the country and currency you're paying."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if a payment is delayed or sent back?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It's usually a correspondent bank taking a cut in transit or a mismatch in the beneficiary's details. Your specialist traces the payment directly with the receiving bank and resolves it, rather than routing you through a support queue."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which countries and currencies can I pay with BLK.FX?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "35+ currencies, with local accounts in GBP, USD, EUR and CAD so you're not converting twice to pay out. If your route isn't listed, ask, most can still be arranged."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who actually holds and regulates the money?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BLK.FX works only with regulated execution partners across the UK, the EEA and the US; client funds are safeguarded under those partners' e-money and payment licences."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly will an international payment arrive?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the rail. Faster Payments and SEPA Instant can land in minutes, standard SEPA and ACH in a working day, and SWIFT payments in one to five working days depending on the corridor. Your specialist confirms the expected timing before you send."
+      }
+    }
+  ]
+}
+</script>
 
 <style>
 /* ============================================================
@@ -144,15 +213,11 @@ h1 .em{font-family:var(--prose);font-style:italic;font-weight:300;letter-spacing
 .cue .ar::after{content:"";position:absolute;right:0;top:-3px;width:7px;height:7px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(-45deg)}
 
 /* ---------- chevron stats ---------- */
-.chevrons{display:grid;grid-template-columns:repeat(4,1fr)}
-.chev{background:var(--blk-ink-2);padding:26px clamp(18px,2.4vw,32px) 26px clamp(30px,3.6vw,52px);
-  clip-path:polygon(0 0,calc(100% - 24px) 0,100% 50%,calc(100% - 24px) 100%,0 100%,24px 50%);
-  margin-left:-20px;transition:background .3s}
-.chev:first-child{margin-left:0;clip-path:polygon(0 0,calc(100% - 24px) 0,100% 50%,calc(100% - 24px) 100%,0 100%)}
-.chev:hover{background:#202024}
-.chev .n{font-family:var(--data);font-size:clamp(22px,3vw,34px);font-weight:500;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.1;color:var(--blk-paper)}
-.chev .n small{font-size:.45em;color:var(--blk-mute-ink);letter-spacing:.04em}
-.chev .l{font-size:12.5px;color:var(--blk-mute-ink);margin-top:6px;line-height:1.35}
+.chevrons{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(24px,3.5vw,48px)}
+.chev{background:#fff;border:1px solid var(--blk-line);padding:30px 22px;text-align:center;transition:border-color .3s}
+.chev:hover{border-color:var(--blk-ink)}
+.chev .n{font-family:var(--data);font-size:clamp(22px,3vw,34px);font-weight:500;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.1;color:var(--blk-ink)}
+.chev .l{font-size:12.5px;color:var(--blk-mute);margin-top:8px;line-height:1.35}
 
 /* ---------- slider, iFX accounts-slider pattern ---------- */
 .slider-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
@@ -206,7 +271,7 @@ h1 .em{font-family:var(--prose);font-style:italic;font-weight:300;letter-spacing
 .why{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--blk-line-ink);border:1px solid var(--blk-line-ink);margin-top:44px}
 .wcard{background:var(--blk-ink);padding:clamp(22px,2.6vw,30px);position:relative;transition:background .3s;min-height:210px;display:flex;flex-direction:column}
 .wcard .k{font-family:var(--data);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--blk-accent-ink)}
-.wcard h3{font-size:19px;font-weight:600;letter-spacing:-.02em;margin:13px 0 0;line-height:1.2}
+.wcard h3{font-size:19px;font-weight:700;letter-spacing:-.02em;margin:13px 0 0;line-height:1.2;color:var(--blk-paper)}
 .wcard p{font-size:14.5px;line-height:1.55;color:#9C9C9F;margin:11px 0 0;transition:color .3s}
 .wcard:hover,.wcard:focus-within{background:#1C1C21}
 .wcard:hover p,.wcard:focus-within p{color:#DCDBD7}
@@ -310,6 +375,9 @@ a.chan:hover{border-color:var(--blk-accent);color:var(--blk-accent)}
 .story{border-left:2px solid var(--blk-accent);padding:4px 0 4px 22px;max-width:none}
 .story p{font-family:var(--prose);font-weight:300;font-size:clamp(17px,2vw,20px);line-height:1.5;margin:0;color:#3E3E3B}
 .story cite{display:block;font-style:normal;font-family:var(--data);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blk-mute);margin-top:14px}
+.trust-head{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap}
+.trust-head .trust{margin-top:0}
+@media (max-width:720px){.trust-head .trust{margin-top:28px}}
 .trust{display:flex;align-items:center;gap:clamp(18px,3vw,40px);flex-wrap:wrap;margin-top:32px}
 .score{font-family:var(--data);font-size:clamp(40px,6vw,62px);letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
 .score small{font-size:.35em;letter-spacing:.06em;color:var(--blk-mute)}
@@ -499,9 +567,9 @@ main{perspective:none;overflow:clip}
 .hero-label{margin-bottom:30px;color:var(--blk-accent)}
 .hero-sub{max-width:51ch}
 .hero-art{pointer-events:none}
-.chevrons{gap:1px;background:var(--blk-line)}
-.chev,.chev:first-child{clip-path:none;margin:0;background:var(--blk-ink);color:var(--blk-paper);padding:38px 22px}
-.chev .l{color:#bdbdbd}
+.chevrons{gap:clamp(24px,3.5vw,48px);background:none}
+.chev,.chev:first-child{clip-path:none;margin:0;background:#fff;border:1px solid var(--blk-line);color:var(--blk-ink);padding:34px 22px;text-align:center}
+.chev .l{color:var(--blk-mute)}
 .proof-strip{background:var(--blk-ink);position:relative;z-index:2}
 #capabilities{position:relative;z-index:2}
 .cap-stage{background:var(--blk-ink)}
@@ -679,99 +747,77 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
 
 </style>
 
-
 <style>
-/* Services page additions */
+/* International Payments page additions */
+.steps--4{grid-template-columns:repeat(4,1fr)}
+@media (max-width:900px){.steps--4{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.steps--4{grid-template-columns:1fr}}
+#capabilities .step{border-top-color:var(--blk-line-ink)}
+#capabilities .step::before{color:var(--blk-accent-ink)}
+#capabilities .step p{color:#C7C7C4}
 
-/* Hero sub-copy: give it room so it doesn't break into a tall narrow column */
-.hero .hero-sub{max-width:72ch}
+.who-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--blk-line);border:1px solid var(--blk-line);margin-top:40px}
+.who-card{background:var(--blk-paper);padding:clamp(24px,2.8vw,32px);min-height:180px;display:flex;flex-direction:column;justify-content:center}
+.who-card h3{font-size:19px;font-weight:600;letter-spacing:-.02em;margin:0 0 10px;line-height:1.2}
+.who-card p{font-size:14.5px;line-height:1.6;color:#4C4C48;margin:0}
+@media (max-width:640px){.who-grid{grid-template-columns:1fr}}
 
-/* Six services: static 3x2 grid (no slider chrome), whole card clickable.
-   The card's size now follows the hover copy itself (laid out in normal
-   flow) instead of a fixed height guessed to fit the longest card, so a
-   card is only ever as tall as its own content needs, and the hover panel
-   isn't left with empty space at the bottom. The icon face becomes the
-   overlay instead, shown by default and faded out on hover. */
-#services{position:relative}
-#services .sldr{overflow:visible}
-#services .sldr-track{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;transform:none!important;gap:18px}
-#services .sldr-foot{display:none!important}
-#services .svc{padding:0;min-height:0;background:transparent}
-#services .svc-reveal{position:static;opacity:1;transform:none;pointer-events:auto;background:var(--blk-paper-2);
-  padding:clamp(18px,2vw,24px)}
-#services .svc-face{position:absolute;inset:0;height:auto;margin:0;box-sizing:border-box;
-  padding:clamp(18px,2vw,24px);background:#fff;opacity:1;z-index:1}
-#services .svc:hover .svc-face,#services .svc:focus-within .svc-face{opacity:0;pointer-events:none}
-.svc-hit{position:absolute;inset:0;z-index:2;border-radius:inherit}
-.svc-hit:focus-visible{outline:2px solid var(--blk-accent);outline-offset:-2px}
-@media(max-width:900px){#services .sldr-track{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
-@media(max-width:620px){#services .sldr-track{grid-template-columns:1fr!important}}
-
-/* Who this is for: don't let the heading/copy wrap into a tall narrow column,
-   and split the accordion into two columns instead of one long stack */
-#who h2{max-width:50ch!important}
-#who .lede{max-width:none!important}
-.who-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 88px;margin-top:40px}
-#who{padding-bottom:clamp(28px,3.4vw,44px)}
-.who-cols .who-list{margin-top:0}
-@media(max-width:760px){.who-cols{grid-template-columns:1fr;gap:0}}
-
-/* Infrastructure: full-width heading, static section */
-#infrastructure h2{max-width:44ch!important}
-.infra-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);margin-top:32px;align-items:start}
-@media (max-width:820px){.infra-grid{grid-template-columns:1fr}}
-.infra-grid ul{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:9px}
-.infra-grid ul li{font-size:14.5px;line-height:1.55;color:#3E3E3B;display:flex;gap:11px;align-items:baseline}
-.infra-grid ul li::before{content:"";flex:0 0 6px;width:6px;height:6px;border-radius:50%;background:var(--blk-accent);transform:translateY(-1px)}
-.infra-grid p.lede{margin-bottom:0;max-width:none}
-.infra-cta{display:flex;flex-direction:column;align-items:flex-start;gap:14px;margin-top:56px}
-.infra-means{margin-top:28px}
-
-/* What you get: plain standalone cards, always-visible copy, no hover reveal */
-#benefits h2{max-width:40ch!important}
-.benefit-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:40px}
-.benefit-card{background:var(--blk-ink-2);border:1px solid var(--blk-line-ink);padding:clamp(16px,1.4vw,20px) 14px;
-  display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px}
-.benefit-card .prop-icon{position:static;width:42px;height:42px;padding:9px}
-.benefit-card h3{font-size:14px;line-height:1.25;margin:0}
-.benefit-card p{font-size:12px;line-height:1.4;color:#BFBFBD;margin:0}
-@media(max-width:1100px){.benefit-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:620px){.benefit-grid{grid-template-columns:repeat(2,1fr)}}
-
-/* How it works: full-width heading */
-#process h2{max-width:40ch!important}
-#process .reg{background:var(--blk-ink);border-color:var(--blk-ink)}
-#process .reg .badge{background:var(--blk-accent);border-color:var(--blk-accent);color:var(--blk-accent-on)}
-#process .reg p{color:#C7C7C4}
-#process .reg p a{color:var(--blk-accent-ink)}
-
-/* Let's talk: left-aligned, copy and CTA side by side */
 .talk-row{display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap}
 .talk-copy{max-width:640px}
-.talk-copy h2{max-width:none}
-@media(max-width:760px){.talk-row{flex-direction:column;align-items:flex-start}}
+.talk-copy h2{margin:12px 0 0}
+.talk-copy .lede{margin-top:14px}
+.talk-cta{display:flex;align-items:center;flex-wrap:wrap;gap:10px}
+@media (max-width:760px){.talk-row{flex-direction:column;align-items:flex-start}}
 
-/* Client experience: put the Trustpilot score beside the subheading, not below it */
-.rev-head-row{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
-.rev-head-row .trust{margin-top:0;flex-shrink:0}
-@media(max-width:760px){.rev-head-row{flex-direction:column;align-items:flex-start}.rev-head-row .trust{margin-top:20px}}
+#cost .split2{grid-template-columns:1fr}
+#cost .col{padding:18px 24px}
+#cost .col .price{margin-top:8px;font-size:clamp(20px,2.4vw,26px)}
+#cost .col p{font-size:14px;line-height:1.5;color:#4C4C48;margin-top:6px}
+#cost .col.paid .price{color:var(--blk-accent-ink)}
+#cost .col.paid p{color:#C7C7C4}
+
+#capabilities .prop-head{max-width:none}
+#capabilities .lede{max-width:none}
+
+#talk{padding-bottom:0}
+#talk .rail-stream{margin-top:56px;margin-bottom:0}
+
+.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,40px);margin-top:40px}
+.flow-item{padding-top:20px;border-top:1px solid var(--blk-line-ink)}
+.flow-item .tag{font-family:var(--prose);font-style:italic;font-size:15px;color:var(--blk-accent-ink)}
+.flow-item h3{font-size:19px;font-weight:600;letter-spacing:-.02em;margin:8px 0 0;color:var(--blk-paper)}
+.flow-item p{font-size:14.5px;line-height:1.55;color:#C7C7C4;margin:8px 0 0}
+@media (max-width:900px){.flow{grid-template-columns:1fr}}
+
+#rails .why{margin-top:32px;grid-template-columns:repeat(5,minmax(0,1fr))}
+
+.who-compact{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 36px;margin-top:32px}
+.who-item h3{font-size:16px;font-weight:600;letter-spacing:-.01em;margin:0;line-height:1.3}
+.who-item p{font-size:13.5px;line-height:1.5;color:#5C5C58;margin:6px 0 0}
+@media (max-width:900px){.who-compact{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.who-compact{grid-template-columns:1fr}}
+@media (max-width:1040px){#rails .why{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:640px){#rails .why{grid-template-columns:1fr}}
 </style>
-</head><body>
+
+
+</head>
+<body>
 <a class="skip-link" href="#top">Skip to content</a>
 <div class="page-bg" aria-hidden="true"></div>
 
 <header class="nav">
   <div class="wrap nav-in">
-    <a class="brand" href="https://growthprovision.github.io/BLK.FX/">BLK<span>.</span>FX</a>
+    <a class="brand" href="#top">BLK<span>.</span>FX</a>
     <ul class="menu">
-      <li><button type="button" aria-haspopup="true">Services <span class="caret"></span></button>
+      <li><a href="https://growthprovision.github.io/BLK.FX/services/" aria-haspopup="true">Services <span class="caret"></span></a>
         <div class="drop">
-          <a href="#services">Business Foreign Exchange</a>
-          <a href="#services">International Payments</a>
-          <a href="#services">Multi-Currency Accounts</a>
-          <a href="#services">FX Risk Management &amp; Hedging</a>
-          <a href="#services">Commercial Finance</a>
-          <a href="#services">Private Client FX</a>
+          <a href="../business-foreign-exchange/">Business Foreign Exchange</a>
+          <a href="#top" aria-current="page">International Payments</a>
+          <a href="https://growthprovision.github.io/BLK.FX/services/">Multi-Currency Accounts</a>
+          <a href="https://growthprovision.github.io/BLK.FX/services/">FX Risk Management &amp; Hedging</a>
+          <a href="https://growthprovision.github.io/BLK.FX/services/">Commercial Finance</a>
+          <a href="https://growthprovision.github.io/BLK.FX/services/">Private Client FX</a>
           <a href="https://growthprovision.github.io/BLK.FX/services/" class="all">View all services</a>
         </div></li>
       <li><button type="button" aria-haspopup="true">Who We Help <span class="caret"></span></button>
@@ -801,11 +847,11 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
       <div class="login-nav">
         <button type="button" aria-haspopup="true">Login <span class="caret"></span></button>
         <div class="drop drop--login">
-          <a href="https://blkfx.paydirect.io/login" target="_blank" rel="noopener" aria-label="Currencycloud login"><img src="../images/Currencycloud.png" alt="Currencycloud" width="720" height="210" loading="lazy"></a>
-          <a href="https://blkfx.numito.com/login" target="_blank" rel="noopener" aria-label="GC Partners login"><img src="../images/GC Partners.png" alt="GC Partners" width="720" height="210" loading="lazy"></a>
-          <a href="https://blkfx.equalsconnect.com/account/login" target="_blank" rel="noopener" aria-label="Equals login"><img src="../images/Equals.png" alt="Equals" width="720" height="210" loading="lazy"></a>
-          <a href="https://oblkfxltd.ebury.com/login/?next=/" target="_blank" rel="noopener" aria-label="Ebury login"><img src="../images/Ebury.png" alt="Ebury" width="720" height="210" loading="lazy"></a>
-          <a href="https://blkfx.sciopay.co/login" target="_blank" rel="noopener" aria-label="Sciopay login"><img src="../images/Sciopay.png" alt="Sciopay" width="720" height="210" loading="lazy"></a>
+          <a href="https://blkfx.paydirect.io/login" target="_blank" rel="noopener" aria-label="Currencycloud login"><img src="../../images/Currencycloud.png" alt="Currencycloud" width="720" height="210" loading="lazy"></a>
+          <a href="https://blkfx.numito.com/login" target="_blank" rel="noopener" aria-label="GC Partners login"><img src="../../images/GC Partners.png" alt="GC Partners" width="720" height="210" loading="lazy"></a>
+          <a href="https://blkfx.equalsconnect.com/account/login" target="_blank" rel="noopener" aria-label="Equals login"><img src="../../images/Equals.png" alt="Equals" width="720" height="210" loading="lazy"></a>
+          <a href="https://oblkfxltd.ebury.com/login/?next=/" target="_blank" rel="noopener" aria-label="Ebury login"><img src="../../images/Ebury.png" alt="Ebury" width="720" height="210" loading="lazy"></a>
+          <a href="https://blkfx.sciopay.co/login" target="_blank" rel="noopener" aria-label="Sciopay login"><img src="../../images/Sciopay.png" alt="Sciopay" width="720" height="210" loading="lazy"></a>
         </div>
       </div>
       <a class="btn" href="https://growthprovision.github.io/BLK.FX/contact/">Contact Us <span class="arw">&rarr;</span></a>
@@ -815,334 +861,163 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
 </header>
 
 <main id="top">
-
 <div class="motion-scene" data-scene="hero"><section class="band--paper hero">
   <div class="hero-art" aria-hidden="true"><span class="ribbon ribbon--fine"></span></div>
   <div class="wrap">
     <div class="eyebrow hero-label"><span class="tick"></span>Services</div>
-    <h1 class="split">Six ways we help you move <em class="em">money better</em>.</h1>
-    <p class="hero-sub">From everyday international payments to managing long-term currency risk, BLK.FX gives businesses and private clients one relationship for moving, holding and managing money across borders.</p>
+    <h1 class="split">International Payments</h1>
+    <p class="hero-sub">Send money abroad on the rail that actually gets it there, not whichever one your bank defaults to. Same-day payments in 35+ currencies, with the <em class="em">route and timing confirmed before you send</em>.</p>
     <div class="hero-cta">
       <a class="btn btn--lg" href="https://meetings-eu1.hubspot.com/ben-kohler/intro-call-ben?uuid=47f7214c-7d08-47db-9514-766c690fd651" target="_blank" rel="noopener">Book a call with Ben <span class="arw">&rarr;</span></a>
-      <a class="cue" href="#services">Scroll to explore <span class="ar"></span></a>
+      <a class="cue" href="#cost">Scroll to explore <span class="ar"></span></a>
     </div>
   </div>
 </section></div>
 
 
-<section class="band--paper2 pad" id="services">
+<div class="motion-scene" data-scene="right-bottom"><section class="band--paper2 pad" id="cost">
   <div class="wrap">
-    <div class="tr">
-      <div class="eyebrow"><span class="tick"></span>What we do</div>
-      <h2 class="split">Six services. One conversation.</h2>
-      <p class="lede">Convert, send, hold, hedge, finance and protect: six services, one point of contact.</p>
+    <div class="prop-head tr">
+      <div class="eyebrow"><span class="tick"></span>Where it actually slows down</div>
+      <h2>The route decides when it lands.</h2>
+      <p class="lede">Correspondent banks and cut-off times decide the day your payment lands, not the fee on the invoice.</p>
     </div>
-<div class="sldr tr">
-      <div class="sldr-track" id="svcTrack">
-        <article class="svc"><a class="svc-hit" href="https://blkfx.co.uk/services/business-foreign-exchange/" aria-label="Read more about Business Foreign Exchange"></a>
-          <div class="svc-face">
-            <div class="svc-top"><span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h13l-3-3M20 17H7l3 3"/></svg></span>
-            <span class="k">Convert</span>
-            <h3>Business Foreign Exchange</h3></div>
-            <span class="hint">Hover to explore</span>
-          </div>
-          <div class="svc-reveal">
-            <span class="k">Convert</span>
-            <h3>Business Foreign Exchange</h3>
-            <p>Buy and sell 35+ currencies at a margin agreed before you trade, with the timing thought through rather than left to the invoice date.</p>
-            <ul><li>Spot, forwards and orders</li><li>Margin agreed up front</li><li>Market analysis on your pairs</li></ul>
-            <span class="go"><span class="tlink" aria-hidden="true">Read more</span></span>
-          </div>
-        </article>
-        <article class="svc"><a class="svc-hit" href="https://blkfx.co.uk/services/international-payments/" aria-label="Read more about International Payments"></a>
-          <div class="svc-face">
-            <div class="svc-top"><span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 21 3l-7 18-3-7-8-3Z"/></svg></span>
-            <span class="k">Send</span>
-            <h3>International Payments</h3></div>
-            <span class="hint">Hover to explore</span>
-          </div>
-          <div class="svc-reveal">
-            <span class="k">Send</span>
-            <h3>International Payments</h3>
-            <p>Faster Payments, SEPA, Swift and ACH from one place, and a named person who chases a payment that has not landed.</p>
-            <ul><li>Four payment rails</li><li>Same-day where possible</li><li>24/7 support on stuck payments</li></ul>
-            <span class="go"><span class="tlink" aria-hidden="true">Read more</span></span>
-          </div>
-        </article>
-        <article class="svc"><a class="svc-hit" href="https://blkfx.co.uk/services/multi-currency-accounts/" aria-label="Read more about Multi-Currency Accounts"></a>
-          <div class="svc-face">
-            <div class="svc-top"><span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="1"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg></span>
-            <span class="k">Hold</span>
-            <h3>Multi-Currency Accounts</h3></div>
-            <span class="hint">Hover to explore</span>
-          </div>
-          <div class="svc-reveal">
-            <span class="k">Hold</span>
-            <h3>Multi-Currency Accounts</h3>
-            <p>Accounts in your own name, in the currencies you actually deal in, so you can hold what you collect instead of converting twice.</p>
-            <ul><li>Opened in your entity's name</li><li>No account or maintenance fee</li><li>Suitable for SPVs and trusts</li></ul>
-            <span class="go"><span class="tlink" aria-hidden="true">Read more</span></span>
-          </div>
-        </article>
-        <article class="svc"><a class="svc-hit" href="https://blkfx.co.uk/services/fx-risk-management-and-hedging/" aria-label="Read more about FX Risk Management &amp; Hedging"></a>
-          <div class="svc-face">
-            <div class="svc-top"><span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v5c0 5 3.4 8.4 8 9 4.6-.6 8-4 8-9V7l-8-4Z"/></svg></span>
-            <span class="k">Protect</span>
-            <h3>FX Risk Management &amp; Hedging</h3></div>
-            <span class="hint">Hover to explore</span>
-          </div>
-          <div class="svc-reveal">
-            <span class="k">Protect</span>
-            <h3>FX Risk Management &amp; Hedging</h3>
-            <p>Fix some or all of a future rate so a currency move cannot break a budget you have already set and reported to a board.</p>
-            <ul><li>Forwards and orders</li><li>Budget rate strategy</li><li>Free modelling on FX Exposure</li></ul>
-            <span class="go"><span class="tlink" aria-hidden="true">Read more</span></span>
-          </div>
-        </article>
-        <article class="svc"><a class="svc-hit" href="https://blkfx.co.uk/services/commercial-finance/" aria-label="Read more about Commercial Finance"></a>
-          <div class="svc-face">
-            <div class="svc-top"><span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="3.2"/><circle cx="15.5" cy="9.5" r="3.2"/><path d="M18 5v4M16 7h4"/></svg></span>
-            <span class="k">Fund</span>
-            <h3>Commercial Finance</h3></div>
-            <span class="hint">Hover to explore</span>
-          </div>
-          <div class="svc-reveal">
-            <span class="k">Fund</span>
-            <h3>Commercial Finance</h3>
-            <p>Facilities through partner lenders, so fixing a rate or bridging a completion does not tie up your working capital.</p>
-            <ul><li>Through partner lenders</li><li>Pairs with forward contracts</li><li>Subject to a conversation</li></ul>
-            <span class="go"><span class="tlink" aria-hidden="true">Read more</span></span>
-          </div>
-        </article>
-        <article class="svc"><a class="svc-hit" href="https://blkfx.co.uk/services/private-client-fx/" aria-label="Read more about Private Client FX"></a>
-          <div class="svc-face">
-            <div class="svc-top"><span class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9Z"/></svg></span>
-            <span class="k">Personal</span>
-            <h3>Private Client FX</h3></div>
-            <span class="hint">Hover to explore</span>
-          </div>
-          <div class="svc-reveal">
-            <span class="k">Personal</span>
-            <h3>Private Client FX</h3>
-            <p>Property abroad, moving money home, or a one-off transfer that has to land on a date. The rate fixed before you commit.</p>
-            <ul><li>Property completions</li><li>Rate fixed in advance</li><li>Weekend contact when needed</li></ul>
-            <span class="go"><span class="tlink" aria-hidden="true">Read more</span></span>
-          </div>
-        </article>
+    <div class="chevrons tr">
+      <div class="chev"><div class="n">2-3</div><div class="l">correspondent banks a SWIFT payment can pass through</div></div>
+      <div class="chev"><div class="n">1-5</div><div class="l">working days is typical, each bank taking its own time</div></div>
+      <div class="chev"><div class="n">35+</div><div class="l">currencies routed door to door, not just converted</div></div>
+      <div class="chev"><div class="n">1</div><div class="l">named specialist who traces it if it doesn't land on time</div></div>
+    </div>
+  </div>
+</section></div>
+
+
+<section class="band--paper pad" id="rails">
+  <div class="wrap">
+    <div class="prop-head tr">
+      <div class="eyebrow"><span class="tick"></span>How it actually moves</div>
+      <h2>The fastest route, every time.</h2>
+      <p class="lede">Faster Payments, SEPA, SWIFT or a local rail, whichever gets there first for that country and currency.</p>
+    </div>
+    <div class="why tr">
+      <div class="wcard"><span class="k">Sterling</span><h3>Faster Payments</h3><p>The UK's near-instant network. Domestic sterling payments, usually arriving within seconds to a couple of hours.</p><span class="edge" aria-hidden="true"></span></div>
+      <div class="wcard"><span class="k">Euro</span><h3>SEPA</h3><p>Low cost across the SEPA zone, usually same or next working day. SEPA Instant settles in seconds where both banks support it.</p><span class="edge" aria-hidden="true"></span></div>
+      <div class="wcard"><span class="k">Global</span><h3>SWIFT</h3><p>Reaches almost any bank, in most currencies. Broadest coverage, but can take one to five working days and may carry correspondent fees.</p><span class="edge" aria-hidden="true"></span></div>
+      <div class="wcard"><span class="k">US Dollar</span><h3>ACH</h3><p>US domestic payments in dollars, low cost, typically a couple of working days.</p><span class="edge" aria-hidden="true"></span></div>
+      <div class="wcard"><span class="k">Elsewhere</span><h3>Local clearing</h3><p>Where a country has its own clearing system, we use it instead of SWIFT. Usually faster, and it skips the correspondent fees entirely.</p><span class="edge" aria-hidden="true"></span></div>
+    </div>
+    <div class="prop-foot" style="margin-top:32px"><a class="btn btn--accent" href="https://growthprovision.github.io/BLK.FX/contact/">Talk to a specialist <span class="arw">&rarr;</span></a></div>
+  </div>
+</section>
+
+
+<section class="band--paper2 pad" id="who">
+  <div class="wrap tr">
+    <div class="eyebrow"><span class="tick"></span>Who sends through us</div>
+    <h2>If one of these sounds like you, talk to a specialist.</h2>
+    <div class="who-compact">
+      <div class="who-item">
+        <h3>Paying an overseas supplier</h3>
+        <p>Route and timing confirmed before you send, not after.</p>
       </div>
-      <div class="sldr-foot">
-        <div class="arrows">
-          <button type="button" id="svcPrev" aria-label="Previous services" aria-controls="svcTrack">&larr;</button>
-          <button type="button" id="svcNext" aria-label="Next services" aria-controls="svcTrack">&rarr;</button>
-        </div>
-        <div class="progress"><i id="svcBar" style="width:34%"></i></div>
+      <div class="who-item">
+        <h3>International payroll or contractors</h3>
+        <p>Same route, same specialist, every cycle.</p>
+      </div>
+      <div class="who-item">
+        <h3>A payment that has to land on a date</h3>
+        <p>Arrival window agreed upfront, not promised.</p>
+      </div>
+      <div class="who-item">
+        <h3>A payment that's late or bounced back</h3>
+        <p>Traced directly with the bank, not queued as a ticket.</p>
+      </div>
+      <div class="who-item">
+        <h3>Paying into several countries at once</h3>
+        <p>One specialist, the fastest rail for each. (Converting the currency itself is covered on <a href="../business-foreign-exchange/" style="color:var(--blk-accent-text)">Business Foreign Exchange</a>.)</p>
       </div>
     </div>
   </div>
 </section>
 
-
-<div class="motion-scene" data-scene="right-bottom"><section class="band--paper pad" id="who">
+<div class="motion-scene" data-scene="left-bottom"><section class="band--ink pad" id="how">
   <div class="wrap">
-    <div class="tr">
-      <div class="eyebrow"><span class="tick"></span>Who this is for</div>
-      <h2>Built for people and businesses moving money<br>across borders.</h2>
-      <p class="lede">BLK.FX works with internationally active businesses, finance teams and founders managing currency exposure, as well as<br>private clients making significant overseas transfers.</p>
+    <div class="prop-head tr">
+      <div class="eyebrow"><span class="tick"></span>What happens when you send one</div>
+      <h2>Three steps. One specialist.</h2>
     </div>
-    <div class="who-cols tr">
-      <div class="who-list">
-        <details class="who-row" name="who-accordion-services">
-          <summary><span class="who-row-label"><h3>Importers &amp; exporters</h3></span><span class="who-caret" aria-hidden="true"></span></summary>
-          <div class="who-row-panel"><p>Buying or selling in another currency on a schedule. Rates agreed up front and forwards available so a shipment's margin isn't decided by the market on the day it lands.</p></div>
-        </details>
-        <details class="who-row" name="who-accordion-services">
-          <summary><span class="who-row-label"><h3>Ecommerce</h3></span><span class="who-caret" aria-hidden="true"></span></summary>
-          <div class="who-row-panel"><p>Collecting in USD, EUR or other currencies from marketplaces and payment providers, then converting back without losing a cut on every single transfer.</p></div>
-        </details>
-        <details class="who-row" name="who-accordion-services">
-          <summary><span class="who-row-label"><h3>SaaS &amp; tech</h3></span><span class="who-caret" aria-hidden="true"></span></summary>
-          <div class="who-row-panel"><p>Billing international customers, paying overseas contractors or a distributed team, and holding revenue in the currency it was earned in.</p></div>
-        </details>
+    <div class="flow tr">
+      <div class="flow-item">
+        <span class="tag">First</span>
+        <h3>Tell us who you're paying</h3>
+        <p>Currency, country, amount and roughly when. Nothing formal, just enough for a specialist to work out the route.</p>
       </div>
-      <div class="who-list">
-        <details class="who-row" name="who-accordion-services">
-          <summary><span class="who-row-label"><h3>Professional services</h3></span><span class="who-caret" aria-hidden="true"></span></summary>
-          <div class="who-row-panel"><p>Client funds, disbursements and fees crossing borders, handled with the compliance work done properly and a named person to call.</p></div>
-        </details>
-        <details class="who-row" name="who-accordion-services">
-          <summary><span class="who-row-label"><h3>Finance teams</h3></span><span class="who-caret" aria-hidden="true"></span></summary>
-          <div class="who-row-panel"><p>A written FX policy, a margin you can put in a board pack, and someone who explains the exposure in plain terms rather than jargon.</p></div>
-        </details>
-        <details class="who-row" name="who-accordion-services">
-          <summary><span class="who-row-label"><h3>Private clients &amp; family offices</h3></span><span class="who-caret" aria-hidden="true"></span></summary>
-          <div class="who-row-panel"><p>Property purchases, school fees, and large personal transfers, with a rate fixed before you commit and support outside normal office hours.</p></div>
-        </details>
+      <div class="flow-item">
+        <span class="tag">Then</span>
+        <h3>We choose the route</h3>
+        <p>Faster Payments, SEPA, SWIFT or a local rail, whichever gets there fastest for that country and currency. Cost and arrival window agreed before you commit.</p>
+      </div>
+      <div class="flow-item">
+        <span class="tag">Finally</span>
+        <h3>Funds arrive, and we're watching</h3>
+        <p>If anything is delayed in transit, your named specialist is already on it, not a ticket number.</p>
       </div>
     </div>
   </div>
 </section></div>
 
 
-<div class="audience-marquee" aria-hidden="true">
-  <div class="marquee-row"><span>CFOs</span><span>Founders</span><span>SPVs</span><span>Trusts</span><span>Funds</span><span>Private Equity</span><span>Ecommerce</span><span>Private Clients</span><span>Property</span></div>
-  <div class="marquee-row alt"><span>Finance Directors</span><span>Owner-Managers</span><span>Venture Capital</span><span>Professional Services</span><span>Scaling Businesses</span><span>International Property</span></div>
-</div>
-<section class="band--paper pad" id="infrastructure">
-  <div class="wrap">
-    <div class="tr">
-      <div class="eyebrow"><span class="tick"></span>Infrastructure</div>
-      <h2>The right infrastructure for the job.</h2>
-    </div>
-    <div class="infra-grid tr">
-      <div>
-        <p class="lede">We aren't a one-size-fits-all provider, and we don't rely on a single platform. Instead, we operate as your currency and payments concierge, drawing on a trusted network of:</p>
-        <div class="infra-cta">
-          <a class="btn" href="https://blkfx.co.uk/fintech-providers/" target="_blank" rel="noopener">Learn about FinTech providers <span class="arw">&rarr;</span></a>
-          <a class="btn btn--accent" href="https://growthprovision.github.io/BLK.FX/contact/">Talk about partners <span class="arw">&rarr;</span></a>
-        </div>
-      </div>
-      <div>
-        <ul>
-          <li>Tier 1 FinTech platforms</li>
-          <li>Electronic Money Institutions (EMIs)</li>
-          <li>Liquidity providers and FX brokers</li>
-          <li>Global payment gateways and acquirers</li>
-        </ul>
-        <p class="lede infra-means">This means:</p>
-        <ul>
-          <li>Fast, secure settlements</li>
-          <li>Regulatory confidence</li>
-          <li>Freedom to scale</li>
-          <li>Tailored infrastructure based on your needs</li>
-        </ul>
-      </div>
+<section class="band--paper2 pad" id="answers">
+  <div class="wrap tr">
+    <div class="eyebrow"><span class="tick"></span>In plain terms</div>
+    <h2>FAQs</h2>
+    <div class="faq-list">
+      <details class="faq-row" name="faq-accordion-fx">
+        <summary><h3>What's the difference between SWIFT and a local payment rail?</h3><span class="faq-caret" aria-hidden="true"></span></summary>
+        <div class="faq-row-panel"><p>SWIFT reaches almost any bank in the world but routes through correspondent banks that can each take a cut and add a day or more. A local rail, such as Faster Payments, SEPA or ACH, settles inside that country's own clearing system, usually faster and without the correspondent fees. We pick whichever applies to the country and currency you're paying.</p></div>
+      </details>
+      <details class="faq-row" name="faq-accordion-fx">
+        <summary><h3>What happens if a payment is delayed or sent back?</h3><span class="faq-caret" aria-hidden="true"></span></summary>
+        <div class="faq-row-panel"><p>It's usually a correspondent bank taking a cut in transit or a mismatch in the beneficiary's details. Your specialist traces the payment directly with the receiving bank and resolves it, rather than routing you through a support queue.</p></div>
+      </details>
+      <details class="faq-row" name="faq-accordion-fx">
+        <summary><h3>Which countries and currencies can I pay?</h3><span class="faq-caret" aria-hidden="true"></span></summary>
+        <div class="faq-row-panel"><p>35+ currencies, with local accounts in GBP, USD, EUR and CAD so you're not converting twice to pay out. If your route isn't listed, ask, most can still be arranged.</p></div>
+      </details>
+      <details class="faq-row" name="faq-accordion-fx">
+        <summary><h3>Who actually holds and regulates the money?</h3><span class="faq-caret" aria-hidden="true"></span></summary>
+        <div class="faq-row-panel"><p>BLK.FX works only with regulated execution partners across the UK, the EEA and the US; client funds are safeguarded under those partners' e-money and payment licences. Full detail is in the regulatory disclosures in the footer.</p></div>
+      </details>
+      <details class="faq-row" name="faq-accordion-fx">
+        <summary><h3>How quickly will the payment arrive?</h3><span class="faq-caret" aria-hidden="true"></span></summary>
+        <div class="faq-row-panel"><p>It depends on the rail. Faster Payments and SEPA Instant can land in minutes, standard SEPA and ACH in a working day, and SWIFT in one to five working days depending on the corridor. Your specialist confirms the expected timing before you send.</p></div>
+      </details>
     </div>
   </div>
 </section>
 
 
-<div class="motion-scene" data-scene="right-top"><section class="band--ink pad" id="benefits">
-  <div class="wrap">
-    <div class="tr">
-      <div class="eyebrow"><span class="tick"></span>What you get</div>
-      <h2>What you get with BLK.FX.</h2>
-      <p class="lede">The same six things, on every service, every time.</p>
-    </div>
-    <div class="benefit-grid tr">
-      <article class="benefit-card">
-        <span class="prop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/></svg></span>
-        <h3>Same-day payments</h3>
-        <p>Faster Payments, SEPA, SWIFT and ACH from one place, same-day where possible.</p>
-      </article>
-      <article class="benefit-card">
-        <span class="prop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="2.2"/><circle cx="17" cy="17" r="2.2"/><path d="M18 6 6 18"/></svg></span>
-        <h3>Competitive FX margin</h3>
-        <p>An average margin of 0.5 to 0.7%, not the 2 to 4% a bank quietly takes, and agreed before you trade.</p>
-      </article>
-      <article class="benefit-card">
-        <span class="prop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span>
-        <h3>Forward contracts</h3>
-        <p>Lock in a rate before you pay or get paid, so a currency move between now and completion can't break your number.</p>
-      </article>
-      <article class="benefit-card">
-        <span class="prop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M7 9h4M7 13h7"/></svg></span>
-        <h3>Named IBAN accounts</h3>
-        <p>Accounts opened in your own name, so you can receive, hold and convert without losing out on every single conversion.</p>
-      </article>
-      <article class="benefit-card">
-        <span class="prop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c1.5-4 4-5.5 7-5.5S18.5 16 20 20"/></svg></span>
-        <h3>A named account manager</h3>
-        <p>One person who knows your business and answers, not a ticket queue and a different agent every time you call.</p>
-      </article>
-      <article class="benefit-card">
-        <span class="prop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5l3 1.5M8 3.5 5 6M16 3.5 19 6"/></svg></span>
-        <h3>24/7 support</h3>
-        <p>A direct line when something is time-sensitive, not just office hours.</p>
-      </article>
-    </div>
-  </div>
-</section></div>
-
-
-<div class="motion-scene" data-scene="left-bottom"><section class="band--paper pad" id="process">
-  <div class="wrap">
-    <div class="tr">
-      <div class="eyebrow"><span class="tick"></span>How it works</div>
-      <h2>Three steps, and you are moving money.</h2>
-    </div>
-    <div class="steps tr">
-      <div class="step"><h3>Understand what you need</h3><p>We look at how you're moving money, the currencies involved and where BLK.FX can improve the setup.</p></div>
-      <div class="step"><h3>Get set up</h3><p>We handle onboarding and put the right accounts, payment routes and FX tools in place.</p></div>
-      <div class="step"><h3>Move money with support</h3><p>Your account manager stays involved whenever you need to convert, pay or manage exposure.</p></div>
-    </div>
-    <div class="reg tr">
-      <span class="badge">Regulated</span>
-      <p>BLK.FX works only with regulated execution partners across the UK, the EEA and the US. See BLK.FX&rsquo;s <a href="https://blkfx.co.uk/" target="_blank" rel="noopener">current disclosures</a> for details.</p>
-    </div>
-  </div>
-</section></div>
-
-
-<section class="band--ink pad" id="talk">
+<section class="band--paper pad" id="talk">
   <div class="wrap talk-row tr">
     <div class="talk-copy">
-      <div class="eyebrow"><span class="tick"></span>Let's talk</div>
-      <h2>Not sure what you need? Start a conversation.</h2>
-      <p class="lede">Tell us how your business moves money internationally, or what you're looking to achieve. We'll help you work out the right setup.</p>
+      <div class="eyebrow"><span class="tick"></span>International Payments</div>
+      <h2>Talk to a specialist about what you're currently paying to send money abroad.</h2>
+      <p class="lede">Bring who you're paying, the currency and roughly when. You'll get a straight read on the cost and the route, agreed before anything is sent.</p>
     </div>
     <div class="talk-cta">
-      <a class="btn btn--lg btn--accent" href="https://meetings-eu1.hubspot.com/ben-kohler/intro-call-ben?uuid=47f7214c-7d08-47db-9514-766c690fd651" target="_blank" rel="noopener">Book a call <span class="arw">&rarr;</span></a>
+      <a class="btn btn--lg btn--accent" href="https://meetings-eu1.hubspot.com/ben-kohler/intro-call-ben?uuid=47f7214c-7d08-47db-9514-766c690fd651" target="_blank" rel="noopener">Book a call with Ben <span class="arw">&rarr;</span></a>
+      <a class="tlink" href="https://growthprovision.github.io/BLK.FX/contact/#brochure">Download brochure</a>
     </div>
   </div>
-</section>
-
-
-<section class="band--paper2 pad" id="reviews">
-  <div class="wrap">
-    <div class="rev-head-row tr">
-      <div class="rev-head-copy">
-        <div class="eyebrow"><span class="tick"></span>Client experience</div>
-        <h2>Service you can put a name to.</h2>
-        <p class="lede">Read what clients say about working with BLK.FX.</p>
-      </div>
-      <div class="trust">
-        <div class="score">4.7<small>/5</small></div>
-        <div>
-          <div class="stars"><i></i><i></i><i></i><i></i><i></i></div>
-          <p>Rated on Trustpilot.</p>
-        </div>
-      </div>
-    </div>
-    <div class="rev-grid">
-      <div class="rev-card">
-        <div class="stars"><i></i><i></i><i></i><i></i><i></i></div>
-        <h3>Extremely clear and professional&hellip;</h3>
-        <p>Extremely clear and professional advice. Very efficient if i needed anything done. Great costumer service and all in all just a pleasant and easy time.</p>
-        <cite>Verified on Trustpilot</cite>
-      </div>
-      <div class="rev-card">
-        <div class="stars"><i></i><i></i><i></i><i></i><i></i></div>
-        <h3>Game changer for me</h3>
-        <p>Game changer for me, absolutely love the set up and the service &ndash; speed is just stunning and top drawer&hellip; i dont bother with private banking anymore.</p>
-        <cite>Verified on Trustpilot</cite>
-      </div>
-      <div class="rev-card">
-        <div class="stars"><i></i><i></i><i></i><i></i><i></i></div>
-        <h3>Amazing service from BLK.FX</h3>
-        <p>I received amazing service from BLK.FX. My exchange rates where far better than my bank and my payment was received in Spain within 15 minutes. Highly recommend!</p>
-        <cite>Verified on Trustpilot</cite>
-      </div>
-    </div>
-    <a class="btn" href="https://uk.trustpilot.com/review/blkfx.co.uk" target="_blank" rel="noopener" style="margin-top:36px">Review us <span class="arw">&rarr;</span></a>
-  </div>
+  <div class="rail-stream" aria-hidden="true"><div class="rail-track" id="railTrack"><span>GBP</span><span>EUR</span><span>USD</span><span>AED</span><span>CAD</span><span>AUD</span><span>Faster Payments</span><span>SEPA</span><span>SWIFT</span><span>ACH</span></div></div>
 </section>
 
 <footer class="foot">
   <div class="wrap">
     <div class="foot-main">
       <div class="foot-intro">
-        <a class="brand foot-brand" href="https://growthprovision.github.io/BLK.FX/" aria-label="BLK.FX">BLK<span>.</span>FX</a>
-        <p class="foot-note">Bring what you buy, what you sell and roughly when. You will leave with a read on your exposure and a number on what you are currently paying, whether or not you ever trade with us.</p>
+        <a class="brand foot-brand" href="#top" aria-label="BLK.FX">BLK<span>.</span>FX</a>
+        <p class="foot-note">Bring who you're paying, the currency and roughly when. You will leave with a read on the route and a number on what you are currently paying to send it, whether or not you ever send with us.</p>
       </div>
 
       <div class="foot-cols">
@@ -1176,35 +1051,35 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
     <div class="foot-social">
       <div class="foot-social-group foot-social-group--brand">
         <a href="https://www.facebook.com/blkfx.co.uk" target="_blank" rel="noopener" aria-label="BLK.FX on Facebook">
-          <img src="../images/Facebook.png" alt="" width="17" height="17">
+          <img src="../../images/Facebook.png" alt="" width="17" height="17">
         </a>
         <a href="https://www.instagram.com/blk.fx_/" target="_blank" rel="noopener" aria-label="BLK.FX on Instagram">
-          <img src="../images/IG.png" alt="" width="17" height="17">
+          <img src="../../images/IG.png" alt="" width="17" height="17">
         </a>
         <a href="https://www.linkedin.com/company/blk-fx/" target="_blank" rel="noopener" aria-label="BLK.FX on LinkedIn">
-          <img src="../images/LinkedIn.png" alt="" width="17" height="17">
+          <img src="../../images/LinkedIn.png" alt="" width="17" height="17">
         </a>
         <a href="https://api.whatsapp.com/send/?phone=442080640617&text&type=phone_number&app_absent=0" target="_blank" rel="noopener" aria-label="Message BLK.FX on WhatsApp">
-          <img src="../images/WhatsApp.png" alt="" width="17" height="17">
+          <img src="../../images/WhatsApp.png" alt="" width="17" height="17">
         </a>
       </div>
       <div class="foot-ai">
         <span class="foot-ai-label">Ask AI about BLK.FX</span>
         <div class="foot-social-group foot-social-group--ai">
           <a href="https://chatgpt.com/?q=Summarise%20BLK.FX%2C%20how%20it%20helps%20businesses%20and%20private%20clients%20with%20foreign%20exchange%20and%20international%20payments%2C%20and%20who%20founder%20Ben%20Kohler%20is." target="_blank" rel="noopener" aria-label="Ask ChatGPT about BLK.FX" title="Ask ChatGPT about BLK.FX">
-            <img src="../images/ChatGpt.png" alt="" width="17" height="17">
+            <img src="../../images/ChatGpt.png" alt="" width="17" height="17">
           </a>
           <a href="https://claude.ai/new?q=Summarise%20BLK.FX%2C%20how%20it%20helps%20businesses%20and%20private%20clients%20with%20foreign%20exchange%20and%20international%20payments%2C%20and%20who%20founder%20Ben%20Kohler%20is." target="_blank" rel="noopener" aria-label="Ask Claude about BLK.FX" title="Ask Claude about BLK.FX">
-            <img src="../images/Claude.png" alt="" width="17" height="17">
+            <img src="../../images/Claude.png" alt="" width="17" height="17">
           </a>
           <a href="https://gemini.google.com/app?q=Summarise%20BLK.FX%2C%20how%20it%20helps%20businesses%20and%20private%20clients%20with%20foreign%20exchange%20and%20international%20payments%2C%20and%20who%20founder%20Ben%20Kohler%20is." target="_blank" rel="noopener" aria-label="Ask Gemini about BLK.FX" title="Ask Gemini about BLK.FX">
-            <img src="../images/Gemini.png" alt="" width="17" height="17">
+            <img src="../../images/Gemini.png" alt="" width="17" height="17">
           </a>
           <a href="https://www.perplexity.ai/search?q=Summarise%20BLK.FX%2C%20how%20it%20helps%20businesses%20and%20private%20clients%20with%20foreign%20exchange%20and%20international%20payments%2C%20and%20who%20founder%20Ben%20Kohler%20is." target="_blank" rel="noopener" aria-label="Ask Perplexity about BLK.FX" title="Ask Perplexity about BLK.FX">
-            <img src="../images/Perplexity.png" alt="" width="17" height="17">
+            <img src="../../images/Perplexity.png" alt="" width="17" height="17">
           </a>
           <a href="https://grok.com/?q=Summarise%20BLK.FX%2C%20how%20it%20helps%20businesses%20and%20private%20clients%20with%20foreign%20exchange%20and%20international%20payments%2C%20and%20who%20founder%20Ben%20Kohler%20is." target="_blank" rel="noopener" aria-label="Ask Grok about BLK.FX" title="Ask Grok about BLK.FX">
-            <img src="../images/Grok.png" alt="" width="17" height="17">
+            <img src="../../images/Grok.png" alt="" width="17" height="17">
           </a>
         </div>
       </div>
@@ -1306,15 +1181,20 @@ return function(){function t(t){var e=this,o=void 0===t?{}:t,h=o.wrapper,a=void 
  document.addEventListener('keydown',e=>{if(e.key==='Escape'){const wasOpen=menu.classList.contains('is-open');closeMenu();$$('.menu>li.is-open, .login-nav.is-open').forEach(el=>{el.classList.remove('is-open');el.querySelector('button').setAttribute('aria-expanded','false');});if(wasOpen)burger.focus();}});
  document.addEventListener('click',e=>{if(!nav.contains(e.target))closeMenu();});
  // Native scroll-snap slider: touch, trackpad, keyboard and arrow buttons share one position.
- const services=$('#svcTrack'), prev=$('#svcPrev'), next=$('#svcNext'), serviceBar=$('#svcBar');
- $('#services').classList.add('slider-enabled');services.setAttribute('data-lenis-prevent','');services.tabIndex=0;
- services.setAttribute('role','region');services.setAttribute('aria-label','Services. Swipe or use the arrow buttons.');
- function renderServices(){const max=services.scrollWidth-services.clientWidth;prev.disabled=services.scrollLeft<2;next.disabled=services.scrollLeft>=max-2;const ratio=services.clientWidth/services.scrollWidth;serviceBar.style.width=(ratio*100)+'%';serviceBar.style.transform='translateX('+(max>0?services.scrollLeft/max*(1-ratio)/ratio*100:0)+'%)';}
- function stepServices(direction){const card=services.firstElementChild;services.scrollBy({left:direction*(card.getBoundingClientRect().width+18),behavior:reduced.matches||!motionAllowed?'instant':'smooth'});}
- prev.addEventListener('click',()=>stepServices(-1));next.addEventListener('click',()=>stepServices(1));
- services.addEventListener('scroll',renderServices,{passive:true});window.addEventListener('resize',renderServices);
- services.addEventListener('keydown',e=>{if(e.target!==services)return;if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();stepServices(e.key==='ArrowRight'?1:-1);}});
- renderServices();
+ // Guarded: not every page carries the services slider, and a missing element here must not
+ // throw and abort the rest of this script (which would silently kill all page motion).
+ const servicesSection=$('#services'), services=$('#svcTrack'), prev=$('#svcPrev'), next=$('#svcNext'), serviceBar=$('#svcBar');
+ const hasSlider=!!(servicesSection&&services&&prev&&next&&serviceBar);
+ function renderServices(){if(!hasSlider)return;const max=services.scrollWidth-services.clientWidth;prev.disabled=services.scrollLeft<2;next.disabled=services.scrollLeft>=max-2;const ratio=services.clientWidth/services.scrollWidth;serviceBar.style.width=(ratio*100)+'%';serviceBar.style.transform='translateX('+(max>0?services.scrollLeft/max*(1-ratio)/ratio*100:0)+'%)';}
+ function stepServices(direction){if(!hasSlider)return;const card=services.firstElementChild;services.scrollBy({left:direction*(card.getBoundingClientRect().width+18),behavior:reduced.matches||!motionAllowed?'instant':'smooth'});}
+ if(hasSlider){
+  servicesSection.classList.add('slider-enabled');services.setAttribute('data-lenis-prevent','');services.tabIndex=0;
+  services.setAttribute('role','region');services.setAttribute('aria-label','Services. Swipe or use the arrow buttons.');
+  prev.addEventListener('click',()=>stepServices(-1));next.addEventListener('click',()=>stepServices(1));
+  services.addEventListener('scroll',renderServices,{passive:true});window.addEventListener('resize',renderServices);
+  services.addEventListener('keydown',e=>{if(e.target!==services)return;if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();stepServices(e.key==='ArrowRight'?1:-1);}});
+  renderServices();
+ }
  // Manual product tabs, with roving keyboard focus and a stable panel height.
  const tabs=$$('.tabs-nav [role=tab]');
  function selectTab(tab,focus=false){tabs.forEach(t=>{const active=t===tab;t.setAttribute('aria-selected',String(active));t.tabIndex=active?0:-1;const panel=document.getElementById(t.getAttribute('aria-controls'));if(panel)panel.hidden=!active;});if(focus)tab.focus();scheduleRefresh();}
@@ -1386,10 +1266,9 @@ return function(){function t(t){var e=this,o=void 0===t?{}:t,h=o.wrapper,a=void 
      const panel=scene.firstElementChild, mode=scene.dataset.scene;
      if(mode==='hero'){
       gsap.to(panel,{x:()=>-innerWidth,y:()=>innerHeight*1.33,rotationY:7,ease:'none',scrollTrigger:{trigger:scene,start:'top 72px',end:'bottom top',scrub:true,invalidateOnRefresh:true}});
-     }else if(mode==='left-bottom'){
-      gsap.fromTo(panel,{x:()=>-innerWidth,y:()=>innerHeight*.33,rotationY:7},{x:0,y:0,rotationY:0,ease:'none',immediateRender:false,scrollTrigger:{trigger:scene,start:'top bottom',end:'top 22%',scrub:true,invalidateOnRefresh:true}});
      }else{
-      gsap.fromTo(panel,{x:()=>innerWidth,y:()=>mode==='right-top'?-innerHeight*1.33:innerHeight*.33,rotationY:-7},{x:0,y:0,rotationY:0,ease:'none',immediateRender:false,scrollTrigger:{trigger:scene,start:'top bottom',end:'top 22%',scrub:true,invalidateOnRefresh:true}});
+      const fromLeft=mode.indexOf('left')===0, fromTop=mode.indexOf('top')>-1;
+      gsap.fromTo(panel,{x:()=>fromLeft?-innerWidth:innerWidth,y:()=>fromTop?-innerHeight*1.33:innerHeight*.33,rotationY:fromLeft?7:-7},{x:0,y:0,rotationY:0,ease:'none',immediateRender:false,scrollTrigger:{trigger:scene,start:'top bottom',end:'top 22%',scrub:true,invalidateOnRefresh:true}});
      }
     });
     // Same desktop wheel weighting and easing duration as the supplied iFX source.
