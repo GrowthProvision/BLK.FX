@@ -710,17 +710,24 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
 #different .prop-grid{gap:16px;background:none;border:none}
 #different .prop-item{border:1px solid var(--blk-line-ink);border-radius:16px}
 
-/* ---------- how it works: white background — deliberately not id="how" ---------- */
-/* (the homepage's dark-mode-only #how overrides would make this section's text
-   unreadable on a white background, so this section uses id="how-it-works" and
-   needs its own heading treatment instead of inheriting #how's) */
+/* ---------- how it works: off-white background — deliberately not id="how" ---------- */
+/* (the homepage's dark-mode-only #how overrides are hard-tied to that literal id,
+   so this section uses id="how-it-works" and needs its own heading treatment,
+   plus its own dark-callout styling for the regulation note below) */
 #how-it-works h2{max-width:none;white-space:nowrap}
 @media (max-width:640px){#how-it-works h2{white-space:normal}}
+#how-it-works .reg{background:var(--blk-ink);border-color:var(--blk-ink)}
+#how-it-works .reg p{color:#C7C7C4}
+#how-it-works .reg p a{color:var(--blk-accent-ink)}
+#how-it-works .reg .badge{background:var(--blk-accent-ink);border-color:var(--blk-accent-ink);color:var(--blk-ink)}
 
 /* ---------- let's talk: CTA column sits on the right of the heading/copy, centred to it ---------- */
 #talk .two{align-items:center}
 .talk-cta{display:flex;flex-direction:column;gap:4px}
 @media (min-width:761px){.talk-cta{align-items:flex-end}}
+
+/* ---------- let's talk heading: two lines exactly as written, not wherever it wraps ---------- */
+#talk h2{max-width:none}
 </style>
 <script type="application/ld+json">
 {
@@ -811,7 +818,6 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
     <p class="hero-sub">Multi-currency accounts, payments and strategy cost nothing. We earn only on the currency conversion, and tell you what that margin is before you trade. Then a named person stays reachable by phone, email or WhatsApp, at any hour.</p>
     <div class="hero-cta">
       <a class="btn btn--lg" href="https://meetings-eu1.hubspot.com/ben-kohler/intro-call-ben?uuid=47f7214c-7d08-47db-9514-766c690fd651" target="_blank" rel="noopener">Book a call with Ben <span class="arw">&rarr;</span></a>
-      <a class="cue" href="#why">Why it matters <span class="ar"></span></a>
     </div>
   </div>
 </section></div>
@@ -820,6 +826,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
   SECTION: why-blkfx-exists
   WP: repeatable block, 3 comparison cards (the third styled as the accent/BLK.FX card)
   FIELDS: eyebrow (text), heading (text), lede (text), cards[] { label (text), heading (text), body (text), accent (boolean) }
+  MOTION: none — this section is intentionally static
   NOTES: reused unedited from the About page, where it lived until 18 Sept 2026 —
          moved here as the natural first stop on the approach, not duplicated on About
 -->
@@ -852,10 +859,12 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
   SECTION: what-makes-us-different
   WP: repeatable block, 6 feature cards with hover/focus reveal
   FIELDS: eyebrow (text), heading (text), items[] { icon (svg), heading (text), reveal_body (text) }
-  MOTION: reveal text shows on hover/focus; on touch devices it is shown statically beneath the heading
+  MOTION: the whole section sweeps in from the bottom right on scroll (desktop only);
+          reveal text on the cards themselves shows on hover/focus, and on touch
+          devices is shown statically beneath the heading
   NOTES: reused unedited from the About page, where it lived until 18 Sept 2026
 -->
-<section class="band--ink prop" id="different">
+<div class="motion-scene" data-scene="right-bottom"><section class="band--ink prop" id="different">
   <div class="wrap">
     <div class="prop-head">
       <div class="eyebrow"><span class="tick"></span>What makes us different</div>
@@ -894,17 +903,21 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
       </article>
     </div>
   </div>
-</section>
+</section></div>
 
 <!--
   SECTION: how-it-works
   WP: repeatable block, 3 numbered steps plus a regulation note
   FIELDS: eyebrow (text), heading (text), steps[] { heading (text), body (text) }, regulation_note (rich text)
   MOTION: none — this section is intentionally static
-  NOTES: reused unedited from the About page, where it lived until 18 Sept 2026. Uses
-         id="how-it-works", not id="how" — see approach_f2.html for why.
+  NOTES: reused from the About page, where it lived until 18 Sept 2026 (there it was
+         on a white background — here it runs on the off-white paper2 background,
+         and the regulation note is styled as a dark callout with a green
+         "Regulated" badge). Uses id="how-it-works", not id="how" — see
+         approach_f2.html for why. The disclosures link points at this page's own
+         disclosures section beneath the footer, not the external blkfx.co.uk site.
 -->
-<section class="band--paper pad" id="how-it-works">
+<section class="band--paper2 pad" id="how-it-works">
   <div class="wrap">
     <div class="tr">
       <div class="eyebrow"><span class="tick"></span>How it works</div>
@@ -917,7 +930,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
     </div>
     <div class="reg tr">
       <span class="badge">Regulated</span>
-      <p>BLK.FX works only with regulated execution partners across the UK, the EEA and the US. See BLK.FX&rsquo;s <a href="https://blkfx.co.uk/" target="_blank" rel="noopener">current disclosures</a> for details.</p>
+      <p>BLK.FX works only with regulated execution partners across the UK, the EEA and the US. See BLK.FX&rsquo;s <a href="https://growthprovision.github.io/BLK.FX/about/our-approach/#disclosures">current disclosures</a> for details.</p>
     </div>
   </div>
 </section>
@@ -932,7 +945,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
     <div class="two">
       <div>
         <div class="eyebrow"><span class="tick"></span>Let&rsquo;s talk</div>
-        <h2>Thirty minutes with Ben. No form first.</h2>
+        <h2>Thirty minutes with Ben.<br>No form first.</h2>
         <p class="lede">Bring what you buy, what you sell and roughly when. You will leave with a read on your exposure, whether or not you ever trade with us.</p>
       </div>
       <div class="talk-cta">
