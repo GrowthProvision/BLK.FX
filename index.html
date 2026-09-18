@@ -250,6 +250,11 @@ h1 .em{font-family:var(--prose);font-style:italic;font-weight:300;letter-spacing
 .faq-row-panel p{font-family:var(--display);font-size:15px;line-height:1.65;color:#4C4C48;margin:0}
 @keyframes who-fade{from{opacity:0}to{opacity:1}}
 .who-cta{margin-top:36px}
+.who-compact{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 36px;margin-top:32px}
+.who-item h3{font-size:16px;font-weight:600;letter-spacing:-.01em;margin:0;line-height:1.3}
+.who-item p{font-size:13.5px;line-height:1.5;color:#5C5C58;margin:6px 0 0}
+@media (max-width:900px){.who-compact{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.who-compact{grid-template-columns:1fr}}
 .hor-head{position:absolute;top:clamp(40px,7vw,80px);left:0;right:0}
 
 /* ---------- tabs, iFX js-tabs pattern ---------- */
@@ -662,6 +667,27 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
  .prop-item:hover .prop-icon,.prop-item:hover>h3{opacity:1}
 }
 
+/* ---------- BLK proposition: video + compact grid layout ---------- */
+/* the six cards are minimised into a 2-col grid so the intro video (moved
+   here from the old homepage) can sit alongside them, per Lucy's placement
+   call on 18 Sept 2026 - see 07-decision-log.md */
+.cap-layout{margin-top:48px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:clamp(24px,3vw,40px);align-items:stretch}
+.cap-video{position:relative;border-radius:16px;overflow:hidden;background:var(--blk-ink-2);min-height:320px}
+.cap-video-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.cap-video-frame{position:absolute;inset:0;width:100%;height:100%;border:0}
+.cap-video-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(10,10,10,.3);border:0;cursor:pointer;padding:0;width:100%}
+.cap-video-play-ico{display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:var(--blk-accent-ink);color:var(--blk-ink);font-size:19px;transition:transform .2s}
+.cap-video-play:hover .cap-video-play-ico,.cap-video-play:focus-visible .cap-video-play-ico{transform:scale(1.08)}
+.cap-layout .prop-grid{margin-top:0;grid-template-columns:repeat(2,1fr);gap:10px;background:none;border:none}
+.cap-layout .prop-item{min-height:128px;padding:clamp(12px,1.6vw,18px);border:1px solid transparent;border-radius:12px;transition:border-color .2s,transform .2s}
+.cap-layout .prop-item:hover,.cap-layout .prop-item:focus-within{border-color:var(--blk-line-ink)}
+.cap-layout .prop-icon{width:40px;height:40px;padding:9px}
+.cap-layout .prop-item>h3{margin-top:10px;font-size:13px}
+.cap-layout .prop-reveal{padding:clamp(12px,1.6vw,18px);border-radius:12px}
+.cap-layout .prop-reveal p{font-size:11px;max-width:22ch}
+@media (max-width:1040px){.cap-layout{grid-template-columns:1fr}.cap-video{min-height:260px}}
+@media (max-width:560px){.cap-layout .prop-grid{grid-template-columns:1fr}}
+
 /* ---------- services: icon + hover reveal ---------- */
 .svc{position:relative;overflow:hidden}
 .svc-face{display:flex;flex-direction:column;height:100%;align-items:center;text-align:center;transition:opacity .22s}
@@ -765,41 +791,68 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
     <div class="prop-head">
       <div class="eyebrow"><span class="tick"></span>The BLK proposition</div>
       <h2>More than foreign exchange.</h2>
-      <p class="lede">One relationship for holding, sending, converting and managing currency across borders.</p>
+      <p class="lede">A global account ecosystem for holding, sending and converting currency, backed by market-leading rates and genuinely personal service.</p>
     </div>
-    <div class="prop-grid">
-      <article class="prop-item" tabindex="0">
-        <span class="prop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></span>
-        <h3>Spot contracts</h3>
-        <div class="prop-reveal"><p>Lock in real-time market exchange rates and make secure transactions across the currencies we hold for you.</p></div>
-      </article>
-      <article class="prop-item" tabindex="0">
-        <span class="prop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r=".6" fill="currentColor" stroke="none"/></svg></span>
-        <h3>Limit orders</h3>
-        <div class="prop-reveal"><p>We track the markets, so you don't have to. Create a limit order to buy or sell a specified amount of currency at a target rate above the current market rate.</p></div>
-      </article>
-      <article class="prop-item" tabindex="0">
-        <span class="prop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19h18"/><path d="M4 16 9 9l4 4 7-9"/></svg></span>
-        <h3>Market analysis</h3>
-        <div class="prop-reveal"><p>Select currencies, create orders and settle spot and forward contracts via our dealing desk or online platform when rates match your FX strategy.</p></div>
-      </article>
-      <article class="prop-item" tabindex="0">
-        <span class="prop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M3 10h18"/><path d="M8 3v4M16 3v4"/><path d="M15 15.5 17.5 18 21 13.5"/></svg></span>
-        <h3>Forward contracts</h3>
-        <div class="prop-reveal"><p>Guard against currency volatility for a clearer financial picture by using forward contracts to fix the future value of international payments.</p></div>
-      </article>
-      <article class="prop-item" tabindex="0">
-        <span class="prop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v5c0 5 3.4 8.4 8 9 4.6-.6 8-4 8-9V7l-8-4Z"/><path d="M9 12.5 12 15l3-6"/></svg></span>
-        <h3>Stop-loss orders</h3>
-        <div class="prop-reveal"><p>Stop-loss orders are instructions to trade at predetermined "worst case scenario" exchange rates. They can help minimise losses if markets start to move against you.</p></div>
-      </article>
-      <article class="prop-item" tabindex="0">
-        <span class="prop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="9" r="4.2"/><circle cx="16" cy="9" r="4.2"/><path d="M2.5 20c.9-3.4 3-5.2 5.5-5.2s4.6 1.8 5.5 5.2M10.5 20c.9-3.4 3-5.2 5.5-5.2s4.6 1.8 5.5 5.2"/></svg></span>
-        <h3>Credit facilities</h3>
-        <div class="prop-reveal"><p>In some scenarios, we can offer flexible credit facilities for clients interested in forward contracts. To find out more, please speak to a member of our team.</p></div>
-      </article>
+    <div class="cap-layout">
+      <div class="cap-video" id="capVideo" data-vimeo-id="1027741242" data-vimeo-poster="https://i.vimeocdn.com/video/1947769150-690401abb17be1c9401efdb09b2a3f6626de901994bea40dba34d5bcce2a7f68-d_960?region=us">
+        <img class="cap-video-poster" src="https://i.vimeocdn.com/video/1947769150-690401abb17be1c9401efdb09b2a3f6626de901994bea40dba34d5bcce2a7f68-d_960?region=us" alt="" aria-hidden="true" loading="lazy" width="960" height="540">
+        <button type="button" class="cap-video-play" aria-label="Play the BLK.FX intro video">
+          <span class="cap-video-play-ico" aria-hidden="true">&#9654;</span>
+        </button>
+      </div>
+      <div class="prop-grid">
+        <article class="prop-item" tabindex="0">
+          <span class="prop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></span>
+          <h3>Global account ecosystem</h3>
+          <div class="prop-reveal"><p>One login to hold, send and receive across the currencies your business or your life actually runs in.</p></div>
+        </article>
+        <article class="prop-item" tabindex="0">
+          <span class="prop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r=".6" fill="currentColor" stroke="none"/></svg></span>
+          <h3>Market-leading FX rates</h3>
+          <div class="prop-reveal"><p>Competitive rates on every conversion, backed by real dealing relationships rather than one default bank rate.</p></div>
+        </article>
+        <article class="prop-item" tabindex="0">
+          <span class="prop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19h18"/><path d="M4 16 9 9l4 4 7-9"/></svg></span>
+          <h3>International payments</h3>
+          <div class="prop-reveal"><p>Send and receive payments across the globe, in the currencies the other side actually uses.</p></div>
+        </article>
+        <article class="prop-item" tabindex="0">
+          <span class="prop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M3 10h18"/><path d="M8 3v4M16 3v4"/><path d="M15 15.5 17.5 18 21 13.5"/></svg></span>
+          <h3>Free multi-currency accounts</h3>
+          <div class="prop-reveal"><p>Multi-currency accounts, opened in your own name, cost nothing to open or hold. BLK.FX earns on the conversion only.</p></div>
+        </article>
+        <article class="prop-item" tabindex="0">
+          <span class="prop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v5c0 5 3.4 8.4 8 9 4.6-.6 8-4 8-9V7l-8-4Z"/><path d="M9 12.5 12 15l3-6"/></svg></span>
+          <h3>Built for cost and complexity</h3>
+          <div class="prop-reveal"><p>Foreign exchange and modern banking are expensive and confusing by default. BLK.FX is built to remove both.</p></div>
+        </article>
+        <article class="prop-item" tabindex="0">
+          <span class="prop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="9" r="4.2"/><circle cx="16" cy="9" r="4.2"/><path d="M2.5 20c.9-3.4 3-5.2 5.5-5.2s4.6 1.8 5.5 5.2M10.5 20c.9-3.4 3-5.2 5.5-5.2s4.6 1.8 5.5 5.2"/></svg></span>
+          <h3>Fintech, with a person behind it</h3>
+          <div class="prop-reveal"><p>Modern account technology, backed by a named person on the phone, email or WhatsApp, not a support queue.</p></div>
+        </article>
+      </div>
     </div>
-    <div class="prop-foot"><a class="btn btn--accent" href="https://growthprovision.github.io/BLK.FX/contact/">Find out more <span class="arw">&rarr;</span></a></div>
+    <div class="prop-foot"><a class="btn btn--accent" href="https://growthprovision.github.io/BLK.FX/contact/">Talk to a specialist <span class="arw">&rarr;</span></a></div>
+    <script>
+    (function(){
+      var el = document.getElementById('capVideo');
+      if(!el) return;
+      var id = el.getAttribute('data-vimeo-id');
+      var btn = el.querySelector('.cap-video-play');
+      if(!btn) return;
+      btn.addEventListener('click', function(){
+        var ifr = document.createElement('iframe');
+        ifr.src = 'https://player.vimeo.com/video/' + id + '?h=378ed58ffa&app_id=122963&title=0&byline=0&portrait=0&autoplay=1';
+        ifr.title = 'BLK.FX intro video';
+        ifr.setAttribute('frameborder','0');
+        ifr.setAttribute('allow','autoplay; fullscreen; picture-in-picture; encrypted-media');
+        ifr.className = 'cap-video-frame';
+        el.innerHTML = '';
+        el.appendChild(ifr);
+      });
+    })();
+    </script>
   </div>
 </section>
 
@@ -1002,27 +1055,27 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
       <div class="eyebrow"><span class="tick"></span>Who this is for</div>
       <h2>Find yourself on this list.</h2>
     </div>
-    <div class="who-list tr">
-      <details class="who-row" name="who-accordion">
-        <summary><span class="who-row-label"><h3>SPVs, including property SPVs</h3></span><span class="who-caret" aria-hidden="true"></span></summary>
-        <div class="who-row-panel"><p>Accounts in the vehicle's own name, completion payments handled to a deadline, and forwards so the rate cannot move between exchange and completion.</p></div>
-      </details>
-      <details class="who-row" name="who-accordion">
-        <summary><span class="who-row-label"><h3>Trusts and funds</h3></span><span class="who-caret" aria-hidden="true"></span></summary>
-        <div class="who-row-panel"><p>Trust distributions and fund capital calls both need heavier onboarding. BLK.FX already supports both, paid out in the currency the beneficiary or investor needs, on dates that cannot slip.</p></div>
-      </details>
-      <details class="who-row" name="who-accordion">
-        <summary><span class="who-row-label"><h3>Venture capital</h3></span><span class="who-caret" aria-hidden="true"></span></summary>
-        <div class="who-row-panel"><p>You raise in one currency and your portfolio spends in another. Fix the rate on committed capital so a move does not shorten a runway.</p></div>
-      </details>
-      <details class="who-row" name="who-accordion">
-        <summary><span class="who-row-label"><h3>Businesses and finance teams</h3></span><span class="who-caret" aria-hidden="true"></span></summary>
-        <div class="who-row-panel"><p>PE-backed and scaling, founder-led with no treasury team, or a finance director who wants the margin in writing. The same conversation about your exposed pairs, rails and timing applies, whether you collect in several currencies or bill international clients in one.</p></div>
-      </details>
-      <details class="who-row" name="who-accordion">
-        <summary><span class="who-row-label"><h3>Property buyers abroad</h3></span><span class="who-caret" aria-hidden="true"></span></summary>
-        <div class="who-row-panel"><p>The rate fixed before you commit, the payment landing on the completion date, and a person on the phone when a lawyer needs confirmation.</p></div>
-      </details>
+    <div class="who-compact tr">
+      <div class="who-item">
+        <h3>SPVs, including property SPVs</h3>
+        <p>Accounts in the vehicle's own name, completion payments handled to a deadline, and forwards so the rate cannot move between exchange and completion.</p>
+      </div>
+      <div class="who-item">
+        <h3>Trusts and funds</h3>
+        <p>Trust distributions and fund capital calls both need heavier onboarding. BLK.FX already supports both, paid out in the currency the beneficiary or investor needs, on dates that cannot slip.</p>
+      </div>
+      <div class="who-item">
+        <h3>Venture capital</h3>
+        <p>You raise in one currency and your portfolio spends in another. Fix the rate on committed capital so a move does not shorten a runway.</p>
+      </div>
+      <div class="who-item">
+        <h3>Businesses and finance teams</h3>
+        <p>PE-backed and scaling, founder-led with no treasury team, or a finance director who wants the margin in writing. The same conversation about your exposed pairs, rails and timing applies, whether you collect in several currencies or bill international clients in one.</p>
+      </div>
+      <div class="who-item">
+        <h3>Property buyers abroad</h3>
+        <p>The rate fixed before you commit, the payment landing on the completion date, and a person on the phone when a lawyer needs confirmation.</p>
+      </div>
     </div>
     <div class="who-cta tr"><a class="btn" href="https://meetings-eu1.hubspot.com/ben-kohler/intro-call-ben?uuid=47f7214c-7d08-47db-9514-766c690fd651" target="_blank" rel="noopener">Book a call <span class="arw">&rarr;</span></a></div>
   </div>
