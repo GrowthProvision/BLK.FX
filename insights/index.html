@@ -805,6 +805,9 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
 .post-media{position:relative;aspect-ratio:16/10;background:var(--blk-ink);display:flex;align-items:flex-end;overflow:hidden}
 .post-media .idx{font-family:var(--prose);font-style:italic;font-weight:300;font-size:clamp(52px,7vw,84px);
   color:rgba(250,250,250,.16);line-height:1;padding:14px 18px;font-variant-numeric:tabular-nums}
+.post-media img{width:100%;height:100%;object-fit:cover;display:block}
+.post-card:hover .post-media img{transform:scale(1.035)}
+.post-media img{transition:transform .4s ease}
 .post-media::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--blk-line-ink)}
 .post-media.acc-green::after{background:var(--blk-green)}
 .post-media.acc-copper::after{background:var(--blk-copper)}
@@ -990,7 +993,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
     <div class="post-grid">
       <a class="post-card reveal" data-topic="finance-tips" href="https://blkfx.co.uk/blk-fx-vs-your-high-street-bank/" target="_blank" rel="noopener">
         <span class="post-flag">Latest</span>
-        <div class="post-media acc-green"><span class="idx">01</span></div>
+        <div class="post-media acc-green"><img src="../images/BLK.FX-vs-Your-High-Street-Bank.png" alt="BLK.FX vs Your High Street Bank" width="800" height="500" loading="lazy"></div>
         <div class="post-body">
           <span class="post-tag">Finance tips</span>
           <h3>BLK.FX vs Your High Street Bank</h3>
@@ -999,7 +1002,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
         </div>
       </a>
       <a class="post-card reveal" data-topic="finance-tips" href="https://blkfx.co.uk/import-export-101-timing-fx-to-protect-margins/" target="_blank" rel="noopener" style="transition-delay:.05s">
-        <div class="post-media acc-green"><span class="idx">02</span></div>
+        <div class="post-media acc-green"><img src="../images/ImportExport-101-Timing-FX-to-Protect-Margins.png" alt="Import/Export 101: Timing FX to Protect Margins" width="800" height="500" loading="lazy"></div>
         <div class="post-body">
           <span class="post-tag">Finance tips</span>
           <h3>Import/Export 101: Timing FX to Protect Margins</h3>
@@ -1008,7 +1011,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
         </div>
       </a>
       <article class="post-card reveal" data-topic="finance-tips" style="transition-delay:.1s">
-        <div class="post-media acc-green"><span class="idx">03</span></div>
+        <div class="post-media acc-green"><img src="../images/FX-for-E-commerce-Businesses-Checkout-Payouts-and-Multi-Currency-Accounts.png" alt="FX for E-commerce Businesses: Checkout, Payouts and Multi-Currency Accounts" width="800" height="500" loading="lazy"></div>
         <div class="post-body">
           <span class="post-tag">Finance tips</span>
           <h3>FX for E-commerce Businesses: Checkout, Payouts and Multi-Currency Accounts</h3>
@@ -1017,7 +1020,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
         </div>
       </article>
       <article class="post-card reveal" data-topic="international-banking">
-        <div class="post-media acc-copper"><span class="idx">04</span></div>
+        <div class="post-media acc-copper"><img src="../images/What-0.5-vs-3-Really-Costs-You-FX-Fees-Comparison-for-Businesses.png" alt="What 0.5% vs 3% Really Costs You: FX Fees Comparison for Businesses" width="800" height="500" loading="lazy"></div>
         <div class="post-body">
           <span class="post-tag">International banking</span>
           <h3>What 0.5% vs 3% Really Costs You: FX Fees Comparison for Businesses</h3>
@@ -1026,7 +1029,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
         </div>
       </article>
       <article class="post-card reveal" data-topic="finance-tips" style="transition-delay:.05s">
-        <div class="post-media acc-green"><span class="idx">05</span></div>
+        <div class="post-media acc-green"><img src="../images/Finding-The-Property-Was-The-Easy-Part.png" alt="Finding The Property Was The Easy Part" width="800" height="500" loading="lazy"></div>
         <div class="post-body">
           <span class="post-tag">Finance tips</span>
           <h3>Finding The Property Was The Easy Part</h3>
@@ -1035,7 +1038,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
         </div>
       </article>
       <article class="post-card reveal" data-topic="finance-tips" style="transition-delay:.1s">
-        <div class="post-media acc-green"><span class="idx">06</span></div>
+        <div class="post-media acc-green"><img src="../images/Your-Best-Customer-Just-Agreed-A-New-Contract.-What-Happens-Next.png" alt="Your Best Customer Just Agreed A New Contract. What Happens Next?" width="800" height="500" loading="lazy"></div>
         <div class="post-body">
           <span class="post-tag">Finance tips</span>
           <h3>Your Best Customer Just Agreed A New Contract. What Happens Next?</h3>
@@ -1044,7 +1047,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
         </div>
       </article>
       <article class="post-card reveal" data-topic="finance-tips">
-        <div class="post-media acc-green"><span class="idx">07</span></div>
+        <div class="post-media acc-green"><img src="../images/The-2027-Tax-Changes-Could-Change-More-Than-Athletes-Income-Tax.png" alt="The 2027 Tax Changes Could Change More Than Athletes&rsquo; Income Tax" width="800" height="500" loading="lazy"></div>
         <div class="post-body">
           <span class="post-tag">Finance tips</span>
           <h3>The 2027 Tax Changes Could Change More Than Athletes&rsquo; Income Tax</h3>
@@ -1053,7 +1056,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
         </div>
       </article>
       <article class="post-card reveal" data-topic="international-banking" style="transition-delay:.05s">
-        <div class="post-media acc-copper"><span class="idx">08</span></div>
+        <div class="post-media acc-copper"><img src="../images/Why-Content-Creator-Payment-Infrastructure-Is-Starting-To-Matter-More.png" alt="Why Content Creator Payment Infrastructure Is Starting To Matter More" width="800" height="500" loading="lazy"></div>
         <div class="post-body">
           <span class="post-tag">International banking</span>
           <h3>Why Content Creator Payment Infrastructure Is Starting To Matter More</h3>
@@ -1062,7 +1065,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
         </div>
       </article>
       <article class="post-card reveal" data-topic="currency-exchange" style="transition-delay:.1s">
-        <div class="post-media acc-mustard"><span class="idx">09</span></div>
+        <div class="post-media acc-mustard"><img src="../images/Every-Music-Event-Budget-Has-a-Blind-Spot.png" alt="Every Music Event Budget Has a Blind Spot" width="800" height="500" loading="lazy"></div>
         <div class="post-body">
           <span class="post-tag">Currency exchange</span>
           <h3>Every Music Event Budget Has a Blind Spot</h3>
@@ -1071,7 +1074,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
         </div>
       </article>
       <article class="post-card reveal" data-topic="international-banking">
-        <div class="post-media acc-copper"><span class="idx">10</span></div>
+        <div class="post-media acc-copper"><img src="../images/Do-Influencers-Pay-Taxes-Yes.-But-Thats-Not-the-Real-Question.png" alt="Do Influencers Pay Taxes? Yes. But That&rsquo;s Not the Real Question." width="800" height="500" loading="lazy"></div>
         <div class="post-body">
           <span class="post-tag">International banking</span>
           <h3>Do Influencers Pay Taxes? Yes. But That&rsquo;s Not the Real Question.</h3>
@@ -1080,7 +1083,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
         </div>
       </article>
       <article class="post-card reveal" data-topic="finance-tips" style="transition-delay:.05s">
-        <div class="post-media acc-green"><span class="idx">11</span></div>
+        <div class="post-media acc-green"><img src="../images/Who-Owns-FX-in-Your-Business-And-Why-It-Matters.png" alt="Who Owns FX in Your Business? (And Why It Matters)" width="800" height="500" loading="lazy"></div>
         <div class="post-body">
           <span class="post-tag">Finance tips</span>
           <h3>Who Owns FX in Your Business? (And Why It Matters)</h3>
@@ -1089,7 +1092,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
         </div>
       </article>
       <article class="post-card reveal" data-topic="finance-tips" style="transition-delay:.1s">
-        <div class="post-media acc-green"><span class="idx">12</span></div>
+        <div class="post-media acc-green"><img src="../images/The-Hidden-FX-Costs-in-Apple-Developer-Revenue-What-Most-Apps-Miss-as-They-Scale-Globally.png" alt="The Hidden FX Costs in Apple Developer Revenue: What Most Apps Miss as They Scale Globally" width="800" height="500" loading="lazy"></div>
         <div class="post-body">
           <span class="post-tag">Finance tips</span>
           <h3>The Hidden FX Costs in Apple Developer Revenue: What Most Apps Miss as They Scale Globally</h3>
