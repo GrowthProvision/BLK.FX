@@ -336,7 +336,7 @@ h1 .em{font-family:var(--prose);font-style:italic;font-weight:300;letter-spacing
 .final .btn{margin-top:30px}
 .finalnote{font-family:var(--data);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--blk-mute-ink);margin-top:18px}
 .foot{background:var(--blk-ink);color:var(--blk-mute-ink);padding-block:34px}
-.foot-in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px}
+.foot-in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px;position:relative}
 .disc{font-size:12px;color:var(--blk-mute);margin-top:14px;max-width:54ch}
 .band--ink .disc{color:var(--blk-mute-ink)}
 
@@ -508,6 +508,7 @@ main{perspective:none;overflow:clip}
 .motion-enabled .marquee-row,.motion-enabled .rail-track{will-change:transform}
 .motion-toggle{font-size:11px;font-family:var(--data);border:1px solid var(--blk-line);padding:9px 11px;border-radius:2px;white-space:nowrap}
 .motion-toggle:hover{border-color:var(--blk-accent)}
+.foot-in .motion-toggle{position:absolute;top:100%;right:0;margin-top:14px}
 .menu>li.is-open .drop{opacity:1;visibility:visible;transform:none}
 .chapter-progress{display:none}
 .foot-in{flex-wrap:wrap;gap:15px}

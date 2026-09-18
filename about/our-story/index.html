@@ -369,7 +369,7 @@ a.chan:hover{border-color:var(--blk-accent);color:var(--blk-accent)}
 .foot-news-form button{border:0;background:var(--blk-accent-ink);color:var(--blk-accent-on-ink);font-family:var(--display);font-weight:700;font-size:13px;padding:0 16px;cursor:pointer;white-space:nowrap}
 .foot-news-form button:hover{filter:brightness(1.08)}
 .foot-news-sub{font-family:var(--display);font-size:12.5px;line-height:1.5;color:var(--blk-mute-ink);margin:10px 0 0}
-.foot-in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px}
+.foot-in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px;position:relative}
 .disc-block{border:1px solid var(--blk-line);border-radius:2px}
 .disc-block summary{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 22px;cursor:pointer;list-style:none;font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:-.01em}
 .disc-block summary::-webkit-details-marker{display:none}
@@ -550,6 +550,7 @@ main{perspective:none;overflow:clip}
 .motion-enabled .marquee-row,.motion-enabled .rail-track{will-change:transform}
 .motion-toggle{font-size:11px;font-family:var(--data);border:1px solid var(--blk-line);padding:9px 11px;border-radius:2px;white-space:nowrap}
 .motion-toggle:hover{border-color:var(--blk-accent)}
+.foot-in .motion-toggle{position:absolute;top:100%;right:0;margin-top:14px}
 .motion-toggle--float{position:fixed;top:calc(72px + env(safe-area-inset-top,0px) + 14px);right:24px;z-index:60;background:var(--blk-paper);color:var(--blk-ink);box-shadow:0 4px 16px rgba(0,0,0,.1)}
 .motion-toggle--float:hover{border-color:var(--blk-accent)}
 @media (max-width:720px){.motion-toggle--float{right:14px;padding:8px 10px;font-size:10px}}
@@ -1034,16 +1035,15 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
           <a href="https://growthprovision.github.io/BLK.FX/about/our-story/" aria-current="page">Our Story</a>
           <a href="https://growthprovision.github.io/BLK.FX/services/">Services</a>
           <a href="#who">Who We Help</a>
-          <a href="https://growthprovision.github.io/BLK.FX/fintech-providers/">FinTech providers</a>
+          <a href="https://growthprovision.github.io/BLK.FX/fintech-providers/">FinTech Providers</a>
           <a href="https://growthprovision.github.io/BLK.FX/insights/">Insights</a>
-          <a href="https://growthprovision.github.io/BLK.FX/contact/">Contact us</a>
+          <a href="https://growthprovision.github.io/BLK.FX/contact/">Contact Us</a>
         </div>
         <div class="foot-col">
           <p class="foot-col-h">Other</p>
           <a href="https://blkfx.paydirect.io/" target="_blank" rel="noopener">Login</a>
           <a href="../../index.html#answers">FAQs</a>
-          <a href="#">Policy</a>
-          <a href="#">Website privacy</a>
+          <a href="../../images/BLK.FX-Website-Privacy-Policy-.pdf" target="_blank" rel="noopener">Website Privacy Policy</a>
         </div>
         <div class="foot-col foot-news">
           <p class="foot-col-h">Sign up to the weekly FX market update</p>
