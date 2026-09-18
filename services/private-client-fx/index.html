@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<meta name="description" content="Commercial finance from BLK.FX, arranged through our partnership with Spark Finance: asset finance, invoice finance, trade finance, commercial mortgages, bridging and more, with BLK.FX as your single point of contact.">
-<title>Commercial Finance | BLK.FX</title>
-<link rel="canonical" href="https://blkfx.co.uk/services/commercial-finance/">
+<meta name="description" content="Private client foreign exchange from BLK.FX: property purchases, relocations and family transfers handled by a named adviser, with the rate agreed before you commit and direct access when the date won't wait.">
+<title>Private Client FX | BLK.FX</title>
+<link rel="canonical" href="https://blkfx.co.uk/services/private-client-fx/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&display=swap">
@@ -14,19 +14,19 @@
 {
   "@context": "https://schema.org",
   "@type": "FinancialService",
-  "name": "Commercial Finance",
-  "url": "https://blkfx.co.uk/services/commercial-finance/",
-  "description": "Commercial finance from BLK.FX, arranged through our partnership with Spark Finance: asset finance, invoice finance, working capital, trade finance, commercial mortgages, development finance, bridging and growth capital.",
+  "name": "Private Client FX",
+  "url": "https://blkfx.co.uk/services/private-client-fx/",
+  "description": "Private client foreign exchange from BLK.FX: property purchases, relocations, inheritances and family transfers handled by a named adviser, with the rate agreed before you commit.",
   "provider": {
     "@type": "Organization",
     "name": "BLK.FX",
     "url": "https://blkfx.co.uk/"
   },
-  "areaServed": ["GB"],
-  "serviceType": "Commercial finance",
+  "areaServed": ["GB", "EU", "US"],
+  "serviceType": "Private client foreign exchange",
   "offers": {
     "@type": "Offer",
-    "description": "Business funding arranged through Spark Finance, including asset finance, invoice finance, working capital, trade finance, commercial mortgages, development finance, bridging and growth capital."
+    "description": "Personal currency transfers with a named adviser and a rate agreed before you trade."
   }
 }
 </script>
@@ -37,42 +37,42 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What's the difference between asset finance and invoice finance?",
+      "name": "Is this only for large transfers?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Asset finance spreads the cost of equipment, vehicles or machinery using the asset itself as security. Invoice finance releases cash already tied up in invoices you've issued but not yet been paid for. Spark Finance can also arrange working capital, trade finance, commercial mortgages, development finance, bridging and growth capital; the right one depends on what the money is for."
+        "text": "There's no fixed minimum, but the adviser conversation and the rate agreement are most worthwhile above roughly £10,000 to £15,000, which is where a bank's margin starts to really cost you. Book a call either way."
       }
     },
     {
       "@type": "Question",
-      "name": "Do I need to already be a BLK.FX client to use this?",
+      "name": "Can you work to a property completion date?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Commercial finance through Spark Finance sits alongside your BLK.FX relationship, so it's built around clients already working with us on FX or payments. If you're not yet a client, book a call and we can cover both in one conversation."
+        "text": "Yes. Tell your adviser the completion date and currency, and the transfer is planned around it, including fixing the rate in advance if the date matters more to you than moving early."
       }
     },
     {
       "@type": "Question",
-      "name": "How long does commercial finance take to arrange?",
+      "name": "Do I need to hold funds in another currency?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It depends on the facility. Asset finance and invoice finance can move quickly once the paperwork is in. Commercial mortgages and development finance take longer, because the property or project needs assessing. Your account manager will give you a realistic timeline once Spark has seen what you need."
+        "text": "Not necessarily. You can convert and send in one step, or hold a balance in GBP, USD, EUR or CAD if you're expecting to spend or receive again in that currency. See Multi-Currency Accounts."
       }
     },
     {
       "@type": "Question",
-      "name": "Does this affect my existing FX and payments relationship with BLK.FX?",
+      "name": "Who actually holds and regulates the money?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. BLK.FX remains your point of contact for currency and payments throughout, whatever facility you arrange through Spark Finance."
+        "text": "BLK.FX works only with regulated execution partners across the UK, the EEA and the US; client funds are safeguarded under those partners' e-money and payment licences."
       }
     },
     {
       "@type": "Question",
-      "name": "Who actually assesses and provides the lending?",
+      "name": "How quickly can this happen?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Spark Finance and the lenders in their network carry out the credit assessment and provide the facility. BLK.FX does not provide regulated financial advice or lending itself, and acts as an intermediary, introducing you to Spark Finance as part of the wider relationship."
+        "text": "A live rate from your adviser takes minutes once you're set up. Settlement is same-day where the currency and payment rail allow it, otherwise one to two working days, so tell us the deadline early."
       }
     }
   ]
@@ -754,33 +754,20 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
 </style>
 
 <style>
-/* Commercial Finance page additions */
+/* Private Client FX page additions */
+.who-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--blk-line);border:1px solid var(--blk-line);margin-top:40px}
+.who-card{background:var(--blk-paper);padding:clamp(24px,2.8vw,32px);min-height:180px;display:flex;flex-direction:column;justify-content:center}
+.who-card h3{font-size:19px;font-weight:600;letter-spacing:-.02em;margin:0 0 10px;line-height:1.2}
+.who-card p{font-size:14.5px;line-height:1.6;color:#4C4C48;margin:0}
+@media (max-width:640px){.who-grid{grid-template-columns:1fr}}
+
+
 .talk-row{display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap}
 .talk-copy{max-width:640px}
 .talk-copy h2{margin:12px 0 0;max-width:none}
 .talk-copy .lede{margin-top:14px}
 .talk-cta{display:flex;align-items:center;flex-wrap:wrap;gap:10px}
 @media (max-width:760px){.talk-row{flex-direction:column;align-items:flex-start}}
-
-.who-compact{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 36px;margin-top:32px}
-.who-item h3{font-size:16px;font-weight:600;letter-spacing:-.01em;margin:0;line-height:1.3}
-.who-item p{font-size:13.5px;line-height:1.5;color:#5C5C58;margin:6px 0 0}
-@media (max-width:900px){.who-compact{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:560px){.who-compact{grid-template-columns:1fr}}
-
-#partnership .prop-head{max-width:none}
-#partnership .lede{max-width:70ch;text-wrap:pretty}
-#solutions .prop-head{max-width:none}
-#why .prop-head{max-width:none}
-
-#solutions .prop-grid{margin-top:36px;grid-template-columns:repeat(4,1fr)}
-#solutions .prop-item{padding:clamp(16px,1.8vw,22px);min-height:148px}
-#solutions .prop-icon{width:48px;height:48px;padding:10px}
-#solutions .prop-item>h3{margin:12px 0 0;font-size:16px;font-weight:700;color:var(--blk-paper)}
-#solutions .prop-reveal{padding:clamp(16px,1.8vw,22px)}
-#solutions .prop-reveal p{font-size:13.5px;max-width:26ch}
-@media (max-width:900px){#solutions .prop-grid{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:560px){#solutions .prop-grid{grid-template-columns:1fr}}
 
 #talk{padding-bottom:0}
 #talk .rail-stream{margin-top:56px;margin-bottom:0}
@@ -789,6 +776,8 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
 .foot-news{margin-top:53px}
 .foot-in{position:static}
 .foot-in .motion-toggle{position:static;top:auto;right:auto;margin-top:0}
+/* Footer: remove the dead space under the columns (was margin-top:53px, pushed columns down well past the intro text with nothing to align to) */
+.foot-cols .foot-col{margin-top:0}
 .foot-cols .foot-col:not(.foot-news){margin-top:0}
 </style>
 
@@ -808,8 +797,8 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
           <a href="https://growthprovision.github.io/BLK.FX/services/international-payments/">International Payments</a>
           <a href="https://growthprovision.github.io/BLK.FX/services/multi-currency-accounts/">Multi-Currency Accounts</a>
           <a href="https://growthprovision.github.io/BLK.FX/services/fx-risk-management-and-hedging/">FX Risk Management &amp; Hedging</a>
-          <a href="#top" aria-current="page">Commercial Finance</a>
-          <a href="https://growthprovision.github.io/BLK.FX/services/private-client-fx/">Private Client FX</a>
+          <a href="https://growthprovision.github.io/BLK.FX/services/commercial-finance/">Commercial Finance</a>
+          <a href="#top" aria-current="page">Private Client FX</a>
           <a href="https://growthprovision.github.io/BLK.FX/services/" class="all">View all services</a>
         </div></li>
       <li><button type="button" aria-haspopup="true">Who We Help <span class="caret"></span></button>
@@ -857,8 +846,8 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
   <div class="hero-art" aria-hidden="true"><span class="ribbon ribbon--fine"></span></div>
   <div class="wrap">
     <div class="eyebrow hero-label"><span class="tick"></span>Services</div>
-    <h1 class="split">Commercial Finance</h1>
-    <p class="hero-sub">A funding need beyond currency doesn't mean a new provider to onboard. Through our partnership with Spark Finance, BLK.FX gives you access to <em class="em">specialist commercial lending and a wider lender network</em>, without leaving the relationship you already have.</p>
+    <h1 class="split">Private Client FX</h1>
+    <p class="hero-sub">A property purchase abroad, a relocation, money arriving after a sale or an inheritance. Large, personal transfers, handled with <em class="em">the discipline of a treasury desk</em> and a named adviser who picks up the phone.</p>
     <div class="hero-cta">
       <a class="btn btn--lg" href="https://meetings-eu1.hubspot.com/ben-kohler/intro-call-ben?uuid=47f7214c-7d08-47db-9514-766c690fd651" target="_blank" rel="noopener">Book a call with Ben <span class="arw">&rarr;</span></a>
       <span class="cue" style="cursor:default">Scroll to explore <span class="ar"></span></span>
@@ -867,122 +856,40 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
 </section></div>
 
 
-<div class="motion-scene" data-scene="right-bottom"><section class="band--paper2 pad" id="partnership">
+<div class="motion-scene" data-scene="right-bottom"><section class="band--paper2 pad" id="approach">
   <div class="wrap">
-    <div class="prop-head tr">
-      <div class="eyebrow"><span class="tick"></span>Powered by Spark Finance</div>
-      <h2>One bank rarely fits every funding need.</h2>
-      <p class="lede">Business lending isn't BLK.FX's specialism, so rather than stretch into it alone, we partnered with Spark Finance. Whether it's equipment, property, stock or working capital, Spark explores the options and identifies what fits, and BLK.FX stays part of the conversation throughout.</p>
-    </div>
-    <div class="chevrons tr">
-      <div class="chev"><div class="n">8</div><div class="l">types of commercial finance arranged through Spark Finance</div></div>
-      <div class="chev"><div class="n">1</div><div class="l">BLK.FX relationship, whatever you're funding</div></div>
-      <div class="chev"><div class="n">0</div><div class="l">new providers or portals for you to set up separately</div></div>
-      <div class="chev"><div class="n">3</div><div class="l">steps from a conversation to a funding decision</div></div>
+    <div class="tr" style="max-width:62ch">
+      <div class="eyebrow"><span class="tick"></span>Why it's different</div>
+      <h2 class="split">This isn't a transfer you make every week.</h2>
+      <p class="lede">Buying a property abroad, relocating, or receiving money from a sale or an inheritance, these are large, one-off moves, usually with a deadline attached. A high-street bank prices them the same way it prices a £200 top-up. BLK.FX treats the amount and the occasion as what they are, with a named adviser and a rate agreed before you commit.</p>
+      <p class="lede">It's personal in a way a business payment rarely is. A property purchase can sit alongside a divorce, a death in the family, or a move nobody outside the two of you needs to know about yet. That stays with your adviser, not entered into a queue for whoever picks it up next. The aim is the one BLK.FX works to everywhere: being as efficient as possible with your money, whether it runs through a business or through your own life.</p>
     </div>
   </div>
 </section></div>
-
-
-<section class="band--paper pad" id="solutions">
-  <div class="wrap">
-    <div class="prop-head tr">
-      <div class="eyebrow"><span class="tick"></span>What we can arrange</div>
-      <h2>Eight ways to fund what's next.</h2>
-      <p class="lede">There's no single product called business funding. The right facility depends on what the money is for, and through Spark Finance, BLK.FX can arrange any of the below.</p>
-    </div>
-    <div class="prop-grid tr">
-      <article class="prop-item">
-        <span class="prop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h10v9H3z"/><path d="M13 10h4l3 3.5V16h-7z"/><circle cx="7.5" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg></span>
-        <h3>Asset Finance</h3>
-        <div class="prop-reveal"><p>Finance vehicles, machinery or equipment without tying up cash. Spread the cost over time, with the asset itself as security.</p></div>
-      </article>
-      <article class="prop-item">
-        <span class="prop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3h8l3 3v15h-11z"/><path d="M14.5 3v3h3"/><path d="M9 11h6M9 14h6M9 17h3"/></svg></span>
-        <h3>Invoice Finance</h3>
-        <div class="prop-reveal"><p>Release the cash sitting in invoices you've already issued, instead of waiting thirty, sixty or ninety days to be paid.</p></div>
-      </article>
-      <article class="prop-item">
-        <span class="prop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12a7.5 7.5 0 0 1 13-5.2M19.5 12a7.5 7.5 0 0 1-13 5.2"/><path d="M17 3.3v3.5h-3.5M7 20.7v-3.5h3.5"/></svg></span>
-        <h3>Working Capital</h3>
-        <div class="prop-reveal"><p>Short-term funding to smooth the gap between money going out and money coming in, for a seasonal dip or a one-off pressure point.</p></div>
-      </article>
-      <article class="prop-item">
-        <span class="prop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 15.5h17l-2.2 4.5H5.7z"/><path d="M12 3v9.5M8.5 6h7M6.5 12.5l1-3.5h9l1 3.5"/></svg></span>
-        <h3>Trade Finance</h3>
-        <div class="prop-reveal"><p>Fund goods you're importing or exporting before payment lands, so a supplier deadline doesn't outrun your cash flow.</p></div>
-      </article>
-      <article class="prop-item">
-        <span class="prop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="3" width="13" height="18" rx="1"/><path d="M9 7.5h1.2M13.8 7.5H15M9 11.5h1.2M13.8 11.5H15"/><path d="M10 21v-3.5h4V21"/></svg></span>
-        <h3>Commercial Mortgages</h3>
-        <div class="prop-reveal"><p>Buy, refinance or release equity from commercial property, on terms built around the asset rather than a standard residential template.</p></div>
-      </article>
-      <article class="prop-item">
-        <span class="prop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="7" height="11"/><rect x="13" y="4" width="7" height="17"/></svg></span>
-        <h3>Development Finance</h3>
-        <div class="prop-reveal"><p>Fund the purchase and build cost of a development or major refurbishment, released in stages as the project progresses.</p></div>
-      </article>
-      <article class="prop-item">
-        <span class="prop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17c2-5 6-5 9-5s7 0 9 5"/><path d="M3 17h18"/></svg></span>
-        <h3>Bridging</h3>
-        <div class="prop-reveal"><p>Fast, short-term funding to secure a purchase or cover a timing gap, for example completing before a sale goes through.</p></div>
-      </article>
-      <article class="prop-item">
-        <span class="prop-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17 10 11l4 4 6-8"/><path d="M20 9h-4v4"/></svg></span>
-        <h3>Growth Capital</h3>
-        <div class="prop-reveal"><p>Funding to scale, hire or take on a new contract, without giving up equity or waiting on your bank's standard lending criteria.</p></div>
-      </article>
-    </div>
-  </div>
-</section>
-
-
-<section class="band--paper2 pad" id="why">
-  <div class="wrap">
-    <div class="prop-head tr">
-      <div class="eyebrow"><span class="tick"></span>Why we partnered</div>
-      <h2>We partnered instead of stretching thin.</h2>
-      <p class="lede">Rather than try to be everything, BLK.FX partnered with Spark Finance to give clients access to dedicated commercial finance expertise and a wider range of funding options.</p>
-    </div>
-    <div class="why tr">
-      <article class="wcard" tabindex="0"><span class="k">Expertise</span><h3>Specialist finance expertise</h3><p>Commercial finance is Spark's focus. Their team understands the lending market and helps you navigate the options for what you're funding.</p><span class="edge" aria-hidden="true"></span></article>
-      <article class="wcard" tabindex="0"><span class="k">Access</span><h3>A broader lender network</h3><p>Rather than the products or appetite of one bank, Spark explores a wider network of lenders to find the funding suited to your circumstances.</p><span class="edge" aria-hidden="true"></span></article>
-      <article class="wcard" tabindex="0"><span class="k">Continuity</span><h3>One relationship throughout</h3><p>You don't get handed off. BLK.FX stays part of the conversation, so currency, payments and funding sit under one relationship, not three.</p><span class="edge" aria-hidden="true"></span></article>
-    </div>
-  </div>
-</section>
 
 
 <section class="band--paper pad" id="who">
   <div class="wrap">
     <div class="prop-head tr">
       <div class="eyebrow"><span class="tick"></span>Who this is for</div>
-      <h2>If one of these sounds familiar, talk to us.</h2>
+      <h2>See yourself in one of these?</h2>
     </div>
-    <div class="who-compact">
-      <div class="who-item">
-        <h3>Buying equipment or vehicles</h3>
-        <p>A purchase that would otherwise tie up working capital, financed against the asset instead.</p>
+    <div class="who-grid tr">
+      <div class="who-card">
+        <h3>Buying property abroad</h3>
+        <p>A deposit, then a completion payment on a deadline that won't move. The rate is agreed and the funds are sent so the date is never the risk.</p>
       </div>
-      <div class="who-item">
-        <h3>Waiting on unpaid invoices</h3>
-        <p>Revenue that exists on paper but not yet in the bank, released early instead of chased for thirty, sixty or ninety days.</p>
+      <div class="who-card">
+        <h3>Relocating overseas</h3>
+        <p>Moving savings, a pension lump sum or the proceeds of a house sale into a new base currency, in one conversation rather than a run of branch visits.</p>
       </div>
-      <div class="who-item">
-        <h3>Buying or developing property</h3>
-        <p>A commercial purchase, refinance or development project that a standard residential mortgage was never built for.</p>
+      <div class="who-card">
+        <h3>Money arriving from a sale or inheritance</h3>
+        <p>A business sale, an inheritance or an investment maturing abroad. Bring it home, or hold it, without losing a cut you never saw quoted. (Want to hold rather than convert straight away? See <a href="https://growthprovision.github.io/BLK.FX/services/multi-currency-accounts/" style="color:var(--blk-accent-text)">Multi-Currency Accounts</a>.)</p>
       </div>
-      <div class="who-item">
-        <h3>Covering a timing gap</h3>
-        <p>A purchase that needs to complete before a sale does, or a short-term pressure point a bank overdraft wasn't designed to solve.</p>
-      </div>
-      <div class="who-item">
-        <h3>Scaling without giving up equity</h3>
-        <p>Growth funded by a facility rather than a slice of the business handed to an investor.</p>
-      </div>
-      <div class="who-item">
-        <h3>Importing stock ahead of payment</h3>
-        <p>Goods that need paying for before the sale that funds them has landed, financed so the gap doesn't stall the order.</p>
+      <div class="who-card">
+        <h3>Supporting family and a life abroad</h3>
+        <p>School fees, a second home, or regular support for family overseas. The same adviser and the same rate conversation, every time.</p>
       </div>
     </div>
   </div>
@@ -992,25 +899,28 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
 <div class="motion-scene" data-scene="left-bottom"><section class="band--ink pad" id="how">
   <div class="wrap">
     <div class="prop-head tr">
-      <div class="eyebrow"><span class="tick"></span>How it works</div>
-      <h2>Three steps, one conversation.</h2>
-      <p class="lede">The facility itself is between you and the lender. Getting there stays a BLK.FX conversation.</p>
+      <div class="eyebrow"><span class="tick"></span>What happens</div>
+      <h2>Three conversations, not a form.</h2>
     </div>
     <div class="steps tr">
       <div class="step">
-        <h3>Tell us what you need</h3>
-        <p>Funding equipment, property, stock or working capital, tell your account manager what it's for and roughly what you're looking to raise.</p>
+        <h3>Tell us the transfer</h3>
+        <p>The amount, the currency, the date it needs to land. A completion date, a relocation, a one-off receipt, whatever it is.</p>
       </div>
       <div class="step">
-        <h3>Spark explores the options</h3>
-        <p>Our partners at Spark Finance take your requirements to their lender network and shortlist the facilities that actually fit.</p>
+        <h3>Agree the rate</h3>
+        <p>Your adviser gives you a live rate and the margin behind it, before anything is booked. Fix it now or convert on the day, your call. (More on managing the rate itself is on <a href="https://growthprovision.github.io/BLK.FX/services/fx-risk-management-and-hedging/" style="color:var(--blk-accent-ink)">FX Risk Management &amp; Hedging</a>.)</p>
       </div>
       <div class="step">
-        <h3>Progress to funding</h3>
-        <p>Spark takes you through the application with the lender you choose, while BLK.FX stays part of the relationship throughout.</p>
+        <h3>Funds move, quietly</h3>
+        <p>Same-day settlement where the currency and rail allow it, sent by the adviser who arranged it, not a back office you've never spoken to.</p>
       </div>
     </div>
-    <div class="reg tr"><span class="badge">Please note</span><p>BLK.FX does not provide regulated financial advice or services and acts strictly as an intermediary between clients and financial providers. Commercial finance is arranged through Spark Finance and its lender network, who carry out the credit assessment and hold the regulatory permissions for lending.</p></div>
+    <div class="reg tr">
+      <span class="badge">Regulation</span>
+      <p>BLK.FX works only with regulated execution partners across the UK, the EEA and the US; client funds are safeguarded under those partners' e-money and payment licences.</p>
+    </div>
+    <div class="prop-foot"><a class="btn btn--accent" href="https://growthprovision.github.io/BLK.FX/contact/">Find out more <span class="arw">&rarr;</span></a></div>
   </div>
 </section></div>
 
@@ -1021,24 +931,24 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
     <h2>FAQs</h2>
     <div class="faq-list">
       <details class="faq-row" name="faq-accordion-fx">
-        <summary><h3>What's the difference between asset finance and invoice finance?</h3><span class="faq-caret" aria-hidden="true"></span></summary>
-        <div class="faq-row-panel"><p>Asset finance spreads the cost of equipment, vehicles or machinery using the asset itself as security. Invoice finance releases cash already tied up in invoices you've issued but not yet been paid for. Spark Finance can also arrange working capital, trade finance, commercial mortgages, development finance, bridging and growth capital; the right one depends on what the money is for.</p></div>
+        <summary><h3>Is this only for large transfers?</h3><span class="faq-caret" aria-hidden="true"></span></summary>
+        <div class="faq-row-panel"><p>There's no fixed minimum, but the adviser conversation and the rate agreement are most worthwhile above roughly £10,000 to £15,000, which is where a bank's margin starts to really cost you. Book a call either way.</p></div>
       </details>
       <details class="faq-row" name="faq-accordion-fx">
-        <summary><h3>Do I need to already be a BLK.FX client to use this?</h3><span class="faq-caret" aria-hidden="true"></span></summary>
-        <div class="faq-row-panel"><p>Commercial finance through Spark Finance sits alongside your BLK.FX relationship, so it's built around clients already working with us on FX or payments. If you're not yet a client, book a call and we can cover both in one conversation.</p></div>
+        <summary><h3>Can you work to a property completion date?</h3><span class="faq-caret" aria-hidden="true"></span></summary>
+        <div class="faq-row-panel"><p>Yes. Tell your adviser the completion date and currency, and the transfer is planned around it, including fixing the rate in advance if the date matters more to you than moving early.</p></div>
       </details>
       <details class="faq-row" name="faq-accordion-fx">
-        <summary><h3>How long does commercial finance take to arrange?</h3><span class="faq-caret" aria-hidden="true"></span></summary>
-        <div class="faq-row-panel"><p>It depends on the facility. Asset finance and invoice finance can move quickly once the paperwork is in. Commercial mortgages and development finance take longer, because the property or project needs assessing. Your account manager will give you a realistic timeline once Spark has seen what you need.</p></div>
+        <summary><h3>Do I need to hold funds in another currency?</h3><span class="faq-caret" aria-hidden="true"></span></summary>
+        <div class="faq-row-panel"><p>Not necessarily. You can convert and send in one step, or hold a balance in GBP, USD, EUR or CAD if you're expecting to spend or receive again in that currency. See <a href="https://growthprovision.github.io/BLK.FX/services/multi-currency-accounts/" style="color:var(--blk-accent-text)">Multi-Currency Accounts</a>.</p></div>
       </details>
       <details class="faq-row" name="faq-accordion-fx">
-        <summary><h3>Does this affect my existing FX and payments relationship?</h3><span class="faq-caret" aria-hidden="true"></span></summary>
-        <div class="faq-row-panel"><p>No. BLK.FX remains your point of contact for currency and payments throughout, whatever facility you arrange through Spark Finance.</p></div>
+        <summary><h3>Who actually holds and regulates the money?</h3><span class="faq-caret" aria-hidden="true"></span></summary>
+        <div class="faq-row-panel"><p>BLK.FX works only with regulated execution partners across the UK, the EEA and the US; client funds are safeguarded under those partners' e-money and payment licences. Full detail is in the regulatory disclosures in the footer.</p></div>
       </details>
       <details class="faq-row" name="faq-accordion-fx">
-        <summary><h3>Who actually assesses and provides the lending?</h3><span class="faq-caret" aria-hidden="true"></span></summary>
-        <div class="faq-row-panel"><p>Spark Finance and the lenders in their network carry out the credit assessment and provide the facility. BLK.FX does not provide regulated financial advice or lending itself, and acts as an intermediary, introducing you to Spark Finance as part of the wider relationship.</p></div>
+        <summary><h3>How quickly can this happen?</h3><span class="faq-caret" aria-hidden="true"></span></summary>
+        <div class="faq-row-panel"><p>A live rate from your adviser takes minutes once you're set up. Settlement is same-day where the currency and payment rail allow it, otherwise one to two working days, so tell us the deadline early.</p></div>
       </details>
     </div>
   </div>
@@ -1048,16 +958,16 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
 <section class="band--paper pad" id="talk">
   <div class="wrap talk-row tr">
     <div class="talk-copy">
-      <div class="eyebrow"><span class="tick"></span>Commercial Finance</div>
-      <h2>Tell us what<br>you're funding.</h2>
-      <p class="lede">Bring what it's for and roughly what you're looking to raise. We'll bring in Spark Finance and come back with the options that fit.</p>
+      <div class="eyebrow"><span class="tick"></span>Private Client FX</div>
+      <h2>Tell us about the transfer,<br>we'll take it from there.</h2>
+      <p class="lede">A property completion, a relocation, money arriving from abroad. Bring the amount, the currency and the date, and you'll have a named adviser and a rate before you need to commit to anything.</p>
     </div>
     <div class="talk-cta">
       <a class="btn btn--lg btn--accent" href="https://meetings-eu1.hubspot.com/ben-kohler/intro-call-ben?uuid=47f7214c-7d08-47db-9514-766c690fd651" target="_blank" rel="noopener">Book a call with Ben <span class="arw">&rarr;</span></a>
       <a class="tlink" href="https://growthprovision.github.io/BLK.FX/contact/#brochure">Download brochure</a>
     </div>
   </div>
-  <div class="rail-stream" aria-hidden="true"><div class="rail-track" id="railTrack"><span>Asset Finance</span><span>Invoice Finance</span><span>Working Capital</span><span>Trade Finance</span><span>Commercial Mortgages</span><span>Development Finance</span><span>Bridging</span><span>Growth Capital</span></div></div>
+  <div class="rail-stream" aria-hidden="true"><div class="rail-track" id="railTrack"><span>GBP</span><span>EUR</span><span>USD</span><span>AED</span><span>CAD</span><span>AUD</span><span>Faster Payments</span><span>SEPA</span><span>SWIFT</span><span>ACH</span></div></div>
 </section>
 
 <footer class="foot">
@@ -1065,7 +975,7 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}.lenis
     <div class="foot-main">
       <div class="foot-intro">
         <a class="brand foot-brand" href="#top" aria-label="BLK.FX">BLK<span>.</span>FX</a>
-        <p class="foot-note">Tell us what you're funding and roughly what you're looking to raise. You'll leave with a shortlist of options through Spark Finance, whether or not you ever take one up.</p>
+        <p class="foot-note">Tell us about the transfer and roughly when it needs to land. You will leave with a rate and a plan, whether or not you ever trade with us.</p>
       </div>
 
       <div class="foot-cols">
