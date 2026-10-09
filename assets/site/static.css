@@ -28,7 +28,19 @@
 .logo-marquee .client-logo img,.client-logo img{width:calc(var(--w)*.425);height:calc(var(--h)*.425);max-width:none;object-fit:contain;transform:none}
 @media (width<=700px){.logo-marquee .client-logo,.client-logo{width:auto;height:30px;padding:0 14px}.logo-marquee .client-logo img,.client-logo img{width:calc(var(--w)*.34);height:calc(var(--h)*.34)}}
 .case-teaser .client-logo,.page-hero .client-logo{height:auto;padding:0;margin-bottom:18px;justify-items:start}
-/* Client logos: brand orange by default, black on hover */
-.logo-marquee .client-logo img,.client-logo.mono img,.client-logo.soft img{filter:none;opacity:1;transition:filter .25s}
-.logo-marquee .client-logo:hover img,.client-logo:hover img{filter:brightness(0);opacity:1}
-.logo-marquee .client-logo.soft:hover img{filter:grayscale(1) brightness(.35) contrast(1.4)}
+/* Client logos: black by default, brand colour on hover */
+.logo-marquee .client-logo img,.client-logo.mono img,.client-logo.soft img{filter:brightness(0);opacity:1;transition:filter .25s}
+.logo-marquee .client-logo:hover img,.client-logo:hover img{filter:none;opacity:1}
+/* Studio B: supplied black & white version by default, orange version on hover */
+.logo-marquee .client-logo.swap img,.client-logo.swap img{filter:none}
+.client-logo.swap{position:relative}
+.client-logo.swap .logo-hover{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);opacity:0;transition:opacity .25s}
+.client-logo.swap .logo-default{transition:opacity .25s}
+.client-logo.swap:hover .logo-hover{opacity:1}
+.client-logo.swap:hover .logo-default{opacity:0}
+/* Trusted by: no divider line, tighter gap before the stats */
+.proof-band{border-bottom:0;padding-bottom:12px}
+.proof-band+.stats{padding-top:28px}
+.proof-band+.stats .stats-grid{border-top:0}
+.proof-band+.stats{padding-bottom:40px}
+.proof-band+.stats+.proposition{padding-top:56px}
