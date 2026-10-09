@@ -154,7 +154,7 @@
   $$(".video-frame button").forEach(function (b) {
     b.addEventListener("click", function () {
       var f = b.parentElement;
-      f.innerHTML = '<iframe src="https://player.vimeo.com/video/1027741242?h=378ed58ffa&title=0&byline=0&portrait=0&autoplay=1" title="Experience BLK.FX" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
+      f.innerHTML = '<iframe src="https://player.vimeo.com/video/1027741242?title=0&byline=0&portrait=0&autoplay=1" title="Experience BLK.FX" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
     });
   });
 
