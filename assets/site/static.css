@@ -247,3 +247,23 @@
 .audience .audience-marquee{padding:7px 0 8px}
 .audience .audience-marquee span{font-size:clamp(14px,1.07vw,16px)}
 .audience .audience-marquee b{padding:0 12px}
+/* How it works, mobile/tablet only: steps 02 and 03 line up with 01 */
+@media (max-width:1023px){.process-journey .process-grid article{padding-left:0!important;margin-left:0!important;border-left:0!important}}
+/* Common questions, mobile/tablet only: heading on top, questions underneath */
+@media (max-width:1023px){.faq-grid{grid-template-columns:minmax(0,1fr)!important;gap:28px}}
+@media (max-width:1023px){.faq .section-intro{margin-bottom:0}.faq [data-orientation] button{text-align:left}.faq [data-orientation] button>*{text-align:left}}
+@media (max-width:1023px){.faq [data-orientation] button{justify-content:flex-start;gap:0}.faq [data-orientation] button>span{flex:0 0 auto}.faq [data-orientation] button>svg{margin-left:auto;flex:0 0 auto;padding-left:10px;box-sizing:content-box}}
+/* Footer, mobile only: Pages left, Services right, tighter link spacing */
+@media (max-width:767px){
+.site-footer .footer-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;column-gap:20px;row-gap:32px}
+.site-footer .footer-grid>div:first-child,.site-footer .footer-grid>div:nth-child(4){grid-column:1 / -1}
+.site-footer .footer-links{gap:8px!important}
+.site-footer .footer-links a{padding-top:0;padding-bottom:0;line-height:1.35;min-height:0}
+}
+/* Footer, desktop: slightly smaller text, tighter rows */
+@media (min-width:768px){.site-footer .footer-links{font-size:13px;gap:6px;margin-top:18px}.site-footer .footer-links a{min-height:30px}}
+@media (min-width:768px){.site-footer .footer-links{gap:9px}.site-footer .footer-links a{min-height:0}}
+/* Section labels: one size everywhere, matching the hero and Trusted by */
+.eyebrow,p.eyebrow,.eyebrow-dot{font-family:var(--font-mono)!important;font-size:12px!important;font-weight:600!important;letter-spacing:.12em!important;text-transform:uppercase}
+/* Footer brand line: same size as sub copy across the site */
+.site-footer .footer-brand-line{font-size:16px!important;line-height:1.45}
