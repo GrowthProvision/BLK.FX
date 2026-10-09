@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* Additions needed only because the static build swaps a few React widgets
    for native elements. Everything else is Ben's compiled stylesheet (site.css). */
 
@@ -45,7 +46,45 @@
 .proof-band+.stats{padding-bottom:40px}
 .proof-band+.stats+.proposition{padding-top:56px}
 /* Hero currency rain: symbols drawn by CSS from data-rain, so they are not page text */
-.hero-currency-rain span::before{content:attr(data-rain);white-space:pre-line}
+.hero-currency-rain span::before{white-space:pre}
+.hero-currency-rain span:nth-child(1)::before{content:"£\A €\A $\A ¥\A €\A £\A $\A ¥\A £\A €\A $\A ¥\A €\A £\A ¥\A $\A $\A ¥\A £\A €\A ¥\A $\A €\A £\A ¥\A $\A £\A €\A ¥\A $\A €\A £"}
+.hero-currency-rain span:nth-child(2)::before{content:"£\A €\A $\A ¥\A €\A £\A $\A ¥\A £\A €\A $\A ¥\A €\A £\A ¥\A $\A $\A ¥\A £\A €\A ¥\A $\A €\A £\A ¥\A $\A £\A €\A ¥\A $\A €\A £"}
+.hero-currency-rain span:nth-child(3)::before{content:"$\A ¥\A £\A €\A $\A €\A ¥\A £\A $\A ¥\A €\A £\A ¥\A $\A €\A £\A £\A €\A $\A ¥\A £\A €\A ¥\A $\A £\A ¥\A €\A $\A €\A £\A ¥\A $"}
+.hero-currency-rain span:nth-child(4)::before{content:"$\A ¥\A £\A €\A $\A €\A ¥\A £\A $\A ¥\A €\A £\A ¥\A $\A €\A £\A £\A €\A $\A ¥\A £\A €\A ¥\A $\A £\A ¥\A €\A $\A €\A £\A ¥\A $"}
+.hero-currency-rain span:nth-child(5)::before{content:"€\A £\A ¥\A $\A €\A $\A £\A ¥\A €\A £\A $\A ¥\A £\A €\A ¥\A $\A $\A ¥\A €\A £\A ¥\A $\A £\A €\A ¥\A £\A $\A €\A $\A ¥\A £\A €"}
+.hero-currency-rain span:nth-child(6)::before{content:"€\A £\A ¥\A $\A €\A $\A £\A ¥\A €\A £\A $\A ¥\A £\A €\A ¥\A $\A $\A ¥\A €\A £\A ¥\A $\A £\A €\A ¥\A £\A $\A €\A $\A ¥\A £\A €"}
+.hero-currency-rain span:nth-child(7)::before{content:"¥\A $\A €\A £\A ¥\A £\A $\A €\A ¥\A $\A £\A €\A $\A ¥\A €\A £\A £\A €\A ¥\A $\A €\A £\A $\A ¥\A €\A $\A £\A ¥\A £\A €\A $\A ¥"}
+.hero-currency-rain span:nth-child(8)::before{content:"¥\A $\A €\A £\A ¥\A £\A $\A €\A ¥\A $\A £\A €\A $\A ¥\A €\A £\A £\A €\A ¥\A $\A €\A £\A $\A ¥\A €\A $\A £\A ¥\A £\A €\A $\A ¥"}
+.hero-currency-rain span:nth-child(9)::before{content:"£\A ¥\A €\A $\A £\A €\A ¥\A $\A £\A ¥\A $\A €\A €\A £\A $\A ¥\A ¥\A $\A £\A €\A €\A $\A ¥\A £\A $\A ¥\A €\A £\A $\A €\A ¥\A £"}
+.hero-currency-rain span:nth-child(10)::before{content:"£\A ¥\A €\A $\A £\A €\A ¥\A $\A £\A ¥\A $\A €\A €\A £\A $\A ¥\A ¥\A $\A £\A €\A €\A $\A ¥\A £\A $\A ¥\A €\A £\A $\A €\A ¥\A £"}
+.hero-currency-rain span:nth-child(11)::before{content:"€\A $\A £\A ¥\A €\A ¥\A $\A £\A €\A $\A ¥\A £\A £\A €\A ¥\A $\A $\A ¥\A €\A £\A £\A ¥\A $\A €\A £\A $\A ¥\A €\A ¥\A £\A $\A €"}
+.hero-currency-rain span:nth-child(12)::before{content:"€\A $\A £\A ¥\A €\A ¥\A $\A £\A €\A $\A ¥\A £\A £\A €\A ¥\A $\A $\A ¥\A €\A £\A £\A ¥\A $\A €\A £\A $\A ¥\A €\A ¥\A £\A $\A €"}
+.hero-currency-rain span:nth-child(13)::before{content:"$\A £\A €\A ¥\A $\A ¥\A £\A €\A $\A £\A ¥\A €\A ¥\A $\A €\A £\A £\A €\A $\A ¥\A €\A ¥\A £\A $\A €\A £\A ¥\A $\A ¥\A €\A £\A $"}
+.hero-currency-rain span:nth-child(14)::before{content:"$\A £\A €\A ¥\A $\A ¥\A £\A €\A $\A £\A ¥\A €\A ¥\A $\A €\A £\A £\A €\A $\A ¥\A €\A ¥\A £\A $\A €\A £\A ¥\A $\A ¥\A €\A £\A $"}
+.hero-currency-rain span:nth-child(15)::before{content:"¥\A €\A $\A £\A ¥\A £\A €\A $\A ¥\A €\A £\A $\A $\A ¥\A £\A €\A €\A £\A ¥\A $\A $\A £\A €\A ¥\A $\A €\A £\A ¥\A £\A $\A €\A ¥"}
+.hero-currency-rain span:nth-child(16)::before{content:"¥\A €\A $\A £\A ¥\A £\A €\A $\A ¥\A €\A £\A $\A $\A ¥\A £\A €\A €\A £\A ¥\A $\A $\A £\A €\A ¥\A $\A €\A £\A ¥\A £\A $\A €\A ¥"}
+.hero-currency-rain span:nth-child(17)::before{content:"£\A $\A ¥\A €\A £\A €\A $\A ¥\A £\A ¥\A €\A $\A $\A £\A €\A ¥\A ¥\A €\A £\A $\A $\A €\A ¥\A £\A ¥\A $\A €\A £\A €\A ¥\A $\A £"}
+.hero-currency-rain span:nth-child(18)::before{content:"£\A $\A ¥\A €\A £\A €\A $\A ¥\A £\A ¥\A €\A $\A $\A £\A €\A ¥\A ¥\A €\A £\A $\A $\A €\A ¥\A £\A ¥\A $\A €\A £\A €\A ¥\A $\A £"}
+.hero-currency-rain span:nth-child(19)::before{content:"€\A ¥\A £\A $\A €\A $\A ¥\A £\A €\A £\A $\A ¥\A ¥\A €\A $\A £\A £\A $\A €\A ¥\A ¥\A $\A £\A €\A £\A ¥\A $\A €\A $\A £\A ¥\A €"}
+.hero-currency-rain span:nth-child(20)::before{content:"€\A ¥\A £\A $\A €\A $\A ¥\A £\A €\A £\A $\A ¥\A ¥\A €\A $\A £\A £\A $\A €\A ¥\A ¥\A $\A £\A €\A £\A ¥\A $\A €\A $\A £\A ¥\A €"}
+.hero-currency-rain span:nth-child(21)::before{content:"$\A €\A ¥\A £\A $\A £\A €\A ¥\A $\A ¥\A £\A €\A €\A $\A ¥\A £\A £\A ¥\A $\A €\A €\A £\A ¥\A $\A ¥\A €\A £\A $\A £\A ¥\A €\A $"}
+.hero-currency-rain span:nth-child(22)::before{content:"$\A €\A ¥\A £\A $\A £\A €\A ¥\A $\A ¥\A £\A €\A €\A $\A ¥\A £\A £\A ¥\A $\A €\A €\A £\A ¥\A $\A ¥\A €\A £\A $\A £\A ¥\A €\A $"}
+.hero-currency-rain span:nth-child(23)::before{content:"¥\A £\A $\A €\A ¥\A €\A £\A $\A ¥\A $\A €\A £\A £\A ¥\A €\A $\A $\A €\A ¥\A £\A £\A €\A $\A ¥\A $\A £\A €\A ¥\A €\A $\A £\A ¥"}
+.hero-currency-rain span:nth-child(24)::before{content:"¥\A £\A $\A €\A ¥\A €\A £\A $\A ¥\A $\A €\A £\A £\A ¥\A €\A $\A $\A €\A ¥\A £\A £\A €\A $\A ¥\A $\A £\A €\A ¥\A €\A $\A £\A ¥"}
+.hero-currency-rain span:nth-child(25)::before{content:"£\A €\A ¥\A $\A £\A $\A €\A ¥\A £\A ¥\A $\A €\A €\A £\A ¥\A $\A $\A ¥\A £\A €\A €\A $\A ¥\A £\A ¥\A €\A $\A £\A $\A ¥\A €\A £"}
+.hero-currency-rain span:nth-child(26)::before{content:"£\A €\A ¥\A $\A £\A $\A €\A ¥\A £\A ¥\A $\A €\A €\A £\A ¥\A $\A $\A ¥\A £\A €\A €\A $\A ¥\A £\A ¥\A €\A $\A £\A $\A ¥\A €\A £"}
+.hero-currency-rain span:nth-child(27)::before{content:"€\A £\A $\A ¥\A €\A ¥\A £\A $\A €\A $\A ¥\A £\A ¥\A €\A $\A £\A £\A $\A €\A ¥\A £\A ¥\A $\A €\A $\A £\A ¥\A €\A ¥\A $\A £\A €"}
+.hero-currency-rain span:nth-child(28)::before{content:"€\A £\A $\A ¥\A €\A ¥\A £\A $\A €\A $\A ¥\A £\A ¥\A €\A $\A £\A £\A $\A €\A ¥\A £\A ¥\A $\A €\A $\A £\A ¥\A €\A ¥\A $\A £\A €"}
+.hero-currency-rain span:nth-child(29)::before{content:"$\A ¥\A €\A £\A $\A £\A ¥\A €\A $\A €\A £\A ¥\A £\A $\A €\A ¥\A ¥\A €\A $\A £\A ¥\A £\A €\A $\A €\A ¥\A £\A $\A £\A €\A ¥\A $"}
+.hero-currency-rain span:nth-child(30)::before{content:"$\A ¥\A €\A £\A $\A £\A ¥\A €\A $\A €\A £\A ¥\A £\A $\A €\A ¥\A ¥\A €\A $\A £\A ¥\A £\A €\A $\A €\A ¥\A £\A $\A £\A €\A ¥\A $"}
+.hero-currency-rain span:nth-child(31)::before{content:"¥\A $\A £\A €\A ¥\A €\A $\A £\A ¥\A £\A €\A $\A $\A ¥\A €\A £\A £\A €\A ¥\A $\A $\A €\A £\A ¥\A £\A $\A €\A ¥\A €\A £\A $\A ¥"}
+.hero-currency-rain span:nth-child(32)::before{content:"¥\A $\A £\A €\A ¥\A €\A $\A £\A ¥\A £\A €\A $\A $\A ¥\A €\A £\A £\A €\A ¥\A $\A $\A €\A £\A ¥\A £\A $\A €\A ¥\A €\A £\A $\A ¥"}
+.hero-currency-rain span:nth-child(33)::before{content:"£\A ¥\A $\A €\A £\A €\A ¥\A $\A £\A $\A €\A ¥\A ¥\A £\A $\A €\A €\A $\A £\A ¥\A ¥\A €\A $\A £\A $\A ¥\A €\A £\A €\A $\A ¥\A £"}
+.hero-currency-rain span:nth-child(34)::before{content:"£\A ¥\A $\A €\A £\A €\A ¥\A $\A £\A $\A €\A ¥\A ¥\A £\A $\A €\A €\A $\A £\A ¥\A ¥\A €\A $\A £\A $\A ¥\A €\A £\A €\A $\A ¥\A £"}
+.hero-currency-rain span:nth-child(35)::before{content:"€\A $\A ¥\A £\A €\A £\A $\A ¥\A €\A ¥\A £\A $\A $\A €\A ¥\A £\A £\A ¥\A €\A $\A $\A £\A ¥\A €\A ¥\A $\A £\A €\A £\A ¥\A $\A €"}
+.hero-currency-rain span:nth-child(36)::before{content:"€\A $\A ¥\A £\A €\A £\A $\A ¥\A €\A ¥\A £\A $\A $\A €\A ¥\A £\A £\A ¥\A €\A $\A $\A £\A ¥\A €\A ¥\A $\A £\A €\A £\A ¥\A $\A €"}
+.hero-currency-rain span:nth-child(37)::before{content:"$\A £\A ¥\A €\A $\A €\A £\A ¥\A $\A ¥\A €\A £\A £\A $\A ¥\A €\A €\A ¥\A $\A £\A £\A €\A ¥\A $\A ¥\A £\A €\A $\A €\A ¥\A £\A $"}
+.hero-currency-rain span:nth-child(38)::before{content:"$\A £\A ¥\A €\A $\A €\A £\A ¥\A $\A ¥\A €\A £\A £\A $\A ¥\A €\A €\A ¥\A $\A £\A £\A €\A ¥\A $\A ¥\A £\A €\A $\A €\A ¥\A £\A $"}
 /* Why BLK.FX accordion: gap between the two columns, answers centred */
 .why-accordion{column-gap:64px}
 .why-accordion [data-radix-accordion-content],.why-accordion [role="region"]>div{text-align:center;padding-left:30px}
@@ -72,3 +111,115 @@
 /* Who this is for: breathing room between the last accordion row and the moving banner */
 .audience .audience-accordion{margin-bottom:40px}
 @media (width<=700px){.audience .audience-accordion{margin-bottom:28px}}
+/* Pricing: lead line moved here from the hero */
+.pricing-lead{max-width:950px;margin:-24px auto 36px;font-size:clamp(18px,1.6vw,22px);font-weight:600;letter-spacing:-.01em;text-align:center}
+/* BLK proposition intro: definition line under the subheading */
+.intro-definition{display:block;margin-top:12px;font-size:15px;line-height:1.5}
+/* Who this is for: now on a white background */
+.audience{background:var(--background);color:var(--foreground)}
+.audience .audience-accordion button{color:var(--foreground)}
+.audience .audience-accordion [role="region"]>div,.audience .audience-accordion [data-radix-accordion-content]{color:var(--muted-foreground)}
+.audience .audience-accordion>[data-state]{border-color:var(--border)}
+.audience .audience-more{color:var(--foreground)}
+.audience .audience-marquee{border-top-color:var(--border);color:var(--foreground)}
+.audience .audience-marquee>.marquee-track.reverse,.audience .audience-marquee>div.reverse{color:var(--muted-foreground)}
+/* Services carousel: no dead space between the number and the verb */
+.services-pin .service-card{height:auto;min-height:0}
+.services-pin .service-card>p:first-of-type{margin-top:22px}
+.services-pin .service-end{height:auto;min-height:0}
+/* Hedging, in plain English: compact */
+.hedging-teaser.section-space{padding:56px 0}
+.hedging-teaser .section-intro{margin-bottom:28px}
+.hedging-teaser .section-intro h2{font-size:clamp(32px,3.6vw,52px)}
+.hedging-grid article{min-height:0;padding-top:16px;padding-bottom:4px}
+.hedging-grid h3{margin:0 0 8px;font-size:19px}
+.hedging-teaser .arrow-link{margin-top:22px}
+/* Beyond the rate: compact */
+.hidden-costs.section-space{padding:56px 0}
+.hidden-costs .section-intro{margin-bottom:28px}
+.hidden-costs .section-intro h2{font-size:clamp(32px,3.6vw,52px)}
+.hidden-cost-grid article{min-height:0;padding-top:18px;padding-bottom:20px}
+.hidden-cost-grid h3{margin:10px 0 8px;font-size:19px}
+/* Calculator call to action */
+.calc-cta{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:14px;padding:26px 24px;background:var(--primary);color:var(--primary-foreground);font-size:clamp(17px,1.6vw,22px);font-weight:600;letter-spacing:-.01em;transition:background .25s,color .25s}
+.calc-cta svg{width:20px;height:20px;transition:transform .25s}
+.calc-cta:hover{background:var(--foreground);color:var(--background)}
+.calc-cta:hover svg{transform:translate(3px,-3px)}
+/* Why BLK.FX: four pillars on one row now the accordion is gone */
+@media (min-width:1024px){.values .value-grid{grid-template-columns:repeat(4,1fr)}.values .value-grid article{border-left:1px solid color-mix(in oklab,var(--dark-foreground) 18%,transparent);padding-left:22px}.values .value-grid article:first-child{border-left:0;padding-left:0}}
+/* How it works + International payments: 50/50, steps no longer squashed */
+@media (min-width:1024px){.process-journey>.section-shell{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:64px;align-items:start}}
+.process-journey .journey{min-width:0;overflow:hidden}
+.process-journey .process-grid article{min-height:0;padding-top:20px;padding-bottom:18px}
+.process-journey .process-grid h3{margin-top:14px;font-size:21px;line-height:1.15}
+.process-journey .process-grid p{margin-top:10px;font-size:14px;line-height:1.5}
+/* Who this is for: the moving banner stays on black */
+.audience .audience-marquee{background:var(--dark);color:var(--dark-foreground);border-top-color:transparent}
+.audience .audience-marquee>.marquee-track.reverse,.audience .audience-marquee>div.reverse{color:var(--dark-muted)}
+/* Calculator CTA: same size as the hero buttons, not a full-width banner */
+.calc-cta{display:inline-flex;width:auto;height:52px;padding:0 24px;margin-top:20px;font-size:14px;font-weight:600;letter-spacing:0;border-radius:2px}
+.calc-cta svg{width:16px;height:16px}
+.pricing .calculator+.calc-cta{position:relative;left:50%;transform:translateX(-50%)}
+.pricing .calculator+.calc-cta:hover svg{transform:translate(2px,-2px)}
+/* Less white space between pricing and How it works */
+.pricing.section-space{padding-bottom:36px}
+.process-journey.section-space{padding-top:36px}
+/* Infrastructure / Built on the best: tighter top gap, much smaller provider blocks */
+.process-journey.section-space{padding-bottom:28px}
+.infrastructure-home.section-space{padding-top:36px;padding-bottom:48px}
+.infrastructure-home-layout{gap:clamp(32px,4vw,64px)}
+@media (min-width:1024px){.infrastructure-home-layout .provider-row{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.infrastructure-home-layout .provider-card{min-height:0;padding:16px 18px;justify-content:flex-start}
+.infrastructure-home-layout .provider-card p{margin:10px 0 0;font-size:12.5px;line-height:1.45}
+.infrastructure-home .provider-logo{width:120px!important;height:34px!important;place-items:center start}
+.infrastructure-home .provider-logo img{height:24px;object-position:left}
+.infrastructure-home .provider-logo{width:130px!important;height:38px!important}
+.infrastructure-home .provider-logo img{width:auto;max-width:130px;height:38px;mix-blend-mode:multiply}
+.provider-logo img[src*="images/"]{mix-blend-mode:multiply}
+.infrastructure-home-layout .section-intro{position:static}
+.infrastructure-home .provider-logo{flex:0 0 auto}
+.infrastructure-home .provider-logo img{opacity:.85}
+/* FAQ: answers centred under the centred questions; nothing shifts when opened */
+.faq [role="region"]>div,.faq [data-radix-accordion-content]{text-align:center;padding-left:0!important}
+.faq-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.25fr)}
+.faq .faq-grid>div:last-child{min-width:0}
+.faq [data-orientation] button{transform:none!important}
+.faq [role="region"]>div{max-width:620px;margin:0 auto}
+/* Who this is for banner: half height */
+.audience .audience-marquee{padding:5px 0 6px}
+.audience .audience-marquee span{font-size:clamp(11px,.8vw,12px);line-height:1.5;letter-spacing:.01em}
+.audience .audience-marquee b{padding:0 9px}
+/* Infrastructure: same background as the case study section */
+.infrastructure-home{background:var(--secondary)}
+.infrastructure-home .provider-card{background:var(--background)}
+/* Case study teaser: logo sits above the results, numbers full size, space before the CTA */
+.case-results .case-results-logo{grid-column:1/-1;padding:0 0 18px;border:0}
+.case-results{border-top:0}
+.case-results article{border-top:1px solid var(--border)}
+.case-results .case-results-logo .client-logo{justify-content:start;padding:0;height:auto;margin:0}
+.case-results strong span{font:inherit;color:inherit;margin:0;display:inline;letter-spacing:inherit}
+.case-teaser .section-shell>div:first-child>a{margin-top:28px}
+.case-results .case-results-logo .client-logo img{width:var(--w);height:var(--h)}
+/* FX.Exposure card: arrow sits next to "Explore FX.Exposure" */
+.tools-card .tool-link{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.tools-card .tool-link svg{width:18px;height:18px;flex:none;transition:transform .25s}
+.tools-card:hover .tool-link svg{transform:translateX(4px)}
+/* Free FX strategy audit: call note under the copy, not wrapped around the CTA */
+.closing .closing-note{margin-top:10px;font-size:14px;color:var(--dark-muted)}
+/* Weekly FX Market Update: own band, same background as Latest insights */
+.newsletter-strip{background:var(--secondary);color:var(--foreground)}
+.newsletter-strip .newsletter{background:transparent;color:var(--foreground);border:0;margin:0;padding:56px 0}
+.newsletter-strip .newsletter p:not(.eyebrow),.newsletter-strip .newsletter blockquote{color:var(--muted-foreground)}
+.newsletter-strip .newsletter input{color:var(--foreground);border-color:var(--border);background:var(--background)}
+.newsletter-strip .newsletter input::placeholder{color:var(--muted-foreground)}
+/* Footer: BLK.FX logo much smaller */
+.site-footer .footer-logo{width:180px;max-width:180px;margin-bottom:24px}
+/* Ask AI: icon next to each name */
+.ask-ai a{display:inline-flex;align-items:center;gap:6px}
+.ask-ai .ai-icon{width:16px;height:16px;border-radius:3px;display:inline-block}
+/* Footer: brand line on one line */
+@media (min-width:1024px){.site-footer .footer-brand-line{max-width:none;white-space:nowrap}}
+/* Free FX strategy audit: black starts a little later, more room below the copy and CTA */
+.closing{padding-top:72px!important;padding-bottom:96px!important}
+.newsletter-strip{margin-top:0}
+.regulatory-toggle{transform:none!important}
