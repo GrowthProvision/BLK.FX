@@ -195,7 +195,7 @@
 
   /* ---------- services page sub-nav ---------- */
   var subnav = $(".service-subnav");
-  if (subnav) {
+  if (subnav && $$("a", subnav).every(function (a) { return a.getAttribute("href").charAt(0) === "#"; })) {
     var chips = $$("a", subnav);
     var go = function (id, smooth) {
       var t = document.getElementById(id); if (!t) return;

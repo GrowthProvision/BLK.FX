@@ -55,3 +55,35 @@ folder before being replaced, so their relative image paths still work.
   margin range 0.2–0.6% vs banks 1.0–3.5% (B1), Trustpilot 4.7/5 (B4), and
   "Transparent pricing" wording that `04-copy-rules.md` rule 2 flags.
 - `robots` is `noindex, nofollow`, as Ben set it.
+
+## Individual service pages (9 Oct 2026)
+
+Each service now has its own page, so it can rank on its own keywords
+(Google ignores anything after `#`):
+
+| Chip | Page |
+|---|---|
+| Convert | `/services/business-foreign-exchange/` |
+| Send | `/services/international-payments/` |
+| Hold | `/services/multi-currency-accounts/` |
+| Protect | `/services/fx-risk-management-and-hedging/` |
+| Fund | `/services/commercial-finance/` |
+| Personal | `/services/private-client-fx/` |
+
+- Built from Ben's `/services/` page: same hero, the same Convert / Send /
+  Hold / Protect / Fund / Personal bar (now page links, current page
+  highlighted, also shown on mobile), and Ben's own service block and
+  visual for that service.
+- Below the fold: question-led H2s with a direct answer first, a cost or
+  route section, a "who it is for" grid, how it works with the regulation
+  line, an FAQ, the 24/7 strip and a closing book-a-call band with related
+  service links. Copy carried over from our previous build, tightened, and
+  checked against `04-copy-rules.md` (no em dashes, no "transparent",
+  British spelling, margins match the homepage: 0.2–0.6% vs 1.0–3.5%).
+- Each page has its own title, meta description, canonical to the live
+  `blkfx.co.uk` URL, and Service + FAQPage + BreadcrumbList schema.
+- `/services/` stays as the overview: its bar and an "Explore" link on
+  each block now go to the individual pages. Every `services/#anchor` link
+  in the nav and footer sitewide now points at the real page.
+- Our previous-build versions are kept as `index-previous.html` in each
+  service folder.
