@@ -223,3 +223,27 @@
 .closing{padding-top:72px!important;padding-bottom:96px!important}
 .newsletter-strip{margin-top:0}
 .regulatory-toggle{transform:none!important}
+/* Ask AI icons: drawn in the link colour, so they go white to orange with the text */
+.ask-ai .ai-icon{width:16px;height:16px;border-radius:0;background-color:currentColor;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;transition:background-color .25s}
+.ask-ai a{transition:color .25s}
+.ask-ai a:hover,.ask-ai a:focus-visible{color:var(--primary)}
+.ask-ai a .ai-icon{background-color:var(--dark-foreground,#fff)}
+.ask-ai a:hover .ai-icon,.ask-ai a:focus-visible .ai-icon{background-color:var(--primary)}
+/* Why BLK.FX: always four across from tablet up, two on phones */
+.values .value-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (min-width:700px){.values .value-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}.values .value-grid article{border-left:1px solid color-mix(in oklab,var(--dark-foreground) 18%,transparent);padding-left:22px}.values .value-grid article:first-child{border-left:0;padding-left:0}}
+/* Client logos: brand orange by default, black on hover */
+.logo-marquee .client-logo img,.client-logo.mono img,.client-logo.soft img{filter:none}
+.logo-marquee .client-logo:hover img,.client-logo:hover img{filter:brightness(0)}
+/* Studio B: orange version by default, black & white version on hover */
+.logo-marquee .client-logo.swap img,.client-logo.swap img,.client-logo.swap:hover img{filter:none}
+.client-logo.swap .logo-hover{opacity:1}
+.client-logo.swap .logo-default{opacity:0}
+.client-logo.swap:hover .logo-hover{opacity:0}
+.client-logo.swap:hover .logo-default{opacity:1}
+/* Currency rain stays visible (static) when the device asks for reduced motion */
+@media (prefers-reduced-motion:reduce){.hero-currency-rain span{animation:none!important;transform:translateY(calc(50vh + 50%));opacity:calc(var(--rain-opacity) * .6)}.hero-currency-rain span:nth-child(even){display:none}}
+/* Who this is for banner: a third bigger */
+.audience .audience-marquee{padding:7px 0 8px}
+.audience .audience-marquee span{font-size:clamp(14px,1.07vw,16px)}
+.audience .audience-marquee b{padding:0 12px}
