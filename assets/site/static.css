@@ -24,7 +24,11 @@
 [role="region"][data-state="open"]{animation:none}
 
 /* Client logos ("Trusted by"): local SVGs trimmed to their artwork, sized for equal visual weight */
-.logo-marquee .client-logo,.client-logo{flex:0 0 auto;display:grid;place-items:center;width:auto;height:64px;padding:0 30px}
-.logo-marquee .client-logo img,.client-logo img{width:var(--w);height:var(--h);max-width:none;object-fit:contain;transform:none}
-@media (width<=700px){.logo-marquee .client-logo,.client-logo{width:auto;height:46px;padding:0 18px}.logo-marquee .client-logo img,.client-logo img{width:calc(var(--w)*.72);height:calc(var(--h)*.72)}}
+.logo-marquee .client-logo,.client-logo{flex:0 0 auto;display:grid;place-items:center;width:auto;height:40px;padding:0 22px}
+.logo-marquee .client-logo img,.client-logo img{width:calc(var(--w)*.425);height:calc(var(--h)*.425);max-width:none;object-fit:contain;transform:none}
+@media (width<=700px){.logo-marquee .client-logo,.client-logo{width:auto;height:30px;padding:0 14px}.logo-marquee .client-logo img,.client-logo img{width:calc(var(--w)*.34);height:calc(var(--h)*.34)}}
 .case-teaser .client-logo,.page-hero .client-logo{height:auto;padding:0;margin-bottom:18px;justify-items:start}
+/* Client logos: brand orange by default, black on hover */
+.logo-marquee .client-logo img,.client-logo.mono img,.client-logo.soft img{filter:none;opacity:1;transition:filter .25s}
+.logo-marquee .client-logo:hover img,.client-logo:hover img{filter:brightness(0);opacity:1}
+.logo-marquee .client-logo.soft:hover img{filter:grayscale(1) brightness(.35) contrast(1.4)}
