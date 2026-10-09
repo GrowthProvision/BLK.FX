@@ -44,3 +44,18 @@
 .proof-band+.stats .stats-grid{border-top:0}
 .proof-band+.stats{padding-bottom:40px}
 .proof-band+.stats+.proposition{padding-top:56px}
+/* Hero currency rain: symbols drawn by CSS from data-rain, so they are not page text */
+.hero-currency-rain span::before{content:attr(data-rain);white-space:pre-line}
+/* Why BLK.FX accordion: gap between the two columns, answers centred */
+.why-accordion{column-gap:64px}
+.why-accordion [data-radix-accordion-content],.why-accordion [role="region"]>div{text-align:center;padding-left:30px}
+/* Who this is for accordion: answers centred */
+.audience-accordion [role="region"]>div{text-align:center}
+.audience-accordion .audience-more{display:inline-flex;align-items:center;gap:6px;margin-left:8px}
+/* Audience marquee (CFOs, Founders...) at half size */
+.audience-marquee span{font-size:clamp(12px,1.5vw,20px)}
+.audience-marquee b{padding:0 14px}
+.audience-marquee{padding:8px 0}
+/* Who this is for: the moving banner is the last thing on black, straight into the orange testimonial */
+.audience.section-space{padding-bottom:0}
+.audience .audience-marquee{padding-bottom:14px}
