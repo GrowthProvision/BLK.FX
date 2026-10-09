@@ -323,7 +323,7 @@
         setTimeout(function () { clearInterval(timer); tn.textContent = orig; }, 580);
       } });
     });
-    $$("button,a.arrow-link,.hero-actions a").forEach(function (el) {
+    $$("button,a.arrow-link,.hero-actions a").filter(function (el) { return !el.closest("[data-orientation]"); }).forEach(function (el) {
       el.addEventListener("pointermove", function (e) { var b = el.getBoundingClientRect(); gsap.to(el, { x: (e.clientX - b.left - b.width / 2) * .12, y: (e.clientY - b.top - b.height / 2) * .12, duration: .25 }); });
       el.addEventListener("pointerleave", function () { gsap.to(el, { x: 0, y: 0, duration: .5, ease: "elastic.out(1,.4)" }); });
     });

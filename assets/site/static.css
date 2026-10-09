@@ -59,3 +59,16 @@
 /* Who this is for: the moving banner is the last thing on black, straight into the orange testimonial */
 .audience.section-space{padding-bottom:0}
 .audience .audience-marquee{padding-bottom:14px}
+/* Featured testimonial (Sam Uwins): centred, smaller quote, big quote marks either side */
+.featured-testimonial .section-shell{display:flex;flex-direction:column;align-items:center;text-align:center}
+.featured-testimonial blockquote{display:grid;grid-template-columns:auto minmax(0,820px) auto;align-items:start;gap:20px;max-width:1040px;margin:0 auto;font-size:clamp(17px,1.7vw,24px);line-height:1.35;letter-spacing:-.02em}
+.featured-testimonial .q-mark{font-size:clamp(72px,9vw,140px);line-height:.8;font-weight:700;opacity:.9}
+.featured-testimonial .q-close{align-self:end;transform:translateY(.35em)}
+.featured-testimonial p{flex-direction:column;align-items:center;gap:6px;margin-top:28px;font-size:13px}
+@media (width<=700px){.featured-testimonial blockquote{gap:8px;font-size:16px}.featured-testimonial .q-mark{font-size:56px}}
+/* Accordions: triggers stay put when hovered or clicked; only the answer drops down */
+.why-accordion button,.audience-accordion button,.faq [data-orientation] button{transform:none!important;transition:none}
+.why-accordion>[data-state],.audience-accordion>[data-state]{align-self:start}
+/* Who this is for: breathing room between the last accordion row and the moving banner */
+.audience .audience-accordion{margin-bottom:40px}
+@media (width<=700px){.audience .audience-accordion{margin-bottom:28px}}
