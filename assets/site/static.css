@@ -343,3 +343,7 @@
 .svc-cards-light .value-grid p:not(.eyebrow){margin-top:12px;color:var(--muted-foreground);line-height:1.5;font-size:15px}
 @media (min-width:1024px){.svc-cards-light .value-grid article:nth-child(4n+1){border-left:0;padding-left:0}}
 @media (max-width:1023px){.svc-cards-light .value-grid article{border-left:0!important;padding-left:0!important}}
+/* Footer: no rule above Ask AI; label sits right before the AI links; no rule under Regulatory disclosures */
+.site-footer .ask-ai{border-top:0!important;align-items:center}
+@media (min-width:768px){.site-footer .ask-ai{justify-content:flex-end}.site-footer .ask-ai>span:first-child{margin-right:6px;width:auto}}
+.site-footer .footer-base{border-top:0!important}
