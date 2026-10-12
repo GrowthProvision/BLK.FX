@@ -347,3 +347,40 @@
 .site-footer .ask-ai{border-top:0!important;align-items:center}
 @media (min-width:768px){.site-footer .ask-ai{justify-content:flex-end}.site-footer .ask-ai>span:first-child{margin-right:6px;width:auto}}
 .site-footer .footer-base{border-top:0!important}
+/* Provider Network page: bigger logos in their real brand colours */
+.provider-detail .provider-logo{width:300px!important;max-width:100%!important;height:88px!important;flex:none;place-items:center start;margin-top:4px!important}
+.provider-detail .provider-logo img{width:100%;height:100%;object-fit:contain;object-position:left center;filter:none!important;opacity:1!important;transform:none!important}
+@media (max-width:767px){.provider-detail .provider-logo{width:240px!important;height:70px!important}}
+.provider-detail .provider-logo{filter:none!important;opacity:1!important}
+/* About: How we work, four compact cards on one row; less space under the stats */
+@media (min-width:768px){#approach .value-grid-light{grid-template-columns:repeat(4,minmax(0,1fr))!important}}
+#approach .value-grid-light article{padding:24px 22px 24px 0;min-height:0}
+#approach .value-grid-light article+article{padding-left:22px}
+#approach .value-grid-light h3{font-size:21px;line-height:1.2;margin-top:14px}
+#approach .value-grid-light p:not(.eyebrow){font-size:14px;line-height:1.5;margin-top:10px}
+.stats+#approach.section-space{padding-top:24px}
+/* About: Ben's photo keeps its proportions */
+.founder-profile>img{height:auto;aspect-ratio:1/1;object-fit:cover;object-position:center top}
+/* Login dropdown: white partner logos, equally clear on the black tile and the orange hover */
+.login-menu a .provider-logo,.login-menu a>.provider-logo{filter:none!important;opacity:1!important}
+.login-menu a .provider-logo img,.login-menu a>.provider-logo img,.login-menu a:hover .provider-logo img,.login-menu a:focus-visible .provider-logo img{filter:none!important;opacity:1!important;mix-blend-mode:normal!important;transform:none!important;width:auto;max-width:96px;height:24px;object-fit:contain;object-position:left center}
+/* About: how we make money + who we work with */
+.about-money h2{max-width:520px}
+.about-money p{font-size:18px;line-height:1.55;max-width:620px}
+.about-free{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.about-free span{font:600 11px var(--font-mono);letter-spacing:.1em;text-transform:uppercase;padding:9px 12px;border:1px solid var(--border);background:var(--background)}
+.about-who{padding:44px 0 52px;border-bottom:1px solid var(--border)}
+.about-who-list{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.about-who-list li{font-size:clamp(17px,1.6vw,22px);font-weight:500;letter-spacing:-.01em;padding:10px 18px;border:1px solid var(--foreground);border-radius:999px;line-height:1.2}
+.about-who .arrow-link{margin-top:24px}
+/* About: Who we work with banner (same as homepage), stays on black */
+.about-banner .audience-marquee{background:var(--dark);color:var(--dark-foreground);border-top-color:transparent;padding:7px 0 8px}
+.about-banner .audience-marquee>.marquee-track.reverse{color:var(--dark-muted)}
+.about-banner .audience-marquee span{font-size:clamp(14px,1.07vw,16px);line-height:1.5}
+.about-banner .audience-marquee b{padding:0 12px}
+.about-process{padding-top:56px}
+#approach .value-grid-light{margin-bottom:0}
+/* About: margin line above the banner; banner on orange */
+.about-margin-note{max-width:820px;margin:32px 0 0;font-size:clamp(17px,1.4vw,20px);line-height:1.5;color:var(--foreground)}
+#approach.section-space{padding-bottom:56px}
+.about-closing{background:var(--secondary)}

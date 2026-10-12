@@ -11,7 +11,7 @@
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var BOOKING = "https://meetings.hubspot.com/ben-kohler/intro-call-ben";
+  var BOOKING = "https://meetings-eu1.hubspot.com/meetings/ben-kohler?uuid=ae197bdf-00e6-4542-bffd-928568262c63";
 
   /* ---------- toast (replaces sonner) ---------- */
   function toast(title, desc) {
@@ -177,7 +177,7 @@
       f.addEventListener("submit", function (e) {
         e.preventDefault();
         if (f.getAttribute("data-form") === "brochure") { $(".brochure-download", f).hidden = false; toast("Your brochure is ready.", "Use the download link below."); }
-        else toast("Thanks — we’ll be in touch.", "A member of the BLK.FX team will respond shortly.");
+        else toast("Thanks, we’ll be in touch.", "A member of the BLK.FX team will respond shortly.");
         f.reset();
       });
     });
