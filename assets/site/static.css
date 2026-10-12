@@ -384,3 +384,37 @@
 .about-margin-note{max-width:820px;margin:32px 0 0;font-size:clamp(17px,1.4vw,20px);line-height:1.5;color:var(--foreground)}
 #approach.section-space{padding-bottom:56px}
 .about-closing{background:var(--secondary)}
+/* ===== Who we help segment pages ===== */
+.wwh-proof{list-style:none;padding:0;margin:26px 0 0;display:flex;flex-wrap:wrap;gap:8px 22px}
+.wwh-proof li{font:600 11px var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--dark-foreground);display:flex;align-items:center;gap:8px}
+.wwh-proof li:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--primary)}
+.wwh-page .svc-cards a{color:var(--primary);text-decoration:underline;text-underline-offset:3px;display:inline-block;margin-top:8px}
+.wwh-fit{padding:48px 0;border-bottom:1px solid var(--border)}
+.wwh-fit-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:40px;align-items:start}
+.wwh-fit h2{font-size:clamp(26px,2.6vw,36px);margin-top:16px}
+.wwh-checks{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.wwh-checks li{position:relative;padding-left:30px;font-size:17px;line-height:1.45}
+.wwh-checks li:before{content:"";position:absolute;left:0;top:4px;width:18px;height:18px;border-radius:50%;background:var(--primary);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 6 9 17l-5-5' stroke='black' stroke-width='3' fill='none'/%3E%3C/svg%3E") center/12px no-repeat,linear-gradient(#000,#000);-webkit-mask-composite:xor;mask-composite:exclude}
+.wwh-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--border);margin-top:40px}
+.wwh-stats>div{padding:26px 22px 22px 0}
+.wwh-stats>div+div{border-left:1px solid var(--border);padding-left:22px}
+.wwh-stats strong{display:block;font:500 clamp(32px,3.4vw,48px)/1 var(--font-mono);color:var(--primary);letter-spacing:-.04em}
+.wwh-stats span{display:block;margin-top:12px;color:var(--muted-foreground);font-size:15px;line-height:1.4}
+.wwh-how{margin-top:28px;max-width:760px;font-size:16px;line-height:1.55}
+.wwh-results .arrow-link{margin-top:20px}
+@media (max-width:1023px){.wwh-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.wwh-stats>div:nth-child(3){border-left:0;padding-left:0}}
+@media (max-width:699px){.wwh-fit-grid{grid-template-columns:1fr;gap:20px}.wwh-stats{grid-template-columns:1fr}.wwh-stats>div{border-left:0!important;padding-left:0!important;border-top:1px solid var(--border)}}
+/* Finance teams page: case study block like the homepage, with a review */
+.wwh-case .case-results{grid-template-columns:repeat(3,minmax(0,1fr))}
+.wwh-case .case-results strong{font-size:clamp(22px,2.1vw,30px)}
+.wwh-case .wwh-how{color:var(--foreground);font-size:15px;margin-top:14px}
+.wwh-case h2{font-size:clamp(30px,3.2vw,44px)}
+.wwh-review{margin:28px 0 0;padding:20px 22px;background:var(--background);border:1px solid var(--border)}
+.wwh-stars{display:flex;gap:3px;color:var(--primary)}
+.wwh-stars svg{width:14px;height:14px;fill:currentColor}
+.wwh-review blockquote{margin:12px 0 0;font-size:16px;line-height:1.5}
+.wwh-review figcaption{margin-top:10px;font:600 10px var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted-foreground)}
+.wwh-page .svc-cards-light a{color:var(--primary);text-decoration:underline;text-underline-offset:3px;display:inline-block;margin-top:8px}
+@media (max-width:1023px){.wwh-case .case-results{grid-template-columns:repeat(3,minmax(0,1fr))}.wwh-case .case-results article:nth-child(4){border-left:0;padding-left:0}}
+@media (max-width:699px){.wwh-case .case-results{grid-template-columns:1fr}}
+.wwh-dark-steps .process-grid p{color:hsl(0 0% 100% / .72)}.wwh-dark-steps .process-grid article,.wwh-dark-steps .process-grid{border-color:hsl(0 0% 100% / .2)}
