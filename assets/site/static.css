@@ -439,3 +439,22 @@
 .wwh-example .wwh-review{margin-top:0}
 .wwh-example .private-example+a{margin-top:0!important}
 @media (min-width:1024px){.wwh-example .section-shell>div:last-child{align-self:center}}
+.wwh-did{margin:22px 0 26px;gap:12px}
+.wwh-did li{font-size:15px}
+.wwh-trusted{margin-top:18px;font-size:14px;line-height:1.6;color:var(--foreground)}
+.wwh-trusted span{display:block;margin-bottom:6px;font:600 10px var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted-foreground)}
+.wwh-did+a{margin-top:0!important}
+.wwh-logo{margin:18px 0 6px}
+.wwh-logo .client-logo{width:auto!important;height:auto!important}.wwh-logo .client-logo img{width:auto!important;height:36px!important;max-width:none!important}
+.contact-details>a{color:var(--primary)!important;transition:color .2s}.contact-details>a:hover,.contact-details>a:focus-visible{color:var(--foreground)!important;text-decoration:underline;text-underline-offset:4px}
+.case-card .case-card-visual{display:flex;align-items:center;justify-content:center;aspect-ratio:16/9;background:var(--secondary);border:1px solid var(--border)}
+.case-card .case-card-visual img{width:55%!important;height:auto!important;max-height:40%;object-fit:contain;aspect-ratio:auto!important}
+.case-card-stats{list-style:none;margin:14px 0 0;padding:12px 0 0;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:var(--muted-foreground)}
+.case-card-stats strong{font:600 15px var(--font-mono);color:var(--primary);margin-right:4px}
+.contact-details>a{font-size:17px!important;font-weight:500!important;line-height:1.5!important;font-family:Geist,sans-serif!important}
+.contact-ben strong{font-size:17px}
+.contact-ben p{font-size:15px!important;line-height:1.5!important}
+.contact-ben a{font-size:14px!important;font-weight:600!important;line-height:20px!important;height:auto!important;padding:10px 16px!important}
+.contact-form label.field,.contact-form .field>label{font:600 12px var(--font-mono)!important;letter-spacing:.12em!important;text-transform:uppercase}
+.contact-form input,.contact-form select,.contact-form textarea{font-family:Geist,sans-serif!important;font-size:16px!important;letter-spacing:normal!important;text-transform:none!important;font-weight:400!important}
+.contact-form button{font-size:14px!important}
