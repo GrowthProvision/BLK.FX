@@ -160,6 +160,7 @@
 
   /* ---------- forms (frontend only, as in Ben's build) ---------- */
   $$(".newsletter form").forEach(function (f) { f.addEventListener("submit", function (e) { e.preventDefault(); toast("You’re on the list.", "Your first Friday update will arrive soon."); f.reset(); }); });
+  $$(".complaint-form").forEach(function (f) { f.addEventListener("submit", function (e) { e.preventDefault(); toast("Thank you, we’ve received your complaint.", "We aim to respond within 1 business day."); f.reset(); }); });
   var INK = "bg-primary text-primary-foreground hover:bg-foreground hover:text-background".split(" ");
   var OUTLINE = "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground".split(" ");
   function variant(btn, ink) { btn.classList.remove.apply(btn.classList, ink ? OUTLINE : INK); btn.classList.add.apply(btn.classList, ink ? INK : OUTLINE); }

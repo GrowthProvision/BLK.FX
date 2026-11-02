@@ -481,3 +481,27 @@
 .channel-chips a:hover,.channel-chips a:focus-visible{border-color:var(--primary);color:var(--primary)}
 .support-strip p a{color:inherit;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;font-weight:600}
 .support-strip p a:hover,.support-strip p a:focus-visible{text-decoration-thickness:2px}
+
+
+/* Contact page: complaints section (form left, collapsible process right) */
+.complaints-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:56px;align-items:start}
+.complaints-list{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+.complaints-list li{position:relative;padding-left:18px;line-height:1.5}
+.complaints-list li:before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:currentColor}
+.complaints-band .complaint-form{margin-top:0}
+.complaints-grid{margin-top:40px}
+.complaints-side{display:flex;flex-direction:column;gap:28px}
+.complaints-checklist{background:var(--primary);color:var(--primary-foreground);padding:28px 30px}
+.complaints-band .complaints-checklist p{color:inherit;font-weight:600;margin:0;max-width:none}
+.complaints-checklist .complaints-list li{color:inherit}
+.complaints-process{border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.complaints-process summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0;font-size:20px;font-weight:600;letter-spacing:-.01em}
+.complaints-process summary::-webkit-details-marker{display:none}
+.complaints-process summary:after{content:"+";font:400 26px/1 var(--font-mono);color:var(--primary);transition:transform .25s}
+.complaints-process[open] summary:after{transform:rotate(45deg)}
+.complaints-process summary:hover{color:var(--primary)}
+.complaints-process-body{padding:0 0 24px}
+.complaints-band .complaints-process-body p{font-size:15px;max-width:none;margin:0 0 14px}
+.complaints-process-body a{color:var(--foreground);text-decoration:underline;text-underline-offset:3px}
+.complaints-process-body a:hover{color:var(--primary)}
+@media (max-width:900px){.complaints-grid{grid-template-columns:1fr;gap:36px}}
