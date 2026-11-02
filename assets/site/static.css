@@ -505,3 +505,7 @@
 .complaints-process-body a{color:var(--foreground);text-decoration:underline;text-underline-offset:3px}
 .complaints-process-body a:hover{color:var(--primary)}
 @media (max-width:900px){.complaints-grid{grid-template-columns:1fr;gap:36px}}
+
+/* Contact page: intro line above the form tabs, three tabs */
+#brochure .form-intro{color:var(--muted-foreground);font-size:16px;line-height:1.6;margin:0 0 22px;max-width:640px}
+@media (max-width:640px){#brochure .form-tabs{grid-template-columns:1fr 1fr 1fr}#brochure .form-tabs button{padding-left:8px;padding-right:8px}}
