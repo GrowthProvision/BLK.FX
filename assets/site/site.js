@@ -333,3 +333,39 @@
   if (document.readyState === "complete") setTimeout(startMotion, 400);
   else addEventListener("load", function () { setTimeout(startMotion, 400); });
 })();
+
+
+/* Live FX ticker: fetches mid-market rates from the FX.Exposure feed on page load,
+   then refreshes every 5 minutes. If the feed is unavailable, the last rates shown stay in place. */
+(function () {
+  var items = document.querySelectorAll(".ticker .ticker-item");
+  if (!items.length) return;
+  var FEED = "https://yfzxabqsgpisyrmlrsba.supabase.co/functions/v1/fx-rates";
+  var EVERY = 5 * 60 * 1000;
+  var last = 0;
+  function decimals(text) { var m = String(text).trim().match(/\.(\d+)$/); return m ? m[1].length : 4; }
+  function update() {
+    last = Date.now();
+    fetch(FEED, { cache: "no-store" })
+      .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(function (data) {
+        var rates = data && data.rates;
+        if (!data || !data.ok || !rates) return;
+        items.forEach(function (item) {
+          var label = item.querySelector("span"), value = item.querySelector("strong");
+          if (!label || !value) return;
+          var pair = label.textContent.trim().split("/");
+          var from = rates[pair[0]], to = rates[pair[1]];
+          if (!(from > 0) || !(to > 0)) return;
+          var rate = to / from;
+          if (isFinite(rate)) value.textContent = rate.toFixed(decimals(value.textContent));
+        });
+      })
+      .catch(function () { /* keep the rates already on screen */ });
+  }
+  update();
+  setInterval(function () { if (!document.hidden) update(); }, EVERY);
+  document.addEventListener("visibilitychange", function () {
+    if (!document.hidden && Date.now() - last >= EVERY) update();
+  });
+})();

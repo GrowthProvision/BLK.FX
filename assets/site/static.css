@@ -467,3 +467,6 @@
 /* Services menu: "Free FX Strategy Audit" label in black on the orange panel (orange again when the panel turns dark on hover) */
 .mega-menu aside small{color:#000;opacity:1}
 .mega-menu aside:hover small{color:var(--primary)}
+
+/* Stats row ("Trusted by"): dividers only between stats, none after the last one */
+.stats-grid>div:last-child{border-right:0}
