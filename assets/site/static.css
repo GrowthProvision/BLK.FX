@@ -512,3 +512,9 @@
 
 /* Contact page: complaints intro paragraph runs the full width of the section */
 .complaints-band .section-shell>p:not(.eyebrow){max-width:none}
+
+/* FX Risk Management & Hedging page: closing section with the CTA to the right of the copy */
+.svc-close-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:48px;align-items:end}
+.svc-close-row .service-consultancy{margin-bottom:0}
+.svc-close-row .svc-close-cta{margin-bottom:2px}
+@media (max-width:820px){.svc-close-row{grid-template-columns:1fr;gap:24px}.svc-close-row .svc-close-cta{justify-self:start}}
